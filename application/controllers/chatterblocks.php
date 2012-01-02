@@ -51,7 +51,7 @@ class Chatterblocks extends CI_Controller
         var_dump($eng_trie->prefixSearch('a'));
         //var_dump(generate_words($block_array, array(), array()));
     }
-
+ 
     // Generates all possible words from the given set of blocks
     function generate_words($remaining_blocks, $prefixes, $words)
     {

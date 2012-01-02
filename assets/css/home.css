@@ -1,0 +1,112 @@
+body {
+    background: #ebeae2;
+    color: black;
+    font: 1em arial;
+    margin: 0px;
+}
+
+#wrapper {
+    width: 1000px;
+    height: 800px;
+    margin: 0px auto;
+}
+
+#nav_bar {
+    float: left;
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+}
+
+#nav_bar .nav_button {
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0px auto 10px;
+    background-color: white;
+    border: 1px black;
+    padding: 5px;
+}
+
+#nav_bar .nav_button.selected {
+    background-color: red;
+}
+
+#page_wrapper {
+    float: left;
+    width: 860px;
+    height: 650px;
+}
+
+#last_updated {
+    text-align: center;
+    font-size: .8em;
+}
+
+#page_wrapper .page {
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
+    background-color: white;
+    padding: 10px;
+}
+
+#my_picture {
+    width: 225px;
+    height: 175px;
+    float: left;
+}
+
+#my_picture img {
+    height: 100%;
+    width: 100%;
+}
+
+#welcome_wrapper {
+    width: 100%;
+    height: auto;
+}
+
+#welcome_text {
+    text-align: center;
+    line-height: 175px;
+    font-size: 2em;
+}
+
+#about_me_text, #reddit_text {
+    width: 750px;
+    margin: 150px auto 0px;
+    text-align: center;
+}
+
+#under_construction {
+    padding: 10px;
+    width: 90%;
+    background-color: #FFFBB5;
+    text-align: center;
+    margin: 0px auto 10px;
+    font-size: .8em;
+}
+
+#curving_balls_wrapper {
+    height: auto;
+    width: 550px;
+    margin: 0px auto;
+}
+
+#flash_page {
+    overflow: auto;
+}
+
+#fifteen_puzzle_wrapper {
+    height: auto;
+    width: 450px;
+    margin: 0px auto;
+}
+
+#flash_wrapper {
+    height: auto;
+    width: 550px;
+    margin: 0px auto;
+}

@@ -1,0 +1,15 @@
+body {
+    background: #ebeae2;
+    color: black;
+    font: 1em arial;
+    margin: 0px;
+}
+
+#wrapper {
+    width: 600px;
+    height: auto;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+}

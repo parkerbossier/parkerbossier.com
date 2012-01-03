@@ -40,7 +40,7 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        var_dump($this->generate_words($block_array, array(), array()));
+        var_dump($this->generate_words($block_array, array(), array(), $eng_trie));
     }
 
     public function foo() {
@@ -48,7 +48,7 @@ class Chatterblocks extends CI_Controller {
     }
 
     // Generates all possible words from the given set of blocks
-    public function generate_words($remaining_blocks, $prefixes, $words) {
+    public function generate_words($remaining_blocks, $prefixes, $words, &$trie) {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
@@ -71,11 +71,11 @@ class Chatterblocks extends CI_Controller {
                 // If both lists are empty, generate new prefixes/words
                 $new_prefixes = array();
                 if (count($prefixes) == 0 && count($words) == 0) {
-                    if ($this->eng_trie->isMember($cur_letter)) {
+                    if ($trie->isMember($cur_letter)) {
                         $new_words[] = $cur_letter;
                     }
 
-                    if ($this->eng_trie->prefixSearch($cur_letter)) {
+                    if ($trie->prefixSearch($cur_letter)) {
                         $new_prefixes[] = $cur_letter;
                     }
 
@@ -89,11 +89,11 @@ class Chatterblocks extends CI_Controller {
                     foreach ($prefixes as $cur_prefix) {
                         //$new_prefixes[] = $cur_prefix;
 
-                        if ($this->eng_trie->isMember($cur_prefix . $cur_letter)) {
+                        if ($trie->isMember($cur_prefix . $cur_letter)) {
                             $new_words[] = $cur_prefix . $cur_letter;
                         }
 
-                        if ($this->eng_trie->prefixSearch($cur_prefix . $cur_letter)) {
+                        if ($trie->prefixSearch($cur_prefix . $cur_letter)) {
                             $new_prefixes[] = $cur_prefix . $cur_letter;
                         }
 

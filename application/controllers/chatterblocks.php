@@ -63,7 +63,7 @@ class Chatterblocks extends CI_Controller {
         foreach ($remaining_blocks as $block_key => $cur_block) {
 
             // Generate the remaining blocks list
-            $new_blocks = clone $remaining_blocks;
+            $new_blocks = $remaining_blocks;
             unset($new_blocks[$block_key]);
 
             // Recurse on each letter

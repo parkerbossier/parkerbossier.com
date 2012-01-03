@@ -44,7 +44,7 @@ class Chatterblocks extends CI_Controller {
     }
 
     // Generates all possible words from the given set of blocks
-    function generate_words($remaining_blocks, $prefixes, $words) {
+    public function generate_words($remaining_blocks, $prefixes, $words) {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {

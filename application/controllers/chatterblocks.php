@@ -81,7 +81,7 @@ class Chatterblocks extends CI_Controller {
                     }
 
 
-                    $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words);
+                    $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words, $trie);
                     $resulting_words = $this->array_merge($resulting_words, $recursive_result);
                 }
 
@@ -100,7 +100,7 @@ class Chatterblocks extends CI_Controller {
                             $new_prefixes[] = $cur_prefix . $cur_letter;
                         }
 
-                        $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words);
+                        $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words, $trie);
                         $resulting_words = $this->array_merge($resulting_words, $recursive_result);
                     }
                 }

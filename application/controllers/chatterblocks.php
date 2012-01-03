@@ -71,11 +71,11 @@ class Chatterblocks extends CI_Controller {
                 // If both lists are empty, generate new prefixes/words
                 $new_prefixes = array();
                 if (count($prefixes) == 0 && count($words) == 0) {
-                    if ($eng_trie->isMember($cur_letter)) {
+                    if ($this->eng_trie->isMember($cur_letter)) {
                         $new_words[] = $cur_letter;
                     }
 
-                    if ($eng_trie->prefixSearch($cur_letter)) {
+                    if ($this->eng_trie->prefixSearch($cur_letter)) {
                         $new_prefixes[] = $cur_letter;
                     }
 
@@ -89,11 +89,11 @@ class Chatterblocks extends CI_Controller {
                     foreach ($prefixes as $cur_prefix) {
                         //$new_prefixes[] = $cur_prefix;
 
-                        if ($eng_trie->isMember($cur_prefix . $cur_letter)) {
+                        if ($this->eng_trie->isMember($cur_prefix . $cur_letter)) {
                             $new_words[] = $cur_prefix . $cur_letter;
                         }
 
-                        if ($eng_trie->prefixSearch($cur_prefix . $cur_letter)) {
+                        if ($this->eng_trie->prefixSearch($cur_prefix . $cur_letter)) {
                             $new_prefixes[] = $cur_prefix . $cur_letter;
                         }
 

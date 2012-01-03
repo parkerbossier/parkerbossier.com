@@ -40,9 +40,7 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        foo();
-
-        var_dump(generate_words($block_array, array(), array()));
+        var_dump($this->generate_words($block_array, array(), array()));
     }
 
     public function foo() {

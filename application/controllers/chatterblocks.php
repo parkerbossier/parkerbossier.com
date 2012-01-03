@@ -3,11 +3,9 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Chatterblocks extends CI_Controller
-{
+class Chatterblocks extends CI_Controller {
 
-    public function index()
-    {
+    public function index() {
         // Increase the memory
         ini_set('memory_limit', '200M');
 
@@ -16,8 +14,7 @@ class Chatterblocks extends CI_Controller
 
         // Load the word list into the trie
         $word_list = file('http://www.sil.org/linguistics/wordlists/english/wordlist/wordsEn.txt', FILE_IGNORE_NEW_LINES);
-        foreach ($word_list as $cur_word)
-        {
+        foreach ($word_list as $cur_word) {
             $eng_trie->add($cur_word);
         }
 
@@ -43,22 +40,14 @@ class Chatterblocks extends CI_Controller
             array('b', 'c', 'd')
         );
 
-        var_dump($eng_trie->isMember('abaci'));
-        var_dump($eng_trie->prefixSearch('abaci'));
-        var_dump($eng_trie->isMember('abac'));
-        var_dump($eng_trie->prefixSearch('abac'));
-        var_dump($eng_trie->isMember('a'));
-        var_dump($eng_trie->prefixSearch('a'));
-        //var_dump(generate_words($block_array, array(), array()));
+        var_dump(generate_words($block_array, array(), array()));
     }
- 
+
     // Generates all possible words from the given set of blocks
-    function generate_words($remaining_blocks, $prefixes, $words)
-    {
+    function generate_words($remaining_blocks, $prefixes, $words) {
 
         // Base case (no more blocks)
-        if (count($remaining_blocks) == 0)
-        {
+        if (count($remaining_blocks) == 0) {
             return $words;
         }
 
@@ -67,117 +56,94 @@ class Chatterblocks extends CI_Controller
         $resulting_words = array();
 
         // Loop through each block
-        foreach ($remaining_blocks as $block_key => $cur_block)
-        {
+        foreach ($remaining_blocks as $block_key => $cur_block) {
+
+            // Generate the remaining blocks list
+            $new_blocks = clone $remaining_blocks;
+            unset($new_blocks[$block_key]);
 
             // Recurse on each letter
-            foreach ($cur_block as $cur_letter)
-            {
-                // Generate new prefixes
-                foreach ($prefixes as $cur_prefix)
-                {
-                    if ($eng_trie->isMember($cur_prefix . $cur_letter))
-                    {
-                        
+            foreach ($cur_block as $cur_letter) {
+                // If both lists are empty, generate new prefixes/words
+                $new_prefixes = array();
+                if (count($prefixes) == 0 && count($words) == 0) {
+                    if ($eng_trie->isMember($cur_letter)) {
+                        $new_words[] = $cur_letter;
                     }
+
+                    if ($eng_trie->prefixSearch($cur_letter)) {
+                        $new_prefixes[] = $cur_letter;
+                    }
+
+
+                    $recursive_result = generate_words($new_blocks, $new_prefixes, $new_words);
+                    $resulting_words = array_merge($resulting_words, $recursive_result);
                 }
-                $new_prefixes;
 
+                // Otherwise, add words/prefixes based on the existing ones
+                else {
+                    foreach ($prefixes as $cur_prefix) {
+                        //$new_prefixes[] = $cur_prefix;
 
-
-
-
-
-
-
-
-
-
-                // Generate the combinations to recurse on
-                if (count($combinations) == 0)
-                {
-                    // Don't add the letter if it's not a prefix.
-                    if (!$eng_trie->prefixSearch($cur_letter))
-                    {
-                        return array();
-                    } else
-                    {
-                        $combinations_to_pass = array($cur_letter);
-                    }
-                } else
-                {
-                    // Generate new combinations if they're valid
-                    foreach ($combinations as $cur_combination)
-                    {
-                        if ($eng_trie->isMember($cur_combination))
-                        {
-                            $combinations_to_pass[] = $cur_combination;
+                        if ($eng_trie->isMember($cur_prefix . $cur_letter)) {
+                            $new_words[] = $cur_prefix . $cur_letter;
                         }
-                        $cur_combo_letter = $cur_combination . $cur_letter;
-                        if ($eng_trie->prefixSearch($cur_combo_letter) || $eng_trie->isMember($cur_combo_letter))
-                        {
-                            $combinations_to_pass[] = $cur_combo_letter;
+
+                        if ($eng_trie->prefixSearch($cur_prefix . $cur_letter)) {
+                            $new_prefixes[] = $cur_prefix . $cur_letter;
                         }
+
+                        $recursive_result = generate_words($new_blocks, $new_prefixes, $new_words);
+                        $resulting_words = array_merge($resulting_words, $recursive_result);
                     }
                 }
             }
         }
+
+        return $resulting_words;
     }
 
 }
 
-class Trie
-{
+class Trie {
 
     private $trie;
 
-    public function __construct()
-    {
+    public function __construct() {
         $trie = array('children' => array());
     }
 
-    public function add($key, $value = null)
-    {
+    public function add($key, $value = null) {
         $trieLevel = & $this->getTrieForKey($key, true);
         $trieLevel['value'] = $value;
     }
 
-    public function isMember($key)
-    {
+    public function isMember($key) {
         $trieLevel = $this->getTrieForKey($key);
-        if ($trieLevel != false && array_key_exists('value', $trieLevel))
-        {
+        if ($trieLevel != false && array_key_exists('value', $trieLevel)) {
             return true;
         }
         return false;
     }
 
-    public function prefixSearch($prefix)
-    {
+    public function prefixSearch($prefix) {
         $trieLevel = $this->getTrieForKey($prefix);
-        if ($trieLevel == NULL or $trieLevel['children'] == NULL)
-        {
+        if ($trieLevel == NULL or $trieLevel['children'] == NULL) {
             return false;
-        } else
-        {
+        } else {
             return true;
         }
     }
 
-    private function& getTrieForKey($key, $create = false)
-    {
+    private function& getTrieForKey($key, $create = false) {
         $trieLevel = & $this->trie;
-        for ($i = 0; $i < strlen($key); $i++)
-        {
+        for ($i = 0; $i < strlen($key); $i++) {
             $character = $key[$i];
-            if (!isset($trieLevel['children'][$character]))
-            {
-                if ($create)
-                {
+            if (!isset($trieLevel['children'][$character])) {
+                if ($create) {
                     $trieLevel['children'][$character] =
                             array('children' => array());
-                } else
-                {
+                } else {
                     return NULL;
                 }
             }

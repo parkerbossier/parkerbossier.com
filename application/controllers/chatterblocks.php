@@ -40,7 +40,13 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
+        foo();
+
         var_dump(generate_words($block_array, array(), array()));
+    }
+
+    public function foo() {
+        echo 'foo';
     }
 
     // Generates all possible words from the given set of blocks

@@ -6,8 +6,14 @@ if (!defined('BASEPATH'))
 class Chatterblocks extends CI_Controller {
 
     public function index() {
-        // Increase the memory
-        ini_set('memory_limit', '200M');
+        $this->load->database();
+
+        $word_list = file('http://www.sil.org/linguistics/wordlists/english/wordlist/wordsEn.txt', FILE_IGNORE_NEW_LINES);
+        $query_string = "INSERT INTO english_words VALUES" . str_repeat('(?), ', count($word_list));
+        $query_string = substr($query_string, 0, -2);
+        $this->db->query($query_string, $word_list);
+
+        return;
 
         // Create the trie
         $eng_trie = new Trie();

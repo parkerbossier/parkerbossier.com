@@ -43,10 +43,6 @@ class Chatterblocks extends CI_Controller {
         var_dump($this->generate_words($block_array, array(), array(), $eng_trie));
     }
 
-    public function foo() {
-        echo 'foo';
-    }
-
     // Generates all possible words from the given set of blocks
     public function generate_words($remaining_blocks, $prefixes, $words, &$trie) {
 

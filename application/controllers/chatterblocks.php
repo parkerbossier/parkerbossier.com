@@ -30,7 +30,11 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        var_dump($this->_generate_words($block_array, array(), array()));
+        $foo = $this->_generate_words($block_array, array(), array());
+
+        foreach ($foo as $bar) {
+            echo $bar . '<br/>';
+        }
     }
 
     private function _prefix_search($prefix) {

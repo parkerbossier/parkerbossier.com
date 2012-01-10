@@ -8,22 +8,6 @@ class Chatterblocks extends CI_Controller {
     public function index() {
         $this->load->database();
 
-        $word_list = file('http://www.sil.org/linguistics/wordlists/english/wordlist/wordsEn.txt', FILE_IGNORE_NEW_LINES);
-        $query_string = "INSERT INTO english_words VALUES" . str_repeat('(?), ', count($word_list));
-        $query_string = substr($query_string, 0, -2);
-        $this->db->query($query_string, $word_list);
-
-        return;
-
-        // Create the trie
-        $eng_trie = new Trie();
-
-        // Load the word list into the trie
-        $word_list = file('http://www.sil.org/linguistics/wordlists/english/wordlist/wordsEn.txt', FILE_IGNORE_NEW_LINES);
-        foreach ($word_list as $cur_word) {
-            $eng_trie->add($cur_word);
-        }
-
         // Block information
         $block_array = array(
             array('m', 'h', 'u', 'v', 'o', 'n'),
@@ -46,11 +30,25 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        var_dump($this->generate_words($block_array, array(), array(), $eng_trie));
+        var_dump($this->_generate_words($block_array, array(), array()));
+    }
+
+    private function _prefix_search($prefix) {
+        $query_string = "SELECT * FROM english_words WHERE word LIKE '$prefix%%' AND word <> '$prefix'";
+        $result = $this->db->query($query_string);
+
+        return $result->num_rows() > 0;
+    }
+
+    private function _word_search($word) {
+        $query_string = "SELECT * FROM english_words WHERE word = '$word'";
+        $result = $this->db->query($query_string);
+
+        return $result->num_rows() > 0;
     }
 
     // Generates all possible words from the given set of blocks
-    public function generate_words($remaining_blocks, $prefixes, $words, &$trie) {
+    private function _generate_words($remaining_blocks, $prefixes, $words) {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
@@ -70,20 +68,21 @@ class Chatterblocks extends CI_Controller {
 
             // Recurse on each letter
             foreach ($cur_block as $cur_letter) {
+
                 // If both lists are empty, generate new prefixes/words
                 $new_words = array();
                 if (count($prefixes) == 0 && count($words) == 0) {
-                    if ($trie->isMember($cur_letter)) {
+                    if ($trie->_word_search($cur_letter)) {
                         $new_words[] = $cur_letter;
                     }
 
                     $new_prefixes = array();
-                    if ($trie->prefixSearch($cur_letter)) {
+                    if ($trie->_prefix_search($cur_letter)) {
                         $new_prefixes[] = $cur_letter;
                     }
 
 
-                    $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words, $trie);
+                    $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
                     $resulting_words = array_merge($resulting_words, $recursive_result);
                 }
 
@@ -93,16 +92,16 @@ class Chatterblocks extends CI_Controller {
                         //$new_prefixes[] = $cur_prefix;
 
                         $new_words = array();
-                        if ($trie->isMember($cur_prefix . $cur_letter)) {
+                        if ($trie->_word_search($cur_prefix . $cur_letter)) {
                             $new_words[] = $cur_prefix . $cur_letter;
                         }
 
                         $new_prefixes = array();
-                        if ($trie->prefixSearch($cur_prefix . $cur_letter)) {
+                        if ($trie->_prefix_search($cur_prefix . $cur_letter)) {
                             $new_prefixes[] = $cur_prefix . $cur_letter;
                         }
 
-                        $recursive_result = $this->generate_words($new_blocks, $new_prefixes, $new_words, $trie);
+                        $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
                         $resulting_words = array_merge($resulting_words, $recursive_result);
                     }
                 }
@@ -110,56 +109,6 @@ class Chatterblocks extends CI_Controller {
         }
 
         return $resulting_words;
-    }
-
-}
-
-class Trie {
-
-    private $trie;
-
-    public function __construct() {
-        $trie = array('children' => array());
-    }
-
-    public function add($key, $value = null) {
-        $trieLevel = & $this->getTrieForKey($key, true);
-        $trieLevel['value'] = $value;
-    }
-
-    public function isMember($key) {
-        $trieLevel = $this->getTrieForKey($key);
-        if ($trieLevel != false && array_key_exists('value', $trieLevel)) {
-            return true;
-        }
-        return false;
-    }
-
-    public function prefixSearch($prefix) {
-        $trieLevel = $this->getTrieForKey($prefix);
-        if ($trieLevel == NULL or $trieLevel['children'] == NULL) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    private function& getTrieForKey($key, $create = false) {
-        $trieLevel = & $this->trie;
-        for ($i = 0; $i < strlen($key); $i++) {
-            $character = $key[$i];
-            if (!isset($trieLevel['children'][$character])) {
-                if ($create) {
-                    $trieLevel['children'][$character] =
-                            array('children' => array());
-                } else {
-                    return NULL;
-                }
-            }
-            $trieLevel = & $trieLevel['children'][$character];
-        }
-
-        return $trieLevel;
     }
 
 }

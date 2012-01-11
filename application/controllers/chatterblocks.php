@@ -74,8 +74,8 @@ class Chatterblocks extends CI_Controller {
             foreach ($cur_block as $cur_letter) {
 
                 // If both lists are empty, generate new prefixes/words
-                $new_words = array();
                 if (count($prefixes) == 0 && count($words) == 0) {
+                    $new_words = array();
                     if ($this->_word_search($cur_letter)) {
                         $new_words[] = $cur_letter;
                     }
@@ -106,7 +106,11 @@ class Chatterblocks extends CI_Controller {
                         }
 
                         $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
+                        echo 'resulting pre: ';
+                        var_dump($resulting_words);
                         $resulting_words = array_merge($resulting_words, $recursive_result);
+                        echo 'resulting post: ';
+                        var_dump($resulting_words);
                     }
                 }
             }

@@ -53,7 +53,12 @@ class Chatterblocks extends CI_Controller {
     }
 
     // Generates all possible words from the given set of blocks
-    private function _generate_words($remaining_blocks, $prefixes, $words) {
+    private function _generate_words($remaining_blocks, $prefixes, $words, $level) {
+
+        echo $level . ' just called _generate_words(<br/>' .
+        '    ' . $this->_inline_print($remaining_blocks) .
+        '    ' . $this->_inline_print($prefixes) .
+        '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/><br/>';
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
@@ -103,23 +108,15 @@ class Chatterblocks extends CI_Controller {
                 }
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
-//                echo '-------------------<br/>prefixes: ' . $this->_inline_print($new_prefixes) . '<br/>';
-//                echo 'words: ' . $this->_inline_print($new_words) . '<br/>';
-//                echo 'recursive result from block ';
-//                echo $this->_inline_print($cur_block);
-//                echo '<br/>letter: ' . $cur_letter . '<br/>---';
-//                echo $this->_inline_print($recursive_result);
-//                echo '<br/><br/>';
-//                echo 'resulting pre: ';
-//                var_dump($resulting_words);
-//                echo '<br/>';
                 $resulting_words = array_unique(array_merge($resulting_words, $recursive_result));
-//                echo 'resulting post: ';
-//                var_dump($resulting_words);
-//                echo '<br/>';
             }
         }
 
+        echo $level . ' return from _generate_words(<br/>' .
+        '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+        '    ' . $this->_inline_print($prefixes) . '<br/>' .
+        '    ' . $this->_inline_print($words) . '<br/>' .
+        $this->_inline_print($resulting_words) . '<br/>--------------------------------------<br/><br/>';
         return $resulting_words;
     }
 

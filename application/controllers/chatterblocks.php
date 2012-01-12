@@ -134,7 +134,11 @@ class Chatterblocks extends CI_Controller {
             }
         }
 
-        return substr($return, 0, -1);
+        if (strlen($return)) {
+            return substr($return, 0, -1);
+        } else {
+            return '';
+        }
     }
 
 }

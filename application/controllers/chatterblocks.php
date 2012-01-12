@@ -30,7 +30,7 @@ class Chatterblocks extends CI_Controller {
             array('y', 'n', 'm', 'r', 'l', 's')
         );
 
-        $foo = $this->_generate_words($block_array, array(), array());
+        $foo = $this->_generate_words($block_array, array(), array(), 0);
         sort($foo);
 
         foreach ($foo as $bar) {
@@ -123,10 +123,18 @@ class Chatterblocks extends CI_Controller {
     private function _inline_print($array) {
         $return = '';
         foreach ($array as $item) {
-            $return .= "$item, ";
+            if (is_array($item)) {
+                $return .= '{';
+                foreach ($item as $inner_item) {
+                    $return .= "$inner_item,";
+                }
+                $return = substr($return, 0, -1) . '},';
+            } else {
+                $return .= "$item,";
+            }
         }
 
-        return substr($return, 0, -2);
+        return substr($return, 0, -1);
     }
 
 }

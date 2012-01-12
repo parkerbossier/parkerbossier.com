@@ -62,6 +62,11 @@ class Chatterblocks extends CI_Controller {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
+            echo $level . ' return from _generate_words(<br/>' .
+            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+            '    ' . $this->_inline_print($prefixes) . '<br/>' .
+            '    ' . $this->_inline_print($words) . '<br/>' .
+            $this->_inline_print($words) . '<br/>--------------------------------------<br/><br/>';
             return $words;
         }
 

@@ -56,8 +56,8 @@ class Chatterblocks extends CI_Controller {
     private function _generate_words($remaining_blocks, $prefixes, $words, $level) {
 
         echo $level . ' just called _generate_words(<br/>' .
-        '    ' . $this->_inline_print($remaining_blocks) .
-        '    ' . $this->_inline_print($prefixes) .
+        '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+        '    ' . $this->_inline_print($prefixes) . '<br/>' .
         '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/><br/>';
 
         // Base case (no more blocks)

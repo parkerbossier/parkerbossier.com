@@ -104,7 +104,7 @@ class Chatterblocks extends CI_Controller {
 //                echo 'resulting pre: ';
 //                var_dump($resulting_words);
 //                echo '<br/>';
-                $resulting_words = array_merge($resulting_words, $recursive_result);
+                $resulting_words = array_unique(array_merge($resulting_words, $recursive_result));
 //                echo 'resulting post: ';
 //                var_dump($resulting_words);
 //                echo '<br/>';

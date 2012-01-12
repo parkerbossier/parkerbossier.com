@@ -107,7 +107,7 @@ class Chatterblocks extends CI_Controller {
                     }
                 }
 
-                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
+                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words, ++$level);
                 $resulting_words = array_unique(array_merge($resulting_words, $recursive_result));
             }
         }

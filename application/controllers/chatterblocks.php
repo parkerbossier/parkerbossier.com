@@ -25,9 +25,9 @@ class Chatterblocks extends CI_Controller {
         );
 
         $block_array = array(
-            array('d', 'f', 'r'),
-            array('e', 'a', 'o'),
-            array('b', 'c', 'd')
+            array('d', 'f'),
+            array('u', 'a'),
+            array('n', 'r')
         );
 
         $foo = $this->_generate_words($block_array, array(), array());

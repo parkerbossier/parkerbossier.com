@@ -122,7 +122,7 @@ class Chatterblocks extends CI_Controller {
             $return .= "$item, ";
         }
 
-        return substr($return, 0, -1);
+        return substr($return, 0, -2);
     }
 
 }

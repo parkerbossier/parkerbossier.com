@@ -60,15 +60,15 @@ class Chatterblocks extends CI_Controller {
             return $words;
         }
 
+        // Word storage
+        $resulting_words = array();
+
         // Loop through each block
         foreach ($remaining_blocks as $block_key => $cur_block) {
 
             // Generate the remaining blocks list
             $new_blocks = $remaining_blocks;
             unset($new_blocks[$block_key]);
-
-            // Word storage
-            $resulting_words = array();
 
             // Recurse on each letter
             foreach ($cur_block as $cur_letter) {

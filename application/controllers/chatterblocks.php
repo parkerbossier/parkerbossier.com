@@ -99,9 +99,9 @@ class Chatterblocks extends CI_Controller {
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
                 echo 'recursive result from block ';
-                $this->_inline_print($cur_block);
+                echo $this->_inline_print($cur_block);
                 echo '<br/>letter: ' . $cur_letter . '<br/>---';
-                $this->_inline_print($recursive_result);
+                echo $this->_inline_print($recursive_result);
                 echo '<br/><br/>';
 //                echo 'resulting pre: ';
 //                var_dump($resulting_words);

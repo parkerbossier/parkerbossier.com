@@ -30,8 +30,9 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        $foo = sort($this->_generate_words($block_array, array(), array()));
+        $foo = $this->_generate_words($block_array, array(), array());
         var_dump($foo);
+        var_dump(sort($foo));
 
         foreach ($foo as $bar) {
             echo $bar . '<br/>';

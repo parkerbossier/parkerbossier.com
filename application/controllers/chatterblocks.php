@@ -29,7 +29,7 @@ class Chatterblocks extends CI_Controller {
             array('e', 'a', 'o'),
             array('b', 'c', 'd')
         );
-        
+
         $block_array = array(
             array('d'),
             array('e'),
@@ -65,10 +65,6 @@ class Chatterblocks extends CI_Controller {
             return $words;
         }
 
-        // Initialize variables to hold the results.
-        $resulting_prefixes = array();
-        $resulting_words = array();
-
         // Loop through each block
         foreach ($remaining_blocks as $block_key => $cur_block) {
 
@@ -79,48 +75,38 @@ class Chatterblocks extends CI_Controller {
             // Recurse on each letter
             foreach ($cur_block as $cur_letter) {
 
-                // If both lists are empty, generate new prefixes/words
-                if (count($prefixes) == 0 && count($words) == 0) {
-                    $new_words = array();
-                    if ($this->_word_search($cur_letter)) {
-                        $new_words[] = $cur_letter;
+                $new_words = array();
+                $new_prefixes = array();
+
+                // Add words/prefixes based on the existing ones
+                foreach ($prefixes as $cur_prefix) {
+                    if ($this->_word_search($cur_prefix . $cur_letter)) {
+                        $new_words[] = $cur_prefix . $cur_letter;
                     }
 
-                    $new_prefixes = array();
-                    if ($this->_prefix_search($cur_letter)) {
-                        $new_prefixes[] = $cur_letter;
-                    }
-
-
-                    $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
-                    $resulting_words = array_merge($resulting_words, $recursive_result);
-                }
-
-                // Otherwise, add words/prefixes based on the existing ones
-                else {
-                    foreach ($prefixes as $cur_prefix) {
-                        //$new_prefixes[] = $cur_prefix;
-
-                        $new_words = array();
-                        if ($this->_word_search($cur_prefix . $cur_letter)) {
-                            $new_words[] = $cur_prefix . $cur_letter;
-                        }
-
-                        $new_prefixes = array();
-                        if ($this->_prefix_search($cur_prefix . $cur_letter)) {
-                            $new_prefixes[] = $cur_prefix . $cur_letter;
-                        }
-
-                        $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
-                        echo 'resulting pre: ';
-                        var_dump($resulting_words);
-                        echo '<br/>';
-                        $resulting_words = array_merge($resulting_words, $recursive_result);
-                        echo 'resulting post: ';
-                        var_dump($resulting_words);
-                        echo '<br/>';
+                    if ($this->_prefix_search($cur_prefix . $cur_letter)) {
+                        $new_prefixes[] = $cur_prefix . $cur_letter;
+                        $new_prefixes[] = $cur_prefix;
                     }
                 }
+
+                // If the letter is a prefix or a word, add it to the corresponding list.
+                if ($this->_word_search($cur_letter)) {
+                    $new_words[] = $cur_letter;
+                }
+
+                if ($this->_prefix_search($cur_letter)) {
+                    $new_prefixes[] = $cur_letter;
+                }
+
+                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
+                echo 'resulting pre: ';
+                var_dump($resulting_words);
+                echo '<br/>';
+                $resulting_words = array_merge($resulting_words, $recursive_result);
+                echo 'resulting post: ';
+                var_dump($resulting_words);
+                echo '<br/>';
             }
         }
 

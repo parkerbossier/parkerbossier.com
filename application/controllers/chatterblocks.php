@@ -30,12 +30,6 @@ class Chatterblocks extends CI_Controller {
             array('b', 'c', 'd')
         );
 
-        $block_array = array(
-            array('d'),
-            array('e'),
-            array('b')
-        );
-
         $foo = $this->_generate_words($block_array, array(), array());
 
         foreach ($foo as $bar) {
@@ -103,13 +97,13 @@ class Chatterblocks extends CI_Controller {
                 }
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
-                echo 'resulting pre: ';
-                var_dump($resulting_words);
-                echo '<br/>';
-                $resulting_words = array_merge($resulting_words, $recursive_result);
-                echo 'resulting post: ';
-                var_dump($resulting_words);
-                echo '<br/>';
+//                echo 'resulting pre: ';
+//                var_dump($resulting_words);
+//                echo '<br/>';
+//                $resulting_words = array_merge($resulting_words, $recursive_result);
+//                echo 'resulting post: ';
+//                var_dump($resulting_words);
+//                echo '<br/>';
             }
         }
 

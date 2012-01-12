@@ -142,7 +142,7 @@ class Chatterblocks extends CI_Controller {
         if (strlen($return)) {
             return substr($return, 0, -1);
         } else {
-            return '';
+            return 'NULL';
         }
     }
 

@@ -55,18 +55,23 @@ class Chatterblocks extends CI_Controller {
     // Generates all possible words from the given set of blocks
     private function _generate_words($remaining_blocks, $prefixes, $words, $level) {
 
-        echo $level . ' >>>>>>>>>> _generate_words(<br/>' .
-        '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-        '    ' . $this->_inline_print($prefixes) . '<br/>' .
-        '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/>';
+        $level_cap = 2;
+        if ($level < $level_cap) {
+            echo $level . ' >>>>>>>>>> _generate_words(<br/>' .
+            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+            '    ' . $this->_inline_print($prefixes) . '<br/>' .
+            '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/>';
+        }
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
-            echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
-            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-            '    ' . $this->_inline_print($prefixes) . '<br/>' .
-            '    ' . $this->_inline_print($words) . '<br/>' .
-            $this->_inline_print($words) . '<br/>---------------------------------<br/>';
+            if ($level < $level_cap) {
+                echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
+                '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+                '    ' . $this->_inline_print($prefixes) . '<br/>' .
+                '    ' . $this->_inline_print($words) . '<br/>' .
+                $this->_inline_print($words) . '<br/>---------------------------------<br/>';
+            }
             return $words;
         }
 
@@ -117,11 +122,13 @@ class Chatterblocks extends CI_Controller {
             }
         }
 
-        echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
-        '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-        '    ' . $this->_inline_print($prefixes) . '<br/>' .
-        '    ' . $this->_inline_print($words) . '<br/>' .
-        $this->_inline_print($resulting_words) . '<br/>---------------------------------<br/>';
+        if ($level < $level_cap) {
+            echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
+            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
+            '    ' . $this->_inline_print($prefixes) . '<br/>' .
+            '    ' . $this->_inline_print($words) . '<br/>' .
+            $this->_inline_print($resulting_words) . '<br/>---------------------------------<br/>';
+        }
         return $resulting_words;
     }
 

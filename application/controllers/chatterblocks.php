@@ -97,10 +97,14 @@ class Chatterblocks extends CI_Controller {
                 }
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
+//                echo 'recursive result from block ';
+//                var_dump($cur_block);
+//                echo '<br/>letter: ' . $cur_letter . '<br/>---';
+//                var_dump($recursive_result);
 //                echo 'resulting pre: ';
 //                var_dump($resulting_words);
 //                echo '<br/>';
-//                $resulting_words = array_merge($resulting_words, $recursive_result);
+                $resulting_words = array_merge($resulting_words, $recursive_result);
 //                echo 'resulting post: ';
 //                var_dump($resulting_words);
 //                echo '<br/>';

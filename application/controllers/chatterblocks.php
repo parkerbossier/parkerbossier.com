@@ -72,6 +72,9 @@ class Chatterblocks extends CI_Controller {
             $new_blocks = $remaining_blocks;
             unset($new_blocks[$block_key]);
 
+            // Word storage
+            $resulting_words = array();
+
             // Recurse on each letter
             foreach ($cur_block as $cur_letter) {
 
@@ -101,16 +104,16 @@ class Chatterblocks extends CI_Controller {
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
                 echo 'resulting pre: ';
-                var_dump($recursive_result);
+                var_dump($resulting_words);
                 echo '<br/>';
-                $recursive_result = array_merge($resulting_words, $recursive_result);
+                $resulting_words = array_merge($resulting_words, $recursive_result);
                 echo 'resulting post: ';
-                var_dump($recursive_result);
+                var_dump($resulting_words);
                 echo '<br/>';
             }
         }
 
-        return $recursive_result;
+        return $resulting_words;
     }
 
 }

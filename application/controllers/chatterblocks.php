@@ -26,8 +26,7 @@ class Chatterblocks extends CI_Controller {
 
         $block_array = array(
             array('a', 'b', 'c'),
-            array('d', 'e', 'f'),
-            array('g', 'h', 'i')
+            array('d', 'e', 'f')
         );
 
         $foo = $this->_generate_words($block_array, array(), array(), 0);
@@ -58,7 +57,7 @@ class Chatterblocks extends CI_Controller {
         echo $level . ' just called _generate_words(<br/>' .
         '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
         '    ' . $this->_inline_print($prefixes) . '<br/>' .
-        '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/><br/>';
+        '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/>';
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
@@ -66,7 +65,7 @@ class Chatterblocks extends CI_Controller {
             '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
             '    ' . $this->_inline_print($prefixes) . '<br/>' .
             '    ' . $this->_inline_print($words) . '<br/>' .
-            $this->_inline_print($words) . '<br/>--------------------------------------<br/><br/>';
+            $this->_inline_print($words) . '<br/>--------------------------------------<br/>';
             return $words;
         }
 
@@ -121,7 +120,7 @@ class Chatterblocks extends CI_Controller {
         '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
         '    ' . $this->_inline_print($prefixes) . '<br/>' .
         '    ' . $this->_inline_print($words) . '<br/>' .
-        $this->_inline_print($resulting_words) . '<br/>--------------------------------------<br/><br/>';
+        $this->_inline_print($resulting_words) . '<br/>--------------------------------------<br/>';
         return $resulting_words;
     }
 

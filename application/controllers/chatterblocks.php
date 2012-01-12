@@ -73,28 +73,33 @@ class Chatterblocks extends CI_Controller {
             // Recurse on each letter
             foreach ($cur_block as $cur_letter) {
 
+                // Word storage
                 $new_words = array();
                 $new_prefixes = array();
 
-                // Add words/prefixes based on the existing ones
-                foreach ($prefixes as $cur_prefix) {
-                    if ($this->_word_search($cur_prefix . $cur_letter)) {
-                        $new_words[] = $cur_prefix . $cur_letter;
+                // If there are no prefixes and the letter is a prefix or a word, add it to the corresponding list.
+                if (count($prefixes) == 0) {
+                    if ($this->_word_search($cur_letter)) {
+                        $new_words[] = $cur_letter;
                     }
 
-                    if ($this->_prefix_search($cur_prefix . $cur_letter)) {
-                        $new_prefixes[] = $cur_prefix . $cur_letter;
-                        $new_prefixes[] = $cur_prefix;
+                    if ($this->_prefix_search($cur_letter)) {
+                        $new_prefixes[] = $cur_letter;
                     }
                 }
 
-                // If the letter is a prefix or a word, add it to the corresponding list.
-                if ($this->_word_search($cur_letter)) {
-                    $new_words[] = $cur_letter;
-                }
+                // Otherwise, add words/prefixes based on the existing ones
+                else {
+                    foreach ($prefixes as $cur_prefix) {
+                        if ($this->_word_search($cur_prefix . $cur_letter)) {
+                            $new_words[] = $cur_prefix . $cur_letter;
+                        }
 
-                if ($this->_prefix_search($cur_letter)) {
-                    $new_prefixes[] = $cur_letter;
+                        if ($this->_prefix_search($cur_prefix . $cur_letter)) {
+                            $new_prefixes[] = $cur_prefix . $cur_letter;
+                            $new_prefixes[] = $cur_prefix;
+                        }
+                    }
                 }
 
                 $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);

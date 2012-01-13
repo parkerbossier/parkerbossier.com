@@ -23,14 +23,8 @@ class Chatterblocks extends CI_Controller {
             array('e', 'n', 'k', 'c', 'l', 'r'),
             array('d', 'r', 's', 'g', 'f', 'k')
         );
-        
-        $block_array = array(
-            array('m', 'h', 'u', 'v', 'o', 'n'),
-            array('p', 'e', 's', 'l'),
-            array('y', 'n', 'm', 'r', 'l', 's')
-        );
 
-        $foo = $this->_generate_words($block_array, array(), array());
+        $foo = $this->_generate_words($block_array, array(), array(), 0);
         sort($foo);
 
         foreach ($foo as $bar) {
@@ -53,10 +47,15 @@ class Chatterblocks extends CI_Controller {
     }
 
     // Generates all possible words from the given set of blocks
-    private function _generate_words($remaining_blocks, $prefixes, $words) {
+    private function _generate_words($remaining_blocks, $prefixes, $words, $depth) {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
+            return $words;
+        }
+
+        // Base case (depth limit)
+        if ($depth > 2) {
             return $words;
         }
 
@@ -102,7 +101,7 @@ class Chatterblocks extends CI_Controller {
                     }
                 }
 
-                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
+                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words, $depth + 1);
                 $resulting_words = array_unique(array_merge($resulting_words, $recursive_result));
             }
         }

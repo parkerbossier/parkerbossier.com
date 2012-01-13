@@ -24,13 +24,7 @@ class Chatterblocks extends CI_Controller {
             array('d', 'r', 's', 'g', 'f', 'k')
         );
 
-        $block_array = array(
-            array('a', 'e', 'i', 'o', 'u', 'y'),
-            array('b', 'n', 'm', 'r'),
-            array('s', 't', 'w', 'd', 'k')
-        );
-
-        $foo = $this->_generate_words($block_array, array(), array(), 0);
+        $foo = $this->_generate_words($block_array, array(), array());
         sort($foo);
 
         foreach ($foo as $bar) {
@@ -53,25 +47,10 @@ class Chatterblocks extends CI_Controller {
     }
 
     // Generates all possible words from the given set of blocks
-    private function _generate_words($remaining_blocks, $prefixes, $words, $level) {
-
-        $level_cap = 2;
-        if ($level < $level_cap) {
-            echo $level . ' >>>>>>>>>> _generate_words(<br/>' .
-            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-            '    ' . $this->_inline_print($prefixes) . '<br/>' .
-            '    ' . $this->_inline_print($words) . '<br/>---------------------------------<br/>';
-        }
+    private function _generate_words($remaining_blocks, $prefixes, $words) {
 
         // Base case (no more blocks)
         if (count($remaining_blocks) == 0) {
-            if ($level < $level_cap) {
-                echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
-                '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-                '    ' . $this->_inline_print($prefixes) . '<br/>' .
-                '    ' . $this->_inline_print($words) . '<br/>' .
-                $this->_inline_print($words) . '<br/>---------------------------------<br/>';
-            }
             return $words;
         }
 
@@ -117,40 +96,12 @@ class Chatterblocks extends CI_Controller {
                     }
                 }
 
-                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words, $level + 1);
+                $recursive_result = $this->_generate_words($new_blocks, $new_prefixes, $new_words);
                 $resulting_words = array_unique(array_merge($resulting_words, $recursive_result));
             }
         }
 
-        if ($level < $level_cap) {
-            echo $level . ' <<<<<<<<<< _generate_words(<br/>' .
-            '    ' . $this->_inline_print($remaining_blocks) . '<br/>' .
-            '    ' . $this->_inline_print($prefixes) . '<br/>' .
-            '    ' . $this->_inline_print($words) . '<br/>' .
-            $this->_inline_print($resulting_words) . '<br/>---------------------------------<br/>';
-        }
         return $resulting_words;
-    }
-
-    private function _inline_print($array) {
-        $return = '';
-        foreach ($array as $item) {
-            if (is_array($item)) {
-                $return .= '{';
-                foreach ($item as $inner_item) {
-                    $return .= "$inner_item,";
-                }
-                $return = substr($return, 0, -1) . '},';
-            } else {
-                $return .= "$item,";
-            }
-        }
-
-        if (strlen($return)) {
-            return substr($return, 0, -1);
-        } else {
-            return 'NULL';
-        }
     }
 
 }

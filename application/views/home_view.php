@@ -86,7 +86,7 @@
                     </p>
 
                     <div id="sphere_container">
-                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
+<!--                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>-->
                     </div>
                 </div>
 

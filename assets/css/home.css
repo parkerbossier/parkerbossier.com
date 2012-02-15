@@ -11,6 +11,9 @@ body {
     padding: 5px;
     position: relative;
     text-align: right;
+    font-size: .8em;
+    padding: 2px;
+    padding-right: 10px;
 }
 
 #title_dropdown {
@@ -36,10 +39,16 @@ body {
 }
 
 #nav_bar {
+    list-style: none;
+    display: inline;
     float: left;
     width: auto;
     height: auto;
     margin-right: 10px;
+}
+
+#nav_bar li {
+    width: 140px;
 }
 
 #nav_bar .nav_button {

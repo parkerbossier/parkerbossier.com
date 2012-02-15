@@ -31,21 +31,21 @@
                 </div>-->
 
         <div id="top_bar">
-                Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
+            Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
         </div>
 
         <div id="wrapper">
             <div id="title_dropdown">parkerbossier</div>
 
             <ul id="nav_bar">
-                <li>
-                    <div id="about_me_link" class="nav_button selected" page="#about_me_page">About me</div>
+                <li id="about_me_link" class="nav_button selected" page="#about_me_page">
+                    About me
                 </li>
-                <li>
-                    <div id="processing_link" class="nav_button" page="#processing_page">Processing</div>
+                <li id="processing_link" class="nav_button" page="#processing_page">
+                    Processing
                 </li>
-                <li>
-                    <div id="flash_link" class="nav_button" page="#flash_page">Flash</div>
+                <li id="flash_link" class="nav_button" page="#flash_page">
+                    Flash
                 </li>
             </ul>
 

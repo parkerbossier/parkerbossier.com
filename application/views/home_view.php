@@ -5,7 +5,7 @@
         <title>
             Parker Bossier
         </title>
-        
+
         <!-- meta -->
         <meta http-equiv="content-language" content="en">
 
@@ -35,9 +35,10 @@
                 Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
             </div>
         </div>
-        <div id="title_dropdown">parkerbossier</div>
 
         <div id="wrapper">
+            <div id="title_dropdown">parkerbossier</div>
+
             <div id="nav_bar">
                 <div id="about_me_link" class="nav_button selected" page="#about_me_page">About me</div>
                 <div id="processing_link" class="nav_button" page="#processing_page">Processing</div>

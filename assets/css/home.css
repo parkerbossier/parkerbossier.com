@@ -8,13 +8,12 @@ body {
 #top_bar {
     color: white;
     background-color: black;
-    padding: 5px;
 }
 
 #contact_info {
     text-align: right;
     font-size: .8em;
-    padding: 2px;    
+    padding: 4px;    
 }
 
 #contact_info, #wrapper {

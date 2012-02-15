@@ -83,6 +83,11 @@
 <!--                    The <?php echo anchor('assets/sphere/', 'sphere visualizer'); ?> is a Processing project I started a while back. Essentially, it's a set of
                     three spherical music visualizers. Due to filepath issues with the Java RTE and PHP, the applet isn't enbedded here. Sorry :/-->
 
+                    This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
+                    Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
+                    I plan on making the camera rotate around the scene and having the spheres rotate to the beat. If you check out the source code, some of the camera
+                    functionality is already there. I just need to flesh it out more when I have the time.
+
                     <div id="Sphere_container">
 
                         <!-- This version plays nicer with older browsers, 

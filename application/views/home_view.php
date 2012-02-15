@@ -32,7 +32,7 @@
 
         <div id="top_bar">
             <div id="contact_info">
-                Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
+                Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>.
             </div>
         </div>
 
@@ -80,8 +80,92 @@
                 </div>
 
                 <div id="processing_page" style="display: none;" class="page">
-                    The <?php echo anchor('assets/sphere/', 'sphere visualizer'); ?> is a Processing project I started a while back. Essentially, it's a set of
-                    three spherical music visualizers. Due to filepath issues with the Java RTE and PHP, the applet isn't enbedded here. Sorry :/
+<!--                    The <?php echo anchor('assets/sphere/', 'sphere visualizer'); ?> is a Processing project I started a while back. Essentially, it's a set of
+                    three spherical music visualizers. Due to filepath issues with the Java RTE and PHP, the applet isn't enbedded here. Sorry :/-->
+
+                    <div id="Sphere_container">
+
+                        <!-- This version plays nicer with older browsers, 
+                             but requires JavaScript to be enabled. 
+                             http://java.sun.com/javase/6/docs/technotes/guides/jweb/deployment_advice.html
+                             http://download.oracle.com/javase/tutorial/deployment/deploymentInDepth/ -->
+                        <script type="text/javascript"
+                        src="http://www.java.com/js/deployJava.js"></script>
+                        <script type="text/javascript">
+                            /* <![CDATA[ */
+
+                            var attributes = { 
+                                code: 'Sphere.class',
+                                archive: 'Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar',
+                                width: 800, 
+                                height: 650
+                            };
+                            var parameters = { 
+                                image: 'loading.gif',
+                                centerimage: 'true'
+                            };
+                            var version = '1.5';
+                            deployJava.runApplet(attributes, parameters, version);
+
+                            /* ]]> */
+                        </script>
+
+                        <noscript> <div>
+                            <!--[if !IE]> -->
+                            <object classid="java:Sphere.class" 
+                                    type="application/x-java-applet"
+                                    archive="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar"
+                                    width="800" height="650"
+                                    standby="Loading Processing software..." >
+
+                                <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
+
+                                <param name="mayscript" value="true" />
+                                <param name="scriptable" value="true" />
+
+                                <param name="image" value="loading.gif" />
+                                <param name="boxmessage" value="Loading Processing software..." />
+                                <param name="boxbgcolor" value="#FFFFFF" />
+                                <!--<![endif]-->
+
+                                <!-- For more instructions on deployment, 
+                                     or to update the CAB file listed here, see:
+                                     http://java.sun.com/javase/6/webnotes/family-clsid.html
+                                     http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
+                                <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+                                        codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+                                        width="800" height="650"
+                                        standby="Loading Processing software..."  >
+
+                                    <param name="code" value="Sphere" />
+                                    <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
+
+                                    <param name="mayscript" value="true" />
+                                    <param name="scriptable" value="true" />
+
+                                    <param name="image" value="loading.gif" />
+                                    <param name="boxmessage" value="Loading Processing software..." />
+                                    <param name="boxbgcolor" value="#FFFFFF" />
+
+                                    <p>
+                                        <strong>
+                                            This browser does not have a Java Plug-in.
+                                            <br />
+                                            <a href="http://www.java.com/getjava" title="Download Java Plug-in">
+                                                Get the latest Java Plug-in here.
+                                            </a>
+                                        </strong>
+                                    </p>
+
+                                </object>
+
+                                <!--[if !IE]> -->
+                            </object>
+                            <!--<![endif]-->
+
+                        </div> </noscript>
+
+                    </div>
                 </div>
 
                 <div id="flash_page" style="display: none;" class="page">

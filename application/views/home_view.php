@@ -25,7 +25,7 @@
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
 
         <!-- Plugins -->
-        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
+<!--        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>-->
     </head>
 
     <body>

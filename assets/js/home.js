@@ -16,7 +16,7 @@ function initialize_tabset() {
             $('#page_wrapper .page:visible').hide();
             
             // Run the setup function (if applicable)
-            var setup_func = corresponding_page.attr('setup_func');
+            var setup_func = $(corresponding_page).attr('setup_func');
             if (setup_func != undefined) {
                 setup_func();
             }

@@ -13,10 +13,11 @@ body {
 }
 
 #title_dropdown {
+    color: white;
+    background-color: black;
     position: absolute;
     font-size: 3em;
     top: 1em;
-    background-color: black;
     width: 315px;
     text-align: center;
 

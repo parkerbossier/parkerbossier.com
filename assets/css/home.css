@@ -16,6 +16,9 @@ body {
     position: absolute;
     font-size: 3em;
     top: 1em;
+    background-color: black;
+    width: 315px;
+    text-align: center;
 
     -webkit-border-bottom-right-radius: 20px;
     -webkit-border-bottom-left-radius: 20px;

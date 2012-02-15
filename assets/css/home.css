@@ -25,6 +25,10 @@ body {
     border-bottom-left-radius: 20px;
 }
 
+#contact_details {
+    float: right;
+}
+
 #wrapper {
     width: 1000px;
     height: 800px;

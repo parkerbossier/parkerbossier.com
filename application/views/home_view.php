@@ -5,6 +5,9 @@
         <title>
             Parker Bossier
         </title>
+        
+        <!-- meta -->
+        <meta http-equiv="content-language" content="en">
 
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home.css'); ?>"></link>

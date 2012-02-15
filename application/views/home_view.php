@@ -58,7 +58,7 @@
                 <div id="about_me_page" class="page">
                     <div id="welcome_wrapper">
                         <div id="my_picture">
-                            <img src="<?php echo base_url('assets/images/parkerbossier.jpg'); ?>"/>
+                            <img src="/assets/images/profile.jpg" alt="Parker Bossier"/>
                         </div>
 
                         <div id="welcome_text">
@@ -202,8 +202,5 @@
 
                 </div>
             </div>
-        </div>
-
-        <div id="last_updated">This page was last updated on 12/23/1011 at 12:44 pm CST.</div>
     </body>
 </html>

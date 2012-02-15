@@ -19,12 +19,15 @@ body {
 #contact_info, #wrapper {
     width: 1000px;
     margin: 0px auto;
+    position: relative;
 }
 
 #title_dropdown {
     color: white;
     background-color: black;
-    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
     font-size: 3em;
     width: 330px;
     text-align: center;
@@ -40,7 +43,9 @@ body {
 /* nav controls */
 #nav_bar {
     list-style: none;
-    float: right;
+    position: absolute;
+    right: 0px;
+    top: 0px;
     margin-top: 20px
 }
 #nav_bar .nav_button {
@@ -85,7 +90,6 @@ body {
 
 #my_picture {
     width: 500px;
-    height: 175px;
     float: left;
 }
 

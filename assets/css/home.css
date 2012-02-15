@@ -8,8 +8,9 @@ body {
 #top_bar {
     color: white;
     background-color: black;
-    height: 1.5em;
+    padding: 5px;
     position: relative;
+    text-align: right;
 }
 
 #title_dropdown {
@@ -26,10 +27,6 @@ body {
     -moz-border-radius-bottomleft: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-
-#contact_details {
-    float: right;
 }
 
 #wrapper {

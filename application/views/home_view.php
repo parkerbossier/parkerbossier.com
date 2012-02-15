@@ -31,9 +31,7 @@
                 </div>-->
 
         <div id="top_bar">
-            <div id="contact_details">
                 Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
-            </div>
         </div>
 
         <div id="wrapper">

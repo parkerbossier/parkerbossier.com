@@ -117,7 +117,8 @@
                                     type="application/x-java-applet"
                                     archive="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar"
                                     width="800" height="650"
-                                    standby="Loading Processing software..." >
+                                    standby="Loading Processing software..."
+                                    codebase="/assets/sphere" >
 
                                 <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
 

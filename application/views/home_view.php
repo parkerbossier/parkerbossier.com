@@ -23,9 +23,6 @@
 
         <!-- Main JS include -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
-
-        <!-- Plugins -->
-        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
     </head>
 
     <body>
@@ -86,6 +83,8 @@
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
                         I plan on making the camera rotate around the scene and having the spheres rotate to the beat. If you check out the source code, some of the camera
                         functionality is already there. I just need to flesh it out more when I have the time.
+
+                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                     </p>
 
                     <div id="sphere_container"></div>

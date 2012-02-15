@@ -39,11 +39,17 @@
         <div id="wrapper">
             <div id="title_dropdown">parkerbossier</div>
 
-            <div id="nav_bar">
-                <div id="about_me_link" class="nav_button selected" page="#about_me_page">About me</div>
-                <div id="processing_link" class="nav_button" page="#processing_page">Processing</div>
-                <div id="flash_link" class="nav_button" page="#flash_page">Flash</div>
-            </div>
+            <ul id="nav_bar">
+                <li>
+                    <div id="about_me_link" class="nav_button selected" page="#about_me_page">About me</div>
+                </li>
+                <li>
+                    <div id="processing_link" class="nav_button" page="#processing_page">Processing</div>
+                </li>
+                <li>
+                    <div id="flash_link" class="nav_button" page="#flash_page">Flash</div>
+                </li>
+            </ul>
 
             <div id="page_wrapper">
                 <div id="about_me_page" class="page">

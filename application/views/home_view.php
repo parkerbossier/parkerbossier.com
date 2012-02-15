@@ -34,9 +34,8 @@
             <div id="contact_details">
                 Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>
             </div>
-
-            <div id="title_dropdown">parkerbossier</div>
         </div>
+        <div id="title_dropdown">parkerbossier</div>
 
         <div id="wrapper">
             <div id="nav_bar">

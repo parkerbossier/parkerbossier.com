@@ -15,7 +15,7 @@ body {
 #title_dropdown {
     position: absolute;
     font-size: 3em;
-    top: 1.5em;
+    top: 1em;
 
     -webkit-border-bottom-right-radius: 20px;
     -webkit-border-bottom-left-radius: 20px;

@@ -2,12 +2,18 @@ body {
     background: white;
     color: black;
     font-size: 1em;
-    font-family: Lucida Console, Monaco, monospace;
+    font-family: 'Lucida Console', Monaco, monospace;
 }
 
 #top_bar {
     background-color: black;
     height: 1.5em;
+    position: relative;
+}
+
+#title_dropdown {
+    position: absolute;
+
 }
 
 #wrapper {

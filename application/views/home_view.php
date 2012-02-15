@@ -29,10 +29,6 @@
     </head>
 
     <body>
-        <!--        <div id="under_construction">
-                    This site is currently under construction. Some things might not appear/work properly just yet. Thanks for bearing with me.
-                </div>-->
-
         <div id="top_bar">
             <div id="contact_info">
                 Contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>.
@@ -40,19 +36,21 @@
         </div>
 
         <div id="wrapper">
-            <div id="title_dropdown">parkerbossier</div>
+            <div id="title_and_nav">
+                <div id="title_dropdown">parkerbossier</div>
 
-            <ul id="nav_bar">
-                <li id="about_me_link" class="nav_button selected" page="#about_me_page">
-                    About me
-                </li>
-                <li id="processing_link" class="nav_button" page="#processing_page">
-                    Processing
-                </li>
-                <li id="flash_link" class="nav_button" page="#flash_page">
-                    Flash
-                </li>
-            </ul>
+                <ul id="nav_bar">
+                    <li id="about_me_link" class="nav_button selected" page="#about_me_page">
+                        About me
+                    </li>
+                    <li id="processing_link" class="nav_button" page="#processing_page">
+                        Processing
+                    </li>
+                    <li id="flash_link" class="nav_button" page="#flash_page">
+                        Flash
+                    </li>
+                </ul>
+            </div>
 
             <div id="page_wrapper">
                 <div id="about_me_page" class="page">

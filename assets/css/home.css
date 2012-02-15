@@ -15,10 +15,9 @@ body {
 #title_dropdown {
     color: white;
     background-color: black;
-    position: absolute;
+    float: left;
     font-size: 3em;
-    top: 1em;
-    width: 315px;
+    width: 330px;
     text-align: center;
 
     -webkit-border-bottom-right-radius: 20px;

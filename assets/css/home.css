@@ -40,19 +40,14 @@ body {
 
 #nav_bar {
     list-style: none;
-    display: inline;
     float: left;
     width: auto;
     height: auto;
     margin-right: 10px;
 }
 
-#nav_bar li {
-    width: 140px;
-}
-
 #nav_bar .nav_button {
-    width: auto;
+    display: inline;
     height: 30px;
     line-height: 30px;
     text-align: center;

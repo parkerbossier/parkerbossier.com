@@ -82,7 +82,7 @@
                     </div>
                 </div>
 
-                <div id="processing_page" style="display: none;" class="page">
+                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup">
                     <p>
                         This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
@@ -90,28 +90,7 @@
                         functionality is already there. I just need to flesh it out more when I have the time.
                     </p>
 
-                    <div>
-                        <script type="text/javascript">
-                            /* <![CDATA[ */
-
-                            var attributes = { 
-                                code: 'Sphere.class',
-                                archive: 'Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar',
-                                width: 800,
-                                height: 650,
-                                codebase: '/assets/sphere/'
-                            };
-                            var parameters = { 
-                                image: 'loading.gif',
-                                centerimage: 'true'
-                            };
-                            var version = '1.5';
-                            deployJava.runApplet(attributes, parameters, version);
-
-                            /* ]]> */
-                        </script>
-
-                    </div>
+                    <div id="sphere_container"></div>
                 </div>
 
                 <div id="flash_page" style="display: none;" class="page">

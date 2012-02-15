@@ -1,7 +1,3 @@
-#|
-(load "C:\\Users\\Bojenator\\Documents\\Web Development\\parkerbossier.com\\assets\\clisp\\chatterblocks.lsp")
-|#
-
 ; bock definitions
 
 (setf blocks

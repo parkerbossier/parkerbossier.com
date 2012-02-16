@@ -51,15 +51,11 @@
 
             <div id="page_wrapper">
                 <div id="about_me_page" class="page">
-                    <div id="welcome_wrapper">
-                        <div id="my_picture">
-                            <img src="/assets/images/profile.jpg" alt="Parker Bossier"/>
-                        </div>
-
-                        <div id="welcome_text">
-                            Welcome to parkerbossier.com
-                        </div>
+                    <div id="welcome_text">
+                        Welcome to parkerbossier.com
                     </div>
+
+                    <img id="my_picture" src="/assets/images/profile.jpg" alt="Parker Bossier"/>
 
                     <div id="about_me_text">
                         <p>
@@ -71,8 +67,7 @@
                         </p>
 
                         <p>
-                            Head over to my blog at <a href="http://parkerbossier.blogspot.com/">Blogger</a>. Also, feel free to contact me at <i>parkerbossier</i> -at- <i>gmail</i> -dot- <i>com</i>.
-                            P.S. When does the narwhal bacon? <a href="http://reddit.com/">reddit</a>.
+                            Head over to my blog on <a href="http://parkerbossier.blogspot.com/">Blogger</a>.
                         </p>
                     </div>
                 </div>
@@ -113,7 +108,7 @@
                     <hr/>
 
                     <p>
-                        <b>Fifteen puzzle.</b> Just a simple version of the classic fifteen puzzle. Click shuffle to randomize the board.
+                        <b>Fifteen puzzle.</b> Just a simple version of the classic fifteen puzzle. Click "shuffle" to randomize the board.
                         Click a tile adjacent to an empty space to move the tile there. There's no scoring system, so congrats! You have
                         1,000,000 points.
                     </p>

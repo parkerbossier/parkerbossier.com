@@ -90,28 +90,24 @@ body {
 #page_wrapper .page {
     width: 100%;
     height: auto;
-    padding: 10px;
-}
-
-#my_picture {
-    width: 500px;
-    float: left;
-}
-
-#my_picture img {
-    height: 100%;
-    width: 100%;
-}
-
-#welcome_wrapper {
-    width: 100%;
-    height: auto;
 }
 
 #welcome_text {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    line-height: 175px;
     font-size: 2em;
+}
+
+#my_picture {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 
 #about_me_text, #reddit_text {

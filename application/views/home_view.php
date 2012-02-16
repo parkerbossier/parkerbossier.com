@@ -54,6 +54,7 @@
                     <div id="welcome_text">
                         Welcome to parkerbossier.com
                     </div>
+                    <br/>
 
                     <img id="my_picture" src="/assets/images/profile.jpg" alt="Parker Bossier"/>
 

@@ -92,6 +92,10 @@ body {
     height: auto;
 }
 
+#about_me_page {
+    text-align: center;
+}
+
 #welcome_text {
     width: 100%;
     margin-left: auto;
@@ -102,8 +106,6 @@ body {
 
 #my_picture {
     width: 300px;
-    margin-left: auto;
-    margin-right: auto;
 
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -113,7 +115,6 @@ body {
 #about_me_text, #reddit_text {
     width: 750px;
     margin: 150px auto 0px;
-    text-align: center;
 }
 
 #under_construction {

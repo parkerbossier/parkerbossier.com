@@ -54,10 +54,8 @@
                     <div id="welcome_text">
                         Welcome to parkerbossier.com
                     </div>
-                    <br/>
 
                     <img id="my_picture" src="/assets/images/profile.jpg" alt="Parker Bossier"/>
-                    <br/>
 
                     <div id="about_me_text">
                         <p>
@@ -83,7 +81,7 @@
                     </p>
 
                     <div id="sphere_container">
-<!--                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>-->
+                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                     </div>
                 </div>
 

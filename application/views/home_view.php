@@ -57,6 +57,7 @@
                     <br/>
 
                     <img id="my_picture" src="/assets/images/profile.jpg" alt="Parker Bossier"/>
+                    <br/>
 
                     <div id="about_me_text">
                         <p>

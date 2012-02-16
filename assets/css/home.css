@@ -85,8 +85,6 @@ body {
 #page_wrapper {
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 25px;
 }
 
 #page_wrapper .page {

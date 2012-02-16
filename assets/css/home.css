@@ -6,6 +6,15 @@ body {
     padding: 0px;
 }
 
+#under_construction {
+    padding: 10px;
+    width: 90%;
+    background-color: #FFFBB5;
+    text-align: center;
+    margin: 0px auto 10px;
+    font-size: .8em;
+}
+
 #top_bar {
     color: white;
     background-color: black;
@@ -97,10 +106,6 @@ body {
 }
 
 #welcome_text {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
     font-size: 2em;
 }
 
@@ -113,27 +118,14 @@ body {
 }
 
 #about_me_text, #reddit_text {
-    width: 750px;
-    margin: 150px auto 0px;
-}
-
-#under_construction {
-    padding: 10px;
-    width: 90%;
-    background-color: #FFFBB5;
-    text-align: center;
-    margin: 0px auto 10px;
-    font-size: .8em;
+    width: 700px;
+    margin: 0px auto;
 }
 
 #curving_balls_wrapper {
     height: auto;
     width: 550px;
     margin: 0px auto;
-}
-
-#flash_page {
-    overflow: auto;
 }
 
 #fifteen_puzzle_wrapper {

@@ -46,6 +46,11 @@
                     <li id="flash_link" class="nav_button" page="#flash_page">
                         Flash
                     </li>
+                    <a href="/assets/pdfs/resume.pdf" target="_blank">
+                        <li class="nav_button no_select">
+                            Resume
+                        </li>
+                    </a>
                 </ul>
             </div>
 
@@ -54,20 +59,22 @@
                     <div id="welcome_text">
                         Welcome to parkerbossier.com
                     </div>
+                    <br/>
 
                     <img id="my_picture" src="/assets/images/profile.jpg" alt="Parker Bossier"/>
 
                     <div id="about_me_text">
                         <p>
                             About little about me and this site... I was born and raised in New Orleans, LA, and I'm currently a senior at Vanderbilt University
-                            studying Computer Science and Math. I've worked on <a href="http://www.planjar.com/">PlanJar</a> and
-                            <a href="http://studentorgs.vanderbilt.edu/vsvs/">VSVS</a> recently, and this site serves mainly as a repository for my side projects.
-                            FYI, I've been using <a href="http://www.pagodabox.com/">PagodaBox</a> for my hosting, and it's a great platform. Check it out if
+                            studying Computer Science and Math. I've worked on <a href="http://www.planjar.com/" target="_blank">PlanJar</a> and
+                            <a href="http://studentorgs.vanderbilt.edu/vsvs/" target="_blank">VSVS</a> recently, and this site hosts most of my side projects.
+                            FYI, I've been using <a href="http://www.pagodabox.com/" target="_blank">PagodaBox</a> for my hosting, and it's a great platform. Check it out if
                             you're looking for some scalable hosting.
                         </p>
 
                         <p>
-                            Head over to my blog on <a href="http://parkerbossier.blogspot.com/">Blogger</a>.
+                            Head over to my blog on <a href="http://parkerbossier.blogspot.com/" target="_blank">Blogger</a>. I'll eventually be making my own
+                            blog on this site, but Blogger is just too easy for now...
                         </p>
                     </div>
                 </div>

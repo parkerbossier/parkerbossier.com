@@ -4,6 +4,7 @@ body {
     font-size: 1em;
     font-family: 'Trebuchet MS', Helvetica, sans-serif;
     padding: 0px;
+    margin: 0px;
 }
 
 #under_construction {
@@ -62,7 +63,7 @@ body {
     right: 0px;
     top: 0px;
     margin-top: 20px;
-    cursor: pointer;
+    cursor: default;
 }
 #nav_bar .nav_button {
     display: inline;

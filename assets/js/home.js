@@ -44,3 +44,6 @@ function processing_page_setup() {
     var version = '1.5';
     deployJava.runApplet(attributes, parameters, version);
 }
+
+function processing_page_setup1() {
+}

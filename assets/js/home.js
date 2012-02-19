@@ -15,9 +15,9 @@ function initialize_tabset() {
             // Hide the visible page
             $('#page_wrapper .page:visible').hide();
             
-            // Run the setup function (if applicable)
+            // Run the setup function (if applicable and safe)
             var setup_func = $(corresponding_page).attr('setup_func');
-            if (setup_func != undefined) {
+            if (setup_func != undefined && typeof eval(setup_func) == 'function') {
                 eval(setup_func + '()');
             }
             

@@ -30,6 +30,7 @@ function initialize_tabset() {
 
 // Setup function for the processing page
 function processing_page_setup() {
+    console.log('why am i here');
     var attributes = { 
         code: 'Sphere.class',
         archive: 'Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar',

@@ -10,7 +10,7 @@ function initialize_tabset() {
         // Only handle a click on a non-selected tab
         if (!$(this).hasClass('selected'))  {
             // Select just this tab
-            $(this).siblings('.nav_button').removeClass('selected');
+            $('#nav_bar .nav_button').removeClass('selected');
             $(this).addClass('selected');
            
             // Hide the visible page

@@ -71,7 +71,7 @@ body {
     background-color: white;
     border: 1px solid black;
 }
-#nav_bar>li:first-child {
+#nav_bar>.nav_button:first-child {
     -webkit-border-top-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-topleft: 10px;
@@ -79,7 +79,7 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-#nav_bar>li:last-child {
+#nav_bar>.nav_button:last-child {
     -webkit-border-top-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-radius-topright: 10px;
@@ -90,6 +90,9 @@ body {
 #nav_bar .nav_button.selected {
     background-color: black;
     color: white;
+}
+#nav_bar .nav_button:hover {
+    background-color: lightgray;
 }
 
 #page_wrapper {

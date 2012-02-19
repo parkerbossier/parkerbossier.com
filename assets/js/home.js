@@ -4,7 +4,7 @@ $(function() {
 });
 
 function initialize_tabset() {
-    $('#nav_bar .nav_button').click(function() {
+    $('#nav_bar>.nav_button').click(function() {
         corresponding_page = $(this).attr('page');
         
         // Only handle a click on a non-selected tab

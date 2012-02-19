@@ -18,6 +18,7 @@ function initialize_tabset() {
             // Run the setup function (if applicable)
             var setup_func = $(corresponding_page).attr('setup_func');
             if (setup_func != undefined) {
+                console.log(setup_func);
                 setup_func();
             }
             

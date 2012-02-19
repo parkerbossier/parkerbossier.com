@@ -23,7 +23,7 @@
 
         <!-- Main JS include -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
-        
+
         <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
     </head>
 
@@ -48,7 +48,7 @@
                         </li>
                     </a>
                     <li id="processing_link" class="nav_button" page="#processing_page">
-                        Processing
+                        Processing - under construction
                     </li>
                     <li id="flash_link" class="nav_button" page="#flash_page">
                         Flash
@@ -68,11 +68,17 @@
                     <div id="about_me_text">
                         <p>
                             About little about me and this site... I was born and raised in New Orleans, LA, and I'm currently a senior at Vanderbilt University
-                            studying Computer Science and Math. I've worked on <a href="http://www.planjar.com/" target="_blank">PlanJar</a> and
-                            <a href="http://studentorgs.vanderbilt.edu/vsvs/" target="_blank">VSVS</a> recently, and this site hosts most of my side projects.
-                            FYI, I've been using <a href="http://www.pagodabox.com/" target="_blank">PagodaBox</a> for my hosting, and it's a great platform. Check it out if
+                            studying Computer Science and Math. This site hosts most of my side projects, which can be accessed through the navigation
+                            bar above. Below is a list of websites I've worked on recently, so give 'em a look if you're interested. FYI, I've been using
+                            <a href="http://www.pagodabox.com/" target="_blank">PagodaBox</a> for my hosting, and it's a great platform. Check it out if
                             you're looking for some scalable hosting.
                         </p>
+
+                        <ul>
+                            <li><a href="http://www.planjar.com/" target="_blank">PlanJar</a></li>
+                            <li><a href="http://studentorgs.vanderbilt.edu/vsvs/" target="_blank">VSVS</a></li>
+                            <li><a href="http://thecampusair.com" target="_blank">thecampusair</a></li>
+                        </ul>
 
                         <p>
                             Head over to my blog on <a href="http://parkerbossier.blogspot.com/" target="_blank">Blogger</a>. I'll eventually be making my own
@@ -95,7 +101,7 @@
                     </p>
 
                     <div id="Sphere_container">
-                        
+
                     </div>
                 </div>
 

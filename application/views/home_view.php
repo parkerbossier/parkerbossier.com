@@ -47,7 +47,7 @@
                             Resume
                         </li>
                     </a>
-                    <li id="processing_link" class="nav_button" page="#processing_page">
+                    <li id="processing_link" class="nav_button" page="#processing_page1">
                         Processing
                     </li>
                     <li id="flash_link" class="nav_button" page="#flash_page">
@@ -103,6 +103,12 @@
                     <div id="Sphere_container">
 
                     </div>
+                </div>
+
+                <div id="processing_page1" style="display: none;" class="page">
+                    <p>
+                        This page is still under construction. It'll be back soon. Don't worry.
+                    </p>
                 </div>
 
                 <div id="flash_page" style="display: none;" class="page">

@@ -87,7 +87,7 @@
                         functionality is already there. I just need to flesh it out more when I have the time.
                     </p>
 
-                    <div id="sphere_container">
+                    <div id="Sphere_container">
                         <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                     </div>
                 </div>

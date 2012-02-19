@@ -91,7 +91,7 @@ body {
     background-color: black;
     color: white;
 }
-#nav_bar .nav_button:hover {
+#nav_bar .nav_button:not(.selected):hover {
     background-color: lightgray;
 }
 

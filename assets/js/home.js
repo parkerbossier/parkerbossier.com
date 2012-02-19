@@ -42,8 +42,5 @@ function processing_page_setup() {
         centerimage: 'true'
     };
     var version = '1.5';
-    deployJava.runApplet(attributes, parameters, version);
-}
-
-function processing_page_setup1() {
+    console.log(deployJava.runApplet(attributes, parameters, version));
 }

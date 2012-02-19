@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup">
+                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup1">
                     <p>
                         This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
@@ -100,11 +100,14 @@
 
                     <div id="Sphere_container">
                         <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
+                        <script type="text/javascript">
+                            processing_page_setup();    
+                        </script>
                     </div>
                 </div>
 
                 <div id="flash_page" style="display: none;" class="page">
-                    <p>I haven't used Flash in a long time, but here are some of the projects I still have laying around...</p>
+                    <p>I haven't used Flash in a <i>long</i> time, but here are some of the projects I still have laying around...</p>
                     <hr/>
 
                     <p>

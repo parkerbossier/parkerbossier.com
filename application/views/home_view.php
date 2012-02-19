@@ -128,10 +128,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="fifteen_puzzle_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=450 HEIGHT=500>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Fifteen Puzzle.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Fifteen Puzzle.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Fifteen Puzzle.swf" quality=best bgcolor=#FFFFF WIDTH=450 HEIGHT=500 TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Fifteen Puzzle.swf" quality=best bgcolor=#FFFFF WIDTH=450 HEIGHT=500 TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>
@@ -145,10 +145,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="flash_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=550 HEIGHT=400>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Binary Clock.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Binary Clock.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Binary Clock.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Binary Clock.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>
@@ -161,10 +161,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="flash_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=550 HEIGHT=400>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Clock Tick.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Clock Tick.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Clock Tick.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Clock Tick.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>
@@ -180,10 +180,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="flash_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=550 HEIGHT=400>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Fractal.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Fractal.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Fractal.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Fractal.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="400 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>
@@ -196,10 +196,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="flash_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=550 HEIGHT=450>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Guess-Word.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Guess-Word.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#FFFFFF>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Guess-Word.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="450 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Guess-Word.swf" quality=best bgcolor=#FFFFF WIDTH=550 HEIGHT="450 "TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>

@@ -87,6 +87,11 @@
                         functionality is already there. I just need to flesh it out more when I have the time.
                     </p>
 
+                    <p>
+                        NOTE: I don't have a pause button implemented yet, so if you change tabs, the applet will still play. For now, you'll
+                        just have to refresh :/
+                    </p>
+
                     <div id="Sphere_container">
                         <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                     </div>

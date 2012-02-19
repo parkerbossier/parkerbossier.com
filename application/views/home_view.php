@@ -21,7 +21,8 @@
             var base_url = '<?php echo base_url(); ?>';
         </script>
 
-        <!-- Main JS include -->
+        <!-- JS includes -->
+        <script type="text/javascript" src="/assets/js/deployJava.js"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
     </head>
 
@@ -85,7 +86,10 @@
                     </div>
                 </div>
 
-                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup">
+                <div id="processing_page" style="display: none;" class="page" setup_func="">
+                    <script type="text/javascript">
+                        processing_page_setup();    
+                    </script>
                     <p>
                         This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
@@ -98,10 +102,7 @@
                         just have to refresh :/
                     </p>
 
-                    <div id="Sphere_container">
-                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
-                        <script type="text/javascript">
-                        </script>
+                    <div id="sphere_container">
                     </div>
                 </div>
 

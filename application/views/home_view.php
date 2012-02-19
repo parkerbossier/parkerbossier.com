@@ -40,7 +40,7 @@
                     <li id="about_me_link" class="nav_button selected" page="#about_me_page">
                         About me
                     </li>
-                    <a href="/assets/pdfs/resume.pdf" style="text-decoration: none; color: inherit;">
+                    <a href="/assets/pdfs/resume.pdf" style="text-decoration: none; color: inherit;" target="_blank">
                         <li id="resume_link" class="nav_button no_select">
                             Resume
                         </li>

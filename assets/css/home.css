@@ -63,7 +63,6 @@ body {
     right: 0px;
     top: 0px;
     margin-top: 20px;
-    cursor: default !important;
 }
 #nav_bar .nav_button {
     display: inline;
@@ -71,6 +70,7 @@ body {
     margin-right: 15px;
     background-color: white;
     border: 1px solid black;
+    cursor: default !important;
 }
 #nav_bar>.nav_button:first-child {
     -webkit-border-top-left-radius: 10px;

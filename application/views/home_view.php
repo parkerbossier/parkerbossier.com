@@ -101,7 +101,6 @@
                     <div id="Sphere_container">
                         <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                         <script type="text/javascript">
-                            processing_page_setup();    
                         </script>
                     </div>
                 </div>

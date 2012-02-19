@@ -5,8 +5,9 @@ $(function() {
 
 function initialize_tabset() {
     $('#nav_bar .nav_button').click(function() {
-        // Only handle a click on a non-selected tab
         corresponding_page = $(this).attr('page');
+        
+        // Only handle a click on a non-selected tab
         if (!$(this).hasClass('selected'))  {
             // Select just this tab
             $(this).siblings('.nav_button').removeClass('selected');
@@ -21,7 +22,7 @@ function initialize_tabset() {
                 eval(setup_func + '()');
             }
             
-            // Show the selected page
+            // Show the selected page id
             $(corresponding_page).show('fast');
         }
     });

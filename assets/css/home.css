@@ -63,7 +63,7 @@ body {
     right: 0px;
     top: 0px;
     margin-top: 20px;
-    cursor: default;
+    cursor: default !important;
 }
 #nav_bar .nav_button {
     display: inline;

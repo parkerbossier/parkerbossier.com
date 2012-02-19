@@ -48,7 +48,7 @@
                         </li>
                     </a>
                     <li id="processing_link" class="nav_button" page="#processing_page">
-                        Processing - under construction
+                        Processing
                     </li>
                     <li id="flash_link" class="nav_button" page="#flash_page">
                         Flash
@@ -74,7 +74,7 @@
                             you're looking for some scalable hosting.
                         </p>
 
-                        <ul>
+                        <ul style="list-style: none;">
                             <li><a href="http://www.planjar.com/" target="_blank">PlanJar</a></li>
                             <li><a href="http://studentorgs.vanderbilt.edu/vsvs/" target="_blank">VSVS</a></li>
                             <li><a href="http://thecampusair.com" target="_blank">thecampusair</a></li>

@@ -110,10 +110,10 @@
                     <!-- Markup to embed a SWF -->
                     <div id="curving_balls_wrapper">
                         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" WIDTH=550 HEIGHT=400>
-                            <PARAM NAME=movie VALUE="http://parkerbossier.com/assets/flash/Curving Balls.swf">
+                            <PARAM NAME=movie VALUE="/assets/flash/Curving Balls.swf">
                             <PARAM NAME=quality VALUE=best> <PARAM NAME=wmode VALUE=>
                             <PARAM NAME=bgcolor VALUE=#000000>
-                            <EMBED src="http://parkerbossier.com/assets/flash/Curving Balls.swf" quality=best bgcolor=#000000 WIDTH=550 HEIGHT=400 TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+                            <EMBED src="/assets/flash/Curving Balls.swf" quality=best bgcolor=#000000 WIDTH=550 HEIGHT=400 TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
                             </EMBED>
                         </OBJECT>
                     </div>

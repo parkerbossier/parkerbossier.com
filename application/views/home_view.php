@@ -23,6 +23,8 @@
 
         <!-- Main JS include -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
+        
+        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
     </head>
 
     <body>
@@ -93,7 +95,7 @@
                     </p>
 
                     <div id="Sphere_container">
-                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
+                        
                     </div>
                 </div>
 

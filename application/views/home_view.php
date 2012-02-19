@@ -40,17 +40,17 @@
                     <li id="about_me_link" class="nav_button selected" page="#about_me_page">
                         About me
                     </li>
+                    <a href="/assets/pdfs/resume.pdf" style="text-decoration: none; color: inherit;">
+                        <li id="resume_link" class="nav_button no_select">
+                            Resume
+                        </li>
+                    </a>
                     <li id="processing_link" class="nav_button" page="#processing_page">
                         Processing
                     </li>
                     <li id="flash_link" class="nav_button" page="#flash_page">
                         Flash
                     </li>
-                    <a href="/assets/pdfs/resume.pdf" target="_blank">
-                        <li class="nav_button no_select">
-                            Resume
-                        </li>
-                    </a>
                 </ul>
             </div>
 

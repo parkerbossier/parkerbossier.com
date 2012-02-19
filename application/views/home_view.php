@@ -23,8 +23,6 @@
 
         <!-- Main JS include -->
         <script type="text/javascript" src="<?php echo base_url('assets/js/home.js'); ?>"></script>
-
-        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
     </head>
 
     <body>
@@ -47,7 +45,7 @@
                             Resume
                         </li>
                     </a>
-                    <li id="processing_link" class="nav_button" page="#processing_page1">
+                    <li id="processing_link" class="nav_button" page="#processing_page">
                         Processing
                     </li>
                     <li id="flash_link" class="nav_button" page="#flash_page">
@@ -101,14 +99,8 @@
                     </p>
 
                     <div id="Sphere_container">
-
+                        <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
                     </div>
-                </div>
-
-                <div id="processing_page1" style="display: none;" class="page">
-                    <p>
-                        This page is still under construction. It'll be back soon. Don't worry.
-                    </p>
                 </div>
 
                 <div id="flash_page" style="display: none;" class="page">

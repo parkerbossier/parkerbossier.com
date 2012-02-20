@@ -110,7 +110,7 @@
 
                             <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
 
-                            <param name="mayscript" value="true" />
+                            <param name="mayscript" value="yes" />
                             <param name="scriptable" value="true" />
 
                             <param name="image" value="loading.gif" />

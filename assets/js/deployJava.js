@@ -215,6 +215,8 @@ var deployJava=function(){
             }
             startApplet+='>';
             //document.write(startApplet+'\n'+params+'\n'+endApplet);
+            console.log('writing to ' + container);
+            console.log(startApplet+'\n'+params+'\n'+endApplet);
             $(container).html(startApplet+'\n'+params+'\n'+endApplet);
         },
         versionCheck:function(versionPattern)

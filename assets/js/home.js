@@ -16,6 +16,9 @@ function initialize_tabset() {
             // Hide the visible page
             $('#page_wrapper .page:visible').hide();
             
+            // Clear the processing sketch container (so it stops)
+            $('#sphere_container').html('');
+            
             // Run the setup function (if applicable and safe)
             var setup_func = $(corresponding_page).attr('setup_func');
             if (setup_func != undefined && typeof eval(setup_func) == 'function') {

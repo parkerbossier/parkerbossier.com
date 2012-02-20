@@ -14,13 +14,6 @@ PulseSphere pSphere1;
 PulseSphere pSphere2;
 PulseSphere pSphere3;
 
-// Remember if the song is playing or not.
-boolean playing = false;
-  
-// Button coordinates (x, y, width, height)
-int[] pause_play_coords = {700, 100, 75, 35};
-
-
 // Functions called before execution
 // PulseSphere(float x, float y, float z, float theta, float rho, float radius, float barScale, FFT lFft, FFT rFft, int bufferSize) {
 void setup() {
@@ -72,13 +65,6 @@ void draw() {
   stroke(#0000FF);
   line(0, 0, -1000, 0, 0, 1000);
   //camera();
-  
-  // Draw the buttons
-  stroke(255);
-  fill(0);
-  rect(pause_play_coords[0], pause_play_coords[1], pause_play_coords[2], pause_play_coords[3]);
-  fill(255);
-  text("play/stop", pause_play_coords[0] + 15, pause_play_coords[1] + 15);
 }
 
 //
@@ -311,14 +297,6 @@ class PulseSphere {
 
     // Draw the line.
     line(x1, y1, x2, y2);
-  }
-  
-  // Handle clicks (buttons)
-  void mousePressed() {
-    int x = mouseX;
-    int y = mouseY;
-    
-    // Stop
   }
 }
 

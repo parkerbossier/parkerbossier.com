@@ -66,6 +66,9 @@ public void setup() {
   pSphere1 = new PulseSphere(width/3, height/3, 0, 0, 0, 60, 5, lFft, rFft, 300);
   pSphere2 = new PulseSphere(width/3*2, height/3, 0, 0, 0, 60, 5, lFft, rFft, 300);
   pSphere3 = new PulseSphere(width/2, height/3*2, 0, 0, 0, 60, 5, lFft, rFft, 300);
+  
+  // Goskies
+  song.play();
 }
 
 // Function called every frame
@@ -338,10 +341,6 @@ class PulseSphere {
     int y = mouseY;
     
     // Stop
-  }
-  
-  public void foo() {
-    song.play();
   }
 }
 

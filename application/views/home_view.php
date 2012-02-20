@@ -86,10 +86,7 @@
                     </div>
                 </div>
 
-                <div id="processing_page" style="display: none;" class="page" setup_func="">
-                    <script type="text/javascript">
-                        processing_page_setup();    
-                    </script>
+                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup">
                     <p>
                         This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
@@ -103,6 +100,57 @@
                     </p>
 
                     <div id="sphere_container">
+                        <object id="sphere"
+                                classid="java:Sphere.class" 
+                                type="application/x-java-applet"
+                                archive="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar"
+                                width="800" height="650"
+                                standby="Loading Processing software..."
+                                codebase="/assets/sphere/">
+
+                            <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
+
+                            <param name="mayscript" value="true" />
+                            <param name="scriptable" value="true" />
+
+                            <param name="image" value="loading.gif" />
+                            <param name="boxmessage" value="Loading Processing software..." />
+                            <param name="boxbgcolor" value="#FFFFFF" />
+                            <!--<![endif]-->
+
+                            <!-- For more instructions on deployment, 
+                             or to update the CAB file listed here, see:
+                             http://java.sun.com/javase/6/webnotes/family-clsid.html
+                             http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
+                            <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
+                                    codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+                                    width="800" height="650"
+                                    standby="Loading Processing software..."  >
+
+                                <param name="code" value="Sphere" />
+                                <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
+
+                                <param name="mayscript" value="true" />
+                                <param name="scriptable" value="true" />
+
+                                <param name="image" value="loading.gif" />
+                                <param name="boxmessage" value="Loading Processing software..." />
+                                <param name="boxbgcolor" value="#FFFFFF" />
+
+                                <p>
+                                    <strong>
+                                        This browser does not have a Java Plug-in.
+                                        <br />
+                                        <a href="http://www.java.com/getjava" title="Download Java Plug-in">
+                                            Get the latest Java Plug-in here.
+                                        </a>
+                                    </strong>
+                                </p>
+
+                            </object>
+
+                            <!--[if !IE]> -->
+                        </object>
                     </div>
                 </div>
 

@@ -36,6 +36,12 @@ PulseSphere pSphere1;
 PulseSphere pSphere2;
 PulseSphere pSphere3;
 
+// Remember if the song is playing or not.
+boolean playing = false;
+  
+// Button coordinates (x, y, width, height)
+int[] pause_play_coords = {700, 100, 75, 35};
+
 
 // Functions called before execution
 // PulseSphere(float x, float y, float z, float theta, float rho, float radius, float barScale, FFT lFft, FFT rFft, int bufferSize) {
@@ -48,7 +54,6 @@ public void setup() {
 
   // Load a song.
   song = minim.loadFile("GingerBeatMan_Progression.mp3");
-  song.play();
 
   // Initialize the FFTs and their averages.
   lFft = new FFT(song.bufferSize(), song.sampleRate());
@@ -61,7 +66,6 @@ public void setup() {
   pSphere1 = new PulseSphere(width/3, height/3, 0, 0, 0, 60, 5, lFft, rFft, 300);
   pSphere2 = new PulseSphere(width/3*2, height/3, 0, 0, 0, 60, 5, lFft, rFft, 300);
   pSphere3 = new PulseSphere(width/2, height/3*2, 0, 0, 0, 60, 5, lFft, rFft, 300);
-  
 }
 
 // Function called every frame
@@ -87,6 +91,13 @@ public void draw() {
   stroke(0xff0000FF);
   line(0, 0, -1000, 0, 0, 1000);
   //camera();
+  
+  // Draw the buttons
+  stroke(255);
+  fill(0);
+  rect(pause_play_coords[0], pause_play_coords[1], pause_play_coords[2], pause_play_coords[3]);
+  fill(255);
+  text("play/stop", pause_play_coords[0] + 15, pause_play_coords[1] + 15);
 }
 
 //
@@ -319,6 +330,18 @@ class PulseSphere {
 
     // Draw the line.
     line(x1, y1, x2, y2);
+  }
+  
+  // Handle clicks (buttons)
+  public void mousePressed() {
+    int x = mouseX;
+    int y = mouseY;
+    
+    // Stop
+  }
+  
+  public void foo() {
+    song.play();
   }
 }
 

@@ -86,7 +86,7 @@
                     </div>
                 </div>
 
-                <div id="processing_page" style="display: none;" class="page" setup_func="">
+                <div id="processing_page" style="display: none;" class="page" setup_func="processing_page_setup">
                     <p>
                         This applet is still a work in progress, but the fundamentals are there. The red, greed, and blue lines represent the x, y, and z axes, respectively.
                         Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.

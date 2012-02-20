@@ -107,7 +107,7 @@
                                 height="650">
                             <param name="image" value="loading.gif">
                             <param name="centerimage" value="true">
-                            <param name="codebase_lookup" value="false">
+<!--                            <param name="codebase_lookup" value="false">-->
                         </applet>
                     </div>
                 </div>

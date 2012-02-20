@@ -100,23 +100,15 @@
                     </p>
 
                     <div id="sphere_container">
-                        <object id="sphere"
-                                classid="java:Sphere.class" 
-                                type="application/x-java-applet"
+                        <applet id="sphere"
+                                code="Sphere.class"
                                 archive="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar"
-                                width="800" height="650"
-                                standby="Loading Processing software..."
-                                codebase="/assets/sphere/">
-
-                            <param name="archive" value="Sphere.jar,jl1.0.jar,jsminim.jar,minim-spi.jar,minim.jar,mp3spi1.9.4.jar,tritonus_aos.jar,tritonus_share.jar,core.jar" />
-
-                            <param name="mayscript" value="yes" />
-                            <param name="scriptable" value="true" />
-
-                            <param name="image" value="loading.gif" />
-                            <param name="boxmessage" value="Loading Processing software..." />
-                            <param name="boxbgcolor" value="#FFFFFF" />
-                        </object>
+                                width="800"
+                                height="650">
+                            <param name="image" value="loading.gif">
+                            <param name="centerimage" value="true">
+                            <param name="codebase_lookup" value="false">
+                        </applet>
                     </div>
                 </div>
 

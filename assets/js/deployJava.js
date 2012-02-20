@@ -161,14 +161,14 @@ var deployJava=function(){
                 var browser=this.getBrowser();
                 if((browser!='?')&&('Safari'!=this.browserName2)){
                     if(this.versionCheck(minimumVersion+'+')){
-                        this.writeAppletTag(attributes,parameters);
+                        this.writeAppletTag(attributes,parameters,container);
                     }else if(this.installJRE(minimumVersion+'+')){
                         this.refresh();
                         location.href=document.location;
-                        this.writeAppletTag(attributes,parameters);
+                        this.writeAppletTag(attributes,parameters,container);
                     }
                 }else{
-                    this.writeAppletTag(attributes,parameters);
+                    this.writeAppletTag(attributes,parameters,container);
                 }
             }else{
                 if(this.debug){

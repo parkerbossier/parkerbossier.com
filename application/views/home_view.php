@@ -177,7 +177,7 @@ function flash_tags($index, &$flash_array) {
                     <h2><a href="/sphere" target="_blank">Sphere Visualizer</a></h2>
 
                     <p>
-                        This is my only one noteworthy Processing project as of yet. It's currently unfinished, but at some point I want to
+                        This is my only noteworthy Processing project as of yet. It's currently unfinished, but at some point I want to
                         make the camera fly around the visualizer spheres. I'm also waiting on Javascript support for the libraries I'm
                         using (as opposed to just Java support) so I can make everything more streamlined. The red, greed, and blue
                         lines represent the x, y, and z axes, respectively. Each sphere is a left/right graphical equalizer. The length of

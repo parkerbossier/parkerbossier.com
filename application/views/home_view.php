@@ -38,7 +38,6 @@ function flash_tags($index, &$flash_array) {
         <script type="text/javascript" src="/assets/js/jquery-ui-1.8.16.min.js"></script>
 
         <!-- JS includes -->
-        <script type="text/javascript" src="/assets/js/deployJava.js"></script>
         <script type="text/javascript" src="/assets/js/home.js"></script>
     </head>
 

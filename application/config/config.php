@@ -17,7 +17,7 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-if (false) {
+if (true) {
     $config['base_url'] = 'localhost:1234/';
 } else if ($_SERVER['environment'] == 'live') {
     $config['base_url'] = 'http://parkerbossier.com/';

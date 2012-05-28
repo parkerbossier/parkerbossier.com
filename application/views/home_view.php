@@ -81,6 +81,10 @@ function flash_tags($index, &$flash_array) {
                 <li class="nav_button" data-content="#flash">
                     Flash
                 </li>
+
+                <li class="nav_button" data-content="#misc">
+                    Misc.
+                </li>
             </ul>
 
             <!-- content pages -->
@@ -248,6 +252,30 @@ function flash_tags($index, &$flash_array) {
                     <div style="text-align: center;">
                         <?php echo flash_tags(5, $flash_array); ?>
                     </div>
+                </div>
+				
+				<!-- misc -->
+                <div id="misc" class="content">
+                    <h1>Miscellaneous Projects</h1>
+
+                    <h2><a href="/assets/pdfs/Computer%20Vision%20Final%20Project.pdf" target="_blank">Computer Vision Final Project</a></h2>
+
+                    <p>
+                        This PDF (link above) is a write-up of my final project in computer vision. In a nutshell,
+						it uses Matlab and depth through stereopsis techniques to zoom a Firefox window based on the
+						distance of my head to the screen. Below is the introduction.
+                    </p>
+					
+					<p class="quote">
+						This paper describes the approach and results of a Matlab program, face_zoom.m, which changes the zoom
+						setting within a Firefox browser based on my distance from the screen. Note that this program uses an 
+						already-captured video as its input as opposed to a live stream. To accomplish this task, two Logitech
+						webcams were affixed to the monitor about five inches apart and as coplanar as possible. A 2x2” blue
+						paper square was attached to the user’s forehead to serve as a tracker. The per-frame change in depth of
+						the marker (computed with stereopsis as described later) was used to scale the browser window so as to
+						assure a relatively constant apparent text size. All Matlab code can be found in the appendix at the end
+						of this document.
+					</p>
                 </div>
             </div>
         </div>

@@ -34,6 +34,7 @@ body {
     list-style: none;
     padding-left: 0px;
     text-align: center;
+    display: none;
 }
 .nav_button {
     display: inline-block;
@@ -82,7 +83,6 @@ body {
     padding: 0px 5%;
 }
 .content {
-    display: none;
     width: 100%;
 }
 .content h1 {

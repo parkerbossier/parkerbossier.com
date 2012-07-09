@@ -25,6 +25,10 @@
 		Parker Bossier
 		<?php if (isset($subtitle_for_layout)) echo ' | ' . @$subtitle_for_layout; ?>
 	</title>
+	
+	<meta name="viewport" content="width = device-width">
+	<meta name = "viewport" content = "initial-scale = 1.0">
+	
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->fetch('meta');

@@ -1,16 +1,17 @@
 <?php
 	$this->set('subtitle_for_layout', 'Home');
+	$this->Html->script('valign_site_intro', array('block' => 'script'));
 ?>
 <div class="container">
 	<div class="row">
-		<div class="span9">
+		<div class="span3">
+			<img src="/img/profile.jpg" id="profile-pic"/>
+		</div>
+
+		<div class="span9" id="site-intro">
 			<p>
 				A little about me and this site... I was born and raised in New Orleans, LA, and I recently graduated from Vanderbilt University with a BS in Computer Science and Math. I'm currently in NOLA working for the summer and then moving up to Pittsburgh for a year to get a Masters in Human-Computer Interaction from the Carnegie Mellon HCII. This site hosts most of my side projects and my resume, all of which can be accessed through the navigation bar above.
 			</p>
-		</div>
-
-		<div class="span3">
-			<img src="/img/profile.jpg" id="profile-pic"/>
 		</div>
 	</div>
 

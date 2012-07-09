@@ -16,8 +16,8 @@
 
 	<div class="row">
 		<div class="span12">
-			<strong>Site breakdown</strong><br/>
-			<ul>
+			<p>Site breakdown</p>
+			<ul id="breakdown">
 				<li>
 					Hosted on <a href="http://www.pagodabox.com/" target="_blank">PagodaBox</a> - Check it out if you're looking for awesomely scalable hosting. This site is running on it now, and PlanJar ran on it back in the day (see <a href="/projects/web">Web projects</a> for more info). They're always updating their site with new features, and they even have a free tier. Obviously, I'm a fan.
 				</li>

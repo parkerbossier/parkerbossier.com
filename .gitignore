@@ -1,3 +1,4 @@
-nbproject/
+nbproject
+app/temp
 Thumbs.db
 .DS_Store*

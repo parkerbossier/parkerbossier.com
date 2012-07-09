@@ -1,0 +1,611 @@
+2012-07-06 05:26:37 Error: [NotFoundException] Not Found
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(920): include()
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(883): View->_evaluate('C:\Users\Boje\D...', Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(475): View->_render('C:\Users\Boje\D...')
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render('home', NULL)
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\PagesController.php(73): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-06 05:26:43 Error: [NotFoundException] Not Found
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(920): include()
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(883): View->_evaluate('C:\Users\Boje\D...', Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(475): View->_render('C:\Users\Boje\D...')
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render('home', NULL)
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\PagesController.php(73): Controller->render('home')
+#5 [internal function]: PagesController->display('home')
+#6 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#7 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#8 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2012-07-06 05:39:09 Error: [MissingControllerException] Controller class HomeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 05:39:44 Error: [MissingControllerException] Controller class HomeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 05:39:57 Error: [MissingActionException] Action HomeController::index() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-06 05:49:30 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 05:53:22 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 05:55:26 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 05:56:29 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:00:20 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:00:34 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:04 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:05 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:12 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:12 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:21 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:02:21 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 06:48:52 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 37]
+2012-07-06 06:48:52 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:07 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 37]
+2012-07-06 06:49:07 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:35 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 38]
+2012-07-06 06:49:35 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:36 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 38]
+2012-07-06 06:49:36 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:38 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 38]
+2012-07-06 06:49:38 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:38 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 38]
+2012-07-06 06:49:38 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:47 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 39]
+2012-07-06 06:49:47 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:48 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 39]
+2012-07-06 06:49:48 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:48 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 39]
+2012-07-06 06:49:48 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:49 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 39]
+2012-07-06 06:49:49 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 39, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:49:59 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 38]
+2012-07-06 06:49:59 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 38, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:50:02 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 37]
+2012-07-06 06:50:02 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 37, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:54:40 Error: Fatal Error (1): Class 'AppController' not found in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 34]
+2012-07-06 06:54:40 Error: [FatalErrorException] Class 'AppController' not found
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:54:42 Error: Fatal Error (1): Class 'AppController' not found in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 34]
+2012-07-06 06:54:42 Error: [FatalErrorException] Class 'AppController' not found
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppContr...', 'C:\Users\Boje\D...', 34, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 06:59:19 Error: [MissingHelperException] Helper class JavascriptHelper could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(861): HelperCollection->load('Javascript', Array)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(468): View->loadHelpers()
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#4 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-07-06 07:00:58 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 6]
+2012-07-06 07:00:58 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 6, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 6, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 07:06:34 Error: Fatal Error (1): Call to a member function script() on a non-object in [C:\Users\Boje\Documents\Web Development\cakepb\app\Controller\HomeController.php, line 6]
+2012-07-06 07:06:34 Error: [FatalErrorException] Call to a member function script() on a non-object
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Boje\D...', 6, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Boje\D...', 6, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 07:07:03 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 07:07:14 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 07:07:14 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Home\index.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-06 07:10:13 Error: Fatal Error (4): syntax error, unexpected T_IF in [C:\Users\Boje\Documents\Web Development\cakepb\app\View\Layouts\default.ctp, line 32]
+2012-07-06 07:10:13 Error: [FatalErrorException] syntax error, unexpected T_IF
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 32)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 32, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Boje\D...', 32, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-06 15:16:02 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 15:18:46 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:44 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:45 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:46 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:51 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:52 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:34:53 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:38:12 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:38:14 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:38:16 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:38:25 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:38:50 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:44:03 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:44:06 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:44:22 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:44:42 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:46:04 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-06 17:46:47 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 04:41:55 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 04:42:05 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 04:42:50 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 04:43:02 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:31:59 Error: Fatal Error (4): syntax error, unexpected $end in [C:\Users\Boje\Documents\Web Development\cakepb\app\View\Layouts\default.ctp, line 94]
+2012-07-07 19:32:00 Error: [FatalErrorException] syntax error, unexpected $end
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 94)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 94, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Boje\D...', 94, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-07 19:32:18 Error: Fatal Error (4): syntax error, unexpected $end in [C:\Users\Boje\Documents\Web Development\cakepb\app\View\Layouts\default.ctp, line 93]
+2012-07-07 19:32:18 Error: [FatalErrorException] syntax error, unexpected $end
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 93)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Boje\D...', 93, Array)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Boje\D...', 93, Array)
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-07-07 19:32:43 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:32:45 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:34:29 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:35:16 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:35:18 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:35:24 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:35:26 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:38:44 Error: [MissingControllerException] Controller class ProjectsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:38:49 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:39:02 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-07 19:39:04 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\web.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-07 19:40:15 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\web.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-07 19:47:47 Error: [MissingActionException] Action ProjectsController::ios() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-07 19:48:15 Error: [MissingActionException] Action ProjectsController::ios() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-07 19:48:53 Error: [MissingActionException] Action ProjectsController::processing() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-07 19:49:53 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\processing.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-07 19:49:54 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\matlab.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-07 19:49:54 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\processing.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-07 19:51:16 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-07 19:51:18 Error: [MissingControllerException] Controller class JsController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-08 21:59:36 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:00:21 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:00:27 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:00:48 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:00:51 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\foo.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:01:22 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:01:22 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\foo.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:01:25 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:01:32 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:00 Error: [MissingActionException] Action ProjectsController::matlab() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:15 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:26 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:27 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:29 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:31 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:33 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:03:53 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:04:16 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:04:17 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\flizash.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:04:28 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\flizash.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:04:29 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:08:12 Error: [PrivateActionException] Private Action ProjectsController::flash() is not directly accessible.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:08:13 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\flashh.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:09:45 Error: [MissingActionException] Action ProjectsController::flashh() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:09:46 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\cakepb\app\View\Projects\flizash.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-07-08 22:13:16 Error: [MissingActionException] Action ProjectsController::web() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\cakepb\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-07-08 22:22:24 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-08 22:23:19 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-08 22:23:23 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-07-08 22:23:34 Error: [MissingControllerException] Controller class ResumeController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

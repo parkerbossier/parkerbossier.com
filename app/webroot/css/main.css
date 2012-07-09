@@ -1,0 +1,23 @@
+.container {
+	max-width: 850px;
+	margin: inherit auto;
+}
+
+.navbar .nav {
+	float: right;
+}
+
+#profile-pic {
+	width: 100%;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+p {
+	font-size: 1.2em;
+}
+p:first-letter {
+	font-size: 1.3em;
+	font-weight: bold;
+}

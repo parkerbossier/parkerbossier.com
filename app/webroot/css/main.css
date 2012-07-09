@@ -19,8 +19,12 @@ body :not(.nav):not(a) {
 	font-size: 17px;
 }
 
-.navbar .nav {
-	float: right;
+.navbar .brand {
+	margin-right: 40px;
+}
+.navbar .nav-pills a {
+	color: #2C2C2C;
+	padding: 0px !important;
 }
 
 /*

@@ -59,18 +59,33 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container container-bypass">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+
 				<a class="brand" href="/">Parker Bossier</a>
 
-				<ul class="nav nav-tabs navbar-fixed-top">
-					<li><a href="/projects/web" data-name="web">Web</a></li>
-					<li><a href="/projects/ios" data-name="ios">iOS</a></li>
-					<li><a href="/projects/processing" data-name="processing">Processing</a></li>
-					<li><a href="/projects/matlab" data-name="matlab">Stereopsis (Matlab)</a></li>
-					<li><a href="/projects/flash" data-name="flash">Flash</a></li>
-					<li><a href="mailto:parkerbossier@gmail.com" _target="_blank">
-							Contact</a></li>
-					<li><a href="/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
-				</ul>
+				<div class="nav-collapse">
+					<ul class="nav nav-tabs">
+						<li><a href="/projects/web" data-name="web">Web</a></li>
+						<li><a href="/projects/ios" data-name="ios">iOS</a></li>
+						<li><a href="/projects/processing" data-name="processing">Processing</a></li>
+						<li><a href="/projects/matlab" data-name="matlab">Stereopsis (Matlab)</a></li>
+						<li><a href="/projects/flash" data-name="flash">Flash</a></li>
+					</ul>
+					<ul class="nav nav-pills">
+						<li><a href="mailto:parkerbossier@gmail.com" _target="_blank">
+								<button class="btn">
+									Contact
+								</button></a></li>
+						<li><a href="/pdfs/Parker%20Bossier.pdf" target="_blank">
+								<button class="btn">
+									Resume
+								</button></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

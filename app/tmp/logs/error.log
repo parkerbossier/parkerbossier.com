@@ -609,3 +609,6 @@
 2012-07-08 22:23:34 Error: [MissingControllerException] Controller class ResumeController could not be found.
 #0 C:\Users\Boje\Documents\Web Development\cakepb\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-07-09 17:25:23 Error: [MissingControllerException] Controller class Www.codeigniter.comController could not be found.
+#0 C:\Users\Boje\Documents\Web Development\parkerbossier\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

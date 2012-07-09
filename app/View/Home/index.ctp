@@ -3,14 +3,14 @@
 ?>
 <div class="container">
 	<div class="row">
-		<div class="span3">
-			<img src="/img/profile.jpg" id="profile-pic"/>
-		</div>
-
 		<div class="span9">
 			<p>
 				A little about me and this site... I was born and raised in New Orleans, LA, and I recently graduated from Vanderbilt University with a BS in Computer Science and Math. I'm currently in NOLA working for the summer and then moving up to Pittsburgh for a year to get a Masters in Human-Computer Interaction from the Carnegie Mellon HCII. This site hosts most of my side projects and my resume, all of which can be accessed through the navigation bar above.
 			</p>
+		</div>
+
+		<div class="span3">
+			<img src="/img/profile.jpg" id="profile-pic"/>
 		</div>
 	</div>
 
@@ -23,11 +23,11 @@
 				</li>
 
 				<li>
-					Powered by <a href="http://www.cakephp.org">CakePHP</a> - The previous iteration of this site was written in <a href="http:www.codeigniter.com">CodeIgniter</a>. That worked just fine, but I was working with Cake recently, and I really like the design pattern, so I decided a rewrite was necessary.
+					Powered by <a href="http://www.cakephp.org" target="_blank">CakePHP</a> - The previous iteration of this site was written in <a href="http://www.codeigniter.com" target="_blank">CodeIgniter</a>. That worked just fine, but I was working with Cake recently, and I really like the design pattern, so I decided a rewrite was necessary.
 				</li>
 
 				<li>
-					Powered by <a href="http://twitter.github.com">Twitter Bootstrap</a> - Until this summer, I haden't used any CSS frameworks except for jQuery's themes (which I never really liked). Then, I was introduced to Twitter Bootstrap. It makes CSS/layout design so much quicker, cleaner, and visually attractive. I highly recommend it.
+					Powered by <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a> - Until this summer, I hadn't used any CSS frameworks except for jQuery's themes (which I never really liked). Then, I was introduced to Twitter Bootstrap. It makes CSS/layout design so much quicker, cleaner, and visually attractive. I highly recommend it.
 				</li>
 			</ul>
 			<br/>

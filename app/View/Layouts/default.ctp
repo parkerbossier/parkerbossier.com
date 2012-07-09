@@ -30,14 +30,13 @@
 		echo $this->fetch('meta');
 
 		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('main');
 		echo $this->Html->css('bootstrap-responsive');
+		echo $this->Html->css('main');
 		echo $this->fetch('css');
 
 		echo $this->Html->script('jquery-1.7.2');
 		echo $this->Html->script('bootstrap.min');
 
-		// tab selected
 		if (isset($active_tab_for_layout)) {
 			?>
 			<!-- selects the correct tab -->
@@ -50,15 +49,14 @@
 			</script>
 			<?php
 		}
-
 		echo $this->fetch('script');
 	?>
 </head>
 
 <body>
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar">
 		<div class="navbar-inner">
-			<div class="container container-bypass">
+			<div class="container">
 				<a class="brand" href="/">Parker Bossier</a>
 
 				<ul class="nav nav-tabs navbar-fixed-top">

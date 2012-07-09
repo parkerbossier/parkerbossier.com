@@ -19,10 +19,15 @@ body :not(.nav):not(a) {
 	font-size: 17px;
 }
 
-/* this is here so I don't forget about it if I update bootstrap-responsive */
+/* these are here so I don't forget about them if I update bootstrap-responsive */
 @media (max-width: 979px) {
 	.navbar-fixed-top {
 		margin-bottom: 0px !important;
+	}
+}
+@media (max-width: 767px) {
+	#profile-pic {
+		margin-bottom: 15px;
 	}
 }
 

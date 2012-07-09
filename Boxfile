@@ -3,6 +3,7 @@ web1:
   shared_writable_dirs:
     - app/tmp/logs
     - app/tmp/cache
+    - app/tmp/cache/persistent
     - app/tmp/sessions
     - app/tmp/tests
   php_extensions:

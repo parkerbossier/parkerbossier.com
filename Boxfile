@@ -6,6 +6,7 @@ web1:
     - app/tmp/cache/persistent
     - app/tmp/sessions
     - app/tmp/tests
+	- cake_dev_en-us
   php_extensions:
     - mcrypt
     - mysqli

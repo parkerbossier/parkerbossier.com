@@ -18,10 +18,6 @@
 			
 		}
 
-		public function matlab() {
-			
-		}
-
 		public function flizash() {
 			
 		}
@@ -35,6 +31,10 @@
 		}
 
 		public function sphere() {
+			
+		}
+
+		public function stereopsis() {
 			
 		}
 

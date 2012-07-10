@@ -80,7 +80,7 @@
 						<li><a href="/projects/web" data-name="web">Web</a></li>
 						<li><a href="/projects/ios" data-name="ios">iOS</a></li>
 						<li><a href="/projects/sphere" data-name="sphere">Sphere (Processing)</a></li>
-						<li><a href="/projects/matlab" data-name="matlab">Stereopsis (Matlab)</a></li>
+						<li><a href="/projects/stereopsis" data-name="stereopsis">Stereopsis (Matlab)</a></li>
 						<li><a href="/projects/flash" data-name="flash">Flash</a></li>
 
 						<li class="divider-vertical"></li>

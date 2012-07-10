@@ -50,7 +50,6 @@
 				$(function() {
 					var active_tab = '<?php echo $active_tab_for_layout; ?>';
 					$('.nav-tabs [data-name="' + active_tab + '"]').parent().addClass('active');
-					console.log('.nav-tabs [data-name="' + active_tab + '"]');
 				});
 			</script>
 			<?php
@@ -80,7 +79,7 @@
 
 						<li><a href="/projects/web" data-name="web">Web</a></li>
 						<li><a href="/projects/ios" data-name="ios">iOS</a></li>
-						<li><a href="/projects/processing" data-name="processing">Processing</a></li>
+						<li><a href="/projects/sphere" data-name="sphere">Sphere (Processing)</a></li>
 						<li><a href="/projects/matlab" data-name="matlab">Stereopsis (Matlab)</a></li>
 						<li><a href="/projects/flash" data-name="flash">Flash</a></li>
 

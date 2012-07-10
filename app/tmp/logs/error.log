@@ -629,3 +629,8 @@
 2012-07-10 05:16:44 Error: [MissingControllerException] Controller class JsController could not be found.
 #0 C:\Users\Boje\Documents\Web Development\parkerbossier\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-07-10 06:06:00 Error: [MissingActionException] Action ProjectsController::sphere() could not be found.
+#0 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Boje\Documents\Web Development\parkerbossier\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

@@ -25,10 +25,10 @@
 		Parker Bossier
 		<?php if (isset($subtitle_for_layout)) echo ' | ' . @$subtitle_for_layout; ?>
 	</title>
-	
+
 	<meta name="viewport" content="width = device-width">
 	<meta name = "viewport" content = "initial-scale = 1.0">
-	
+
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->fetch('meta');
@@ -78,16 +78,11 @@
 						<li><a href="/projects/processing" data-name="processing">Processing</a></li>
 						<li><a href="/projects/matlab" data-name="matlab">Stereopsis (Matlab)</a></li>
 						<li><a href="/projects/flash" data-name="flash">Flash</a></li>
-					</ul>
-					<ul class="nav nav-pills">
-						<li><a href="mailto:parkerbossier@gmail.com" _target="_blank">
-								<button class="btn">
-									Contact
-								</button></a></li>
-						<li><a href="/pdfs/Parker%20Bossier.pdf" target="_blank">
-								<button class="btn">
-									Resume
-								</button></a></li>
+
+						<li class="divider-vertical"></li>
+
+						<li><a href="mailto:parkerbossier@gmail.com" _target="_blank">Contact</a></li>
+						<li><a href="/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
 					</ul>
 				</div>
 			</div>

@@ -39,7 +39,7 @@
 			<br/>
 
 			<p>
-				Too cool to view source? Go check out my <a href="https://github.com/parkerbossier/" target="_blank">GitHub account</a>	and you can see the source, the WHOLE source, and nothing but the source... Amiright? It's usually pretty current, but I primarily use my (private) PagodaBox Git repo, so sometimes my GitHub "might be a little dry". (Yes, I used a Southpark reference.)
+				Too cool to view source? Go check out my <a href="https://github.com/parkerbossier/" target="_blank">GitHub account</a>	and you can see the source, the WHOLE source, and nothing but the source... Amiright? It's usually pretty current, but I primarily use my (private) PagodaBox Git repo, so sometimes my GitHub "might be a little dry". (Yes, I used a South Park reference.)
 			</p>
 		</div>
 	</div>

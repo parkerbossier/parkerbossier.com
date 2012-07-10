@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="span4 offset4">
 			<p style="text-align: center;">
-				I took a CS course covering turing machines, and I though they were pretty cool and relatively easy to implement, so here it is.
+				I took a CS course covering turing machines, and I though they were pretty cool and relatively easy to implement, so here one is.
 			</p>
 		</div>
 	</div>
@@ -31,7 +31,7 @@
 						<li><strong>w</strong> - current tape value</li>
 						<li><strong>x</strong> - new state</li>
 						<li><strong>y</strong> - new tape value</li>
-						<li><strong>z</strong> - read advance direction (l|r)</li>
+						<li><strong>z</strong> - read advance direction (l | r)</li>
 					</ul>
 				</label>
 				<div style="text-align: center;">

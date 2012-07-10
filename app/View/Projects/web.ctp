@@ -23,7 +23,7 @@
 			<h2><a href="http://thecampusair.com" target="_blank">TheCampusAir</a></h2>
 			<div class="well">
 				<p>
-					TheCampuAir is a networks final class project) that I co-wrote. We launched it as a minimum viable product, and we plan to update it in the semi-near future (e.g. a better mobile view and functionality allowing any college to have its own page instead of just Vanderbilt).
+					TheCampusAir is a Networks final class project that I co-wrote. We launched it as a minimum viable product, and we plan to update it in the semi-near future (e.g. a better mobile view and functionality allowing any college to have its own page instead of just Vanderbilt).
 				</p>
 
 				<div>// Made with CodeIgniter</div>
@@ -34,7 +34,7 @@
 			<h2><a href="http://demo.planjar.com" target="_blank">PlanJar</a></h2>
 			<div class="well">
 				<p>
-					PlanJar was designed to provide data graphics about what your friends are planning to do and where they're planning to be in the near future. I co-wrote PlanJar during the summer of 2011. It's since closed down, but there's a demo available with public access to the splash page (contact me for login information). 
+					PlanJar was designed to provide graphical data about what your friends are planning to do and where they're planning to be in the near future. I co-wrote PlanJar during the summer of 2011. It's since closed down, but there's a demo available with public access to the splash page. (Contact me for login information.)
 				</p>
 
 				<div>// Made with CodeIgniter</div>

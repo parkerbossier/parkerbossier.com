@@ -2,7 +2,7 @@
 	$this->set('subtitle_for_layout', 'Home');
 	$this->Html->script('valign_site_intro', array('block' => 'script'));
 ?>
-<div class="container">
+<div class="container larger-font">
 	<div class="row">
 		<div class="span3">
 			<img src="/img/profile.jpg" id="profile-pic"/>

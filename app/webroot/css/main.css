@@ -15,7 +15,7 @@ body {
 	border-bottom-left-radius: 12px;
 }
 
-body :not(.nav):not(a) {
+.larger-font {
 	font-size: 17px;
 }
 

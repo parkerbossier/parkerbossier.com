@@ -1,4 +1,5 @@
 <?php
+	$this->set('active_tab_for_layout', 'home');
 	$this->set('subtitle_for_layout', 'Home');
 	$this->Html->script('valign_site_intro', array('block' => 'script'));
 ?>

@@ -36,6 +36,7 @@
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('main');
 		echo $this->Html->css('bootstrap-responsive');
+		echo $this->Html->css('responsive-customizations');
 		echo $this->fetch('css');
 
 		echo $this->Html->script('jquery-1.7.2');
@@ -62,7 +63,7 @@
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
-			<div class="container container-bypass">
+			<div class="container my-bypass">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -73,6 +74,10 @@
 
 				<div class="nav-collapse">
 					<ul class="nav nav-tabs">
+						<li><a href="/" data-name="home">Home</a></li>
+
+						<li class="divider-vertical"></li>
+
 						<li><a href="/projects/web" data-name="web">Web</a></li>
 						<li><a href="/projects/ios" data-name="ios">iOS</a></li>
 						<li><a href="/projects/processing" data-name="processing">Processing</a></li>

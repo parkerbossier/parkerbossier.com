@@ -1,0 +1,64 @@
+body {
+	padding-top: 40px;
+}
+
+.container:not(.my-bypass){
+	/*
+	background-image: url('/img/pattern.jpg');
+	background-repeat: repeat;
+	*/
+	padding: 25px;
+
+	-webkit-border-bottom-right-radius: 12px;
+	-webkit-border-bottom-left-radius: 12px;
+	-moz-border-radius-bottomright: 12px;
+	-moz-border-radius-bottomleft: 12px;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+}
+
+h1:not(.my-bypass) {
+	text-align: center;
+}
+
+.larger-font {
+	font-size: 17px;
+}
+
+.navbar .nav-tabs {
+	float: right;
+}
+
+
+/*
+* home
+*/
+#profile-pic {
+	width: 100%;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+p:first-letter {
+	font-weight: bold;
+	font-size: 18px
+}
+
+.row {
+	margin-bottom: 20px;
+}
+.row:last-child {
+	margin-bottom: 0px;
+}
+
+#breakdown {
+	padding-left: 15px;
+}
+ul:not(.nav):not(.my-bypass) li {
+	margin-bottom: 8px;
+}
+
+textarea {
+	font-family: monospace;
+}

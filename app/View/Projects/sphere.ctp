@@ -1,14 +1,13 @@
 <?php
-	$this->set('subtitle_for_layout', 'Sphere');
+	$this->set('active_tab_for_layout', 'sphere');
+	$this->set('subtitle_for_layout', 'Sphere (Processing)');
 	$this->Html->script(array('deployJava', 'sphere'), array('block' => 'script'));
 	$this->Html->css('sphere', null, array('block' => 'css'));
 ?>
 
 <div class="container">
 	<div class="row">
-		<div class="span12">
-			<h1 style="text-align: center;">Sphere Music Visualizer</h1>
-		</div>
+		<h1 style="text-align: center;">Sphere Music Visualizer</h1>
 	</div>
 
 	<div class="row">

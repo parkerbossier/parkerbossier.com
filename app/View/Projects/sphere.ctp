@@ -7,7 +7,7 @@
 
 <div class="container">
 	<div class="row">
-		<h1 style="text-align: center;">Sphere Music Visualizer</h1>
+		<h1>Sphere Music Visualizer</h1>
 	</div>
 
 	<div class="row">

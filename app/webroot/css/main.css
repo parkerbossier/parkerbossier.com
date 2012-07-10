@@ -1,5 +1,7 @@
 body {
 	padding-top: 40px;
+	background-image: url('/img/pattern.jpg');
+	background-repeat: repeat;
 }
 
 .container:not(.my-bypass){
@@ -8,6 +10,16 @@ body {
 	background-repeat: repeat;
 	*/
 	padding: 25px;
+	background-color: #fcfcfc;
+	-moz-box-shadow: 0px 8px 10px gray, 
+        -10px 8px 15px gray,
+		10px 8px 15px gray;
+	-webkit-box-shadow: 0px 8px 10px gray, 
+        -10px 8px 15px gray,
+		10px 8px 15px gray;
+	box-shadow: 0px 8px 10px gray, 
+        -10px 8px 15px gray,
+		10px 8px 15px gray;
 
 	-webkit-border-bottom-right-radius: 12px;
 	-webkit-border-bottom-left-radius: 12px;

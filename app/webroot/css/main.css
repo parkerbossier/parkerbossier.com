@@ -2,9 +2,11 @@ body {
 	padding-top: 40px;
 }
 
-.container:not(.container-bypass){
+.container:not(.my-bypass){
+	/*
 	background-image: url('/img/pattern.jpg');
 	background-repeat: repeat;
+	*/
 	padding: 25px;
 
 	-webkit-border-bottom-right-radius: 12px;
@@ -17,18 +19,6 @@ body {
 
 .larger-font {
 	font-size: 17px;
-}
-
-/* these are here so I don't forget about them if I update bootstrap-responsive */
-@media (max-width: 979px) {
-	.navbar-fixed-top {
-		margin-bottom: 0px !important;
-	}
-}
-@media (max-width: 767px) {
-	#profile-pic {
-		margin-bottom: 15px;
-	}
 }
 
 .navbar .nav-tabs {
@@ -61,6 +51,10 @@ p:first-letter {
 #breakdown {
 	padding-left: 15px;
 }
-#breakdown li {
+ul:not(.nav):not(.my-bypass) li {
 	margin-bottom: 8px;
+}
+
+textarea {
+	font-family: monospace;
 }

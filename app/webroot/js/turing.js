@@ -24,6 +24,7 @@ $(function() {
 		if (!self.hasClass('disabled')) {
 			self.addClass('disabled');
 			$('#stop').removeClass('disabled');
+			stop = false;
 		
 			// get the matrix (global)
 			matrix = matrix_from_transitions();
@@ -33,7 +34,7 @@ $(function() {
         
 			// run!
 			setTimeout(function() {
-				// not that the blank value is set here so thet the user can't modify the blank that the code sees during execution
+				// note that the blank value is set here so thet the user can't modify the blank that the code sees during execution
 				var tape = $('#tape').val();
 				var head_loc = tape.indexOf('|');
 				if (head_loc == -1) head_loc = 0;

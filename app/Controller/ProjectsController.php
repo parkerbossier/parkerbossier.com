@@ -18,10 +18,6 @@
 			
 		}
 
-		public function processing() {
-			
-		}
-
 		public function matlab() {
 			
 		}
@@ -35,6 +31,10 @@
 		 */
 
 		public function turing() {
+			
+		}
+
+		public function sphere() {
 			
 		}
 

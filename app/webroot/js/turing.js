@@ -66,6 +66,7 @@ function run(state, head_loc, tape, blank) {
                 
 	// update the tape
 	tape = tape.replaceAt(head_loc, transition[3]);
+	tape= tape.trim(blank);
 	$('#tape').val(tape);
                 
 	// update the state
@@ -90,7 +91,14 @@ function run(state, head_loc, tape, blank) {
 		}, speed);
 	}
 }
-            
+
+// custom trimfunction
+String.prototype.trim = function(needle) {
+	if (/\.|\$|\*/.test(needle)) needle = '\\' + needle;
+	return this.replace(eval('/^' + needle + '+|' + needle + '+$/g'), '');
+}
+
+
 // determine if the tape index is blank
 function get_input(index, tape, blank) {
 	if (index < 0 || index >= tape.length) {

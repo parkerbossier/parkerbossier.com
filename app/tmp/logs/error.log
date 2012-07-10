@@ -612,3 +612,10 @@
 2012-07-09 17:25:23 Error: [MissingControllerException] Controller class Www.codeigniter.comController could not be found.
 #0 C:\Users\Boje\Documents\Web Development\parkerbossier\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-07-10 02:51:24 Error: [MissingViewException] View file "C:\Users\Boje\Documents\Web Development\parkerbossier\app\View\Projects\turing.ctp" is missing.
+#0 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\View\View.php(472): View->_getViewFileName(NULL)
+#1 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\Controller\Controller.php(957): View->render(NULL, NULL)
+#2 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\Routing\Dispatcher.php(193): Controller->render()
+#3 C:\Users\Boje\Documents\Web Development\parkerbossier\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Users\Boje\Documents\Web Development\parkerbossier\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

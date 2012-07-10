@@ -6,6 +6,10 @@
 			$this->redirect('/');
 		}
 
+		/*
+		 * main page functions
+		 */
+
 		public function web() {
 			
 		}
@@ -23,6 +27,14 @@
 		}
 
 		public function flizash() {
+			
+		}
+
+		/*
+		 * actual project pages
+		 */
+
+		public function turing() {
 			
 		}
 

@@ -4,9 +4,7 @@
 ?>
 <div class="container">
 	<div class="row">
-		<div class="span12">
-			<h1>Web Projects</h1>
-		</div>
+		<h1>Web Projects</h1>
 	</div>
 
 	<div class="row">

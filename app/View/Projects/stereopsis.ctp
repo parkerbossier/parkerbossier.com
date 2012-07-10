@@ -5,7 +5,7 @@
 
 <div class="container">
 	<div class="row">
-		<h1 style="text-align: center">Stereopsis | A Matlab Project</h1>
+		<h1>Stereopsis | A Matlab Project</h1>
 	</div>
 
 	<div class="row">

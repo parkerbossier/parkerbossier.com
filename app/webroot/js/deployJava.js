@@ -8,7 +8,7 @@ var deployJava=function(){
 		applet:['codebase','code','name','archive','object','width','height','alt','align','hspace','vspace'],
 		object:['classid','codebase','codetype','data','type','archive','declare','standby','height','width','usemap','name','tabindex','align','border','hspace','vspace']
 	};
-        
+		
 	var object_valid_attrs=hattrs.object.concat(hattrs.core,hattrs.i18n,hattrs.events);
 	var applet_valid_attrs=hattrs.applet.concat(hattrs.core);
 	function arHas(ar,attr){
@@ -588,7 +588,7 @@ var deployJava=function(){
 				if(this.returnPage!=null){
 					location.href=this.returnPage;
 				};
-    
+	
 			}
 			if((this.preInstallJREList.length!=0)&&(postInstallJREList.length!=0)&&(this.preInstallJREList[0]!=postInstallJREList[0])){
 				clearInterval(this.myInterval);

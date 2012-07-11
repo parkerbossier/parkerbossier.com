@@ -167,136 +167,136 @@ class PulseSphere {
 
   // Constructor
   PulseSphere(float x, float y, float z, float theta, float rho, float radius, float barScale, FFT lFft, FFT rFft, int bufferSize) {
-    // Argument variables initialization
-    _x = x;
-    _y = y;
-    _z = z;
-    _theta = theta;
-    _rho = rho;
-    _radius = radius;
-    _scale = barScale;
-    _lFft = lFft;
-    _rFft = rFft;
-    _bufferSize = bufferSize;
+	// Argument variables initialization
+	_x = x;
+	_y = y;
+	_z = z;
+	_theta = theta;
+	_rho = rho;
+	_radius = radius;
+	_scale = barScale;
+	_lFft = lFft;
+	_rFft = rFft;
+	_bufferSize = bufferSize;
 
-    // Private variable initialization
-    _sampleArray = new float[_bufferSize*numAverages];
-    for (int i = 0; i < _sampleArray.length; ++i) {
-      _sampleArray[i] = 0;
-    }
+	// Private variable initialization
+	_sampleArray = new float[_bufferSize*numAverages];
+	for (int i = 0; i < _sampleArray.length; ++i) {
+	  _sampleArray[i] = 0;
+	}
   }
 
   // Should be called every frame
   void update() {
-    //print(_maxSignal);
-    //print("\n");
-    // Translate and rotate.
-    translate(_x, _y, _z);
-    rotateZ(radians(_theta));
-    rotateX(radians(_rho));
+	//print(_maxSignal);
+	//print("\n");
+	// Translate and rotate.
+	translate(_x, _y, _z);
+	rotateZ(radians(_theta));
+	rotateX(radians(_rho));
 
-    // Draw the sphere.
-    noStroke();
-    fill(0);
-    lights();
-    sphere(_radius);
+	// Draw the sphere.
+	noStroke();
+	fill(0);
+	lights();
+	sphere(_radius);
 
-    // Loop through 360 degrees.
-    int stepSize = floor(360/50);
-    for (int i = 0; i < 360; i += stepSize) {    
-      // Draw the bars
-      float curSignal;
-      int index = 0;
-      for (float curTheta = -180; curTheta < -90; curTheta += 90/numAverages) {
-        // Grab the signal value and update the maximum signal value.
-        curSignal = _lFft.getAvg(numAverages-1-index);
-        updateMaxSignal(curSignal);
+	// Loop through 360 degrees.
+	int stepSize = floor(360/50);
+	for (int i = 0; i < 360; i += stepSize) {	
+	  // Draw the bars
+	  float curSignal;
+	  int index = 0;
+	  for (float curTheta = -180; curTheta < -90; curTheta += 90/numAverages) {
+		// Grab the signal value and update the maximum signal value.
+		curSignal = _lFft.getAvg(numAverages-1-index);
+		updateMaxSignal(curSignal);
 
-        // Draw the left bar.
-        drawBar(curTheta, curSignal);
+		// Draw the left bar.
+		drawBar(curTheta, curSignal);
 
-        // Grab the signal value and update the maximum signal value.
-        curSignal = _rFft.getAvg(index);
-        ++index;
-        updateMaxSignal(curSignal);
+		// Grab the signal value and update the maximum signal value.
+		curSignal = _rFft.getAvg(index);
+		++index;
+		updateMaxSignal(curSignal);
 
-        // Draw the right bar.
-        drawBar(curTheta+90, curSignal);
-      }
+		// Draw the right bar.
+		drawBar(curTheta+90, curSignal);
+	  }
 
-      // Rotate to the next degree.
-      rotateX(radians(stepSize));
-    }
+	  // Rotate to the next degree.
+	  rotateX(radians(stepSize));
+	}
 
-    // Finish the rotation.
-    rotateX(radians(360 - floor(360/50)*50));
-    
-    // Draw the X line.
-    float ratio = 1;
-    stroke(#FF0000);
-    strokeWeight(12);
-    line(-_radius - _maxSignal/ratio, 0, _radius + _maxSignal/ratio, 0);
-    
-    // Draw the Y line.
-    stroke(#00FF00);
-    strokeWeight(12);
-    line(0, -_radius - _maxSignal/ratio, 0, _radius + _maxSignal/ratio);
-    
-    // Draw the Z line.
-    stroke(#0000FF);
-    strokeWeight(12);
-    line(0, 0, -_radius - _maxSignal/ratio, 0, 0, _radius + _maxSignal/ratio);
+	// Finish the rotation.
+	rotateX(radians(360 - floor(360/50)*50));
+	
+	// Draw the X line.
+	float ratio = 1;
+	stroke(#FF0000);
+	strokeWeight(12);
+	line(-_radius - _maxSignal/ratio, 0, _radius + _maxSignal/ratio, 0);
+	
+	// Draw the Y line.
+	stroke(#00FF00);
+	strokeWeight(12);
+	line(0, -_radius - _maxSignal/ratio, 0, _radius + _maxSignal/ratio);
+	
+	// Draw the Z line.
+	stroke(#0000FF);
+	strokeWeight(12);
+	line(0, 0, -_radius - _maxSignal/ratio, 0, 0, _radius + _maxSignal/ratio);
 
-    // Return the orientation to normal.
-    rotateX(radians(-_rho));
-    rotateZ(radians(-_theta));
-    translate(-_x, -_y, -_z);
+	// Return the orientation to normal.
+	rotateX(radians(-_rho));
+	rotateZ(radians(-_theta));
+	translate(-_x, -_y, -_z);
   }
 
   // Updates the maximum signal encountered
   private void updateMaxSignal(float signal) {
-    // Loop the array index if necessary.
-    if (_currentSample > _sampleArray.length - 1) {
-      _currentSample = 0;
-    }
+	// Loop the array index if necessary.
+	if (_currentSample > _sampleArray.length - 1) {
+	  _currentSample = 0;
+	}
 
-    // Overwrite the correct signal value and get the average.
-    _sampleArray[_currentSample] = signal;
-    _maxSignal = average(_sampleArray);
+	// Overwrite the correct signal value and get the average.
+	_sampleArray[_currentSample] = signal;
+	_maxSignal = average(_sampleArray);
 
-    // Increment the counter.
-    ++_currentSample;
+	// Increment the counter.
+	++_currentSample;
   }
 
   // Returns the average of floats
   float average(float[] sampleArray) {
-    float returnVal = 0;
-    for (int i = 0; i < sampleArray.length; ++i) {
-      returnVal += sampleArray[i];
-    }
-    return returnVal/sampleArray.length;
+	float returnVal = 0;
+	for (int i = 0; i < sampleArray.length; ++i) {
+	  returnVal += sampleArray[i];
+	}
+	return returnVal/sampleArray.length;
   }
 
   // Draws a bar.
   private void drawBar(float theta, float signal) {
-    // Convert to radians.
-    theta = radians(theta);
+	// Convert to radians.
+	theta = radians(theta);
 
-    // Scale the signal.
-    float newSignal = signal/_maxSignal*_scale;
+	// Scale the signal.
+	float newSignal = signal/_maxSignal*_scale;
 
-    // Compute the coordinates.
-    float x1 = cos(theta)*_radius;
-    float y1 = sin(theta)*_radius;
-    float x2 = cos(theta)*(_radius+newSignal);
-    float y2 = sin(theta)*(_radius+newSignal);
+	// Compute the coordinates.
+	float x1 = cos(theta)*_radius;
+	float y1 = sin(theta)*_radius;
+	float x2 = cos(theta)*(_radius+newSignal);
+	float y2 = sin(theta)*(_radius+newSignal);
 
-    // Calculate the color.
-    stroke(signal/_maxSignal*55);
-    strokeWeight(12);
+	// Calculate the color.
+	stroke(signal/_maxSignal*55);
+	strokeWeight(12);
 
-    // Draw the line.
-    line(x1, y1, x2, y2);
+	// Draw the line.
+	line(x1, y1, x2, y2);
   }
 }
 

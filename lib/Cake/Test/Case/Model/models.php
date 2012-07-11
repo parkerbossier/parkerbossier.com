@@ -12,17 +12,17 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
- * @package       Cake.Test.Case.Model
- * @since         CakePHP(tm) v 1.2.0.6464
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	 Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link		  http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @package	   Cake.Test.Case.Model
+ * @since		 CakePHP(tm) v 1.2.0.6464
+ * @license	   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('Model', 'Model');
 /**
  * AppModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AppModel extends Model {
 
@@ -58,7 +58,7 @@ class AppModel extends Model {
 /**
  * Test class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test extends CakeTestModel {
 
@@ -95,7 +95,7 @@ class Test extends CakeTestModel {
 /**
  * TestAlias class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestAlias extends CakeTestModel {
 
@@ -138,7 +138,7 @@ class TestAlias extends CakeTestModel {
 /**
  * TestValidate class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestValidate extends CakeTestModel {
 
@@ -198,7 +198,7 @@ class TestValidate extends CakeTestModel {
 /**
  * User class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class User extends CakeTestModel {
 
@@ -236,7 +236,7 @@ class User extends CakeTestModel {
 /**
  * Article class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Article extends CakeTestModel {
 
@@ -314,7 +314,7 @@ class Article extends CakeTestModel {
  * Model stub for beforeDelete testing
  *
  * @see #250
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class BeforeDeleteComment extends CakeTestModel {
 
@@ -333,7 +333,7 @@ class BeforeDeleteComment extends CakeTestModel {
 /**
  * NumericArticle class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NumericArticle extends CakeTestModel {
 
@@ -356,7 +356,7 @@ class NumericArticle extends CakeTestModel {
 /**
  * Article10 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Article10 extends CakeTestModel {
 
@@ -386,7 +386,7 @@ class Article10 extends CakeTestModel {
 /**
  * ArticleFeatured class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ArticleFeatured extends CakeTestModel {
 
@@ -437,7 +437,7 @@ class ArticleFeatured extends CakeTestModel {
 /**
  * Featured class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Featured extends CakeTestModel {
 
@@ -459,7 +459,7 @@ class Featured extends CakeTestModel {
 /**
  * Tag class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Tag extends CakeTestModel {
 
@@ -474,7 +474,7 @@ class Tag extends CakeTestModel {
 /**
  * ArticlesTag class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ArticlesTag extends CakeTestModel {
 
@@ -489,7 +489,7 @@ class ArticlesTag extends CakeTestModel {
 /**
  * ArticleFeaturedsTag class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ArticleFeaturedsTag extends CakeTestModel {
 
@@ -504,7 +504,7 @@ class ArticleFeaturedsTag extends CakeTestModel {
 /**
  * Comment class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Comment extends CakeTestModel {
 
@@ -533,7 +533,7 @@ class Comment extends CakeTestModel {
 /**
  * Modified Comment Class has afterFind Callback
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModifiedComment extends CakeTestModel {
 
@@ -575,7 +575,7 @@ class ModifiedComment extends CakeTestModel {
 /**
  * Modified Comment Class has afterFind Callback
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AgainModifiedComment extends CakeTestModel {
 
@@ -617,7 +617,7 @@ class AgainModifiedComment extends CakeTestModel {
 /**
  * MergeVarPluginAppModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MergeVarPluginAppModel extends AppModel {
 
@@ -634,7 +634,7 @@ class MergeVarPluginAppModel extends AppModel {
 /**
  * MergeVarPluginPost class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MergeVarPluginPost extends MergeVarPluginAppModel {
 
@@ -658,7 +658,7 @@ class MergeVarPluginPost extends MergeVarPluginAppModel {
 /**
  * MergeVarPluginComment class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MergeVarPluginComment extends MergeVarPluginAppModel {
 
@@ -682,7 +682,7 @@ class MergeVarPluginComment extends MergeVarPluginAppModel {
 /**
  * Attachment class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Attachment extends CakeTestModel {
 
@@ -704,7 +704,7 @@ class Attachment extends CakeTestModel {
 /**
  * ModifiedAttachment class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModifiedAttachment extends CakeTestModel {
 
@@ -739,7 +739,7 @@ class ModifiedAttachment extends CakeTestModel {
 /**
  * Category class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Category extends CakeTestModel {
 
@@ -754,7 +754,7 @@ class Category extends CakeTestModel {
 /**
  * CategoryThread class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class CategoryThread extends CakeTestModel {
 
@@ -776,7 +776,7 @@ class CategoryThread extends CakeTestModel {
 /**
  * Apple class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Apple extends CakeTestModel {
 
@@ -819,7 +819,7 @@ class Apple extends CakeTestModel {
 /**
  * Sample class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Sample extends CakeTestModel {
 
@@ -841,7 +841,7 @@ class Sample extends CakeTestModel {
 /**
  * AnotherArticle class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AnotherArticle extends CakeTestModel {
 
@@ -863,7 +863,7 @@ class AnotherArticle extends CakeTestModel {
 /**
  * Advertisement class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Advertisement extends CakeTestModel {
 
@@ -885,7 +885,7 @@ class Advertisement extends CakeTestModel {
 /**
  * Home class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Home extends CakeTestModel {
 
@@ -907,7 +907,7 @@ class Home extends CakeTestModel {
 /**
  * Post class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Post extends CakeTestModel {
 
@@ -942,7 +942,7 @@ class Post extends CakeTestModel {
 /**
  * Author class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Author extends CakeTestModel {
 
@@ -976,7 +976,7 @@ class Author extends CakeTestModel {
 /**
  * ModifiedAuthor class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModifiedAuthor extends Author {
 
@@ -1005,7 +1005,7 @@ class ModifiedAuthor extends Author {
 /**
  * Project class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Project extends CakeTestModel {
 
@@ -1027,7 +1027,7 @@ class Project extends CakeTestModel {
 /**
  * Thread class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Thread extends CakeTestModel {
 
@@ -1056,7 +1056,7 @@ class Thread extends CakeTestModel {
 /**
  * Message class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Message extends CakeTestModel {
 
@@ -1078,7 +1078,7 @@ class Message extends CakeTestModel {
 /**
  * Bid class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Bid extends CakeTestModel {
 
@@ -1100,7 +1100,7 @@ class Bid extends CakeTestModel {
 /**
  * BiddingMessage class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class BiddingMessage extends CakeTestModel {
 
@@ -1134,7 +1134,7 @@ class BiddingMessage extends CakeTestModel {
 /**
  * Bidding class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Bidding extends CakeTestModel {
 
@@ -1162,7 +1162,7 @@ class Bidding extends CakeTestModel {
 /**
  * NodeAfterFind class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NodeAfterFind extends CakeTestModel {
 
@@ -1223,7 +1223,7 @@ class NodeAfterFind extends CakeTestModel {
 /**
  * NodeAfterFindSample class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NodeAfterFindSample extends CakeTestModel {
 
@@ -1252,7 +1252,7 @@ class NodeAfterFindSample extends CakeTestModel {
 /**
  * NodeNoAfterFind class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NodeNoAfterFind extends CakeTestModel {
 
@@ -1302,7 +1302,7 @@ class NodeNoAfterFind extends CakeTestModel {
 /**
  * Node class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Node extends CakeTestModel{
 
@@ -1332,7 +1332,7 @@ class Node extends CakeTestModel{
 /**
  * Dependency class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Dependency extends CakeTestModel {
 
@@ -1347,7 +1347,7 @@ class Dependency extends CakeTestModel {
 /**
  * ModelA class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModelA extends CakeTestModel {
 
@@ -1376,7 +1376,7 @@ class ModelA extends CakeTestModel {
 /**
  * ModelB class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModelB extends CakeTestModel {
 
@@ -1405,7 +1405,7 @@ class ModelB extends CakeTestModel {
 /**
  * ModelC class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModelC extends CakeTestModel {
 
@@ -1434,7 +1434,7 @@ class ModelC extends CakeTestModel {
 /**
  * ModelD class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ModelD extends CakeTestModel {
 
@@ -1456,7 +1456,7 @@ class ModelD extends CakeTestModel {
 /**
  * Something class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Something extends CakeTestModel {
 
@@ -1478,7 +1478,7 @@ class Something extends CakeTestModel {
 /**
  * SomethingElse class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class SomethingElse extends CakeTestModel {
 
@@ -1500,7 +1500,7 @@ class SomethingElse extends CakeTestModel {
 /**
  * JoinThing class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class JoinThing extends CakeTestModel {
 
@@ -1522,7 +1522,7 @@ class JoinThing extends CakeTestModel {
 /**
  * Portfolio class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Portfolio extends CakeTestModel {
 
@@ -1544,7 +1544,7 @@ class Portfolio extends CakeTestModel {
 /**
  * Item class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Item extends CakeTestModel {
 
@@ -1573,7 +1573,7 @@ class Item extends CakeTestModel {
 /**
  * ItemsPortfolio class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ItemsPortfolio extends CakeTestModel {
 
@@ -1588,7 +1588,7 @@ class ItemsPortfolio extends CakeTestModel {
 /**
  * Syfile class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Syfile extends CakeTestModel {
 
@@ -1610,7 +1610,7 @@ class Syfile extends CakeTestModel {
 /**
  * Image class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Image extends CakeTestModel {
 
@@ -1625,7 +1625,7 @@ class Image extends CakeTestModel {
 /**
  * DeviceType class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class DeviceType extends CakeTestModel {
 
@@ -1665,7 +1665,7 @@ class DeviceType extends CakeTestModel {
 /**
  * DeviceTypeCategory class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class DeviceTypeCategory extends CakeTestModel {
 
@@ -1680,7 +1680,7 @@ class DeviceTypeCategory extends CakeTestModel {
 /**
  * FeatureSet class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class FeatureSet extends CakeTestModel {
 
@@ -1695,7 +1695,7 @@ class FeatureSet extends CakeTestModel {
 /**
  * ExteriorTypeCategory class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ExteriorTypeCategory extends CakeTestModel {
 
@@ -1717,7 +1717,7 @@ class ExteriorTypeCategory extends CakeTestModel {
 /**
  * Document class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Document extends CakeTestModel {
 
@@ -1739,7 +1739,7 @@ class Document extends CakeTestModel {
 /**
  * Device class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Device extends CakeTestModel {
 
@@ -1754,7 +1754,7 @@ class Device extends CakeTestModel {
 /**
  * DocumentDirectory class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class DocumentDirectory extends CakeTestModel {
 
@@ -1769,7 +1769,7 @@ class DocumentDirectory extends CakeTestModel {
 /**
  * PrimaryModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class PrimaryModel extends CakeTestModel {
 
@@ -1784,7 +1784,7 @@ class PrimaryModel extends CakeTestModel {
 /**
  * SecondaryModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class SecondaryModel extends CakeTestModel {
 
@@ -1799,7 +1799,7 @@ class SecondaryModel extends CakeTestModel {
 /**
  * JoinA class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class JoinA extends CakeTestModel {
 
@@ -1821,7 +1821,7 @@ class JoinA extends CakeTestModel {
 /**
  * JoinB class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class JoinB extends CakeTestModel {
 
@@ -1843,7 +1843,7 @@ class JoinB extends CakeTestModel {
 /**
  * JoinC class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class JoinC extends CakeTestModel {
 
@@ -1865,7 +1865,7 @@ class JoinC extends CakeTestModel {
 /**
  * ThePaper class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ThePaper extends CakeTestModel {
 
@@ -1901,7 +1901,7 @@ class ThePaper extends CakeTestModel {
 /**
  * Monkey class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Monkey extends CakeTestModel {
 
@@ -1923,7 +1923,7 @@ class Monkey extends CakeTestModel {
 /**
  * AssociationTest1 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AssociationTest1 extends CakeTestModel {
 
@@ -1954,7 +1954,7 @@ class AssociationTest1 extends CakeTestModel {
 /**
  * AssociationTest2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AssociationTest2 extends CakeTestModel {
 
@@ -1985,7 +1985,7 @@ class AssociationTest2 extends CakeTestModel {
 /**
  * Callback class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Callback extends CakeTestModel {
 
@@ -1994,7 +1994,7 @@ class Callback extends CakeTestModel {
 /**
  * CallbackPostTestModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class CallbackPostTestModel extends CakeTestModel {
 
@@ -2053,7 +2053,7 @@ class CallbackPostTestModel extends CakeTestModel {
 /**
  * Uuid class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Uuid extends CakeTestModel {
 
@@ -2068,7 +2068,7 @@ class Uuid extends CakeTestModel {
 /**
  * DataTest class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class DataTest extends CakeTestModel {
 
@@ -2083,7 +2083,7 @@ class DataTest extends CakeTestModel {
 /**
  * TheVoid class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TheVoid extends CakeTestModel {
 
@@ -2105,7 +2105,7 @@ class TheVoid extends CakeTestModel {
 /**
  * ValidationTest1 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ValidationTest1 extends CakeTestModel {
 
@@ -2191,7 +2191,7 @@ class ValidationTest1 extends CakeTestModel {
 /**
  * ValidationTest2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ValidationTest2 extends CakeTestModel {
 
@@ -2248,7 +2248,7 @@ class ValidationTest2 extends CakeTestModel {
 /**
  * Person class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Person extends CakeTestModel {
 
@@ -2279,7 +2279,7 @@ class Person extends CakeTestModel {
 /**
  * UnderscoreField class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class UnderscoreField extends CakeTestModel {
 
@@ -2294,7 +2294,7 @@ class UnderscoreField extends CakeTestModel {
 /**
  * Product class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Product extends CakeTestModel {
 
@@ -2309,7 +2309,7 @@ class Product extends CakeTestModel {
 /**
  * Story class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Story extends CakeTestModel {
 
@@ -2345,7 +2345,7 @@ class Story extends CakeTestModel {
 /**
  * Cd class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Cd extends CakeTestModel {
 
@@ -2374,7 +2374,7 @@ class Cd extends CakeTestModel {
 /**
  * Book class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Book extends CakeTestModel {
 
@@ -2403,7 +2403,7 @@ class Book extends CakeTestModel {
 /**
  * OverallFavorite class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class OverallFavorite extends CakeTestModel {
 
@@ -2418,7 +2418,7 @@ class OverallFavorite extends CakeTestModel {
 /**
  * MyUser class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MyUser extends CakeTestModel {
 
@@ -2440,7 +2440,7 @@ class MyUser extends CakeTestModel {
 /**
  * MyCategory class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MyCategory extends CakeTestModel {
 
@@ -2462,7 +2462,7 @@ class MyCategory extends CakeTestModel {
 /**
  * MyProduct class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MyProduct extends CakeTestModel {
 
@@ -2484,7 +2484,7 @@ class MyProduct extends CakeTestModel {
 /**
  * MyCategoriesMyUser class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MyCategoriesMyUser extends CakeTestModel {
 
@@ -2499,7 +2499,7 @@ class MyCategoriesMyUser extends CakeTestModel {
 /**
  * MyCategoriesMyProduct class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MyCategoriesMyProduct extends CakeTestModel {
 
@@ -2515,7 +2515,7 @@ class MyCategoriesMyProduct extends CakeTestModel {
 /**
  * NumberTree class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NumberTree extends CakeTestModel {
 
@@ -2579,7 +2579,7 @@ class NumberTree extends CakeTestModel {
 /**
  * NumberTreeTwo class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class NumberTreeTwo extends NumberTree {
 
@@ -2601,7 +2601,7 @@ class NumberTreeTwo extends NumberTree {
 /**
  * FlagTree class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class FlagTree extends NumberTree {
 
@@ -2616,7 +2616,7 @@ class FlagTree extends NumberTree {
 /**
  * UnconventionalTree class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class UnconventionalTree extends NumberTree {
 
@@ -2640,7 +2640,7 @@ class UnconventionalTree extends NumberTree {
 /**
  * UuidTree class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class UuidTree extends NumberTree {
 
@@ -2655,7 +2655,7 @@ class UuidTree extends NumberTree {
 /**
  * Campaign class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Campaign extends CakeTestModel {
 
@@ -2677,7 +2677,7 @@ class Campaign extends CakeTestModel {
 /**
  * Ad class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Ad extends CakeTestModel {
 
@@ -2706,7 +2706,7 @@ class Ad extends CakeTestModel {
 /**
  * AfterTree class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class AfterTree extends NumberTree {
 
@@ -2735,7 +2735,7 @@ class AfterTree extends NumberTree {
 /**
  * Nonconformant Content class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Content extends CakeTestModel {
 
@@ -2771,7 +2771,7 @@ class Content extends CakeTestModel {
 /**
  * Nonconformant Account class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Account extends CakeTestModel {
 
@@ -2800,7 +2800,7 @@ class Account extends CakeTestModel {
 /**
  * Nonconformant ContentAccount class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ContentAccount extends CakeTestModel {
 
@@ -2829,7 +2829,7 @@ class ContentAccount extends CakeTestModel {
 /**
  * FilmFile class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class FilmFile extends CakeTestModel {
 
@@ -2840,7 +2840,7 @@ class FilmFile extends CakeTestModel {
 /**
  * Basket test model
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Basket extends CakeTestModel {
 
@@ -2861,7 +2861,7 @@ class Basket extends CakeTestModel {
 /**
  * TestPluginArticle class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestPluginArticle extends CakeTestModel {
 
@@ -2896,7 +2896,7 @@ class TestPluginArticle extends CakeTestModel {
 /**
  * TestPluginComment class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestPluginComment extends CakeTestModel {
 
@@ -2924,7 +2924,7 @@ class TestPluginComment extends CakeTestModel {
 /**
  * Uuidportfolio class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Uuidportfolio extends CakeTestModel {
 
@@ -2946,7 +2946,7 @@ class Uuidportfolio extends CakeTestModel {
 /**
  * Uuiditem class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Uuiditem extends CakeTestModel {
 
@@ -2969,7 +2969,7 @@ class Uuiditem extends CakeTestModel {
 /**
  * UuiditemsPortfolio class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class UuiditemsUuidportfolio extends CakeTestModel {
 
@@ -2984,7 +2984,7 @@ class UuiditemsUuidportfolio extends CakeTestModel {
 /**
  * UuiditemsPortfolioNumericid class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class UuiditemsUuidportfolioNumericid extends CakeTestModel {
 
@@ -2999,7 +2999,7 @@ class UuiditemsUuidportfolioNumericid extends CakeTestModel {
 /**
  * TranslateTestModel class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslateTestModel extends CakeTestModel {
 
@@ -3028,7 +3028,7 @@ class TranslateTestModel extends CakeTestModel {
 /**
  * TranslateTestModel class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslateWithPrefix extends CakeTestModel {
 
@@ -3058,7 +3058,7 @@ class TranslateWithPrefix extends CakeTestModel {
 /**
  * TranslatedItem class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslatedItem extends CakeTestModel {
 
@@ -3095,7 +3095,7 @@ class TranslatedItem extends CakeTestModel {
 /**
  * TranslatedItem class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslatedItem2 extends CakeTestModel {
 
@@ -3132,7 +3132,7 @@ class TranslatedItem2 extends CakeTestModel {
 /**
  * TranslatedItemWithTable class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslatedItemWithTable extends CakeTestModel {
 
@@ -3183,7 +3183,7 @@ class TranslatedItemWithTable extends CakeTestModel {
 /**
  * TranslateArticleModel class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslateArticleModel extends CakeTestModel {
 
@@ -3213,7 +3213,7 @@ class TranslateArticleModel extends CakeTestModel {
 /**
  * TranslatedArticle class.
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TranslatedArticle extends CakeTestModel {
 
@@ -3515,7 +3515,7 @@ class Domain extends CakeTestModel {
 /**
  * TestModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel extends CakeTestModel {
 
@@ -3590,7 +3590,7 @@ class TestModel extends CakeTestModel {
 /**
  * TestModel2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel2 extends CakeTestModel {
 
@@ -3612,7 +3612,7 @@ class TestModel2 extends CakeTestModel {
 /**
  * TestModel4 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel3 extends CakeTestModel {
 
@@ -3634,7 +3634,7 @@ class TestModel3 extends CakeTestModel {
 /**
  * TestModel4 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel4 extends CakeTestModel {
 
@@ -3718,7 +3718,7 @@ class TestModel4 extends CakeTestModel {
 /**
  * TestModel4TestModel7 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel4TestModel7 extends CakeTestModel {
 
@@ -3763,7 +3763,7 @@ class TestModel4TestModel7 extends CakeTestModel {
 /**
  * TestModel5 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel5 extends CakeTestModel {
 
@@ -3831,7 +3831,7 @@ class TestModel5 extends CakeTestModel {
 /**
  * TestModel6 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel6 extends CakeTestModel {
 
@@ -3891,7 +3891,7 @@ class TestModel6 extends CakeTestModel {
 /**
  * TestModel7 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel7 extends CakeTestModel {
 
@@ -3938,7 +3938,7 @@ class TestModel7 extends CakeTestModel {
 /**
  * TestModel8 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel8 extends CakeTestModel {
 
@@ -3999,7 +3999,7 @@ class TestModel8 extends CakeTestModel {
 /**
  * TestModel9 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestModel9 extends CakeTestModel {
 
@@ -4060,7 +4060,7 @@ class TestModel9 extends CakeTestModel {
 /**
  * Level class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Level extends CakeTestModel {
 
@@ -4119,7 +4119,7 @@ class Level extends CakeTestModel {
 /**
  * Group class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Group extends CakeTestModel {
 
@@ -4179,7 +4179,7 @@ class Group extends CakeTestModel {
 /**
  * User2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class User2 extends CakeTestModel {
 
@@ -4251,7 +4251,7 @@ class User2 extends CakeTestModel {
 /**
  * Category2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Category2 extends CakeTestModel {
 
@@ -4334,7 +4334,7 @@ class Category2 extends CakeTestModel {
 /**
  * Article2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Article2 extends CakeTestModel {
 
@@ -4406,7 +4406,7 @@ class Article2 extends CakeTestModel {
 /**
  * CategoryFeatured2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class CategoryFeatured2 extends CakeTestModel {
 
@@ -4454,7 +4454,7 @@ class CategoryFeatured2 extends CakeTestModel {
 /**
  * Featured2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Featured2 extends CakeTestModel {
 
@@ -4512,7 +4512,7 @@ class Featured2 extends CakeTestModel {
 /**
  * Comment2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Comment2 extends CakeTestModel {
 
@@ -4566,7 +4566,7 @@ class Comment2 extends CakeTestModel {
 /**
  * ArticleFeatured2 class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ArticleFeatured2 extends CakeTestModel {
 
@@ -4646,7 +4646,7 @@ class ArticleFeatured2 extends CakeTestModel {
 /**
  * MysqlTestModel class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class MysqlTestModel extends Model {
 
@@ -4738,7 +4738,7 @@ class PrefixTestUseTableModel extends CakeTestModel {
 /**
  * ScaffoldMock class
  *
- * @package       Cake.Test.Case.Controller
+ * @package	   Cake.Test.Case.Controller
  */
 class ScaffoldMock extends CakeTestModel {
 
@@ -4792,7 +4792,7 @@ class ScaffoldMock extends CakeTestModel {
 /**
  * ScaffoldUser class
  *
- * @package       Cake.Test.Case.Controller
+ * @package	   Cake.Test.Case.Controller
  */
 class ScaffoldUser extends CakeTestModel {
 
@@ -4819,7 +4819,7 @@ class ScaffoldUser extends CakeTestModel {
 /**
  * ScaffoldComment class
  *
- * @package       Cake.Test.Case.Controller
+ * @package	   Cake.Test.Case.Controller
  */
 class ScaffoldComment extends CakeTestModel {
 
@@ -4846,7 +4846,7 @@ class ScaffoldComment extends CakeTestModel {
 /**
  * ScaffoldTag class
  *
- * @package       Cake.Test.Case.Controller
+ * @package	   Cake.Test.Case.Controller
  */
 class ScaffoldTag extends CakeTestModel {
 
@@ -4862,7 +4862,7 @@ class ScaffoldTag extends CakeTestModel {
 /**
  * Player class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Player extends CakeTestModel {
 
@@ -4878,7 +4878,7 @@ class Player extends CakeTestModel {
 /**
  * Guild class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Guild extends CakeTestModel {
 
@@ -4894,7 +4894,7 @@ class Guild extends CakeTestModel {
 /**
  * GuildsPlayer class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class GuildsPlayer extends CakeTestModel {
 
@@ -4909,7 +4909,7 @@ class GuildsPlayer extends CakeTestModel {
 /**
  * Armor class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Armor extends CakeTestModel {
 
@@ -4923,7 +4923,7 @@ class Armor extends CakeTestModel {
 /**
  * ArmorsPlayer class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class ArmorsPlayer extends CakeTestModel {
 
@@ -4934,7 +4934,7 @@ class ArmorsPlayer extends CakeTestModel {
 /**
  * CustomArticle class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class CustomArticle extends AppModel {
 

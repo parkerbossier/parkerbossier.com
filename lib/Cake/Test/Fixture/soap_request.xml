@@ -5,7 +5,7 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 <soap:Body xmlns:m="http://www.example.org/stock">
   <m:GetStockPrice>
-    <m:StockName>IBM</m:StockName>
+	<m:StockName>IBM</m:StockName>
   </m:GetStockPrice>
 </soap:Body>
 

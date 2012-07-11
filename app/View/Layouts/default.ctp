@@ -85,7 +85,7 @@
 
 						<li class="divider-vertical"></li>
 
-						<li><a href="mailto:parkerbossier@gmail.com" _target="_blank">Contact</a></li>
+						<li><a href="mailto:parkerbossier@gmail.com" target="_blank">Contact</a></li>
 						<li><a href="/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
 					</ul>
 				</div>

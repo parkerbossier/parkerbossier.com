@@ -12,11 +12,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.Test.Case.Model
- * @since         1.2
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	 CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * @link		  http://cakephp.org CakePHP(tm) Project
+ * @package	   Cake.Test.Case.Model
+ * @since		 1.2
+ * @license	   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
 App::uses('AppModel', 'Model');
@@ -25,7 +25,7 @@ require_once dirname(__FILE__) . DS . 'models.php';
 /**
  * TestBehavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class TestBehavior extends ModelBehavior {
 
@@ -326,7 +326,7 @@ class TestBehavior extends ModelBehavior {
 /**
  * Test2Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test2Behavior extends TestBehavior {
 
@@ -343,7 +343,7 @@ class Test2Behavior extends TestBehavior {
 /**
  * Test3Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test3Behavior extends TestBehavior{
 }
@@ -351,7 +351,7 @@ class Test3Behavior extends TestBehavior{
 /**
  * Test4Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test4Behavior extends ModelBehavior{
 
@@ -366,7 +366,7 @@ class Test4Behavior extends ModelBehavior{
 /**
  * Test5Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test5Behavior extends ModelBehavior{
 
@@ -381,7 +381,7 @@ class Test5Behavior extends ModelBehavior{
 /**
  * Test6Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test6Behavior extends ModelBehavior{
 
@@ -396,7 +396,7 @@ class Test6Behavior extends ModelBehavior{
 /**
  * Test7Behavior class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class Test7Behavior extends ModelBehavior{
 
@@ -417,7 +417,7 @@ class TestAliasBehavior extends TestBehavior {
 /**
  * BehaviorCollection class
  *
- * @package       Cake.Test.Case.Model
+ * @package	   Cake.Test.Case.Model
  */
 class BehaviorCollectionTest extends CakeTestCase {
 

@@ -10,11 +10,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
- * @package       Cake.Test.Case.Network.Email
- * @since         CakePHP(tm) v 2.0.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	 Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link		  http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @package	   Cake.Test.Case.Network.Email
+ * @since		 CakePHP(tm) v 2.0.0
+ * @license	   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('CakeEmail', 'Network/Email');
 
@@ -99,7 +99,7 @@ class ExtendTransport {
 /**
  * CakeEmailTest class
  *
- * @package       Cake.Test.Case.Network.Email
+ * @package	   Cake.Test.Case.Network.Email
  */
 class CakeEmailTest extends CakeTestCase {
 
@@ -1698,8 +1698,8 @@ class CakeEmailTest extends CakeTestCase {
 
 /**
  * Tests for compatible check.
- *          charset property and       charset() method.
- *    headerCharset property and headerCharset() method.
+ *		  charset property and	   charset() method.
+ *	headerCharset property and headerCharset() method.
  */
 	public function testCharsetsCompatible() {
 		$this->skipIf(!function_exists('mb_convert_encoding'));
@@ -1719,9 +1719,9 @@ class CakeEmailTest extends CakeTestCase {
 		$newStyleEmail = $this->_getEmailByNewStyleCharset('iso-2022-jp', null);
 		$newStyleHeaders = $newStyleEmail->getHeaders($checkHeaders);
 
-		$this->assertSame($oldStyleHeaders['From'],    $newStyleHeaders['From']);
-		$this->assertSame($oldStyleHeaders['To'],      $newStyleHeaders['To']);
-		$this->assertSame($oldStyleHeaders['Cc'],      $newStyleHeaders['Cc']);
+		$this->assertSame($oldStyleHeaders['From'],	$newStyleHeaders['From']);
+		$this->assertSame($oldStyleHeaders['To'],	  $newStyleHeaders['To']);
+		$this->assertSame($oldStyleHeaders['Cc'],	  $newStyleHeaders['Cc']);
 		$this->assertSame($oldStyleHeaders['Subject'], $newStyleHeaders['Subject']);
 
 		// Header Charset : UTF-8
@@ -1732,9 +1732,9 @@ class CakeEmailTest extends CakeTestCase {
 		$newStyleEmail = $this->_getEmailByNewStyleCharset('iso-2022-jp', 'utf-8');
 		$newStyleHeaders = $newStyleEmail->getHeaders($checkHeaders);
 
-		$this->assertSame($oldStyleHeaders['From'],    $newStyleHeaders['From']);
-		$this->assertSame($oldStyleHeaders['To'],      $newStyleHeaders['To']);
-		$this->assertSame($oldStyleHeaders['Cc'],      $newStyleHeaders['Cc']);
+		$this->assertSame($oldStyleHeaders['From'],	$newStyleHeaders['From']);
+		$this->assertSame($oldStyleHeaders['To'],	  $newStyleHeaders['To']);
+		$this->assertSame($oldStyleHeaders['Cc'],	  $newStyleHeaders['Cc']);
 		$this->assertSame($oldStyleHeaders['Subject'], $newStyleHeaders['Subject']);
 
 		// Header Charset : ISO-2022-JP
@@ -1745,9 +1745,9 @@ class CakeEmailTest extends CakeTestCase {
 		$newStyleEmail = $this->_getEmailByNewStyleCharset('utf-8', 'iso-2022-jp');
 		$newStyleHeaders = $newStyleEmail->getHeaders($checkHeaders);
 
-		$this->assertSame($oldStyleHeaders['From'],    $newStyleHeaders['From']);
-		$this->assertSame($oldStyleHeaders['To'],      $newStyleHeaders['To']);
-		$this->assertSame($oldStyleHeaders['Cc'],      $newStyleHeaders['Cc']);
+		$this->assertSame($oldStyleHeaders['From'],	$newStyleHeaders['From']);
+		$this->assertSame($oldStyleHeaders['To'],	  $newStyleHeaders['To']);
+		$this->assertSame($oldStyleHeaders['Cc'],	  $newStyleHeaders['Cc']);
 		$this->assertSame($oldStyleHeaders['Subject'], $newStyleHeaders['Subject']);
 	}
 

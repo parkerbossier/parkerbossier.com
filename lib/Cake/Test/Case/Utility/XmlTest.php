@@ -10,11 +10,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
- * @package       Cake.Test.Case.Utility
- * @since         CakePHP(tm) v 1.2.0.5432
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	 Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link		  http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @package	   Cake.Test.Case.Utility
+ * @since		 CakePHP(tm) v 1.2.0.5432
+ * @license	   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('Xml', 'Utility');
 App::uses('CakeTestModel', 'TestSuite/Fixture');
@@ -22,7 +22,7 @@ App::uses('CakeTestModel', 'TestSuite/Fixture');
 /**
  * Article class
  *
- * @package       Cake.Test.Case.Utility
+ * @package	   Cake.Test.Case.Utility
  */
 class XmlArticle extends CakeTestModel {
 
@@ -49,7 +49,7 @@ class XmlArticle extends CakeTestModel {
 /**
  * User class
  *
- * @package       Cake.Test.Case.Utility
+ * @package	   Cake.Test.Case.Utility
  */
 class XmlUser extends CakeTestModel {
 
@@ -75,7 +75,7 @@ class XmlUser extends CakeTestModel {
 /**
  * XmlTest class
  *
- * @package       Cake.Test.Case.Utility
+ * @package	   Cake.Test.Case.Utility
  */
 class XmlTest extends CakeTestCase {
 

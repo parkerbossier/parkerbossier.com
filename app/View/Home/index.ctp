@@ -6,7 +6,7 @@
 <div class="container larger-font">
 	<div class="row">
 		<div class="span3">
-			<img src="/img/profile.jpg" id="profile-pic"/>
+			<img src="/img/profile.jpg" id="profile-pic" alt="Parker Bossier"/>
 		</div>
 
 		<div class="span9" id="site-intro">

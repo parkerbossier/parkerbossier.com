@@ -15,7 +15,7 @@
 			array(550, 450, 'Guess-Word.swf')
 		);
 
-		if ($index == 0) $style = 'style="background-color: black";';
+		if ($index == 0) $style = 'style="background-color: black;"';
 
 		ob_start();
 		?>

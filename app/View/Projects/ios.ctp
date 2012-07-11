@@ -18,7 +18,7 @@
 					So I found out that Winterboard allows you to make Cydia lockscreen themes with HTML, CSS, and JS. I love it. Here's a screenshot to make you want to jailbreak if you haven't yet.
 				</p>
 
-				<img src="/img/Minimalist%20Moment%20of%20Silence.png"/>
+				<img src="/img/Minimalist%20Moment%20of%20Silence.png" alt="Minimalist Moment of Silence"/>
 			</div>
 		</div>
 
@@ -31,7 +31,7 @@
 					More JS this time. The seconds bar scrolls pretty smoothly across the screen, and the other bars update accordingly.
 				</p>
 
-				<img src="/img/Scrolling%20Time-Date%20Lockscreen%20HD.png"/>
+				<img src="/img/Scrolling%20Time-Date%20Lockscreen%20HD.png" alt="Scrolling Time/Date Lockscreen"/>
 			</div>
 		</div>
 	</div>

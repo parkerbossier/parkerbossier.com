@@ -28,6 +28,7 @@
 
 	<meta name="viewport" content="width = device-width">
 	<meta name = "viewport" content = "initial-scale = 1.0">
+	<meta name="google-site-verification" content="7Y3B58eNeR5cz0zex1JR8eLZ-TNfd_7MGcQZ01BsXMI" />
 
 	<?php
 		echo $this->Html->meta('icon');

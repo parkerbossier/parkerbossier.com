@@ -8,7 +8,7 @@ web1:
     - app/tmp/tests
   php_extensions:
     - mcrypt
-    - mysqli
+    - mysql
     - mbstring
     - pdo_mysql #required for versions 2.x+
     - apc

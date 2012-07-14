@@ -31,12 +31,12 @@
 				<li>
 					Powered by <a href="http://twitter.github.com/bootstrap" target="_blank">Twitter Bootstrap</a> - Until this summer, I hadn't used any CSS frameworks except for jQuery's themes (which I never really liked). Then, I was introduced to Twitter Bootstrap. It makes CSS/layout design so much quicker, cleaner, and visually attractive. I highly recommend it.
 				</li>
+
+				<li>
+					<a href="/blog">Blog</a> powered by <a href="http://wordpress.org/" target="_blank">WordPress</a> - I just set up my own WordPress instance. Goodbye Blogger.
+				</li>
 			</ul>
 			<br/>
-
-			<p>
-				Head over to my blog on <a href="http://parkerbossier.blogspot.com/" target="_blank">Blogger</a>. I'll eventually be making my own blog on this site, but Blogger is just too easy for now... <em>SPOILER</em>: I'm not <span style="text-decoration: line-through">too</span> active on Blogger.
-			</p>
 			<br/>
 
 			<p>

@@ -6,8 +6,6 @@ web1:
     - app/tmp/cache/persistent
     - app/tmp/sessions
     - app/tmp/tests
-    - app/webroot/wordpress/wp-content/plgins
-    - app/webroot/wordpress/wp-content/themes
   php_extensions:
     - mcrypt
     - mysql

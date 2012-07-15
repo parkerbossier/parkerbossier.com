@@ -33,7 +33,11 @@
 				</li>
 
 				<li>
-					<a href="/blog">Blog</a> powered by <a href="http://wordpress.org/" target="_blank">WordPress</a> - I just set up my own WordPress instance. Goodbye Blogger.
+					Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a> - I just set up my own WordPress instance. Goodbye Blogger.
+				</li>
+
+				<li>
+					Accelerated with <a href="http://www.cloudflare.com/" target="_blank">CloudFlare</a> - My DNS is managed with CloudFlare. Awesome interface. Awesome features.
 				</li>
 			</ul>
 			<br/>

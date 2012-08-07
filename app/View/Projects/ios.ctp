@@ -24,7 +24,7 @@
 
 		<div class="span6">
 			<h2><a href="http://modmyi.com/info/scrollingtimedatelockscreenhd.d.php" target="_blank">
-					Scrolling Time/Date Lockscreen
+	 				Scrolling Time/Date Lockscreen
 				</a></h2>
 			<div class="well">
 				<p>

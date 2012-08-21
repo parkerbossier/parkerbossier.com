@@ -33,9 +33,9 @@
 		echo $this->Html->meta('icon');
 		echo $this->fetch('meta');
 
-		echo $this->Html->css('bootstrap');
+		echo $this->Html->css('bootstrap.min');
 		echo $this->Html->css('main');
-		echo $this->Html->css('bootstrap-responsive');
+		echo $this->Html->css('bootstrap-responsive.min');
 		echo $this->Html->css('responsive-customizations');
 		echo $this->fetch('css');
 
@@ -60,7 +60,7 @@
 </head>
 
 <body>
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container my-bypass">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

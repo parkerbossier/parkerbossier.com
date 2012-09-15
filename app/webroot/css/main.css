@@ -1,30 +1,16 @@
 body {
 	padding-top: 40px;
-	background-image: url('/img/pattern.jpg');
+	background-image: url('/img/purty_wood.png');
 	background-repeat: repeat;
 }
 
-.container:not(.my-bypass){
-	/*
-	background-image: url('/img/pattern.jpg');
-	background-repeat: repeat;
-	*/
+.container:not(.my-bypass) {
 	padding: 25px;
-	background-color: #fcfcfc;
-	-moz-box-shadow: 0px 8px 10px gray, 
-		-10px 8px 15px gray,
-		10px 8px 15px gray;
-	-webkit-box-shadow: 0px 8px 10px gray, 
-		-10px 8px 15px gray,
-		10px 8px 15px gray;
-	box-shadow: 0px 8px 10px gray, 
-		-10px 8px 15px gray,
-		10px 8px 15px gray;
+	background-image: url('/img/techdraw.png');
+	background-repeat: repeat;
 
-	-webkit-border-bottom-right-radius: 12px;
-	-webkit-border-bottom-left-radius: 12px;
-	-moz-border-radius-bottomright: 12px;
-	-moz-border-radius-bottomleft: 12px;
+	height: 100%;
+
 	border-bottom-right-radius: 12px;
 	border-bottom-left-radius: 12px;
 }
@@ -41,6 +27,10 @@ h1:not(.my-bypass) {
 	float: right;
 }
 
+.centered-text {
+	text-align: center;
+}
+
 
 /*
 * home
@@ -50,11 +40,6 @@ h1:not(.my-bypass) {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
-}
-
-p:first-letter {
-	font-weight: bold;
-	font-size: 18px
 }
 
 .row {

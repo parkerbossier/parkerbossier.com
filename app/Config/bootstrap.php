@@ -179,3 +179,10 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+// formatted var shit
+function pre_var_dump($arg) {
+	echo '<pre>';
+	var_dump($arg);
+	echo '</pre>';
+}

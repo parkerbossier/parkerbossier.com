@@ -377,3 +377,17 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2012-09-15 03:33:00 Error: [MissingControllerException] Controller class PihonController could not be found.
 #0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-09-17 17:00:53 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-09-17 17:03:29 Error: [MissingControllerException] Controller class Index.phpController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-09-17 20:45:19 Error: [MissingActionException] Action AppController::View() could not be found.
+#0 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-09-17 20:45:22 Error: [MissingControllerException] Controller class AController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

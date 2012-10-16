@@ -15,10 +15,6 @@ body {
 	border-bottom-left-radius: 12px;
 }
 
-h1:not(.my-bypass) {
-	text-align: center;
-}
-
 .larger-font {
 	font-size: 17px;
 }

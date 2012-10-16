@@ -1,4 +1,4 @@
-<div class="ios content-item" style="display: none;"">
+<div class="ios content-item" style="display: none;">
 	<div class="row-fluid centered-text">
 		<div class="span6">
 			<h2>

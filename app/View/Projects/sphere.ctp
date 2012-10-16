@@ -6,9 +6,7 @@ $this->Html->css('sphere', null, array('block' => 'css'));
 
 <div class="container">
 	<div class="row">
-		<div class="span12">
-			<h1 class="centered-text">Sphere Music Visualizer</h1>
-		</div>
+		<h1>Sphere Music Visualizer</h1>
 	</div>
 
 	<div class="row" style="text-align: center">

@@ -15,7 +15,7 @@
 	<div class="row-fluid">
 		<div class="span10 offset1">
 			<p>
-				Ahhh Flash. I took a summer course on Flash MX at Stanford a long while back. Of course, now everything's in HTML/JS, but those were exciting times. The Flash IDE was the second IDE I'd ever used, actually - second to Blodshed Dev-C++ (yes I think I just dated myself).
+				Ahhh Flash. I took a summer course covering Flash MX at Stanford a long while back. All projects on my Flash page date back to high school. Now everything's in HTML/JS, but those were exciting times. The Flash IDE was the second IDE I'd ever used, actually - second to Blodshed Dev-C++ (yes I think I just dated myself).
 			</p>
 		</div>
 	</div>

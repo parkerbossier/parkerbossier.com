@@ -6,13 +6,13 @@ body {
 
 .container:not(.my-bypass) {
 	padding: 25px;
-	background-image: url('/img/techdraw.png');
-	background-repeat: repeat;
 
 	height: 100%;
 
 	border-bottom-right-radius: 12px;
 	border-bottom-left-radius: 12px;
+	background-image: url('/img/techdraw.png');
+	background-repeat: repeat;
 }
 
 .larger-font {

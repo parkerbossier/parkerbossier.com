@@ -8,7 +8,7 @@ $this->Html->css('portfolio', null, array('block' => 'css'));
 	<div class="row">
 		<div class="span2">
 			<ul class="nav nav-pills nav-stacked">
-				<li class="disabled"><a href="#" data-name="archdata">acrhDATA (coming soon)</a></li>
+				<li class="disabled"><a href="#" data-name="archdata">archDATA<br/>(coming soon)</a></li>
 				<li class="active"><a href="#planjar" data-name="planjar">PlanJar</a></li>
 				<li><a href="#volnado" data-name="volnado">Volnado</a></li>
 				<li><a href="#campusair" data-name="campusair">theCampusAir</a></li>

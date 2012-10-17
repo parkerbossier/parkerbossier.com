@@ -1,7 +1,4 @@
-/*
- * moves the intro text to the vertical center of the row
- */
-
+// moves the intro text to the vertical center of the row
 window.onload = valign_site_intro;
 $(window).resize(function() {
 	valign_site_intro();

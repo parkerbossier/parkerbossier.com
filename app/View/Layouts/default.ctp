@@ -24,6 +24,7 @@
 
 		echo $this->Html->script('jquery-1.7.2');
 		echo $this->Html->script('bootstrap.min');
+		echo $this->Html->script('global');
 
 		// tab selected
 		if (isset($activeTab)) {
@@ -43,9 +44,9 @@
 	</head>
 
 	<body>
-		<div class="navbar navbar-fixed-top">
+		<div class="navbar">
 			<div class="navbar-inner">
-				<div class="container my-bypass">
+				<div class="container">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -71,7 +72,8 @@
 			</div>
 		</div>
 
-
-		<?php echo $this->fetch('content'); ?>
+		<div class="container main">
+			<?php echo $this->fetch('content'); ?>
+		</div>
 	</body>
 </html>

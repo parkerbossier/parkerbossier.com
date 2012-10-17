@@ -377,3 +377,42 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2012-09-15 03:33:00 Error: [MissingControllerException] Controller class PihonController could not be found.
 #0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-10-17 16:34:26 Error: [MissingControllerException] Controller class FooController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-17 16:34:33 Error: [MissingViewException] View file "/Users/Parker/Sites/parkerbossier/app/View/Home/.ctp" is missing.
+#0 /Users/Parker/Sites/parkerbossier/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/Parker/Sites/parkerbossier/lib/Cake/Controller/Controller.php(957): View->render(NULL, NULL)
+#2 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-17 16:34:41 Error: [MissingViewException] View file "/Users/Parker/Sites/parkerbossier/app/View/Home/.ctp" is missing.
+#0 /Users/Parker/Sites/parkerbossier/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/Parker/Sites/parkerbossier/lib/Cake/Controller/Controller.php(957): View->render(NULL, NULL)
+#2 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-17 16:34:45 Error: [MissingViewException] View file "/Users/Parker/Sites/parkerbossier/app/View/Home/.ctp" is missing.
+#0 /Users/Parker/Sites/parkerbossier/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/Parker/Sites/parkerbossier/lib/Cake/Controller/Controller.php(957): View->render(NULL, NULL)
+#2 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-17 17:07:28 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-17 17:07:32 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-17 17:07:48 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-17 17:08:07 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-17 17:09:03 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -3,8 +3,8 @@ $this->set('activeTab', 'home');
 $this->set('subtitle', 'Home');
 $this->Html->script('home', array('block' => 'script'));
 ?>
-<div class="container larger-font">
-	<div class="row">
+<div class="card larger-font">
+	<div class="row-fluid">
 		<div class="span3">
 			<img src="/img/profile.png" id="profile-pic" alt="Parker Bossier"/>
 		</div>
@@ -17,7 +17,7 @@ $this->Html->script('home', array('block' => 'script'));
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span12">
 			<h3>Technologies</h3>
 			<ul id="breakdown">
@@ -44,7 +44,7 @@ $this->Html->script('home', array('block' => 'script'));
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span12">
 			<h3>Source</h3>
 			<p>

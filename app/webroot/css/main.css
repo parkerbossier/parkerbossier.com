@@ -1,18 +1,39 @@
 body {
-	padding-top: 40px;
 	background-image: url('/img/purty_wood.png');
 	background-repeat: repeat;
 }
-
-.container:not(.my-bypass) {
-	padding: 25px;
+.container.main {
+	padding-top: 40px;
+	
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 800px;
+	-webkit-perspective-origin: 50% 50%;
+	-moz-transform-style: preserve-3d;
+	-moz-perspective: 800px;
+	-moz-perspective-origin: 50% 50%;
+}
+.card {
+	width: 95%;
+	height: 95%;
+	padding: 2.5%;
 	background-image: url('/img/techdraw.png');
 	background-repeat: repeat;
-
-	height: 100%;
-
-	border-bottom-right-radius: 12px;
-	border-bottom-left-radius: 12px;
+	border-radius: 12px;
+	
+	-webkit-transform: rotatex(-92deg);
+    -webkit-transition: all ease .5s;
+	-webkit-backface-visibility: hidden;
+	-moz-transform: rotatex(-92deg);
+    -moz-transition: all ease .75s;
+	-moz-backface-visibility: hidden;
+}
+.card.rotate-out {
+	-webkit-transform: rotatex(92deg);
+	-moz-transform: rotatex(92deg);
+}
+.card.rotate-in {
+	-webkit-transform: rotatex(0deg);
+	-moz-transform: rotatex(0deg);
 }
 
 h1:not(.my-bypass) {

@@ -4,8 +4,8 @@ $this->Html->script('portfolio', array('block' => 'script'));
 $this->Html->script('turing', array('block' => 'script'));
 $this->Html->css('portfolio', null, array('block' => 'css'));
 ?>
-<div class="container">
-	<div class="row">
+<div class="card">
+	<div class="row-fluid">
 		<div class="span2">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="disabled"><a href="#" data-name="archdata">acrhDATA (coming soon)</a></li>

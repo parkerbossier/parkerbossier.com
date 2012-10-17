@@ -1,5 +1,5 @@
 // moves the intro text to the vertical center of the row
-window.onload = valign_site_intro;
+$(window).bind('load', valign_site_intro);
 $(window).resize(function() {
 	valign_site_intro();
 });

@@ -19,7 +19,8 @@ body {
 	background-image: url('/img/techdraw.png');
 	background-repeat: repeat;
 	border-radius: 12px;
-	
+}
+.card:not(.bypass) {
 	-webkit-transform: rotatex(-92deg);
     -webkit-transition: all ease .5s;
 	-webkit-backface-visibility: hidden;
@@ -27,11 +28,11 @@ body {
     -moz-transition: all ease .75s;
 	-moz-backface-visibility: hidden;
 }
-.card.rotate-out {
+.card:not(.bypass).rotate-out {
 	-webkit-transform: rotatex(92deg);
 	-moz-transform: rotatex(92deg);
 }
-.card.rotate-in {
+.card:not(.bypass).rotate-in {
 	-webkit-transform: rotatex(0deg);
 	-moz-transform: rotatex(0deg);
 }

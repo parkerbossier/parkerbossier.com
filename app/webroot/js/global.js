@@ -1,10 +1,13 @@
 $(function() {
-	$('.card').addClass('rotate-in');
+	// rotate in after everything loads
+	$(window).bind('load', function() {
+		$('.card').addClass('rotate-in');
+	});
 	
 	// only intercept links if webkit or firefox
 	if (/mozilla/i.test(navigator.userAgent) || /webkit/i.test(navigator.userAgent)) {
 		// intercept link operation to allow for transition
-		$('.navbar a[target!="_blank"]').click(function(e) {
+		$('.navbar a.rotate').click(function(e) {
 			e.preventDefault();
 				
 			// disallow clicking on an active link

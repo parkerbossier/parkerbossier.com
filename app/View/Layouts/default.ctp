@@ -57,10 +57,10 @@
 
 					<div class="nav-collapse">
 						<ul class="nav nav-tabs">
-							<li><a href="/" data-name="home">Home</a></li>
+							<li><a href="/" data-name="home" class="rotate">Home</a></li>
 
 							<li class="divider-vertical"></li>
-							<li><a href="/portfolio" data-name="portfolio">Portfolio</a></li>
+							<li><a href="/portfolio" data-name="portfolio" class="rotate">Portfolio</a></li>
 							<li><a href="/blog" target="_blank">Blog</a></li>
 							<li><a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
 

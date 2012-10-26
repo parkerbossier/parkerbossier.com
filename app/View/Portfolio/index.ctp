@@ -8,8 +8,8 @@ $this->Html->css('portfolio', null, array('block' => 'css'));
 	<div class="row-fluid">
 		<div class="span2">
 			<ul class="nav nav-pills nav-stacked">
-				<li class="disabled"><a href="#" data-name="archdata">acrhDATA (coming soon)</a></li>
-				<li class="active"><a href="#planjar" data-name="planjar">PlanJar</a></li>
+				<li class="active"><a href="#archdata" data-name="archdata">archDATA</a></li>
+				<li><a href="#planjar" data-name="planjar">PlanJar</a></li>
 				<li><a href="#volnado" data-name="volnado">Volnado</a></li>
 				<li><a href="#campusair" data-name="campusair">theCampusAir</a></li>
 				<li><a href="#sphere" data-name="sphere">Sphere Visualizer</a></li>
@@ -21,6 +21,7 @@ $this->Html->css('portfolio', null, array('block' => 'css'));
 		</div>
 
 		<div id="content-container" class="span10 larger-font">
+			<?php echo $this->element('archdata'); ?>
 			<?php echo $this->element('planjar'); ?>
 			<?php echo $this->element('volnado'); ?>
 			<?php echo $this->element('sphere'); ?>

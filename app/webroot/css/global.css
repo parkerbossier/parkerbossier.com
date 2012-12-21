@@ -1,0 +1,21 @@
+body {
+    background-image: url('/img/grey-dots.png');
+    background-repeat: repeat;
+    background-position: 0px -4px;
+}
+
+h1:not(.my-bypass) {
+    text-align: center;
+}
+
+.larger-font {
+    font-size: 17px;
+}
+
+.navbar .nav-tabs {
+    float: right;
+}
+
+.centered-text {
+    text-align: center;
+}

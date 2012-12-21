@@ -1,0 +1,48 @@
+/* general */
+.card-rounded {
+    background-color: #fefefe;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -o-border-radius: 12px;
+    overflow: hidden;
+}
+h2 {
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+}
+.card .inner-card {
+    transition: margin-top 300ms;
+    -webkit-transition: margin-top 300ms;
+    -moz-transition: margin-top 300ms;
+    -o-transition: margin-top 300ms;
+    position: relative;
+}
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+.card-header {
+    position: absolute;
+    width: 100%;
+}
+.card-header hr {
+    margin: 2px;
+}
+.card img {
+    width: 100%;
+}
+
+/* webkit border-radius overflow fix */
+.card {
+    -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+/* profile picture card */
+.card.profilee:hover .inner-card:not(.clicked) {
+    margin-top: -1.5em;
+}
+p.about {
+    padding: 20px;
+    text-align: justify;
+}

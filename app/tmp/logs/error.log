@@ -434,3 +434,27 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2012-10-23 19:42:20 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-12-20 19:41:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:52:22 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:52:24 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:52:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:52:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:56:53 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 07:56:55 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-21 20:53:14 Error: [MissingControllerException] Controller class UndefinedController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

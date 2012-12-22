@@ -43,14 +43,15 @@ h2 {
 /* webkit border-radius overflow fix */
 .card {
     -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-    z-index: 1000;
+
 }
 .card-shadow {
-    box-shadow: 0px 0px 10px #999;
     position: absolute;
     background-color: transparent;
     pointer-events: none;
-    z-index: 999;
+}
+.card, .card-shadow {
+    box-shadow: 0px 0px 10px #999;
 }
 
 /* profile picture card */

@@ -1,4 +1,7 @@
 /* general */
+.row.main {
+    position: relative;
+}
 .card-rounded {
     background-color: #fefefe;
     border-radius: 12px;
@@ -27,22 +30,40 @@ h2 {
     width: 100%;
 }
 .card-header hr {
-    margin: 2px;
+    margin-top: 4px;
+    margin-bottom: 0px;
 }
-.card img {
+.card img.preview {
     width: 100%;
+}
+.external-link {
+    padding-right: 2px;
 }
 
 /* webkit border-radius overflow fix */
-.card {
+.cardd {
     -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+.card-shadow {
+    box-shadow: 0px 0px 10px #999;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
 }
 
 /* profile picture card */
-.card.profilee:hover .inner-card:not(.clicked) {
-    margin-top: -1.5em;
+.card.profile {
+    cursor: pointer;
 }
 p.about {
     padding: 20px;
     text-align: justify;
+}
+
+/* overwride the default link color since the card link tags contain text and whatnot */
+a.color-bypass {
+    color: #333;
+}
+a.color-bypass:hover {
+    color: #333;
 }

@@ -18,7 +18,7 @@
         echo $this->Html->css('bootstrap.min');
         echo $this->Html->css('global');
         echo $this->Html->css('bootstrap-responsive.min');
-        echo $this->Html->css('responsive-customizations');
+        //echo $this->Html->css('responsive-customizations');
         echo $this->fetch('css');
         ?>
         <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
@@ -60,7 +60,7 @@
 
                         <li class="divider-vertical"></li>
                         <li><a href="/portfolio" data-name="portfolio">Portfolio</a></li>
-                        <li><a href="/blog" target="_blank">Blog</a></li>
+                        <li><a href="/blog" target="_blank">Blog <img src="/img/external-link.png" alt="External link" class="external-link"/></a></li>
                         <li><a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
 
                         <li class="divider-vertical"></li>

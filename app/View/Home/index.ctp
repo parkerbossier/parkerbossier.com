@@ -19,7 +19,7 @@ $this->Html->css('home', null, array('block' => 'css'));
             </div>
         </a>
     </div>
-    <?php if ($webkit) { ?>
+    <?php if ($webkit || true) { ?>
         <div class="card-shadow card-rounded"></div>
     <?php } ?>
 

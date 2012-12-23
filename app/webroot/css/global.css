@@ -6,6 +6,7 @@ body {
 }
 .navbar .nav-tabs {
     float: right;
+    margin-right; 0px;
 }
 
 /* ie alert */

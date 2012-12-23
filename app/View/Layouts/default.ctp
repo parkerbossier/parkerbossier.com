@@ -56,14 +56,24 @@
                 <div class="nav-collapse">
                     <ul class="nav nav-tabs">
                         <li><a href="/" data-name="home">Home</a></li>
-
-                        <li class="divider-vertical"></li>
                         <li><a href="/portfolio" data-name="portfolio">Portfolio</a></li>
-                        <li><a href="/blog" target="_blank">Blog <img src="/img/external-link.png" alt="External link" class="external-link"/></a></li>
-                        <li><a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">Resume</a></li>
-
                         <li class="divider-vertical"></li>
-                        <li><a href="mailto:parkerbossier@gmail.com" target="_blank">Contact</a></li>
+
+                        <li>
+                            <a href="/blog" target="_blank">
+                                Blog <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">
+                                Resume <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:parkerbossier@gmail.com" target="_blank">
+                                Contact <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -71,6 +81,7 @@
 
         <div class="container">
             <?php
+            // IE < 10 warning message
             if ($ie10message) {
                 ?>
                 <div class="row ie-alert-row">
@@ -84,6 +95,7 @@
                 <?php
             }
 
+            // page content
             echo $this->fetch('content');
             ?>
         </div>

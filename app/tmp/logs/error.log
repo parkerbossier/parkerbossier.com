@@ -464,3 +464,13 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2012-12-22 17:57:50 Error: [MissingControllerException] Controller class Google.comController could not be found.
 #0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-12-23 01:09:05 Warning: Warning (2): get_browser(): browscap ini directive not set in [/Users/Parker/Sites/parkerbossier/app/Controller/HomeController.php, line 13]
+Trace:
+get_browser - [internal], line ??
+HomeController::index() - APP/Controller/HomeController.php, line 13
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 485
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+

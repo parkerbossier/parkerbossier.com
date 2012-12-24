@@ -505,3 +505,14 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 #1 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(PortfolioController), Object(CakeRequest), Object(CakeResponse))
 #2 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2012-12-24 23:43:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-24 23:43:16 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-12-24 23:46:47 Error: [MissingActionException] Action PortfolioController::other() could not be found.
+#0 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Parker/Sites/parkerbossier/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(PortfolioController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Parker/Sites/parkerbossier/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

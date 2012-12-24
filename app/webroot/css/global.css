@@ -6,7 +6,10 @@ body {
 }
 .navbar .nav-tabs {
     float: right;
-    margin-right; 0px;
+    margin-right: 0px;
+}
+.external-link {
+    padding-right: 2px;
 }
 
 /* ie alert */

@@ -1,24 +1,51 @@
+// DOM load
 $(function() {
-    // pills click handler (show the correct content)
-    $('.nav-pills li').not('.disabled').not('active').click(function() {
-        var self = $(this);
-        var divToShow = self.children('a').data('name');
-        self.siblings().removeClass('active');
-        self.addClass('active');
-        $('#content-container .content-item:visible').hide();
-        $('.' + divToShow).show();
+    valignHeightAdjust();
+
+    // profile click handler
+    $('.carddd.profile').click(function() {
+        var innerCard = $(this).children('.inner-card');
+        if (innerCard.hasClass('clicked')) {
+            innerCard.removeClass('clicked');
+            innerCard.css('margin-top', '');
+        } else {
+            innerCard.addClass('clicked');
+            innerCard.css('margin-top', relativeAboutOffset + 'px');
+        }
     });
 
-    // runs after the rotate transition (not needed for firefox)
-    $('.card').bind('webkitTransitionEnd oTransitionEnd otransitionend msTransitionEnd', function(){
-        // reset the HTML to make the video work correctly
-        var tempHTML = $('.embedded-video-parent').html();
-        $('.embedded-video-parent').html(tempHTML);
+    // position the card headers above the inner-cards
+    $('.card-header').css('top', '-' + $('.card-header').height() + 'px');
+
+    // show the card headers when hovered
+    $('.card').hover(function() {
+        $(this).children('.inner-card').css('margin-top', '-' + $('img.preview').height() + 'px');
+    }, function() {
+        $(this).children('.inner-card').css('margin-top', '0px');
     });
 });
 
-// select the correct tab on window load
-$(window).load(function() {
-    var hash = window.location.hash.substr(1) || false;
-    if (hash) $('.nav-stacked a[data-name="' + hash + '"]').parent().click();
-});
+// set the card heights and vertically center the cards
+function valignHeightAdjust() {
+    // set the card heights
+    var cardWidth = $('.card').width();
+    $('.card').height(cardWidth);
+
+    // set the picture heights
+    $('.card img.preview').height(cardWidth);
+
+    // set the description wrapper heights
+    $('.card .description-wrapper').height(cardWidth);
+
+    // vertically center the cards
+    //var docHeight = $(document).height();
+    //var rowOffset = $('.row.card-row').offset().top;
+    //$('.card').css('margin-top', (.9*docHeight-rowOffset-cardWidth)/2);
+
+    // overlay the shadow divs
+    $('.card-shadow').width(cardWidth).height(cardWidth);
+    $('.card-shadow').each(function(index, elem) {
+        var cardOffset = $('.card:eq(' + index + ')').offset();
+        $(elem).offset(cardOffset);
+    });
+}

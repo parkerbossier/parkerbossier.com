@@ -9,7 +9,7 @@
                     (click to view <img src="/img/external-link.png" alt="External link" class="external-link"/>)
                 </div>
                 <p class="description">
-                    This video was for a class project at CMU. It was my first stab at kinetic typography and using After Effects CS6. The song is a mashup of Third Eye Blind's "Semi-Charmed Life" and Carly Rae Jepsen's "Call Me Maybe." I've only completed the first half of the video, but I'll be updating it when I have the time. A link to the original song is in the YouTube description.
+                    I created this piece of <strong>kinetic typography</strong> as a class project at CMU using After Effects CS6. The song is a mashup of Third Eye Blind's "Semi-Charmed Life" and Carly Rae Jepsen's "Call Me Maybe." I've only completed the first half of the video, but I'll be updating it when I have the time. You can find a link to the original song in the description on YouTube.
                 </p>
             </div>
         </a>

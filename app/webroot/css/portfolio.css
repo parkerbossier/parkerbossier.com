@@ -1,37 +1,8 @@
-#content-container {
-	
+.description-wrapper {
+    width: 100%;
 }
 
-.row-fluid {
-	height: 100%;
-}
-
-h2 {
-	text-align: center;
-}
-
-/*
-* turing css
-*/
-.turing .table-striped tbody tr:nth-child(even) td, .table-striped tbody tr:nth-child(even) th {
-	background-color: #fff;
-}
-#run, #stop {
-	float: right;
-}
-#run {
-	margin-left: 10px;
-}
-.text-input-wrapper {
-	text-align: center;
-}
-.text-input-wrapper input {
-	width: 90%;
-}
-
-/* 
-* ios css
-*/
-.ios img {
-	width: 300px;
+/* link fix for nested link */
+a {
+    text-decoration: none !important;
 }

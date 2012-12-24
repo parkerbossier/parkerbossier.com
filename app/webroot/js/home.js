@@ -46,7 +46,7 @@ function valignHeightAdjust() {
 
     // vertically center the cards
     var docHeight = $(document).height();
-    var rowOffset = $('.row.main').offset().top;
+    var rowOffset = $('.row.card-row').offset().top;
     $('.card').css('margin-top', (.9*docHeight-rowOffset-cardWidth)/2);
 
     // overlay the shadow divs

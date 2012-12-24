@@ -1,0 +1,52 @@
+.row.card-row {
+    position: relative;
+}
+.card-rounded {
+    background-color: #fefefe;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -o-border-radius: 12px;
+    overflow: hidden;
+}
+.card h2 {
+    font-family: 'Monda', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.card .inner-card {
+    transition: margin-top 300ms;
+    -webkit-transition: margin-top 300ms;
+    -moz-transition: margin-top 300ms;
+    -o-transition: margin-top 300ms;
+    position: relative;
+}
+.card img.preview {
+    width: 100%;
+}
+.card p.description {
+    padding: 20px;
+    text-align: justify;
+}
+
+/* webkit border-radius overflow fix */
+.card {
+    -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+.card-shadow {
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+}
+.card, .card-shadow {
+    box-shadow: 0px 0px 10px #999;
+}
+
+/* overwride the default link color since the card link tags contain text and whatnot */
+a.color-bypass {
+    color: #333;
+}
+a.color-bypass:hover {
+    color: #333;
+}

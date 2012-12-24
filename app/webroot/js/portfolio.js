@@ -1,3 +1,6 @@
+// re-center on resize
+$(window).resize(valignHeightAdjust);
+
 // DOM load
 $(function() {
     valignHeightAdjust();
@@ -38,9 +41,12 @@ function valignHeightAdjust() {
     $('.description-wrapper').height(cardWidth);
 
     // vertically center the cards
-    //var docHeight = $(document).height();
-    //var rowOffset = $('.row.card-row').offset().top;
-    //$('.card').css('margin-top', (.9*docHeight-rowOffset-cardWidth)/2);
+    var docHeight = $(document).height();
+    var rowOffset = $('.row').offset().top;
+    var newOffset = (.9*docHeight-rowOffset-cardWidth*2)/2;
+    if (newOffset < 0)
+        newOffset = 0;
+    $('.row:first').css('margin-top', newOffset);
 
     // overlay the shadow divs
     $('.card-shadow').width(cardWidth).height(cardWidth);

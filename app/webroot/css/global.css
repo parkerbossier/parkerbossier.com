@@ -11,6 +11,10 @@ body {
 .external-link {
     padding-right: 2px;
 }
+.row {
+    position: relative;
+    margin-bottom: 20px;
+}
 
 /* ie alert */
 .ie-alert-row {

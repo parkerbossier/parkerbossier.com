@@ -19,7 +19,7 @@ $(function() {
 
     // show the card headers when hovered
     $('.card').hover(function() {
-        $(this).children('.inner-card').css('margin-top', '-' + $('img.preview').height() + 'px');
+        $(this).children('.inner-card').css('margin-top', '-' + $('.card-preview').height() + 'px');
     }, function() {
         $(this).children('.inner-card').css('margin-top', '0px');
     });
@@ -32,10 +32,10 @@ function valignHeightAdjust() {
     $('.card').height(cardWidth);
 
     // set the picture heights
-    $('.card img.preview').height(cardWidth);
+    $('.card-preview').height(cardWidth);
 
     // set the description wrapper heights
-    $('.card .description-wrapper').height(cardWidth);
+    $('.description-wrapper').height(cardWidth);
 
     // vertically center the cards
     //var docHeight = $(document).height();

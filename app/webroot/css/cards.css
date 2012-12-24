@@ -22,7 +22,7 @@
     -o-transition: margin-top 300ms;
     position: relative;
 }
-.card img.preview {
+.card-preview {
     width: 100%;
 }
 .card p.description {

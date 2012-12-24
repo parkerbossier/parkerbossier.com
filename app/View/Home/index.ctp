@@ -6,7 +6,7 @@ $this->Html->css('home', null, array('block' => 'css'));
 $this->Html->css('cards', null, array('block' => 'css'));
 ?>
 
-<div class="row card-row">
+<div class="row">
     <div class="span4 card card-rounded">
         <a href="/blog" target="_blank" class="color-bypass">
             <div class="inner-card" data-href="/blog" data-new-tab="true">
@@ -16,7 +16,7 @@ $this->Html->css('cards', null, array('block' => 'css'));
                     <hr/>
                 </div>
 
-                <img class="card-rounded preview" src="/img/blog-preview.png" alt="Blog preview image"/>
+                <img class="card-rounded card-preview" src="/img/blog-preview.png" alt="Blog preview image"/>
             </div>
         </a>
     </div>
@@ -32,7 +32,7 @@ $this->Html->css('cards', null, array('block' => 'css'));
                 <div class="pagination-centered">(click to read the About section)</div>
             </div>
 
-            <img class="card-rounded preview" src="/img/profile.png" alt="Parker Bossier profile picture"/>
+            <img class="card-rounded card-preview" src="/img/profile.png" alt="Parker Bossier profile picture"/>
 
             <h2 class="about-header">Parker Bossier</h2>
             <div class="pagination-centered">(click to close)</div>
@@ -54,11 +54,11 @@ $this->Html->css('cards', null, array('block' => 'css'));
                     <div class="pagination-centered">(click to view)</div>
                 </div>
 
-                <img class="card-rounded preview" src="/img/portfolio-preview.png" alt="Portfolio preview image"/>
+                <img class="card-rounded card-preview" src="/img/portfolio-preview.png" alt="Portfolio preview image"/>
             </div>
         </a>
     </div>
-        
+
     <?php if ($webkit) { ?>
         <div class="card-shadow card-rounded"></div>
     <?php } ?>

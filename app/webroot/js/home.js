@@ -42,11 +42,11 @@ function valignHeightAdjust() {
     $('.card').height(cardWidth);
 
     // set the picture heights
-    $('.card img.preview').height(cardWidth);
+    $('.card-preview').height(cardWidth);
 
     // vertically center the cards
     var docHeight = $(document).height();
-    var rowOffset = $('.row.card-row').offset().top;
+    var rowOffset = $('.row').offset().top;
     $('.card').css('margin-top', (.9*docHeight-rowOffset-cardWidth)/2);
 
     // overlay the shadow divs

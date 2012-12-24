@@ -1,6 +1,6 @@
 <div class="span4 card card-rounded">
     <div class="inner-card">
-        <img class="card-rounded preview" src="/img/archdata-preview.png" alt="archdata preview image"/>
+        <img class="card-rounded card-preview" src="/img/archdata-preview.png" alt="archdata preview image"/>
 
         <a href="http://archdata.org/" target="_blank" class="color-bypass">
             <div class="description-wrapper">

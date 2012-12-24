@@ -20,17 +20,37 @@ $(function() {
         }
     });
 
-    // position the card headers above the inner-cards
+    // offset the card headers
     $('.card-header').css('top', '-' + $('.card-header').height() + 'px');
 
+    // peek the cards
+    setTimeout(function() {
+        $('.inner-card').css('margin-top', $('.card-header').height() + 'px');
+        setTimeout(function() {
+            // allow hovering after the CSS transition
+            $('.inner-card').bind('webkitTransitionEnd', function() {
+                $('.inner-card').addClass('peeked');
+            });
+
+            // unpeek if not hovered
+            $('.inner-card').each(function() {
+                var self = $(this);
+                if (self.is(':hover'))
+                    self.addClass('peeked');
+                else
+                    self.css('margin-top', '0px');
+            });
+        }, 1500);
+    }, 750);
+
     // show the card headers when hovered
-    $('.card .inner-card').hover(function() {
+    $('.inner-card').hover(function() {
         var self = $(this);
-        if (!self.hasClass('clicked'))
+        if (!self.hasClass('clicked') && self.hasClass('peeked'))
             self.css('margin-top', $('.card-header').height() + 'px');
     }, function() {
         var self = $(this);
-        if (!self.hasClass('clicked'))
+        if (!self.hasClass('clicked') && self.hasClass('peeked'))
             self.css('margin-top', '0px');
     });
 });

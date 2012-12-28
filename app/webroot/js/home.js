@@ -23,24 +23,31 @@ $(function() {
     // offset the card headers
     $('.card-header').css('top', '-' + $('.card-header').height() + 'px');
 
+    // detect mobile browser (don't unpeek if mobile becasue of lack of hover)
+    var mobile = /android|webos|iphone|ipad|itouch|blackberry|iemobile/i.test(navigator.userAgent);
+
     // peek the cards
     setTimeout(function() {
         $('.inner-card').css('margin-top', $('.card-header').height() + 'px');
-        setTimeout(function() {
-            // allow hovering after the CSS transition
-            $('.inner-card').bind('webkitTransitionEnd', function() {
-                $('.inner-card').addClass('peeked');
-            });
 
-            // unpeek if not hovered
-            $('.inner-card').each(function() {
-                var self = $(this);
-                if (self.is(':hover'))
-                    self.addClass('peeked');
-                else
-                    self.css('margin-top', '0px');
-            });
-        }, 1500);
+        // un peek if not mobile
+        if (!mobile) {
+            setTimeout(function() {
+                // allow hovering after the CSS transition
+                $('.inner-card').bind('webkitTransitionEnd transitionend oTransitionEnd', function() {
+                    $('.inner-card').addClass('peeked');
+                });
+
+                // unpeek if not hovered
+                $('.inner-card').each(function() {
+                    var self = $(this);
+                    if (self.is(':hover'))
+                        self.addClass('peeked');
+                    else
+                        self.css('margin-top', '0px');
+                });
+            }, 2000);
+        }
     }, 750);
 
     // show the card headers when hovered

@@ -1,7 +1,7 @@
 <?php
 $this->set('activeTab', 'portfolio');
+$this->set('subtitle', 'Portfolio');
 $this->Html->script('portfolio', array('block' => 'script'));
-$this->Html->script('turing', array('block' => 'script'));
 $this->Html->css('portfolio', null, array('block' => 'css'));
 $this->Html->css('cards', null, array('block' => 'css'));
 ?>

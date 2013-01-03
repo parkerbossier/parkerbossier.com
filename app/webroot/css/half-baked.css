@@ -1,0 +1,36 @@
+.span12 {
+    position: relative;
+}
+.ipad {
+    z-index: 1000;
+}
+.screen, .clock, .toc, .recipe-1, .recipe-2-preview, .recipe-2 {
+    position: absolute;
+}
+.clock {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+    font-size: 75%;
+    text-align: center;
+    top: 11.2%;
+    width: 100%;
+    color: #bebebe;
+}
+.screen {
+    overflow-x: hidden;
+    top: 13.37%;
+    left: 9.6%;
+}
+.screen.scrollable {
+    overflow: scroll;
+}
+.screen img {
+    width: 100%;
+    display: none;
+}
+.recipe-2-preview {
+    background: url('/img/half-baked-recipe-2.png');
+    width: 10%;
+    height: 110%;
+    display: none;
+}

@@ -30,7 +30,7 @@ $(function() {
     setTimeout(function() {
         $('.inner-card').css('margin-top', $('.card-header').height() + 'px');
 
-        // un peek if not mobile
+        // un-peek if not mobile
         if (!mobile) {
             setTimeout(function() {
                 // allow hovering after the CSS transition
@@ -40,11 +40,11 @@ $(function() {
 
                 // unpeek if not hovered
                 $('.inner-card').each(function() {
-                    var self = $(this);
-                    if (self.is(':hover'))
-                        self.addClass('peeked');
+                    var $this = $(this);
+                    if ($this.is(':hover'))
+                        $this.addClass('peeked');
                     else
-                        self.css('margin-top', '0px');
+                        $this.css('margin-top', '0px');
                 });
             }, 2000);
         }
@@ -52,13 +52,13 @@ $(function() {
 
     // show the card headers when hovered
     $('.inner-card').hover(function() {
-        var self = $(this);
-        if (!self.hasClass('clicked') && self.hasClass('peeked'))
-            self.css('margin-top', $('.card-header').height() + 'px');
+        var $this = $(this);
+        if (!$this.hasClass('clicked') && $this.hasClass('peeked'))
+            $this.css('margin-top', $('.card-header').height() + 'px');
     }, function() {
-        var self = $(this);
-        if (!self.hasClass('clicked') && self.hasClass('peeked'))
-            self.css('margin-top', '0px');
+        var $this = $(this);
+        if (!$this.hasClass('clicked') && $this.hasClass('peeked'))
+            $this.css('margin-top', '0px');
     });
 });
 

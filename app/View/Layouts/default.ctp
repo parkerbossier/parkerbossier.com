@@ -54,6 +54,26 @@
                     <ul class="nav nav-tabs">
                         <li><a href="/" data-name="home">Home</a></li>
                         <li><a href="/portfolio" data-name="portfolio">Portfolio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="mailto:parkerbossier@gmail.com" target="_blank">
+                                        <img src="/img/gmail-icon.png" alt="Gmail icon" class="contact-icon"/> parkerbossier
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/parkerbossier" target="_blank">
+                                        <img src="/img/github-icon.png" alt="GitHub icon" class="contact-icon"/> /parkerbossier
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/parkerbossier" target="_blank">
+                                        <img src="/img/twitter-icon.png" alt="Twitter icon" class="contact-icon"/> @parkerbossier
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="divider-vertical"></li>
 
                         <li>
@@ -64,11 +84,6 @@
                         <li>
                             <a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">
                                 Resume <img src="/img/external-link.png" alt="External link" class="external-link"/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:parkerbossier@gmail.com" target="_blank">
-                                Contact <img src="/img/external-link.png" alt="External link" class="external-link"/>
                             </a>
                         </li>
                     </ul>

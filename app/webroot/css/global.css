@@ -8,6 +8,10 @@ body {
     float: right;
     margin-right: 0px;
 }
+.contact-icon {
+    width: 3em;
+    margin-right: .5em;
+}
 .external-link {
     padding-right: 2px;
 }

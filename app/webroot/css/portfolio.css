@@ -1,5 +1,6 @@
 .description-wrapper {
     width: 100%;
+    overflow-y: auto;
 }
 
 /* link fix for nested link */

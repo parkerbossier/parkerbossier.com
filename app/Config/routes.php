@@ -23,9 +23,10 @@
  */
 Router::connect('/', array('controller' => 'home', 'action' => 'index'));
 Router::connect('/projects/flash', array('controller' => 'projects', 'action' => 'flizash'));
+Router::connect('/projects/half-baked', array('controller' => 'projects', 'action' => 'halfbaked'));
 
 /**
- * Load all plugin routes.  See the CakePlugin documentation on 
+ * Load all plugin routes.  See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
 CakePlugin::routes();

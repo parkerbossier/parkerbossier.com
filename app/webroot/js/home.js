@@ -46,7 +46,7 @@ $(function() {
                     else
                         $this.css('margin-top', '0px');
                 });
-            }, 2000);
+            }, 2500);
         }
     }, 750);
 

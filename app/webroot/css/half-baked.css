@@ -17,7 +17,7 @@
     color: #bebebe;
 }
 .screen {
-    overflow-x: hidden;
+    overflow: hidden;
     top: 13.37%;
     left: 9.6%;
 }

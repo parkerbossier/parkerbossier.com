@@ -12,9 +12,11 @@ $(window).bind('load', function() {
     $screen.width(pageWidth).height(.973*pageWidth*3/4);
 
     // prime the FSM (show the table of contents)
-    $screen.css('overflow', 'hidden');
     $toc = $('.toc');
-    $toc.show();
+    $toc.css({
+        top: '0px',
+        left: '0px'
+    }).show();
 
     // pass the clicks through to the FSM
     $('.screen img').click(function(e) {
@@ -28,9 +30,22 @@ var fsm = {
 
     // handles a click on the given object with the given event
     handleClick: function ($this, e) {
+        // get the click coords
+        var x, y;
+        if (e.offsetX !== undefined) {
+            x = e.offsetX
+            y = e.offsetY
+        }
+        // fucking Firefox
+        else {
+            var targetOffset = $(e.target).offset();
+            x = e.pageX - targetOffset.left;
+            y = e.pageY - targetOffset.top;
+        }
+
         // convert to percentage values
-        var x = e.offsetX/$this.width();
-        var y = e.offsetY/$this.height();
+        x = x/$this.width();
+        y = y/$this.height();
 
         // yay for FSMs!!!
         switch (this.state) {
@@ -38,13 +53,16 @@ var fsm = {
             case 'toc':
                 // to fridge
                 if (x.between(.894, .993) && y.between(.034, .175)) {
+                    // hide and show
                     $this.hide();
                     $('.fridge').show();
+
+                    // state
                     this.state = 'fridge';
                 }
                 // to recipe 1
                 else if (x.between(.243, .401) && y.between(.524, .71)) {
-                    // hide and show to begin
+                    // hide and show and initialize
                     $('.screen img').hide();
                     var $recipe1 = $('.recipe-1')
                     .css({
@@ -62,36 +80,41 @@ var fsm = {
                         left: $recipe1.width() + 'px'
                     });
 
-                    $('.screen').scroll(function(e) {
-                        if ($recipe2pre.is(':visible')) {
-                            // proceed to recipe 2
-                            if (!$recipe2pre.hasClass('transitioning') && ($recipe2pre.width() - e.currentTarget.scrollLeft) < 2) {
-                                e.currentTarget.scrollTop = 0;
-                                var scrollLeft = e.currentTarget.scrollLeft;
-                                $(this).css({
-                                    'overflow-x': 'hidden',
-                                    'overflow-y': 'hidden'
-                                });
-                                $recipe2.show();
-                                $recipe1.animate({
-                                    left: '-' + ($recipe1.width()-scrollLeft) + 'px'
-                                }, 2000, function() {
-                                    this.state = 'recipe-2';
-                                });
-                                $recipe2.animate({
-                                    left: scrollLeft + 'px'
-                                }, 2000);
-                            }
+                    // state
+                    this.state = 'recipe-1';
 
-                            // hide the preview when scrolled too far down
-                            else if (e.currentTarget.scrollTop >= $('.screen').height() / 10) {
-                                $recipe2pre.addClass('transitioning')
-                                .animate({
-                                    width: '0px'
-                                }, 'fast', function() {
-                                    $recipe2pre.hide().css('width', '').removeClass('transitioning');
-                                });
-                            }
+                    // allow scrolling
+                    var $screen = $('.screen').addClass('scrollable');
+
+                    // handle scrolling
+                    $screen.scroll(function(e) {
+                        // proceed to recipe 2
+                        if (!$recipe2pre.hasClass('transitioning') && ($recipe2pre.width() - e.currentTarget.scrollLeft) < 2) {
+                            $screen.removeClass('scrollable');
+                            $recipe2.show();
+                            $recipe2pre.hide();
+                            $screen.animate({
+                                scrollLeft: 0,
+                                scrollTop: 0
+                            }, 'fast');
+                            $recipe1.animate({
+                                left: '-' + $recipe1.width() + 'px'
+                            }, 2000);
+                            $recipe2.animate({
+                                left: '0px'
+                            }, 2000, function() {
+                                this.state = 'recipe-2';
+                            });
+                        }
+
+                        // hide the preview when scrolled too far down
+                        else if (e.currentTarget.scrollTop >= $('.screen').height() / 10) {
+                            $recipe2pre.addClass('transitioning')
+                            .animate({
+                                width: '0px'
+                            }, 'fast', function() {
+                                $recipe2pre.hide().css('width', '').removeClass('transitioning');
+                            });
                         }
 
                         // show the preview when scrolled high enough
@@ -103,8 +126,6 @@ var fsm = {
                         }
 
                     });
-
-                    this.state = 'recipe-1';
                 }
 
                 // to recipe 2

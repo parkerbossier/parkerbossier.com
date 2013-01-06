@@ -22,7 +22,11 @@
     left: 9.6%;
 }
 .screen.scrollable {
-    overflow: scroll;
+    overflow: auto;
+}
+.screen.vertical {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .screen img {
     width: 100%;

@@ -9,6 +9,7 @@ $this->Html->script('half-baked', array('block' => 'script'));
         <img src="/img/ipad-template.png" alt="iPad template" class="ipad"/>
         <div class="clock"></div>
         <div class="screen">
+            <div class="touch"></div>
             <img src="/img/half-baked-toc.png" alt="Half Baked table of contents" class="toc"/>
             <img src="/img/half-baked-recipe-1.png" alt="Half Baked recipe 1" class="recipe-1"/>
             <div class="recipe-2-preview"></div>

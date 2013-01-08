@@ -100,7 +100,7 @@
                     <div class="span6 offset3">
                         <div class="alert">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>Hey there!</strong> You're using a version of IE less than 10. You still have access to most features of this site, but it's optimized for Chrome, Firefox, Opera, and IE 10+. If something looks broken in your browser, please let me know (contact link in the nav bar).
+                            <strong>Hey there!</strong> You're using a version of IE less than 10. (IE 10 is available in WIndows 8.) You still have access to most features of this site, but it's optimized for Chrome, Firefox, Opera, and IE 10+. If something looks broken in your browser, please let me know (contact link in the nav bar).
                         </div>
                     </div>
                 </div>

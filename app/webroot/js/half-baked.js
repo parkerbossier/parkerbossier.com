@@ -79,8 +79,17 @@ $(function() {
     fsm.mousemove = function(e) {
         var offset = this.screenOffset(e);
         if (this.$touch.hasClass('dragging')) {
+            // compute drag delta
+            var deltaDrag = {
+                top: offset.top-this.lastTouch.top, 
+                left: offset.left-this.lastTouch.left
+            };
+            
+            // trigger a drag event
+            this.drag(deltaDrag);
+            
             // update the touch distance
-            this.touchDistance += Math.sqrt(Math.pow(offset.top-this.lastTouch.top, 2) + Math.pow(offset.left-this.lastTouch.left, 2));
+            this.touchDistance += Math.sqrt(Math.pow(deltaDrag.top, 2) + Math.pow(deltaDrag.left, 2));
             this.lastTouch = offset;
             
             // move the touch icon
@@ -103,6 +112,19 @@ $(function() {
         // simulate a click event if necessary
         if (this.touchDistance <= this.clickThresh)
             this.click(e);
+    };
+    
+    // drag handler
+    fsm.drag = function(delta) {
+        // yay for FSMs!!!
+        switch (this.state) {
+            case 'recipe-1':
+                this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
+                break;
+                
+            case 'recipe-2':
+                break;
+        }
     };
 
     // handles a click on the given object with the given event
@@ -154,7 +176,6 @@ $(function() {
                 }
                 break;
 
-            // fridge
             case 'fridge':
                 // convert to percentages
                 offset.top /= this.$fridge.height();
@@ -181,13 +202,11 @@ $(function() {
                 }
                 break;
 
-            // recipe 1 (see no speak no cookies)
             case 'recipe-1':
                 // click handlers
 
                 break;
 
-            // recipe 2 (hot, sweet, and sticky)
             case 'recipe-2':
                 break;
         }

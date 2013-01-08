@@ -43,8 +43,13 @@ $(function() {
                     var $this = $(this);
                     if ($this.is(':hover'))
                         $this.addClass('peeked');
-                    else
+                    else {
                         $this.css('margin-top', '0px');
+                    
+                        // fucking IE
+                        if ($('.ie-alert-row').length)
+                            $this.addClass('peeked');
+                    }
                 });
             }, 2500);
         }
@@ -72,9 +77,10 @@ function valignHeightAdjust() {
     $('.card-preview').height(cardWidth);
 
     // vertically center the cards
-    var docHeight = $(document).height();
-    var rowOffset = $('.row').offset().top;
-    $('.card').css('margin-top', (.9*docHeight-rowOffset-cardWidth)/2);
+    var $cardRow = $('.card-row');
+    var cardRowOffset = ($(window).height() - $cardRow.offset().top - $cardRow.height())/2;
+    if (cardRowOffset > 0)
+        $('.card-row').css('margin-top', cardRowOffset);
 
     // overlay the shadow divs
     $('.card-shadow').width(cardWidth).height(cardWidth);

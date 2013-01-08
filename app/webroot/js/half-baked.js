@@ -1,15 +1,24 @@
 // wait for images to finish
 $(window).bind('load', function() {
-    $('.clock').html(timeString());
-    setInterval(function() {
+    var updateClock = function() {
         $('.clock').html(timeString());
-    }, 1000);
+    }();
+    setInterval(updateClock, 1000);
 
     // set the iPad screen width
     var iPadWidth = $('.ipad').width();
     var pageWidth = iPadWidth*.8095;
     $screen = $('.screen');
     $screen.width(pageWidth).height(.973*pageWidth*3/4);
+    
+    // set the touch icon (1:1 and circular)
+    var $touch = $('.touch');
+    $touch.css({
+        height: $touch.width(),
+        'border-radius': $touch.width()/2 + 'px',
+        '-webkit-border-radius': $touch.width()/2 + 'px',
+        '-moz-border-radius': $touch.width()/2 + 'px'
+    });
 
     // prime the FSM (show the table of contents)
     $toc = $('.toc');
@@ -18,31 +27,67 @@ $(window).bind('load', function() {
         left: '0px'
     }).show();
 
-    // pass the clicks through to the FSM
-    $('.screen img').click(function(e) {
-        fsm.handleClick($(this), e);
+    // disallow image dragging
+    $('.screen').on('dragstart', function(e) {
+        e.preventDefault();
+    })
+    // mousedown
+    .on('mousedown', function(e) {
+        fsm.mousedown(e);
+    })
+    // mousemove
+    .on('mousemove', function(e) {
+        fsm.mousemove(e);
+    })
+    // mouseup
+    .on('mouseup', function(e) {
+        fsm.mouseup(e);
+    })
+    // mouseup
+    .on('click', function(e) {
+        fsm.click(e);
     });
 });
 
 // an FSM object to handle all the state transitions
-var fsm = {
-    state: 'toc',
+var fsm = {};
+$(function() {
+    // fsm vars
+    fsm.state = 'toc';
+    fsm.$screen = $('.screen');
+    fsm.$toc = $('.toc');
+    fsm.$recipe1 = $('.recipe-1');
+    fsm.$recipe2 = $('.recipe-2');
+    fsm.$fridge = $('.fridge');
+    fsm.$touch = $('.touch');
+    
+    // mousedown handler
+    fsm.mousedown = function(e) {
+        var offset = this.screenOffset(e);
+        this.$touch.css({
+            top: (offset.top - this.$touch.width()/2) + 'px',
+            left: (offset.left - this.$touch.height()/2) + 'px'
+        }).show();
+    };
+    
+    // mousedown handler
+    fsm.mousemove = function(e) {
+        var offset = this.screenOffset(e);
+        this.$touch.css({
+            top: (offset.top - this.$touch.width()/2) + 'px',
+            left: (offset.left - this.$touch.height()/2) + 'px'
+        });
+    };
+    
+    // mousedown handler
+    fsm.mouseup = function(e) {
+        this.$touch.animate({opacity: 0}, 'fast', function() {
+           $(this).hide().css('opacity', '');
+        });
+    };
 
     // handles a click on the given object with the given event
-    handleClick: function ($this, e) {
-        // get the click coords
-        var x, y;
-        if (e.offsetX !== undefined) {
-            x = e.offsetX
-            y = e.offsetY
-        }
-        // fucking Firefox
-        else {
-            var targetOffset = $(e.target).offset();
-            x = e.pageX - targetOffset.left;
-            y = e.pageY - targetOffset.top;
-        }
-
+    fsm.click = function ($this, e) {
         // convert to percentage values
         x = x/$this.width();
         y = y/$this.height();
@@ -95,75 +140,17 @@ var fsm = {
             case 'recipe-2':
                 break;
         }
-    },
-
-    // initializes all elements and handlers for recipe 1
-    recipe1init: function(e) {
-        // hide and show
-        $('.screen img').hide();
-        var $recipe1 = $('.recipe-1')
-        .css({
-            top: '0px',
-            left: '0px'
-        }).show();
-        var $recipe2pre = $('.recipe-2-preview')
-        .css({
-            top: '0px',
-            left: $recipe1.width() + 'px'
-        }).show();
-        var $recipe2 = $('.recipe-2')
-        .css({
-            top: '0px',
-            left: $recipe1.width() + 'px'
-        });
-
-        // initialization
-        this.state = 'recipe-1';
-        var $screen = $('.screen').addClass('scrollable');
-
-        // handle scrolling
-        $screen.scroll(function(e) {
-            // proceed to recipe 2
-            if ($recipe2pre.width() - e.currentTarget.scrollLeft < 2) {
-                $screen.removeClass('scrollable');
-                $recipe2.show();
-                $recipe2pre.hide();
-                $screen.animate({
-                    scrollLeft: 0,
-                    scrollTop: 0
-                }, 2000);
-                $recipe1.animate({
-                    left: '-' + $recipe1.width() + 'px'
-                }, 2000, function() {
-                    $recipe1.hide();
-                });
-                $recipe2.animate({
-                    left: '0px'
-                }, 2000, function() {
-                    fsm.state = 'recipe-2';
-                    $screen.unbind('scroll');
-                });
-            }
-
-            // hide the preview (disallow horizontal scrolling) when scrolled too far down
-            else if (!$screen.hasClass('vertical') && (e.currentTarget.scrollTop >= $recipe2pre.height() - $('.screen').height())) {
-                $screen.removeClass('scrollable').addClass('vertical');
-                $screen.animate({
-                    scrollLeft: 0
-                }, 'fast');
-            }
-
-            // show the preview (allow horizontal scrolling) when scrolled high enough
-            else if (!$screen.hasClass('scrollable') && (e.currentTarget.scrollTop < $recipe2pre.height() - $('.screen').height())) {
-                $screen.removeClass('vertical').addClass('scrollable');
-            }
-        });
-    },
-
-    recipe2init: function() {
-
     }
-}
+    
+    // returns the offset from the top left corner of the iPad screen
+    fsm.screenOffset = function(e) {
+        var offset = this.$screen.offset();
+        return {
+            top: e.pageY - offset.top, 
+            left: e.pageX - offset.left
+        };
+    }
+});
 
 // returns an iDevice-style time string
 function timeString() {

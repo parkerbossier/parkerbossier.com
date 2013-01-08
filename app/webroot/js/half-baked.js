@@ -32,15 +32,15 @@ $(window).bind('load', function() {
         e.preventDefault();
     })
     // mousedown
-    .on('mousedown', function(e) {
+    .on('mousedown touchstart', function(e) {
         fsm.mousedown(e);
     })
     // mousemove
-    .on('mousemove', function(e) {
+    .on('mousemove touchmove', function(e) {
         fsm.mousemove(e);
     })
     // mouseup
-    .on('mouseup', function(e) {
+    .on('mouseup touchend', function(e) {
         fsm.mouseup(e);
     })
     // mouseup
@@ -67,22 +67,29 @@ $(function() {
         this.$touch.css({
             top: (offset.top - this.$touch.width()/2) + 'px',
             left: (offset.left - this.$touch.height()/2) + 'px'
-        }).show();
+        })
+        .addClass('dragging')
+        .show();
     };
     
     // mousedown handler
     fsm.mousemove = function(e) {
         var offset = this.screenOffset(e);
-        this.$touch.css({
-            top: (offset.top - this.$touch.width()/2) + 'px',
-            left: (offset.left - this.$touch.height()/2) + 'px'
-        });
+        if (this.$touch.hasClass('dragging')) {
+            this.$touch.css({
+                top: (offset.top - this.$touch.width()/2) + 'px',
+                left: (offset.left - this.$touch.height()/2) + 'px'
+            });
+        }
     };
     
     // mousedown handler
     fsm.mouseup = function(e) {
-        this.$touch.animate({opacity: 0}, 'fast', function() {
-           $(this).hide().css('opacity', '');
+        this.$touch.removeClass('dragging')
+        .animate({
+            opacity: 0
+        }, 'fast', function() {
+            $(this).hide().css('opacity', '');
         });
     };
 

@@ -2,7 +2,8 @@
 $(window).bind('load', function() {
     var updateClock = function() {
         $('.clock').html(timeString());
-    }();
+    };
+    updateClock();
     setInterval(updateClock, 1000);
 
     // set the iPad screen width
@@ -40,12 +41,8 @@ $(window).bind('load', function() {
         fsm.mousemove(e);
     })
     // mouseup
-    .on('mouseup touchend', function(e) {
+    .on('mouseup touchend mouseleave', function(e) {
         fsm.mouseup(e);
-    })
-    // mouseup
-    .on('click', function(e) {
-        fsm.click(e);
     });
 });
 
@@ -60,10 +57,16 @@ $(function() {
     fsm.$recipe2 = $('.recipe-2');
     fsm.$fridge = $('.fridge');
     fsm.$touch = $('.touch');
+    //fsm.lastTouch {};
+    //fsm.touchDistance = 0;
+    fsm.clickThresh = 3;
     
     // mousedown handler
     fsm.mousedown = function(e) {
         var offset = this.screenOffset(e);
+        this.lastTouch = offset;
+        this.touchDistance = 0;
+        
         this.$touch.css({
             top: (offset.top - this.$touch.width()/2) + 'px',
             left: (offset.left - this.$touch.height()/2) + 'px'
@@ -76,6 +79,11 @@ $(function() {
     fsm.mousemove = function(e) {
         var offset = this.screenOffset(e);
         if (this.$touch.hasClass('dragging')) {
+            // update the touch distance
+            this.touchDistance += Math.sqrt(Math.pow(offset.top-this.lastTouch.top, 2) + Math.pow(offset.left-this.lastTouch.left, 2));
+            this.lastTouch = offset;
+            
+            // move the touch icon
             this.$touch.css({
                 top: (offset.top - this.$touch.width()/2) + 'px',
                 left: (offset.left - this.$touch.height()/2) + 'px'
@@ -84,56 +92,92 @@ $(function() {
     };
     
     // mousedown handler
-    fsm.mouseup = function(e) {
+    fsm.mouseup = function(e) {  
         this.$touch.removeClass('dragging')
         .animate({
             opacity: 0
         }, 'fast', function() {
             $(this).hide().css('opacity', '');
         });
+        
+        // simulate a click event if necessary
+        if (this.touchDistance <= this.clickThresh)
+            this.click(e);
     };
 
     // handles a click on the given object with the given event
-    fsm.click = function ($this, e) {
-        // convert to percentage values
-        x = x/$this.width();
-        y = y/$this.height();
+    fsm.click = function (e) {
+        var offset = this.screenOffset(e);
+        
+        // add the scroll offset
+        offset.top += this.$screen.get(0).scrollTop;
 
         // yay for FSMs!!!
         switch (this.state) {
-            // table of contents
             case 'toc':
+                // convert to percentages
+                offset.top /= this.$toc.height();
+                offset.left /= this.$toc.width();
+                
                 // to fridge
-                if (x.between(.894, .993) && y.between(.034, .175)) {
-                    // hide and show
-                    $this.hide();
-                    $('.fridge').show();
-
-                    // state
+                if (offset.left.between(.894, .993) && offset.top.between(.034, .175)) {
+                    this.$fridge.show();
+                    this.$toc.hide();
                     this.state = 'fridge';
                 }
                 // to recipe 1
-                else if (x.between(.243, .401) && y.between(.524, .71)) {
-                    this.recipe1init(e);
+                else if (offset.left.between(.243, .401) && offset.top.between(.524, .71)) {
+                    this.$recipe1.css({
+                        top: '0px', 
+                        left: '0px'
+                    }).show();
+                    this.$recipe2.css({
+                        top: '0px',
+                        left: this.$recipe1.width() + 'px'
+                    }).show();
+                    this.$toc.hide();
+                    this.state = 'recipe-1';
                 }
 
                 // to recipe 2
-                else if (x.between(.467, .658) && y.between(.721, .98)) {
-                    console.log('recipe 2!!');
+                else if (offset.left.between(.467, .658) && offset.top.between(.721, .98)) {
+                    this.$recipe1.css({
+                        top: '0px', 
+                        left: '-' + this.$recipe1.width() + 'px'
+                    }).show();
+                    this.$recipe2.css({
+                        top: '0px',
+                        left: '0px'
+                    }).show();
+                    this.$toc.hide();
+                    this.state = 'recipe-2';
                 }
                 break;
 
             // fridge
             case 'fridge':
+                // convert to percentages
+                offset.top /= this.$fridge.height();
+                offset.left /= this.$fridge.width();
+                
                 // to toc
-                if (x.between(.797, .951) && y.between(.121, .19)) {
-                    $this.hide();
-                    $('.toc').show();
+                if (offset.left.between(.797, .951) && offset.top.between(.121, .19)) {
+                    this.$toc.show();
+                    this.$fridge.hide();
                     this.state = 'toc';
                 }
                 // to recipe 1
-                else if (x.between(.172, .419) && y.between(.231, .558)) {
-                    console.log('recipe 1!!');
+                else if (offset.left.between(.172, .419) && offset.top.between(.231, .558)) {
+                    this.$recipe1.css({
+                        top: '0px', 
+                        left: '0px'
+                    }).show();
+                    this.$recipe2.css({
+                        top: '0px',
+                        left: this.$recipe1.width() + 'px'
+                    }).show();
+                    this.$fridge.hide();
+                    this.state = 'recipe-1';
                 }
                 break;
 

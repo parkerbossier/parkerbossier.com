@@ -35,3 +35,7 @@
     z-index: 1500;
     display: none;
 }
+.toc, .fridge {
+    top: 0px;
+    left: 0px;
+}

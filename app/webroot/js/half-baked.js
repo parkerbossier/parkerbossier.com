@@ -119,22 +119,124 @@ fsm.mouseup = function(e) {
 // drag handler
 fsm.drag = function(delta) {
     // yay for FSMs!!!
+    var futureTop;
+    var futureBottom;
+    var futureLeft;
+    var recipeTop;
+    var recipeLeft;
+    var snapThresh = .1*this.$screen.width();
+    
+    // bypass everything if already transitioning
+    if (this.$screen.hasClass('transitioning'))
+        return;
+    
     switch (this.state) {
         case 'recipe-1':
-            // disallow top over dragging
-            var recipe1top = parseFloat(this.$recipe1.css('top'));
-            var futureTop = recipe1top + delta.top;
+            // disallow top over-dragging
+            recipeTop = parseFloat(this.$recipe1.css('top'));
+            futureTop = recipeTop + delta.top;
             if (futureTop > 0)
-                delta.top = delta.top - futureTop;
+                delta.top -= futureTop;
             
-            // disallow bottom over dragging
-            var futureBottom = recipe1top + this.$recipe1.height() - this.$screen.height() + delta.top;
+            // disallow bottom over-dragging
+            futureBottom = recipeTop + this.$recipe1.height() - this.$screen.height() + delta.top;
             if (futureBottom < 0)
-                delta.top = delta.top - futureBottom;
+                delta.top -= futureBottom;
             this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
+            
+            // snap back horizontally if too far scrolled down
+            recipeTop = parseFloat(this.$recipe1.css('top'));
+            recipeLeft = parseFloat(this.$recipe1.css('left'));
+            if (recipeLeft < 0 && recipeTop <= -snapThresh) {
+                this.$screen.addClass('transitioning');
+                this.$recipe1.animate({
+                    left: '0px'
+                }, 'fast');
+                this.$recipe2.animate({
+                    left: this.$recipe1.width()
+                }, 'fast', function() {
+                    fsm.$screen.removeClass('transitioning');
+                });
+            }
+            
+            // advance to recipe 2
+            else {
+                futureLeft = recipeLeft + delta.left;
+                if (futureLeft <= -.1*this.$recipe1.width()) {
+                    this.$screen.addClass('transitioning');
+                    this.$recipe1.animate({
+                        left: '-' + this.$recipe1.width() + 'px'
+                    }, 2000);
+                    this.$recipe2.animate({
+                        left: '0px'
+                    }, 2000, function() {
+                        fsm.$screen.removeClass('transitioning');
+                        fsm.state = 'recipe-2';
+                    });
+                }
+                
+                // allow horizontal dragging; disallow over-dragging 
+                else {
+                    if (futureLeft > 0)
+                        delta.left -= futureLeft;
+                    if (recipeTop > -snapThresh)
+                        this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
+                }
+            }
             break;
                 
         case 'recipe-2':
+            // disallow top over-dragging
+            recipeTop = parseFloat(this.$recipe2.css('top'));
+            futureTop = recipeTop + delta.top;
+            if (futureTop > 0)
+                delta.top = delta.top - futureTop;
+            
+            // disallow bottom over-dragging
+            futureBottom = recipeTop + this.$recipe2.height() - this.$screen.height() + delta.top;
+            if (futureBottom < 0)
+                delta.top = delta.top - futureBottom;
+            this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
+            
+            // snap back horizontally if too far scrolled down
+            recipeTop = parseFloat(this.$recipe2.css('top'));
+            recipeLeft = parseFloat(this.$recipe2.css('left'));
+            if (recipeLeft > 0 && recipeTop <= -.1*this.$recipe2.width()) {
+                this.$screen.addClass('transitioning');
+                this.$recipe1.animate({
+                    left: '-' + this.$recipe1.width() + 'px'
+                }, 'fast');
+                this.$recipe2.animate({
+                    left: '0px'
+                }, 'fast', function() {
+                    fsm.$screen.removeClass('transitioning');
+                });
+            }
+            
+            // back to recipe 1
+            else {
+                futureLeft = recipeLeft + delta.left;
+                if (futureLeft >= .1*this.$recipe2.width()) {
+                    this.$screen.addClass('transitioning');
+                    this.$recipe1.animate({
+                        left: '0px'
+                    }, 2000);
+                    this.$recipe2.animate({
+                        left: this.$recipe1.width()
+                    }, 2000, function() {
+                        fsm.$screen.removeClass('transitioning');
+                        fsm.state = 'recipe-1';
+                    });
+                }
+                
+                // allow horizontal dragging; disallow over-dragging 
+                else {
+                    if (futureLeft < 0)
+                        delta.left -= futureLeft;
+                    if (recipeTop > -snapThresh)
+                        this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
+                }
+            }
             break;
     }
 };
@@ -215,11 +317,15 @@ fsm.click = function (e) {
             break;
 
         case 'recipe-1':
-            // click handlers
-
+            // convert to percentages
+            offset.top /= this.$recipe1.height();
+            offset.left /= this.$recipe1.width();
             break;
 
         case 'recipe-2':
+            // convert to percentages
+            offset.top /= this.$recipe2.height();
+            offset.left /= this.$recipe2.width();
             break;
     }
 }

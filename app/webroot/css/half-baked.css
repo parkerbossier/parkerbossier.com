@@ -13,8 +13,9 @@
     font-size: 75%;
     text-align: center;
     top: 11.2%;
-    width: 100%;
+    left: 9.6%;
     color: #bebebe;
+    cursor: pointer;
 }
 .screen {
     overflow: hidden;

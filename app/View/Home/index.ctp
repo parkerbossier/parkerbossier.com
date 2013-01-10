@@ -6,7 +6,7 @@ $this->Html->css('home', null, array('block' => 'css'));
 $this->Html->css('cards', null, array('block' => 'css'));
 ?>
 
-<div class="row">
+<div class="row card-row">
     <div class="span4 card card-rounded">
         <a href="/blog" target="_blank" class="color-bypass">
             <div class="inner-card" data-href="/blog" data-new-tab="true">

@@ -17,13 +17,9 @@ body {
 }
 .row {
     position: relative;
-    margin-bottom: 20px;
 }
 
 /* ie alert */
-.ie-alert-row {
-    margin-top: -10px;
-}
 .ie-alert-row .alert {
     text-align: justify;
 }

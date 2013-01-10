@@ -4,7 +4,7 @@
 .ipad {
     z-index: 1000;
 }
-.screen, .clock, .toc, .recipe-1, .recipe-2-preview, .recipe-2 {
+.screen, .touch, .clock, .toc, .recipe-1, .recipe-2 {
     position: absolute;
 }
 .clock {
@@ -13,8 +13,9 @@
     font-size: 75%;
     text-align: center;
     top: 11.2%;
-    width: 100%;
+    left: 9.6%;
     color: #bebebe;
+    cursor: pointer;
 }
 .screen {
     overflow: hidden;
@@ -24,17 +25,18 @@
 .screen.scrollable {
     overflow: auto;
 }
-.screen.vertical {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 .screen img {
     width: 100%;
     display: none;
 }
-.recipe-2-preview {
-    background: url('/img/half-baked-recipe-2.png');
-    width: 10%;
-    height: 110%;
+.touch {
+    width: 8%;
+    background-color: grey;
+    opacity: .8;
+    z-index: 1500;
     display: none;
+}
+.toc, .fridge {
+    top: 0px;
+    left: 0px;
 }

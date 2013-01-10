@@ -61,7 +61,7 @@ var fsm = {};
 fsm.state = 'toc';
 //fsm.lastTouch {};
 //fsm.touchDistance = 0;
-fsm.clickThresh = 3;
+fsm.clickThresh = 2;
 
 // mousedown handler
 fsm.mousedown = function(e) {
@@ -112,7 +112,7 @@ fsm.mouseup = function(e) {
     });
         
     // simulate a click event if necessary
-    if (this.touchDistance <= this.clickThresh)
+    if (this.touchDistance <= this.clickThresh && e.type != 'mouseleave')
         this.click(e);
 };
     
@@ -244,9 +244,6 @@ fsm.drag = function(delta) {
 // handles a click on the given object with the given event
 fsm.click = function (e) {
     var offset = this.screenOffset(e);
-        
-    // add the scroll offset
-    offset.top += this.$screen.get(0).scrollTop;
 
     // yay for FSMs!!!
     switch (this.state) {
@@ -261,6 +258,7 @@ fsm.click = function (e) {
                 this.$toc.hide();
                 this.state = 'fridge';
             }
+            
             // to recipe 1
             else if (offset.left.between(.243, .401) && offset.top.between(.524, .71)) {
                 this.$recipe1.css({
@@ -301,6 +299,7 @@ fsm.click = function (e) {
                 this.$fridge.hide();
                 this.state = 'toc';
             }
+            
             // to recipe 1
             else if (offset.left.between(.172, .419) && offset.top.between(.231, .558)) {
                 this.$recipe1.css({
@@ -317,15 +316,67 @@ fsm.click = function (e) {
             break;
 
         case 'recipe-1':
+            // account for scrolling
+            offset.top += -parseFloat(this.$recipe1.css('top'));
+            offset.left += -parseFloat(this.$recipe1.css('left'));
+            
             // convert to percentages
             offset.top /= this.$recipe1.height();
             offset.left /= this.$recipe1.width();
+                        
+            // to toc
+            if (offset.left.between(.01392, .34127) && offset.top.between(.98436, .99372)) {
+                this.$toc.show();
+                this.$recipe1.hide();
+                this.state = 'toc';
+            }
+            
+            // to fridge
+            else if (offset.left.between(.35817, .67179) && offset.top.between(.98436, .99397)) {
+                this.$fridge.show();
+                this.$recipe1.hide();
+                this.state = 'fridge';
+            }
+            
+            // share your story
+            else if (offset.left.between(.6908, .98541) && offset.top.between(.98485, .99446)) {
+                alert("This is just a demo, so this feature isn't supported. Thanks for actually clicking on it, though :)");
+            }
             break;
 
         case 'recipe-2':
+            // account for scrolling
+            offset.top += -parseFloat(this.$recipe2.css('top'));
+            offset.left += -parseFloat(this.$recipe2.css('left'));
+            
             // convert to percentages
             offset.top /= this.$recipe2.height();
             offset.left /= this.$recipe2.width();
+            
+            console.log(offset);
+            offset = {
+                top: 0, 
+                left: 0
+            };
+            
+            // to toc
+            if (offset.left.between(.01498, .38245) && offset.top.between(.97413, .99037)) {
+                this.$toc.show();
+                this.$recipe1.hide();
+                this.state = 'toc';
+            }
+            
+            // to fridge
+            else if (offset.left.between(.39618, .60526) && offset.top.between(.97379, .98902)) {
+                this.$fridge.show();
+                this.$recipe1.hide();
+                this.state = 'fridge';
+            }
+            
+            // share your story
+            else if (offset.left.between(.61793, .98858) && offset.top.between(.97413, .99003)) {
+                alert("This is just a demo, so this feature isn't supported. Thanks for actually clicking on it, though :)");
+            }
             break;
     }
 }

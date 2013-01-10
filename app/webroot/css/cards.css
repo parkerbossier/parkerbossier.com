@@ -30,6 +30,11 @@
     text-align: justify;
 }
 
+/* for when cards are vertically laid out */
+.card {
+    margin-bottom: 20px;
+}
+
 /* webkit border-radius overflow fix */
 .card {
     -webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);

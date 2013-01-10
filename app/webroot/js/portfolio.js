@@ -5,18 +5,6 @@ $(window).resize(valignHeightAdjust);
 $(function() {
     valignHeightAdjust();
 
-    // profile click handler
-    $('.carddd.profile').click(function() {
-        var innerCard = $(this).children('.inner-card');
-        if (innerCard.hasClass('clicked')) {
-            innerCard.removeClass('clicked');
-            innerCard.css('margin-top', '');
-        } else {
-            innerCard.addClass('clicked');
-            innerCard.css('margin-top', relativeAboutOffset + 'px');
-        }
-    });
-
     // position the card headers above the inner-cards
     $('.card-header').css('top', '-' + $('.card-header').height() + 'px');
 
@@ -39,14 +27,17 @@ function valignHeightAdjust() {
 
     // set the description wrapper heights
     $('.description-wrapper').height(cardWidth);
-
+    
+    // space the rows
+    var marginLeft = parseFloat($('.card:first').css('margin-left'));
+    $('.card').css('margin-bottom', marginLeft || '');
+    
     // vertically center the cards
-    var docHeight = $(document).height();
-    var rowOffset = $('.row').offset().top;
-    var newOffset = (.9*docHeight-rowOffset-cardWidth*2)/2;
-    if (newOffset < 0)
-        newOffset = 0;
-    $('.row:first').css('margin-top', newOffset);
+    var $firstRow = $('.row:first')
+    var $lastRow = $('.row:last');
+    var firstRowOffset = ($(window).height() - $lastRow.offset().top - $lastRow.height())/2;
+    if (firstRowOffset > 0)
+        $firstRow.css('margin-top', firstRowOffset);
 
     // overlay the shadow divs
     $('.card-shadow').width(cardWidth).height(cardWidth);

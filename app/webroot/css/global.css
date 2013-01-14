@@ -18,6 +18,9 @@ body {
 .row {
     position: relative;
 }
+h1, h2, h3 {
+    font-family: 'Monda', sans-serif;
+}
 
 /* ie alert */
 .ie-alert-row .alert {

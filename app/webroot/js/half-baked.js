@@ -7,12 +7,12 @@ $(window).bind('load', function() {
     };
     updateClock();
     setInterval(updateClock, 1000);
-    
+
     // scroll to top
     $clock.click(function() {
         $('.screen img').animate({
             'top': '0px'
-        }, 2000); 
+        }, 2000);
     });
 
     // set the iPad screen and clock width
@@ -21,7 +21,7 @@ $(window).bind('load', function() {
     $screen = $('.screen');
     $screen.width(screenWidth).height(.973*screenWidth*3/4);
     $clock.width(screenWidth)
-    
+
     // set the touch icon (1:1 and circular)
     var $touch = $('.touch');
     $touch.css({
@@ -68,7 +68,7 @@ fsm.mousedown = function(e) {
     var offset = this.screenOffset(e);
     this.lastTouch = offset;
     this.touchDistance = 0;
-        
+
     this.$touch.css({
         top: (offset.top - this.$touch.width()/2) + 'px',
         left: (offset.left - this.$touch.height()/2) + 'px'
@@ -76,24 +76,24 @@ fsm.mousedown = function(e) {
     .addClass('dragging')
     .show();
 };
-    
+
 // mousedown handler
 fsm.mousemove = function(e) {
     var offset = this.screenOffset(e);
     if (this.$touch.hasClass('dragging')) {
         // compute drag delta
         var deltaDrag = {
-            top: offset.top-this.lastTouch.top, 
+            top: offset.top-this.lastTouch.top,
             left: offset.left-this.lastTouch.left
         };
-            
+
         // trigger a drag event
         this.drag(deltaDrag);
-            
+
         // update the touch distance
         this.touchDistance += Math.sqrt(Math.pow(deltaDrag.top, 2) + Math.pow(deltaDrag.left, 2));
         this.lastTouch = offset;
-            
+
         // move the touch icon
         this.$touch.css({
             top: (offset.top - this.$touch.width()/2) + 'px',
@@ -101,21 +101,21 @@ fsm.mousemove = function(e) {
         });
     }
 };
-    
+
 // mousedown handler
-fsm.mouseup = function(e) {  
+fsm.mouseup = function(e) {
     this.$touch.removeClass('dragging')
     .animate({
         opacity: 0
     }, 'fast', function() {
         $(this).hide().css('opacity', '');
     });
-        
+
     // simulate a click event if necessary
     if (this.touchDistance <= this.clickThresh && e.type != 'mouseleave')
         this.click(e);
 };
-    
+
 // drag handler
 fsm.drag = function(delta) {
     // yay for FSMs!!!
@@ -125,118 +125,144 @@ fsm.drag = function(delta) {
     var recipeTop;
     var recipeLeft;
     var snapThresh = .1*this.$screen.width();
-    
+
     // bypass everything if already transitioning
     if (this.$screen.hasClass('transitioning'))
         return;
-    
+
     switch (this.state) {
         case 'recipe-1':
-            // disallow top over-dragging
+            // disallow downward over-dragging
             recipeTop = parseFloat(this.$recipe1.css('top'));
             futureTop = recipeTop + delta.top;
             if (futureTop > 0)
                 delta.top -= futureTop;
-            
-            // disallow bottom over-dragging
-            futureBottom = recipeTop + this.$recipe1.height() - this.$screen.height() + delta.top;
-            if (futureBottom < 0)
-                delta.top -= futureBottom;
-            this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
-            
-            // snap back horizontally if too far scrolled down
-            recipeTop = parseFloat(this.$recipe1.css('top'));
-            recipeLeft = parseFloat(this.$recipe1.css('left'));
-            if (recipeLeft < 0 && recipeTop <= -snapThresh) {
-                this.$screen.addClass('transitioning');
-                this.$recipe1.animate({
-                    left: '0px'
-                }, 'fast');
-                this.$recipe2.animate({
-                    left: this.$recipe1.width()
-                }, 'fast', function() {
-                    fsm.$screen.removeClass('transitioning');
-                });
-            }
-            
-            // advance to recipe 2
+
+            // disallow upward over-dragging
             else {
-                futureLeft = recipeLeft + delta.left;
-                if (futureLeft <= -.1*this.$recipe1.width()) {
+                futureBottom = recipeTop + this.$recipe1.height() - this.$screen.height() + delta.top;
+                if (futureBottom < 0)
+                    delta.top -= futureBottom;
+            }
+
+            // perform vertical dragging
+            this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
+            recipeTop = parseFloat(this.$recipe1.css('top'));
+
+            // disallow rightward over-dragging
+            recipeLeft = parseFloat(this.$recipe1.css('left'));
+            futureLeft = recipeLeft + delta.left;
+            if (futureLeft > 0)
+                delta.left -= futureLeft;
+
+            // recipe scrolled outside of snapping threshold (horizontally locked)
+            if (recipeTop < -snapThresh) {
+
+                // snap back horizontally if too far scrolled down
+                if (recipeLeft < 0) {
                     this.$screen.addClass('transitioning');
                     this.$recipe1.animate({
-                        left: '-' + this.$recipe1.width() + 'px'
-                    }, 2000);
-                    this.$recipe2.animate({
                         left: '0px'
-                    }, 2000, function() {
+                    }, 'fast');
+                    this.$recipe2.animate({
+                        left: this.$recipe1.width()
+                    }, 'fast', function() {
                         fsm.$screen.removeClass('transitioning');
-                        fsm.state = 'recipe-2';
                     });
+                    break;
                 }
-                
-                // allow horizontal dragging; disallow over-dragging 
-                else {
-                    if (futureLeft > 0)
-                        delta.left -= futureLeft;
-                    if (recipeTop > -snapThresh)
-                        this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
+
+                // disallow leftward over-dragging
+                else if (futureLeft < 0) {
+                    delta.left -= futureLeft;
                 }
             }
-            break;
-                
-        case 'recipe-2':
-            // disallow top over-dragging
-            recipeTop = parseFloat(this.$recipe2.css('top'));
-            futureTop = recipeTop + delta.top;
-            if (futureTop > 0)
-                delta.top = delta.top - futureTop;
-            
-            // disallow bottom over-dragging
-            futureBottom = recipeTop + this.$recipe2.height() - this.$screen.height() + delta.top;
-            if (futureBottom < 0)
-                delta.top = delta.top - futureBottom;
-            this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
-            
-            // snap back horizontally if too far scrolled down
-            recipeTop = parseFloat(this.$recipe2.css('top'));
-            recipeLeft = parseFloat(this.$recipe2.css('left'));
-            if (recipeLeft > 0 && recipeTop <= -.1*this.$recipe2.width()) {
+
+            // recipe scrolled within snapping threshold (horizontally scrollable)
+            // advance to recipe 2
+            else if (recipeLeft <= -.1*this.$recipe1.width()) {
                 this.$screen.addClass('transitioning');
                 this.$recipe1.animate({
                     left: '-' + this.$recipe1.width() + 'px'
-                }, 'fast');
+                }, 2000);
                 this.$recipe2.animate({
                     left: '0px'
-                }, 'fast', function() {
+                }, 2000, function() {
                     fsm.$screen.removeClass('transitioning');
+                    fsm.state = 'recipe-2';
                 });
+                break;
             }
-            
-            // back to recipe 1
+
+            // perform horizontal dragging
+            this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
+            break;
+
+        case 'recipe-2':
+            // disallow downward over-dragging
+            recipeTop = parseFloat(this.$recipe2.css('top'));
+            futureTop = recipeTop + delta.top;
+            if (futureTop > 0)
+                delta.top -= futureTop;
+
+            // disallow upward over-dragging
             else {
-                futureLeft = recipeLeft + delta.left;
-                if (futureLeft >= .1*this.$recipe2.width()) {
+                futureBottom = recipeTop + this.$recipe2.height() - this.$screen.height() + delta.top;
+                if (futureBottom < 0)
+                    delta.top -= futureBottom;
+            }
+
+            // perform vertical dragging
+            this.$recipe1.add(this.$recipe2).css('top', '+=' + delta.top + 'px');
+            recipeTop = parseFloat(this.$recipe2.css('top'));
+
+            // disallow rightward over-dragging
+            recipeLeft = parseFloat(this.$recipe2.css('left'));
+            futureLeft = recipeLeft + delta.left;
+            if (futureLeft < 0)
+                delta.left -= futureLeft;
+
+            // recipe scrolled outside of snapping threshold (horizontally locked)
+            if (recipeTop < -snapThresh) {
+
+                // snap back horizontally if too far scrolled down
+                if (recipeLeft > 0) {
                     this.$screen.addClass('transitioning');
                     this.$recipe1.animate({
-                        left: '0px'
-                    }, 2000);
+                        left: '-' + this.$recipe1.width() + 'px'
+                    }, 'fast');
                     this.$recipe2.animate({
-                        left: this.$recipe1.width()
-                    }, 2000, function() {
+                        left: '0px'
+                    }, 'fast', function() {
                         fsm.$screen.removeClass('transitioning');
-                        fsm.state = 'recipe-1';
                     });
+                    break;
                 }
-                
-                // allow horizontal dragging; disallow over-dragging 
-                else {
-                    if (futureLeft < 0)
-                        delta.left -= futureLeft;
-                    if (recipeTop > -snapThresh)
-                        this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
+
+                // disallow leftward over-dragging
+                else if (futureLeft > 0) {
+                    delta.left -= futureLeft;
                 }
             }
+
+            // recipe scrolled within snapping threshold (horizontally scrollable)
+            // revert to recipe 1
+            else if (recipeLeft >= .1*this.$recipe1.width()) {
+                this.$screen.addClass('transitioning');
+                this.$recipe1.animate({
+                    left: '0px'
+                }, 2000);
+                this.$recipe2.animate({
+                    left: this.$recipe1.width() + 'px'
+                }, 2000, function() {
+                    fsm.$screen.removeClass('transitioning');
+                    fsm.state = 'recipe-2';
+                });
+                break;
+            }
+
+            // perform horizontal dragging
+            this.$recipe1.add(this.$recipe2).css('left', '+=' + delta.left + 'px');
             break;
     }
 };
@@ -251,18 +277,18 @@ fsm.click = function (e) {
             // convert to percentages
             offset.top /= this.$toc.height();
             offset.left /= this.$toc.width();
-                
+
             // to fridge
             if (offset.left.between(.894, .993) && offset.top.between(.034, .175)) {
                 this.$fridge.show();
                 this.$toc.hide();
                 this.state = 'fridge';
             }
-            
+
             // to recipe 1
             else if (offset.left.between(.243, .401) && offset.top.between(.524, .71)) {
                 this.$recipe1.css({
-                    top: '0px', 
+                    top: '0px',
                     left: '0px'
                 }).show();
                 this.$recipe2.css({
@@ -276,7 +302,7 @@ fsm.click = function (e) {
             // to recipe 2
             else if (offset.left.between(.467, .658) && offset.top.between(.721, .98)) {
                 this.$recipe1.css({
-                    top: '0px', 
+                    top: '0px',
                     left: '-' + this.$recipe1.width() + 'px'
                 }).show();
                 this.$recipe2.css({
@@ -292,18 +318,18 @@ fsm.click = function (e) {
             // convert to percentages
             offset.top /= this.$fridge.height();
             offset.left /= this.$fridge.width();
-                
+
             // to toc
             if (offset.left.between(.797, .951) && offset.top.between(.121, .19)) {
                 this.$toc.show();
                 this.$fridge.hide();
                 this.state = 'toc';
             }
-            
+
             // to recipe 1
             else if (offset.left.between(.172, .419) && offset.top.between(.231, .558)) {
                 this.$recipe1.css({
-                    top: '0px', 
+                    top: '0px',
                     left: '0px'
                 }).show();
                 this.$recipe2.css({
@@ -319,25 +345,23 @@ fsm.click = function (e) {
             // account for scrolling
             offset.top += -parseFloat(this.$recipe1.css('top'));
             offset.left += -parseFloat(this.$recipe1.css('left'));
-            
+
             // convert to percentages
             offset.top /= this.$recipe1.height();
             offset.left /= this.$recipe1.width();
-                        
+
             // to toc
             if (offset.left.between(.01392, .34127) && offset.top.between(.98436, .99372)) {
                 this.$toc.show();
                 this.$recipe1.hide();
                 this.state = 'toc';
             }
-            
-            // to fridge
+
+            // stick to fridge
             else if (offset.left.between(.35817, .67179) && offset.top.between(.98436, .99397)) {
-                this.$fridge.show();
-                this.$recipe1.hide();
-                this.state = 'fridge';
+                alert("This is just a demo, so adding items to the fridge isn't supported. Thanks for actually clicking on it, though :)");
             }
-            
+
             // share your story
             else if (offset.left.between(.6908, .98541) && offset.top.between(.98485, .99446)) {
                 alert("This is just a demo, so this feature isn't supported. Thanks for actually clicking on it, though :)");
@@ -348,31 +372,25 @@ fsm.click = function (e) {
             // account for scrolling
             offset.top += -parseFloat(this.$recipe2.css('top'));
             offset.left += -parseFloat(this.$recipe2.css('left'));
-            
+
             // convert to percentages
             offset.top /= this.$recipe2.height();
             offset.left /= this.$recipe2.width();
-            
-            console.log(offset);
-            offset = {
-                top: 0, 
-                left: 0
-            };
-            
+
             // to toc
             if (offset.left.between(.01498, .38245) && offset.top.between(.97413, .99037)) {
                 this.$toc.show();
                 this.$recipe1.hide();
                 this.state = 'toc';
             }
-            
+
             // to fridge
             else if (offset.left.between(.39618, .60526) && offset.top.between(.97379, .98902)) {
                 this.$fridge.show();
                 this.$recipe1.hide();
                 this.state = 'fridge';
             }
-            
+
             // share your story
             else if (offset.left.between(.61793, .98858) && offset.top.between(.97413, .99003)) {
                 alert("This is just a demo, so this feature isn't supported. Thanks for actually clicking on it, though :)");
@@ -380,12 +398,12 @@ fsm.click = function (e) {
             break;
     }
 }
-    
+
 // returns the offset from the top left corner of the iPad screen
 fsm.screenOffset = function(e) {
     var offset = this.$screen.offset();
     return {
-        top: e.pageY - offset.top, 
+        top: e.pageY - offset.top,
         left: e.pageX - offset.left
     };
 }

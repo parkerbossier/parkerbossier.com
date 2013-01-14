@@ -8,6 +8,10 @@ $(window).bind('load', function() {
     updateClock();
     setInterval(updateClock, 1000);
 
+    // switch from the loading row
+    $('.loading').hide();
+    $('.simulator').show();
+
     // scroll to top
     $clock.click(function() {
         $('.screen img').animate({
@@ -18,9 +22,10 @@ $(window).bind('load', function() {
     // set the iPad screen and clock width
     var iPadWidth = $('.ipad').width();
     var screenWidth = iPadWidth*.8095;
+    var screenHeight = .973*screenWidth*3/4;
     $screen = $('.screen');
-    $screen.width(screenWidth).height(.973*screenWidth*3/4);
-    $clock.width(screenWidth)
+    $screen.width(screenWidth).height(screenHeight);
+    $clock.width(screenWidth);
 
     // set the touch icon (1:1 and circular)
     var $touch = $('.touch');
@@ -417,6 +422,36 @@ $(function() {
     fsm.$recipe2 = $('.recipe-2');
     fsm.$fridge = $('.fridge');
     fsm.$touch = $('.touch');
+
+    // loading animation
+    var loadingAnimation = setInterval(function() {
+        var $alert = $('.loading .alert');
+
+        // cycle periods
+        if ($alert.is(':visible')) {
+            var text = $alert.html().trim();
+            var first = text.indexOf('.', text.length-3);
+
+            if (first == -1)
+                text += '.';
+            switch (text.length - first) {
+                case 3:
+                    text = text.substr(0, text.length-3);
+                    break;
+
+                case 2:
+                case 1:
+                    text += '.';
+                    break;
+            }
+            $alert.html(text);
+        }
+
+        // done
+        else
+            clearInterval(loadingAnimation);
+    }, 500);
+
 });
 
 // returns an iDevice-style time string

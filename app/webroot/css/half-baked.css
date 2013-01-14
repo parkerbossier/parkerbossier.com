@@ -4,7 +4,7 @@
 .ipad {
     z-index: 1000;
 }
-.screen, .touch, .clock, .toc, .recipe-1, .recipe-2 {
+.screen, .touch, .clock, .loading, .toc, .recipe-1, .recipe-2 {
     position: absolute;
 }
 .clock {

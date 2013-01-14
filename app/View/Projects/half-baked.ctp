@@ -14,12 +14,18 @@ $this->Html->script('half-baked', array('block' => 'script'));
     <div class="span4">
         <p class="well">
             <strong>How to use</strong>
-            <br/>You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly. </span><strong>Click and drag</strong> to move the content around (the two recipes), and simply <strong>click</strong> on buttons and navigation items (like Polaroid thumbnails and Nutella buttons) to use them. Note that the only completed recipes are "Speak no see no cookies" and "Hot, sweet, and sticky".
+            <br/>You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly. </span><strong>Click and drag</strong> to move the content around (the two recipes), and simply <strong>click</strong> on buttons and navigation items (like Polaroid thumbnails and Nutella buttons) to use them. You can also click on the <strong>clock</strong> to scroll to the top. Note that the only completed recipes are "Speak no see no cookies" and "Hot, sweet, and sticky".
         </p>
     </div>
 </div>
 
-<div class="row">
+<div class="row loading">
+    <div class="span4 offset4 alert alert-success">
+        The iPad simulation is loading. This can take a while (~15MB download)...
+    </div>
+</div>
+
+<div class="row simulator" style="display: none;">
     <div class="span12">
         <img src="/img/ipad-template.png" alt="iPad template" class="ipad"/>
         <div class="clock"></div>

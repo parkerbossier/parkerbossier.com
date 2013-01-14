@@ -5,17 +5,42 @@ $this->Html->script('half-baked', array('block' => 'script'));
 ?>
 
 <div class="row">
-    <div class="span4 offset2">
-        <p class="well">
-            <strong>Half Baked</strong> is my Interaction Design Fundamentals group final project. Below is an iPad simulation our finished proof-of-concept deliverable.
-        </p>
+    <div class="span5 offset1 same-height">
+        <div class="well">
+            <h3>Description</h3>
+
+            <p class="justified">
+                <strong>Half Baked</strong> is my Interaction Design Fundamentals final group project. The concept's main influence started as a "mainstreamification" of <a href="http://en.wikipedia.org/wiki/Wet_and_messy_fetishism" target="_blank">sploshing (NSFW wiki link) <img src="/img/external-link.png" alt="External link" class="external-link"/></a>. We evolved this concept to become a light-hearted approach to cooking with pictures of the cooking process as centerpieces. These pictures don't look like professional photographs (except for the stock photos we used as place-holders). Instead, they depict the messy aspects of cooking &mdash; bowls overflowing, flour spilled everywhere, sticky fingers. We placed the recipes at the bottom of each cooking adventure so as to make the user experience each recipe before seeing the actual steps and ingredients involved. Below is an iPad simulation our finished proof-of-concept deliverable.
+            </p>
+        </div>
     </div>
 
-    <div class="span4">
-        <p class="well">
-            <strong>How to use</strong>
-            <br/>You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly. </span><strong>Click and drag</strong> to move the content around (the two recipes), and simply <strong>click</strong> on buttons and navigation items (like Polaroid thumbnails and Nutella buttons) to use them. You can also click on the <strong>clock</strong> to scroll to the top. Note that the only completed recipes are "Speak no see no cookies" and "Hot, sweet, and sticky".
-        </p>
+    <div class="span5 same-height">
+        <div class="well">
+            <h3>Instructions</h3>
+
+            <p>
+                You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly.</span>
+            </p>
+
+            <ul>
+                <li>
+                    Click and drag to move the content around (the two recipes)
+                </li>
+                <li>
+                    Click on buttons and navigation items (like Polaroid thumbnails and Nutella buttons) to use them
+                </li>
+                <li>
+                    You can click on the clock to scroll to the top
+                </li>
+            </ul>
+            <br/>
+
+            <p>
+                <strong>Note</strong>
+                <br/>The only completed recipes are "Speak no see no cookies" and "Hot, sweet, and sticky".
+            </p>
+        </div>
     </div>
 </div>
 

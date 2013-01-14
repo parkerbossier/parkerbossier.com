@@ -50,14 +50,17 @@ $(window).bind('load', function() {
     // mousedown
     .on('mousedown touchstart', function(e) {
         fsm.mousedown(e);
+        e.stopPropagation();
     })
     // mousemove
     .on('mousemove touchmove', function(e) {
         fsm.mousemove(e);
+        e.stopPropagation();
     })
     // mouseup
     .on('mouseup touchend mouseleave', function(e) {
         fsm.mouseup(e);
+        e.stopPropagation();
     });
 });
 
@@ -261,7 +264,7 @@ fsm.drag = function(delta) {
                     left: this.$recipe1.width() + 'px'
                 }, 2000, function() {
                     fsm.$screen.removeClass('transitioning');
-                    fsm.state = 'recipe-2';
+                    fsm.state = 'recipe-1';
                 });
                 break;
             }
@@ -452,6 +455,9 @@ $(function() {
             clearInterval(loadingAnimation);
     }, 500);
 
+    // make the instruction and description divs equal heights
+    var $sameHeights = $('.same-height');
+    $sameHeights.height(Math.max($($sameHeights[0]).height(), $($sameHeights[1]).height()));
 });
 
 // returns an iDevice-style time string

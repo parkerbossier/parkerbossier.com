@@ -5,6 +5,21 @@ $this->Html->script('half-baked', array('block' => 'script'));
 ?>
 
 <div class="row">
+    <div class="span4 offset2">
+        <p class="well">
+            <strong>Half Baked</strong> is my Interaction Design Fundamentals group final project. Below is an iPad simulation our finished proof-of-concept deliverable.
+        </p>
+    </div>
+
+    <div class="span4">
+        <p class="well">
+            <strong>How to use</strong>
+            <br/>You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly. </span><strong>Click and drag</strong> to move the content around (the two recipes), and simply <strong>click</strong> on buttons and navigation items (like Polaroid thumbnails and Nutella buttons) to use them. Note that the only completed recipes are "Speak no see no cookies" and "Hot, sweet, and sticky".
+        </p>
+    </div>
+</div>
+
+<div class="row">
     <div class="span12">
         <img src="/img/ipad-template.png" alt="iPad template" class="ipad"/>
         <div class="clock"></div>

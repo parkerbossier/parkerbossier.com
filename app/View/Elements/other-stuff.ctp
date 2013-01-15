@@ -1,6 +1,6 @@
 <div class="span4 card card-rounded">
     <div class="inner-card">
-        <img class="card-rounded card-preview" src="/img/other-preview.png" alt="Other projects preview image"/>
+        <img class="card-rounded card-preview" src="/img/ios-lockscreens-preview.png" alt="Other projects preview image"/>
 
         <a href="/portfolio/other" class="color-bypass">
             <div class="description-wrapper">

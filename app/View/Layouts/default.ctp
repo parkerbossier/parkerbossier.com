@@ -20,7 +20,7 @@
         ?>
         <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
         <?php
-        echo $this->Html->script('jquery-1.7.2');
+        echo $this->Html->script('jquery-1.8.3.min');
         echo $this->Html->script('bootstrap.min');
         echo $this->Html->script('global');
         // set active tab

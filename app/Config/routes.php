@@ -24,6 +24,7 @@
 Router::connect('/', array('controller' => 'home', 'action' => 'index'));
 Router::connect('/projects/flash', array('controller' => 'projects', 'action' => 'flizash'));
 Router::connect('/projects/half-baked', array('controller' => 'projects', 'action' => 'halfbaked'));
+Router::connect('/projects/ios-lockscreens', array('controller' => 'projects', 'action' => 'ios_lockscreens'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on

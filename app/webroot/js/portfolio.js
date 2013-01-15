@@ -27,11 +27,22 @@ function valignHeightAdjust() {
 
     // set the description wrapper heights
     $('.description-wrapper').height(cardWidth);
-    
+
+    // vertically align the descriptions
+    $('.description-wrapper').each(function() {
+        var $descWrapper = $(this);
+        var $description = $descWrapper.children('.description');
+        var freeSpace = $descWrapper.height() - $descWrapper.children(':eq(0)').height() - $descWrapper.children(':eq(1)').height()*2 - $description.outerHeight();
+        console.log($descWrapper.height(), $descWrapper.children(':eq(0)').height(), $descWrapper.children(':eq(1)').height()*2, $description.outerHeight())
+        if (freeSpace > 0) {
+            $description.css('margin-top', freeSpace/2);
+        }
+    });
+
     // space the rows
     var marginLeft = parseFloat($('.card:first').css('margin-left'));
     $('.card').css('margin-bottom', marginLeft || '');
-    
+
     // vertically center the cards
     var $firstRow = $('.row:first')
     var $lastRow = $('.row:last');

@@ -24,7 +24,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/CurvingBalls.swf" width="550" height="400" type="application/x-shockwave-flash" style="background-color: black;">
     </div>
 </div>
@@ -42,7 +42,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/FifteenPuzzle.swf" width="450" height="500" type="application/x-shockwave-flash" wmode="transparent">
     </div>
 </div>
@@ -60,7 +60,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/BinaryClock.swf" width="550" height="400" type="application/x-shockwave-flash" wmode="transparent">
     </div>
 </div>
@@ -78,7 +78,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/ClockTick.swf" width="550" height="400" type="application/x-shockwave-flash" wmode="transparent">
     </div>
 </div>
@@ -96,7 +96,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/Fractal.swf" width="550" height="400" type="application/x-shockwave-flash">
     </div>
 </div>
@@ -114,7 +114,7 @@ $this->Html->css('flash', null, array('block' => 'css'));
 </div>
 
 <div class="row">
-    <div class="span6 offset3 pagination-centered">
+    <div class="span12 pagination-centered">
         <embed src="/files/flash/Guess-Word.swf" width="550" height="450" type="application/x-shockwave-flash">
     </div>
 </div>

@@ -1,6 +1,16 @@
 table label {
     font-weight: bold;
 }
+input, textarea {
+    width: 100% !important;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+input {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
 .text-input-wrapper {
     text-align: center;
 }

@@ -5,8 +5,8 @@ $this->Html->script('half-baked', array('block' => 'script'));
 ?>
 
 <div class="row">
-    <div class="span5 offset1 same-height">
-        <div class="well">
+    <div class="span5 offset1">
+        <div class="well same-height">
             <h3>Description</h3>
 
             <p class="justified">
@@ -15,8 +15,8 @@ $this->Html->script('half-baked', array('block' => 'script'));
         </div>
     </div>
 
-    <div class="span5 same-height">
-        <div class="well">
+    <div class="span5">
+        <div class="well same-height">
             <h3>Instructions</h3>
 
             <p>

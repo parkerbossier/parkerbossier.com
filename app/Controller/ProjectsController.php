@@ -18,5 +18,13 @@ class ProjectsController extends AppController {
         $this->view = 'half-baked';
     }
 
+    public function ios_lockscreens() {
+
+    }
+
+    public function turing() {
+
+    }
+
 }
 

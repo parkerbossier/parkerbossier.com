@@ -385,8 +385,6 @@ fsm.click = function (e) {
             offset.top /= this.$recipe2.height();
             offset.left /= this.$recipe2.width();
 
-            console.log(offset.top, offset.left);
-
             // to toc
             if (offset.left.between(.01498, .38245) && offset.top.between(.97413, .99037)) {
                 this.$toc.show();

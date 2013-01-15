@@ -5,6 +5,14 @@ $this->Html->script('ios_lockscreens', array('block' => 'script'));
 ?>
 
 <div class="row">
+    <div class="span4 offset4">
+        <div class="well">
+            <h1 class="pagination-centered">iOS Lockscreens</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="span6">
         <div class="well same-height">
             <h2 class="pagination-centered">

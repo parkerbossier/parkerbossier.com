@@ -48,7 +48,7 @@ function valignHeightAdjust() {
     $('.description-wrapper').each(function() {
         var $descWrapper = $(this);
         var $description = $descWrapper.children('.description');
-        var freeSpace = $descWrapper.height() - $descWrapper.children(':eq(0)').height() - $descWrapper.children(':eq(1)').height()*2 - $description.outerHeight();
+        var freeSpace = $descWrapper.height() - $descWrapper.children(':first').height() - $descWrapper.children(':first').children(':eq(1)').height()*2 - $description.outerHeight();
         if (freeSpace > 0) {
             $description.css('margin-top', freeSpace/2);
         }
@@ -70,12 +70,5 @@ function valignHeightAdjust() {
     $('.card-shadow').each(function(index, elem) {
         var cardOffset = $('.card:eq(' + index + ')').offset();
         $(elem).offset(cardOffset);
-    });
-
-    // update each link hack
-    $('span.inner-link').each(function() {
-        var $this = $(this);
-        var $innerCard = $this.parents('.inner-card');
-        $innerCard.children('.link-hack').offset($this.offset()).css('top', '+=1px');
     });
 }

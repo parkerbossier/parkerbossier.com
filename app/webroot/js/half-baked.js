@@ -385,17 +385,19 @@ fsm.click = function (e) {
             offset.top /= this.$recipe2.height();
             offset.left /= this.$recipe2.width();
 
+            console.log(offset.top, offset.left);
+
             // to toc
             if (offset.left.between(.01498, .38245) && offset.top.between(.97413, .99037)) {
                 this.$toc.show();
-                this.$recipe1.hide();
+                this.$recipe2.hide();
                 this.state = 'toc';
             }
 
             // to fridge
             else if (offset.left.between(.39618, .60526) && offset.top.between(.97379, .98902)) {
                 this.$fridge.show();
-                this.$recipe1.hide();
+                this.$recipe2.hide();
                 this.state = 'fridge';
             }
 

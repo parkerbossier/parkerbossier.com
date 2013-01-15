@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/files/pdfs/Parker%20Bossier.pdf" target="_blank">
+                            <a href="/files/pdfs/ParkerBossier.pdf" target="_blank">
                                 Resume <img src="/img/external-link.png" alt="External link" class="external-link"/>
                             </a>
                         </li>

@@ -2,17 +2,18 @@
     <div class="inner-card">
         <img class="card-rounded card-preview" src="/img/sphere-preview.png" alt="Sphere preview image"/>
 
-        <a href="/projects/sphere" class="color-bypass">
-            <div class="description-wrapper">
+        <div class="description-wrapper">
+            <a href="/projects/sphere">
                 <h2 class="about-header no-margin-bottom">Sphere Visualizer</h2>
                 <div class="pagination-centered">
-                    (click to view <img src="/img/external-link.png" alt="External link" class="external-link">)
+                    (click to view)
                 </div>
-                <p class="description">
-                    <strong>Sphere</strong> is my only noteworthy Processing project as of yet. It's currently unfinished, but at some point I want to make the camera fly around the visualizer spheres. I'm also waiting on JavaScript support for the libraries I'm using (as opposed to just Java support) so I can make everything more streamlined. The red, green, and blue lines represent the x, y, and z axes, respectively. Each sphere is a left/right graphical equalizer. The length of the red, green, and blue bars represents the mean value of the signal buffer.
-                </p>
-            </div>
-        </a>
+            </a>
+
+            <p class="description centered">
+                A 3D music visualizer made with Processing.
+            </p>
+        </div>
     </div>
 </div>
 

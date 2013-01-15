@@ -2,7 +2,7 @@
 body {
     background-image: url('/img/grey-dots.png');
     background-repeat: repeat;
-    background-position: 0px -4px;
+    background-position: 0px -6px;
 }
 .navbar .nav-tabs {
     float: right;
@@ -20,6 +20,9 @@ body {
 }
 h1, h2, h3 {
     font-family: 'Monda', sans-serif;
+}
+.justified {
+    text-align: justify;
 }
 
 /* ie alert */

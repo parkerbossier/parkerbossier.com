@@ -2,7 +2,7 @@
     <div class="inner-card">
         <img class="card-rounded card-preview" src="/img/sphere-preview.png" alt="Sphere preview image"/>
 
-        <a href="/projects/sphere" target="_blank" class="color-bypass">
+        <a href="/projects/sphere" class="color-bypass">
             <div class="description-wrapper">
                 <h2 class="about-header no-margin-bottom">Sphere Visualizer</h2>
                 <div class="pagination-centered">

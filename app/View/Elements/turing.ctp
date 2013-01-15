@@ -1,10 +1,10 @@
 <div class="span4 card card-rounded">
     <div class="inner-card">
-        <img class="card-rounded card-preview" src="/img/turing-preview.png" alt="Turing machine preview image"/>
+        <img class="card-rounded card-preview" src="/img/turing-preview.png" alt="Turing Machine preview image"/>
 
-        <a href="/projects/turing" target="_blank" class="color-bypass">
+        <a href="/projects/turing" class="color-bypass">
             <div class="description-wrapper">
-                <h2 class="about-header no-margin-bottom">Turing machine</h2>
+                <h2 class="about-header no-margin-bottom">Turing Machine</h2>
                 <div class="pagination-centered">
                     (click to view)
                 </div>

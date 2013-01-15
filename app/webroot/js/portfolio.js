@@ -14,6 +14,22 @@ $(function() {
     }, function() {
         $(this).children('.inner-card').css('margin-top', '0px');
     });
+
+    // handle inner-links (overlay a real link on top
+    $('span.inner-link').parent().parent().parent().click(function(e) {
+        if ($('span.inner-link').is(':hover'))
+            e.preventDefault();
+    });
+    $('span.inner-link').click(function(e) {
+        e.preventDefault();
+    });
+    $('span.inner-link').each(function() {
+        var $this = $(this);
+        var $div = $('<span class="link-hack"><a href="' + $this.data('href') + '" target="_blank">' + $this.html() + '</a></span>');
+        var $innerCard = $this.parents('.inner-card');
+        $innerCard.append($div);
+        $innerCard.children('.link-hack').offset($this.offset()).css('top', '+=1px');
+    });
 });
 
 // set the card heights and vertically center the cards
@@ -33,7 +49,6 @@ function valignHeightAdjust() {
         var $descWrapper = $(this);
         var $description = $descWrapper.children('.description');
         var freeSpace = $descWrapper.height() - $descWrapper.children(':eq(0)').height() - $descWrapper.children(':eq(1)').height()*2 - $description.outerHeight();
-        console.log($descWrapper.height(), $descWrapper.children(':eq(0)').height(), $descWrapper.children(':eq(1)').height()*2, $description.outerHeight())
         if (freeSpace > 0) {
             $description.css('margin-top', freeSpace/2);
         }
@@ -55,5 +70,12 @@ function valignHeightAdjust() {
     $('.card-shadow').each(function(index, elem) {
         var cardOffset = $('.card:eq(' + index + ')').offset();
         $(elem).offset(cardOffset);
+    });
+
+    // update each link hack
+    $('span.inner-link').each(function() {
+        var $this = $(this);
+        var $innerCard = $this.parents('.inner-card');
+        $innerCard.children('.link-hack').offset($this.offset()).css('top', '+=1px');
     });
 }

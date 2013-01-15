@@ -2,7 +2,7 @@
     <div class="inner-card">
         <img class="card-rounded card-preview" src="/img/flash-preview.png" alt="Flash preview image"/>
 
-        <a href="/projects/flash" target="_blank" class="color-bypass">
+        <a href="/projects/flash" class="color-bypass">
             <div class="description-wrapper">
                 <h2 class="about-header no-margin-bottom">Flash Projects</h2>
                 <div class="pagination-centered">

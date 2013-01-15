@@ -7,3 +7,15 @@
 a {
     text-decoration: none !important;
 }
+
+.inner-link {
+    color: transparent;
+    display: inline-block;
+}
+.inner-link img {
+    opacity: 0;
+}
+.link-hack {
+    position: absolute;
+    line-height: 100%;
+}

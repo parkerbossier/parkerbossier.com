@@ -1,4 +1,9 @@
-.well label {
-	font-size: 14px;
-	font-weight: bold;
+table label {
+    font-weight: bold;
+}
+.text-input-wrapper {
+    text-align: center;
+}
+h1 {
+    margin-bottom: 25px;
 }

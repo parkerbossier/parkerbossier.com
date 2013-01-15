@@ -16,11 +16,11 @@ $this->Html->script('half-baked', array('block' => 'script'));
     </div>
 
     <div class="span5">
-        <div class="well same-height">
+        <div class="well same-height justified">
             <h3>Instructions</h3>
 
             <p>
-                You can interact with the simulator just as you would with a real iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly.</span>
+                You can interact with the simulator just as you would with an iPad. <span class="hidden-desktop">Mobile (touch) users, you will most likely encounter trouble with this simulator, as it relies on your screen being un-scrollable. I am working on this issue, and it will be resolved shortly.</span>
             </p>
 
             <ul>

@@ -11,7 +11,7 @@
             </a>
 
             <p class="description">
-                Flash was one of the first programming languages I ever used (after TI-BASIC and C/C++). Everything is HTML/JS now, but those were fun time.
+                Flash was one of the first programming languages I ever used (after TI-BASIC and C/C++). Everything is HTML/JS now, but those were fun times.
             </p>
         </div>
     </div>

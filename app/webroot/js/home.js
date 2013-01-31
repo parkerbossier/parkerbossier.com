@@ -5,30 +5,29 @@ $(window).resize(valignHeightAdjust);
 $(function() {
     valignHeightAdjust();
 
-    // calculate the offset (click) for the profile card before the user can touch it
-    var relativeAboutOffset = $('.card.profile').offset().top - $('.card.profile .about-header').offset().top;
-
-    // profile click handler
-    $('.card.profile').click(function() {
-        var innerCard = $(this).children('.inner-card');
-        if (innerCard.hasClass('clicked')) {
-            innerCard.removeClass('clicked');
-            innerCard.css('margin-top', '');
-        } else {
-            innerCard.addClass('clicked');
-            innerCard.css('margin-top', relativeAboutOffset + 'px');
-        }
-    });
-
     // offset the card headers
-    $('.card-header').css('top', '-' + $('.card-header').height() + 'px');
+    $('.card:not(.profile) .card-header').each(function() {
+        var $this = $(this);
+        $this.css('top', '-' + $this.height() + 'px');
+    });
 
     // detect mobile browser (don't unpeek if mobile becasue of lack of hover)
     var mobile = /android|webos|iphone|ipad|itouch|blackberry|iemobile/i.test(navigator.userAgent);
 
     // peek the cards
     setTimeout(function() {
-        $('.inner-card').css('margin-top', $('.card-header').height() + 'px');
+        // profile card
+        $('.card.profile .inner-card').each(function() {
+            var $this = $(this);
+            var $cardHeader = $this.children('.card-header');
+            $this.css('margin-top', '-' + $cardHeader.outerHeight() + 'px');
+        });
+
+        // other cards
+        $('.card:not(.profile) .inner-card').each(function() {
+            var $this = $(this);
+            $this.css('margin-top', $this.children('.card-header').height() + 'px');
+        });
 
         // un-peek if not mobile
         if (!mobile) {
@@ -45,25 +44,43 @@ $(function() {
                         $this.addClass('peeked');
                     else {
                         $this.css('margin-top', '0px');
-                    
+
                         // fucking IE
                         if ($('.ie-alert-row').length)
                             $this.addClass('peeked');
                     }
                 });
-            }, 2500);
+            }, 3500);
         }
     }, 750);
 
     // show the card headers when hovered
-    $('.inner-card').hover(function() {
+    $('.card:not(.profile)').hover(function() {
         var $this = $(this);
-        if (!$this.hasClass('clicked') && $this.hasClass('peeked'))
-            $this.css('margin-top', $('.card-header').height() + 'px');
+        var $innerCard = $this.find('.inner-card');
+        if ($innerCard.hasClass('peeked'))
+            $innerCard.css('margin-top', $innerCard.children('.card-header').height() + 'px');
     }, function() {
         var $this = $(this);
-        if (!$this.hasClass('clicked') && $this.hasClass('peeked'))
-            $this.css('margin-top', '0px');
+        var $innerCard = $this.find('.inner-card');
+        if ($innerCard.hasClass('peeked'))
+            $innerCard.css('margin-top', '0px');
+    });
+
+    // special case for profile
+    $('.card.profile').hover(function() {
+        var $this = $(this);
+        var $innerCard = $this.find('.inner-card');
+        if ($innerCard.hasClass('peeked')) {
+            var $cardHeader = $innerCard.find('.card-header');
+            var offset = -($cardHeader.offset().top - $innerCard.offset().top);
+            $innerCard.css('margin-top', offset + 'px');
+        }
+    }, function() {
+        var $this = $(this);
+        var $innerCard = $this.find('.inner-card');
+        if ($innerCard.hasClass('peeked'))
+            $innerCard.css('margin-top', '0px');
     });
 });
 

@@ -1,14 +1,22 @@
 /* CSS specific to home cards */
-.card-header {
+.card:not(.profile) .card-header {
     position: absolute;
     width: 100%;
 }
-.card-header hr {
-    margin-top: 4px;
-    margin-bottom: 0px;
+.card-click-to-view {
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 /* profile picture card */
 .card.profile {
-    cursor: pointer;
+    cursor: default;
+}
+.profile .card-header h2 {
+    margin: 0px;
+    padding-top: 10px;
+}
+.profile .card-header h4 {
+    margin: 0px;
+    padding-bottom: 10px;
 }

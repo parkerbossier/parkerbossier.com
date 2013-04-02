@@ -1,3 +1,3 @@
 [submodule "app/webroot/movienight"]
 	path = app/webroot/movienight
-	url = https://github.com/parkerbossier/movienight.git
+url=git@github.com:parkerbossier/movienight.git

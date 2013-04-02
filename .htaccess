@@ -2,6 +2,7 @@
    RewriteEngine on
    RewriteRule	^blog(/?.*)$ app/webroot/blog$1 [L]
 
+   RewriteRule  ^projects/movienight$ app/webroot/movienight [L]
    RewriteRule  ^projects/movienight(/?.*)$ app/webroot/movienight$1 [L]
 
    RewriteRule	^(.*)$ app/webroot/$1 [L]

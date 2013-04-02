@@ -1,9 +1,12 @@
 <IfModule mod_rewrite.c>
    RewriteEngine on
-   RewriteRule	^blog(/?.*)$ app/webroot/blog$1 [L]
+   RewriteRule  ^blog$ app/webroot/blog/ [L]
+   RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]
 
-   RewriteRule  ^projects/movienight$ app/webroot/movienight [L]
-   RewriteRule  ^projects/movienight(/?.*)$ app/webroot/movienight$1 [L]
+   RewriteCond %{REQUEST_URI} ^/projects/movienight$
+   RewriteRule  ^.*$ /projects/movienight/ [L,R]
+
+   RewriteRule  ^projects/movienight/(.*)$ app/webroot/movienight/$1 [L]
 
    RewriteRule	^(.*)$ app/webroot/$1 [L]
 </IfModule>

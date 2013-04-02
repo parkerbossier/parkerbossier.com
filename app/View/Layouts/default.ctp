@@ -78,43 +78,39 @@
                             <li class="divider-vertical"></li>
 
                             <li>
-                                <a href="/blog" target="_blank">
-                                    Blog <img src="/img/external-link.png" alt="External link" class="external-link"/>
-                                </a>
+                                <a href="/blog" target="_blank">Blog</a>
                             </li>
                             <li>
-                                <a href="/files/pdfs/ParkerBossier.pdf" target="_blank">
-                                    Resume <img src="/img/external-link.png" alt="External link" class="external-link"/>
-                                </a>
+                                <a href="/files/pdfs/ParkerBossier.pdf" target="_blank">Resume</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Friends <b class="caret"></b></a>
                                 <ul class="dropdown-menu right">
                                     <li>
                                         <a href="http://cka.co/" target="_blank">
-                                            Charles Aweida <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                                            Charles Aweida
                                         </a>
                                     </li>
                                     <li>
                                         <a href="http://noahbornstein.com/" target="_blank">
-                                            Noah Bornstein <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                                            Noah Bornstein
                                         </a>
                                     </li>
                                     <li>
                                         <a href="http://www.wellsjohnston.com/" target="_blank">
-                                            Wells Johnston <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                                            Wells Johnston
                                         </a>
                                     </li>
                                     <li>
                                         <a href="http://nishitamuhnot.com/" target="_blank">
-                                            Nishita Muhnot <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                                            Nishita Muhnot
                                         </a>
                                     </li>
                                     <li class="divider"</li>
 
                                     <li>
                                         <a href="http://swrm.io/" target="_blank">
-                                            swrm.io <img src="/img/external-link.png" alt="External link" class="external-link"/>
+                                            swrm.io
                                         </a>
                                     </li>
                                 </ul>

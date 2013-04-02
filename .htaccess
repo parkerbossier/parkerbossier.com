@@ -3,6 +3,8 @@
    RewriteRule  ^blog$ app/webroot/blog/ [L]
    RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]
 
+   RewriteRule  ^testme$ app/webroot/blog/ [L]
+
    RewriteCond %{REQUEST_URI} ^/projects/movienight$
    RewriteRule  ^.*$ /projects/movienight/ [L,R]
 

@@ -1,6 +1,5 @@
 <IfModule mod_rewrite.c>
    RewriteEngine on
-   RewriteBase /
 
    RewriteRule  ^blog$ app/webroot/blog/ [L]
    RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]

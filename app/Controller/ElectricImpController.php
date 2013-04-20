@@ -6,8 +6,12 @@ class ElectricImpController extends AppController {
 
     public function recordRfid() {
         $this->autoRender = false;
-        $time = $this->request->query['value'];
-        pre_var_dump($time);
+
+        $this->Rfid->save(array(
+            'Rfid' => array(
+                'value' => $this->request->query['value']
+            )
+        ));
     }
 
 }

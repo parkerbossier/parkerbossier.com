@@ -84,11 +84,12 @@
 
 		function __construct() {
 			// will be set if on PagodaBox
-			if (isset($_SERVER['db_hostname'])) {
-				$this->default['host'] = $_SERVER['db_hostname'];
-				$this->default['login'] = $_SERVER['db_user'];
-				$this->default['password'] = $_SERVER['db_pass'];
-				$this->default['database'] = $_SERVER['db_name'];
+			if (isset($_SERVER['DB1_HOST'])) {
+				$this->default['host'] = $_SERVER['DB1_HOST'];
+				$this->default['login'] = $_SERVER['DB1_USER'];
+				$this->default['password'] = $_SERVER['DB1_PASS'];
+				$this->default['database'] = $_SERVER['DB1_NAME'];
+				$this->default['port'] = $_SERVER['DB1_PORT'];
 			}
 		}
 

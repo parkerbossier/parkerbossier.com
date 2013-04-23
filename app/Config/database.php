@@ -64,9 +64,9 @@
 		public $default = array(
 			'datasource' => 'Database/Mysql',
 			'persistent' => false,
-			'host' => 'root',
-			'login' => '',
-			'password' => '',
+			'host' => 'localhost',
+			'login' => 'root',
+			'password' => 'root',
 			'database' => 'ent',
 			'prefix' => '',
 				//'encoding' => 'utf8',
@@ -83,8 +83,6 @@
 		);
 
 		function __construct() {
-			parent::__construct();
-
 			// will be set if on PagodaBox
 			if (isset($_SERVER['db_hostname'])) {
 				$this->default['host'] = $_SERVER['db_hostname'];

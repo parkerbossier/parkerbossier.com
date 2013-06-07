@@ -35,6 +35,7 @@
             </script>
             <?php
         }
+
         echo $this->fetch('script');
         ?>
     </head>
@@ -137,8 +138,16 @@
                 <?php
             }
 
+            /* new relic */
+            if (extension_loaded('newrelic'))
+                newrelic_get_browser_timing_header();
+
             // page content
             echo $this->fetch('content');
+
+            /* new relic */
+            if (extension_loaded('newrelic'))
+                newrelic_get_browser_timing_footer();
             ?>
         </div>
     </body>

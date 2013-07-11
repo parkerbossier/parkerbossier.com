@@ -26,6 +26,11 @@ class ProjectsController extends AppController {
 
     }
 
+    public function foo() {
+        $this->autoRender = false;
+        return print_r($this->request->referer(), true);
+    }
+
     public function dashboard_get_data() {
         $this->autoRender = false;
 

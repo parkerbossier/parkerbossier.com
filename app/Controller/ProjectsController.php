@@ -40,6 +40,7 @@ class ProjectsController extends AppController {
             $this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
         elseif ($referer == 'http://chartjs-dashboard.gopagoda.com/')
             $this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
+        $this->response->header('Access-Control-Allow-Origin', '*');
 
         // do login
         $ch = curl_init('https://jawbone.com/user/signin/login_action');

@@ -42,7 +42,7 @@ class ProjectsController extends AppController {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             'jawbone-login-email' => 'parkerbossier@gmail.com',
-            'jawbone-login-password' => $_SERVER['UP_PASS'],
+            'jawbone-login-password' => str_replace('\\', '', $_SERVER['UP_PASS']),
             'jawbone-login-remember' => '0'
         ));
         $json = curl_exec($ch);

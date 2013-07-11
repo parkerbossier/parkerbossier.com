@@ -32,10 +32,9 @@ class ProjectsController extends AppController {
         // deal with CORS
         $referer = $this->request->referer();
         if ($referer == 'http://local.chartjs-dashboard.com/')
-            1;//$this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
+            $this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
         elseif ($referer == 'http://chartjs-dashboard.gopagoda.com/')
-            1;//$this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
-        $this->response->header('Access-Control-Allow-Origin', '*');
+            $this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
 
         // do login
         $ch = curl_init('https://jawbone.com/user/signin/login_action');

@@ -48,7 +48,7 @@ class ProjectsController extends AppController {
         $json = curl_exec($ch);
         curl_close($ch);
 
-        return print_r($json, true);
+        return $_SERVER['UP_PASS'] . print_r($json, true);
 
         // extract the token
         $json = json_decode($json, true);

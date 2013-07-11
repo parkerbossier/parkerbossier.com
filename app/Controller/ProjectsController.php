@@ -63,6 +63,9 @@ class ProjectsController extends AppController {
         $result = curl_exec($ch);
         curl_close($ch);
 
+        print_r($result, true);
+        die();
+
         // parse the csv
         $rows = explode("\n", $result);
         $columns = str_getcsv($rows[0]);

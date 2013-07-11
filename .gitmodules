@@ -1,6 +1,3 @@
 [submodule "app/webroot/movienight"]
 	path = app/webroot/movienight
 url=git@github.com:parkerbossier/movienight.git
-[submodule "app/webroot/chartjs-dashboard"]
-	path = app/webroot/chartjs-dashboard
-	url = git@github.com:parkerbossier/chartjs-dashboard.git

@@ -4,11 +4,11 @@
    RewriteRule  ^blog$ app/webroot/blog/ [L]
    RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]
 
-   RewriteCond %{REQUEST_URI} ^/projects/movienight$
+   RewriteCond  %{REQUEST_URI} ^/projects/movienight$
    RewriteRule  ^.*$ /projects/movienight/ [L,R]
    RewriteRule  ^projects/movienight/(.*)$ app/webroot/movienight/$1 [L]
 
-   RewriteCond %{REQUEST_URI} ^/projects/chartjs-dashboard$
+   RewriteCond  %{REQUEST_URI} ^/projects/chartjs-dashboard$
    RewriteRule  ^.*$ /projects/chartjs-dashboard/ [L,R]
    RewriteRule  ^projects/chartjs-dashboard/(.*)$ app/webroot/chartjs-dashboard/$1 [L]
 

@@ -48,8 +48,6 @@ class ProjectsController extends AppController {
         $json = curl_exec($ch);
         curl_close($ch);
 
-        return $_SERVER['UP_PASS'] . print_r($json, true);
-
         // extract the token
         $json = json_decode($json, true);
         $token = json_decode($json['body'], true);
@@ -64,9 +62,6 @@ class ProjectsController extends AppController {
         curl_setopt($ch, CURLOPT_COOKIE, $cookie);
         $result = curl_exec($ch);
         curl_close($ch);
-
-        print_r($result, true);
-        die();
 
         // parse the csv
         $rows = explode("\n", $result);

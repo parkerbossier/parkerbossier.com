@@ -26,20 +26,15 @@ class ProjectsController extends AppController {
 
     }
 
-    public function foo() {
-        $this->autoRender = false;
-        return print_r($this->request->referer(), true);
-    }
-
     public function dashboard_get_data() {
         $this->autoRender = false;
 
         // deal with CORS
         $referer = $this->request->referer();
         if ($referer == 'http://local.chartjs-dashboard.com/')
-            $this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
+            1;//$this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
         elseif ($referer == 'http://chartjs-dashboard.gopagoda.com/')
-            $this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
+            1;//$this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
         $this->response->header('Access-Control-Allow-Origin', '*');
 
         // do login

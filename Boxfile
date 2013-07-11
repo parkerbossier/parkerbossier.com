@@ -12,3 +12,4 @@ web1:
     - mbstring
     - pdo_mysql #required for versions 2.x+
     - apc
+    - curl

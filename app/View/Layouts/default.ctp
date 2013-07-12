@@ -138,16 +138,8 @@
                 <?php
             }
 
-            /* new relic */
-            if (extension_loaded('newrelic'))
-                echo newrelic_get_browser_timing_header();
-
             // page content
             echo $this->fetch('content');
-
-            /* new relic */
-            if (extension_loaded('newrelic'))
-                echo newrelic_get_browser_timing_footer();
             ?>
         </div>
     </body>

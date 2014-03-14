@@ -3,7 +3,7 @@
         <img class="card-rounded card-preview" src="/img/campusair-preview.png" alt="thecampusair preview image"/>
 
         <div class="description-wrapper">
-            <a href="http://thecampusair.com/" target="_blank">
+            <a href="http://cs-292-project.gopagoda.com/" target="_blank">
                 <h2 class="about-header no-margin-bottom">thecampusair</h2>
                 <div class="pagination-centered">
                     (click to view <img src="/img/external-link.png" alt="External link" class="external-link"/>)

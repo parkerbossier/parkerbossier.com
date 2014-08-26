@@ -8,8 +8,8 @@ $this->Html->css('cards', null, array('block' => 'css'));
 
 <div class="row card-row">
     <div class="span4 card card-rounded">
-        <a href="/blog" target="_blank" class="color-bypass">
-            <div class="inner-card" data-href="/blog" data-new-tab="true">
+        <a href="http://blog.parkerbossier.com" target="_blank" class="color-bypass">
+            <div class="inner-card" data-href="http://blog.parkerbossier.com" data-new-tab="true">
                 <div class="card-header">
                     <h2>Blog</h2>
                     <div class="card-click-to-view">(click to view <img src="/img/external-link.png" alt="External link" class="external-link"/>)</div>

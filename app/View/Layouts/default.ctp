@@ -79,7 +79,7 @@
                             <li class="divider-vertical"></li>
 
                             <li>
-                                <a href="/blog" target="_blank">Blog</a>
+                                <a href="http://blog.parkerbossier.com" target="_blank">Blog</a>
                             </li>
                             <li>
                                 <a href="/files/pdfs/ParkerBossier.pdf" target="_blank">Resume</a>

@@ -67,31 +67,20 @@ class DATABASE_CONFIG {
         'host' => 'localhost',
         'login' => 'root',
         'password' => 'root',
-        'database' => 'ent',
-        'prefix' => '',
-            //'encoding' => 'utf8',
-    );
-    public $test = array(
-        'datasource' => 'Database/Mysql',
-        'persistent' => false,
-        'host' => 'localhost',
-        'login' => 'user',
-        'password' => 'password',
-        'database' => 'test_database_name',
+        'database' => 'parkerbossier',
         'prefix' => '',
             //'encoding' => 'utf8',
     );
 
     function __construct() {
-        // will be set if on PagodaBox
-        if (isset($_SERVER['DB1_HOST'])) {
-            $this->default['host'] = $_SERVER['DB1_HOST'];
-            $this->default['login'] = $_SERVER['DB1_USER'];
-            $this->default['password'] = $_SERVER['DB1_PASS'];
-            $this->default['database'] = $_SERVER['DB1_NAME'];
-            $this->default['port'] = $_SERVER['DB1_PORT'];
+        include '/home/pbau5/parkerbossier.com-connections.php';
+
+        // DreamHost
+        if (isset($_CONNECTIONS)) {
+            $this->default['host'] = $_CONNECTIONS['DB_HOST'];
+            $this->default['login'] = $_CONNECTIONS['DB_USER'];
+            $this->default['password'] = $_CONNECTIONS['DB_PASS'];
+            $this->default['database'] = $_CONNECTIONS['DB_NAME'];
         }
     }
-
-}
-
+    

@@ -7,11 +7,11 @@ class ProjectsController extends AppController {
     }
 
     public function flizash() {
-
+        
     }
 
     public function sphere() {
-
+        
     }
 
     public function halfbaked() {
@@ -19,30 +19,34 @@ class ProjectsController extends AppController {
     }
 
     public function ios_lockscreens() {
-
+        
     }
 
     public function turing() {
-
+        
     }
 
     public function dashboard_get_data() {
         $this->autoRender = false;
 
         // deal with CORS
-        $referer = $this->request->referer();
+        $referer = str_replace('www.', '', $this->request->referer());
         if ($referer == 'http://local.chartjs-dashboard.com/')
             $this->response->header('Access-Control-Allow-Origin', 'http://local.chartjs-dashboard.com');
-        elseif ($referer == 'http://chartjs-dashboard.gopagoda.com/')
-            $this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.gopagoda.com');
+        elseif ($referer == 'http://chartjs-dashboard.parkerbossier.com/')
+            $this->response->header('Access-Control-Allow-Origin', 'http://chartjs-dashboard.parkerbossier.com');
 
         // do login
+        include '/home/pbau5/parkerbossier.com-connections.php';
+        if (!isset($_CONNECTIONS))
+            return json_encode(['error' => 'no jawbone password specified']);
+
         $ch = curl_init('https://jawbone.com/user/signin/login_action');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array(
             'jawbone-login-email' => 'parkerbossier@gmail.com',
-            'jawbone-login-password' => str_replace('\\', '', $_SERVER['UP_PASS']),
+            'jawbone-login-password' => str_replace('\\', '', $_CONNECTIONS['UP_PASS']),
             'jawbone-login-remember' => '0'
         ));
         $json = curl_exec($ch);
@@ -91,4 +95,3 @@ class ProjectsController extends AppController {
     }
 
 }
-

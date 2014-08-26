@@ -92,7 +92,7 @@
 	 *
 	 * And uncomment the App.baseUrl below:
 	 */
-	if (@$_SERVER['environment'] == 'dev') Configure::write('App.baseUrl', env('SCRIPT_NAME'));
+	//if (@$_SERVER['environment'] == 'dev') Configure::write('App.baseUrl', env('SCRIPT_NAME'));
 
 	/**
 	 * Uncomment the define below to use CakePHP prefix routes.

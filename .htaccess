@@ -1,18 +1,14 @@
 <IfModule mod_rewrite.c>
-   RewriteEngine on
+    RewriteEngine on
 
-   RewriteRule  ^blog$ app/webroot/blog/ [L]
-   RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]
+    # DreamHost
+    RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
+    RewriteRule . - [L]
+    # end DreamHost
 
-   RewriteCond  %{REQUEST_URI} ^/projects/movienight$
-   RewriteRule  ^.*$ /projects/movienight/ [L,R]
-   RewriteRule  ^projects/movienight/(.*)$ app/webroot/movienight/$1 [L]
 
-   RewriteCond  %{REQUEST_URI} ^/projects/chartjs-dashboard$
-   RewriteRule  ^.*$ /projects/chartjs-dashboard/ [L,R]
-   RewriteRule  ^projects/chartjs-dashboard/(.*)$ app/webroot/chartjs-dashboard/$1 [L]
+    RewriteRule  ^blog$ app/webroot/blog/ [L]
+    RewriteRule	^blog/(.*)$ app/webroot/blog/$1 [L]
 
-   RewriteRule  ^projects/movienight/(.*)$ app/webroot/movienight/$1 [L]
-
-   RewriteRule	^(.*)$ app/webroot/$1 [L]
+    RewriteRule	^(.*)$ app/webroot/$1 [L]
 </IfModule>

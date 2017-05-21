@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+* {
+	box-sizing: content-box;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 14px;
+	background: url('/img/mars.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.ComingSoon {
+	position: relative;
+	background: fade(black, 50%);
+	padding: 30px;
+	color: white;
+	
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		height: 10px;
+		left: -2px;
+		right: -2px;
+		border: 2px solid white;
+	}
+	&:before {
+		top: -2px;
+		border-bottom: none;
+	}
+	&:after {
+		bottom: -2px;
+		border-top: none;
+	}
+}

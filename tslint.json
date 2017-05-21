@@ -1,0 +1,6 @@
+{
+	"enable": true,
+	"rules": {
+		"no-unused-variable": true
+	}
+}

@@ -7,7 +7,7 @@ const isProd = process.env.PROD;
 
 const baseConfig = {
 	output: {
-		path: __dirname + '/bld',
+		path: __dirname + '/',
 		filename: 'app.js'
 	},
 	resolve: {
@@ -38,7 +38,7 @@ const devConfig = {
 		'./app/App.ts'
 	],
 	output: {
-		publicPath: 'http://parkers-mbpr:8080/bld'
+		publicPath: 'http://parkers-mbpr:8080/'
 	},
 	devtool: 'source-map',
 	devServer: {
@@ -97,7 +97,7 @@ const prodConfig = {
 		'./app/App.ts'
 	],
 	output: {
-		publicPath: '/bld/'
+		publicPath: '/'
 	},
 	module: {
 		rules: [

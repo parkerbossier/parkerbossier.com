@@ -1,4 +1,10 @@
 import './reset.less';
 import './App.less';
 
-1;
+class Thing {
+	constructor() {
+		console.log('thing created', this);
+	}
+}
+
+const a = new Thing();

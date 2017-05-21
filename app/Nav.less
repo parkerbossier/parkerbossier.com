@@ -1,0 +1,93 @@
+@import (reference) './definitions.less';
+
+.Nav {
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	background: fade(black, 50%);
+	padding: 14px 30px;
+	color: @colorWhite;
+
+	ul {
+		transition: opacity .2s ease, max-height .2s ease;
+		max-height: 150px;
+	}
+	li {
+		&:before {
+			content: '> ';
+		}
+	}
+	li + li {
+		margin-top: @gutterSmall;
+	}
+	label {
+		cursor: pointer;
+		margin-right: 1em;
+	}
+	input[type=radio] {
+		display: none;
+	}
+	&-text {
+		
+	}
+	input:checked + &-text {
+		font-weight: bold;
+
+		&:after {
+			content: ' <';
+			position: absolute;
+			margin-left: .5em;
+			pointer-events: none;
+		}
+	}
+	
+	/* top/bottom bars */
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		height: 10px;
+		left: -2px;
+		right: -2px;
+		border: 2px solid white;
+	}
+	&:before {
+		top: -2px;
+		border-bottom: none;
+	}
+	&:after {
+		bottom: -2px;
+		border-top: none;
+	}
+
+	/* open/close */
+	&-toggle {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		width: 15px;
+		height: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid @colorWhite;
+		background: none;
+		color: @colorWhite;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	&-toggleContent:before {
+		content: '-';
+	}
+
+	/* collapsed */
+	&--collapsed {
+		ul {
+			max-height: 0;
+			opacity: 0;
+		}
+	}
+	&--collapsed &-toggleContent:before {
+		content: '+';
+	}
+}

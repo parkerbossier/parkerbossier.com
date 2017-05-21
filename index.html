@@ -9,11 +9,49 @@
 </head>
 
 <body>
-	<div class="ComingSoon">
-		Assembling launch vehicle
-	</div>
+	<nav class="Nav">
+		<ul>
+			<li>
+				<label>
+					<input checked name="nav" type="radio" value="flightplan" />
+					<span class="Nav-text">Flightplan</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input name="nav" type="radio" value="zazzle" />
+					<span class="Nav-text">Zazzle</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input name="nav" type="radio" value="secondary" />
+					<span class="Nav-text">Secondary missions</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input name="nav" type="radio" value="resume" />
+					<span class="Nav-text">Resume</span>
+				</label>
+			</li>
+			<li>
+				<label>
+					<input name="nav" type="radio" value="contact" />
+					<span class="Nav-text">Contact</span>
+				</label>
+			</li>
+		</ul>
 
-	<script async src="/app.js"></script>
+		<!--
+		<div class="Nav-toggle">
+			<span class="Nav-toggleContent"></span>
+		</div>
+		-->
+	</nav>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="/app.js"></script>
 </body>
 
 </html>

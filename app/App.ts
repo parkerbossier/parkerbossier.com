@@ -1,10 +1,7 @@
 import './reset.less';
+
+import { Nav } from './Nav';
+
 import './App.less';
 
-class Thing {
-	constructor() {
-		console.log('thing created', this);
-	}
-}
-
-const a = new Thing();
+new Nav($('.Nav'));

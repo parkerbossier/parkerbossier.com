@@ -6,6 +6,25 @@
 }
 
 body {
+
+}
+
+strong {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+h2 {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: .5em;
+}
+
+.App {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -13,23 +32,20 @@ body {
 	justify-content: center;
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 16px;
+	color: @colorWhite;
 	background: url('/img/mars.jpg');
 	background-size: cover;
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
-	color: @colorWhite;
-}
+	background-attachment: fixed;
 
-strong {
-	font-weight: bold;
-}
-
-.App {
 	&-pages {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
+		overflow: hidden;
 	}
 
 	&-photoCredit {

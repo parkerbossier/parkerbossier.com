@@ -15,6 +15,14 @@
 	justify-content: center;
 
 	/* mars circle */
+	@keyframes closeMarsLoop {
+		from {
+			background-position: 0 50%;
+		}
+		to {
+			background-position: 200% 50%;
+		}
+	}
 	&-mars {
 		position: relative;
 		z-index: 1;
@@ -22,13 +30,14 @@
 		height: @circleWidth;
 		border-radius: 1000px;
 		overflow: hidden;
-		background: url('/img/orange-mars.jpg');
-		background-position: 14% 30%;
-		background-size: 1884px 1776px;
-		background-repeat: no-repeat;
+		background: url('/img/orange-mars-close-2.jpg');
+		background-position: 50% 50%;
+		background-size: 200% auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		animation: 200s linear 0s closeMarsLoop;
+		animation-iteration-count: infinite;
 	}
 	&-marsReadout {
 		margin: 30px;
@@ -96,6 +105,7 @@
 	}
 	&-meImageWrapper {
 		position: relative;
+		z-index: 1;
 		width: 70%;
 		height: 70%;
 		border-radius: 1000px;

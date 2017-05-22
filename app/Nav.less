@@ -6,7 +6,6 @@
 	left: 50px;
 	background: fade(black, 50%);
 	padding: 14px 30px;
-	color: @colorWhite;
 
 	ul {
 		transition: opacity .2s ease, max-height .2s ease;
@@ -26,9 +25,6 @@
 	}
 	input[type=radio] {
 		display: none;
-	}
-	&-text {
-		
 	}
 	input:checked + &-text {
 		font-weight: bold;
@@ -62,6 +58,8 @@
 
 	/* open/close */
 	&-toggle {
+		display: none !important;
+
 		position: absolute;
 		top: 5px;
 		right: 5px;
@@ -72,7 +70,6 @@
 		justify-content: center;
 		border: 1px solid @colorWhite;
 		background: none;
-		color: @colorWhite;
 		font-size: 16px;
 		cursor: pointer;
 	}

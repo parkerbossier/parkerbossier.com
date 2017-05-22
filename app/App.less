@@ -16,74 +16,27 @@ body {
 	background: url('/img/mars.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	color: @colorWhite;
 }
 
-.Nav {
-	position: fixed;
-	top: 50px;
-	left: 50px;
-	background: fade(black, 50%);
-	padding: 30px;
-	color: @colorWhite;
-
-	li {
-		&:before {
-			content: '> ';
-		}
-	}
-	li + li {
-		margin-top: @gutterSmall;
-	}
-	label {
-		cursor: pointer;
-	}
-	input {
-		display: none;
-	}
-	input:checked + span {
-		font-weight: bold;
-	}
-	
-	&:before,
-	&:after {
-		content: '';
-		position: absolute;
-		height: 10px;
-		left: -2px;
-		right: -2px;
-		border: 2px solid white;
-	}
-	&:before {
-		top: -2px;
-		border-bottom: none;
-	}
-	&:after {
-		bottom: -2px;
-		border-top: none;
-	}
+strong {
+	font-weight: bold;
 }
 
-.ComingSoon {
-	position: relative;
-	background: fade(black, 50%);
-	padding: 30px;
-	color: @colorWhite;
-	
-	&:before,
-	&:after {
-		content: '';
+.App {
+	&-pages {
 		position: absolute;
-		height: 10px;
-		left: -2px;
-		right: -2px;
-		border: 2px solid white;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 	}
-	&:before {
-		top: -2px;
-		border-bottom: none;
-	}
-	&:after {
-		bottom: -2px;
-		border-top: none;
+
+	&-photoCredit {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		font-size: 10px;
+		margin: @gutterSmall;
 	}
 }

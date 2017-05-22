@@ -9,46 +9,119 @@
 </head>
 
 <body>
-	<nav class="Nav">
-		<ul>
-			<li>
-				<label>
+	<div class="App">
+		<div class="App-photoCredit">Photo credit: NASA</div>
+
+		<div class="App-pages">
+			<div class="Flightplan">
+				<div class="Flightplan-mars">
+					<table class="Flightplan-marsReadout">
+						<tbody>
+							<tr>
+								<td>fov:&nbsp;</td>
+								<td>4deg</td>
+								<td>λ:&nbsp;</td>
+								<td>500nm</td>
+							</tr>
+							<tr>
+								<td>mag:&nbsp;</td>
+								<td>25x</td>
+								<td>d:&nbsp;</td>
+								<td>8km</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="Flightplan-marsCrosses">
+						<div class="Flightplan-marsCross"></div>
+						<div class="Flightplan-marsCross"></div>
+						<div class="Flightplan-marsCross"></div>
+					</div>
+
+					<div class="Flightplan-marsBio">
+						I'm <strong>Parker Bossier</strong><br/>
+						<!-- cuz VS Code -->
+						> I build <strong>React+Typescript</strong> apps;<br/>
+						<!-- cuz VS Code -->
+						> I explore the universe in <strong>KSP</strong>;<br/>
+						<!-- cuz VS Code -->
+						> I <strong>cycle</strong> through the SF Bay Area;
+					</div>
+
+					<div class="Flightplan-marsCrosses">
+						<div class="Flightplan-marsCross"></div>
+						<div class="Flightplan-marsCross"></div>
+						<div class="Flightplan-marsCross"></div>
+					</div>
+
+					<table class="Flightplan-marsReadout">
+						<tbody>
+							<tr>
+								<td>lat:&nbsp;</td>
+								<td>49.234</td>
+								<td>v_o:&nbsp;</td>
+								<td>7.1km/s</td>
+							</tr>
+							<tr>
+								<td>lng:&nbsp;</td>
+								<td>32.200</td>
+								<td>alt:&nbsp;</td>
+								<td>90km</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="Flightplan-me Flightplan-me--animateFocus">
+					<div class="Flightplan-meImageWrapper">
+						<div class="Flightplan-meImage"></div>
+					</div>
+
+					<div class="Flightplan-meRing Flightplan-meRingOuter"></div>
+					<div class="Flightplan-meRing Flightplan-meRingInner"></div>
+				</div>
+			</div>
+		</div>
+
+		<nav class="Nav">
+			<ul>
+				<li>
+					<label>
 					<input checked name="nav" type="radio" value="flightplan" />
 					<span class="Nav-text">Flightplan</span>
-				</label>
-			</li>
-			<li>
-				<label>
+					</label>
+				</li>
+				<li>
+					<label>
 					<input name="nav" type="radio" value="zazzle" />
 					<span class="Nav-text">Zazzle</span>
-				</label>
-			</li>
-			<li>
-				<label>
+					</label>
+				</li>
+				<li>
+					<label>
 					<input name="nav" type="radio" value="secondary" />
 					<span class="Nav-text">Secondary missions</span>
-				</label>
-			</li>
-			<li>
-				<label>
+					</label>
+				</li>
+				<li>
+					<label>
 					<input name="nav" type="radio" value="resume" />
 					<span class="Nav-text">Resume</span>
-				</label>
-			</li>
-			<li>
-				<label>
+					</label>
+				</li>
+				<li>
+					<label>
 					<input name="nav" type="radio" value="contact" />
 					<span class="Nav-text">Contact</span>
-				</label>
-			</li>
-		</ul>
+					</label>
+				</li>
+			</ul>
 
-		<!--
-		<div class="Nav-toggle">
-			<span class="Nav-toggleContent"></span>
-		</div>
-		-->
-	</nav>
+			<div class="Nav-toggle">
+				<span class="Nav-toggleContent"></span>
+			</div>
+		</nav>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="/app.js"></script>

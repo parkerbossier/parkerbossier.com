@@ -1,0 +1,187 @@
+@import (reference) './definitions.less';
+
+@circleWidth: 450px;
+@crossLength: 20px;
+@crossThickness: 2px;
+@ringBallMargin: 2px;
+@ringBallSize: 16px;
+@ringThickness: 6px;
+
+.Flightplan {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* mars circle */
+	&-mars {
+		position: relative;
+		z-index: 1;
+		width: @circleWidth;
+		height: @circleWidth;
+		border-radius: 1000px;
+		overflow: hidden;
+		background: url('/img/orange-mars.jpg');
+		background-position: 14% 30%;
+		background-size: 1884px 1776px;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&-marsReadout {
+		margin: 30px;
+		font-size: 12px;
+		opacity: .8;
+
+		&:first-child {
+			margin-bottom: 0;
+		}
+		&:last-child {
+			margin-top: 0;
+		}
+		td:nth-child(2n + 1) {
+			text-align: right;
+		}
+		td:nth-child(2) {
+			padding-right: 1.5em;
+		}
+	}
+	&-marsCrosses {
+		display: flex;
+		width: 60%;
+		justify-content: space-between;
+		opacity: .5;
+		margin: @gutter 0;
+	}
+	&-marsCross {
+		position: relative;
+		width: @crossLength;
+		height: @crossLength;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -@crossThickness/2;
+			margin-left: -@crossLength/2;
+			width: 100%;
+			height: 2px;
+			background: white;
+		}
+		&:after {
+			transform: rotate(90deg);
+		}
+	}
+	&-marsBio {
+		margin: auto 0;
+		font-size: 20px;
+		line-height: 1.4;
+	}
+
+	/* me circle */
+	&-me {
+		position: relative;
+		width: @circleWidth;
+		height: @circleWidth;
+		border-radius: 1000px;
+		border: @ringThickness solid fade(@colorWhite, 50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: -45px;
+	}
+	&-meImageWrapper {
+		position: relative;
+		width: 70%;
+		height: 70%;
+		border-radius: 1000px;
+		background-color: fade(@colorWhite, 50%);
+	}
+	&-meImage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/img/me.png');
+		background-size: 110%;
+		background-position: -50% bottom;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		border-radius: 1000px;
+	}
+	&-meRing {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		transform: rotate(35deg);
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -@ringBallSize/2;
+			width: @ringBallSize;
+			height: @ringBallSize;
+			background: @colorWhite;
+			border-radius: 100px;
+			overflow: hidden;
+		}
+	}
+	&-meRingInner {
+		&:after {
+			margin-top: @ringBallMargin;
+		}
+	}
+	&-meRingOuter {
+		&:after {
+			margin-top: -@ringBallSize - @ringThickness - @ringBallMargin;
+		}
+	}
+
+	&-me--animateFocus &-meImage {
+		animation: 4s linear 5s meRingBlur;
+	}
+	&-me--animateFocus &-meRingOuter {
+		animation: 4s linear 5s meRingRotation;
+	}
+}
+
+@keyframes meRingBlur {
+		start {
+			filter: blur(0);
+		}
+		30% {
+			filter: blur(5px);
+		}
+		45% {
+			filter: blur(0);
+		}
+		60% {
+			filter: blur(3px);
+		}
+		end {
+			filter: blur(0);
+		}
+	}
+@keyframes meRingRotation {
+	start {
+		transform: rotate(35deg);
+	}
+	30% {
+		transform: rotate(60deg);
+	}
+	60% {
+		transform: rotate(25deg);
+	}
+	end {
+		transform: rotate(35deg);
+	}
+}

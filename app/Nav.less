@@ -1,4 +1,4 @@
-@import (reference) './definitions.less';
+@import (reference) './lib/definitions.less';
 
 .Nav {
 	position: fixed;
@@ -12,30 +12,26 @@
 		transition: opacity .2s ease, max-height .2s ease;
 		max-height: 150px;
 	}
-	li {
+	&-item {
 		&:before {
 			content: '> ';
 		}
-	}
-	li + li {
-		margin-top: @gutterSmall;
-	}
-	label {
-		cursor: pointer;
-		margin-right: 1em;
-	}
-	input[type=radio] {
-		display: none;
-	}
-	input:checked + &-text {
-		font-weight: bold;
-
 		&:after {
 			content: ' <';
-			position: absolute;
-			margin-left: .5em;
-			pointer-events: none;
+			visibility: hidden;
 		}
+		&--active:after {
+			visibility: visible;
+		}
+	}
+	&-item--active &-link {
+		font-weight: bold;
+	}
+	&-item + &-item {
+		margin-top: @gutterSmall;
+	}
+	&-link {
+		color: white;
 	}
 	
 	/* top/bottom bars */

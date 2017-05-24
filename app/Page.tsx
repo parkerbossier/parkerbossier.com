@@ -34,8 +34,9 @@ export class Page extends React.Component<PageProps, PageState> {
 
 	componentWillReceiveProps(nextProps: PageProps) {
 		// reset content scroll after the transition ends (and any scrolled content is presumably out of view)
-		if (this.props.isTransitioning && !nextProps.isTransitioning)
+		if (this.props.isTransitioning && !nextProps.isTransitioning) {
 			this.contentRef.scrollTop = 0;
+		}
 	}
 
 	private handleContentWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
@@ -133,7 +134,7 @@ export class Page extends React.Component<PageProps, PageState> {
 						</span>
 					)}
 				</div>
-			</section >
+			</section>
 		)
 	}
 }

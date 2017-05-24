@@ -95,8 +95,17 @@ export class App extends React.Component<{}, AppState> {
 	render() {
 		const { activePage, isTransitioningToPage } = this.state;
 
+		const pageCount = Object.keys(PageKey).length / 2;
+		const vhPerPage = 2;
+		const backgroundStyle: React.CSSProperties = {
+			paddingBottom: `${vhPerPage * (pageCount - 1)}vh`,
+			top: `-${activePage * vhPerPage}vh`
+		};
+
 		return (
 			<div className="App">
+				<div className="App-background" style={backgroundStyle} />
+
 				<Nav activePage={activePage} onNavigate={this.navigateToPage} />
 
 				<div

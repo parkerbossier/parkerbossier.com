@@ -120,8 +120,10 @@ export class Page extends React.Component<PageProps, PageState> {
 
 		const fragment = PageKey[pageKey].toLowerCase();
 
-		const scrollGatePrevOpacity = Math.max(-scrollGateProgress / scrollGateThreshold, 0);
-		const scrollGateNextOpacity = Math.max(scrollGateProgress / scrollGateThreshold, 0);
+		/** [0, 1] */
+		const scrollGatePrevProgress = Math.max(-scrollGateProgress / scrollGateThreshold, 0);
+		/** [0, 1] */
+		const scrollGateNextProgress = Math.max(scrollGateProgress / scrollGateThreshold, 0);
 
 		const classes = Classnames(
 			'Page',
@@ -141,19 +143,27 @@ export class Page extends React.Component<PageProps, PageState> {
 					{this.props.children}
 				</div>
 
-				<div className="Page-scrollGate" style={{ opacity: scrollGatePrevOpacity }}>
+				<div className="Page-scrollGate">
 					{this.props.isFirstPage && (
 						<span>
 							Refreshed. Maybe.
 						</span>
 					)}
+
+					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGatePrevProgress }}>
+						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGatePrevProgress})` }} />
+					</div>
 				</div>
-				<div className="Page-scrollGate Page-scrollGateNext" style={{ opacity: scrollGateNextOpacity }}>
+				<div className="Page-scrollGate Page-scrollGateNext">
 					{this.props.isLastPage && (
 						<span>
 							Thanks for reading!
 						</span>
 					)}
+
+					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGateNextProgress }}>
+						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGateNextProgress})` }} />
+					</div>
 				</div>
 			</section>
 		)

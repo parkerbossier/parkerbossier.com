@@ -1,18 +1,15 @@
-@import (reference) './definitions.less';
+@import (reference) './lib/definitions.less';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700');
 
 * {
 	box-sizing: content-box;
 }
-
-body {
-
+a {
+	text-decoration: none;
 }
-
 strong {
 	font-weight: bold;
 }
-
 h1 {
 	font-size: 24px;
 	font-weight: bold;
@@ -24,9 +21,17 @@ h2 {
 	margin-bottom: .5em;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 .App {
+	position: relative;
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -38,14 +43,15 @@ h2 {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	color: @colorWhite;
 
 	&-pages {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
-		overflow: hidden;
+		transform: translateY(0);
+		transition: transform 1s ease;
 	}
 
 	&-photoCredit {
@@ -54,5 +60,15 @@ h2 {
 		right: 0;
 		font-size: 10px;
 		margin: @gutterSmall;
+	}
+
+	#flightplan .Page-content {
+		background: none;
+		max-width: none;
+		max-height: none;
+		font: inherit;
+		padding: 0;
+		border-radius: 0;
+		color: inherit;
 	}
 }

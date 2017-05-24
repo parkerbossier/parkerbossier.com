@@ -2,16 +2,20 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
+require('babel-polyfill');
 
 const isProd = process.env.PROD;
 
 const baseConfig = {
+	entry: [
+		'babel-polyfill'
+	],
 	output: {
 		path: __dirname + '/',
 		filename: 'app.js'
 	},
 	resolve: {
-		extensions: ['.js', '.ts']
+		extensions: ['.js', '.ts', '.tsx']
 	},
 	module: {
 		rules: [
@@ -33,19 +37,20 @@ const baseConfig = {
 
 const devConfig = {
 	entry: [
-		'webpack-dev-server/client?http://parkers-mbpr:8080',
+		'webpack-dev-server/client?http://localhost:8080',
+		'react-hot-loader/patch',
 		'webpack/hot/only-dev-server',
-		'./app/App.ts'
+		'./app/index.tsx'
 	],
 	output: {
-		publicPath: 'http://parkers-mbpr:8080/'
+		publicPath: 'http://localhost:8080/'
 	},
 	devtool: 'source-map',
 	devServer: {
-		disableHostCheck: true,
 		host: '0.0.0.0',
 		port: 8080,
-		hot: true
+		hot: true,
+		disableHostCheck: true
 	},
 	module: {
 		rules: [
@@ -78,8 +83,15 @@ const devConfig = {
 				]
 			},
 			{
-				test: /\.ts?$/,
+				test: /\.tsx?$/,
 				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['es2015', 'react', 'react-hmre'],
+							plugins: ['react-hot-loader/babel']
+						}
+					},
 					{ loader: 'awesome-typescript-loader' }
 				],
 				exclude: '/node_modules'
@@ -94,9 +106,10 @@ const devConfig = {
 
 const prodConfig = {
 	entry: [
-		'./app/App.ts'
+		'./app/index.tsx'
 	],
 	output: {
+		//publicPath: '/bld'
 		publicPath: '/'
 	},
 	module: {
@@ -112,7 +125,10 @@ const prodConfig = {
 						}
 					},
 					{
-						loader: 'less-loader'
+						loader: 'less-loader',
+						options: {
+							//sourceMap: true
+						}
 					},
 					{
 						loader: 'postcss-loader',
@@ -127,8 +143,14 @@ const prodConfig = {
 				]
 			},
 			{
-				test: /\.ts?$/,
+				test: /\.tsx?$/,
 				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['es2015', 'react']
+						}
+					},
 					{
 						loader: 'awesome-typescript-loader'
 					}
@@ -143,7 +165,13 @@ const prodConfig = {
 				NODE_ENV: JSON.stringify('production')
 			}
 		}),
-		new webpack.optimize.UglifyJsPlugin()
+		new webpack.optimize.UglifyJsPlugin(),
+		/*
+		require('rollup-plugin-replace')({
+			'process.env.NODE_ENV': JSON.stringify('production')
+		}),
+		require('rollup-plugin-commonjs')()
+		*/
 	]
 };
 

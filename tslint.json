@@ -1,6 +1,11 @@
 {
 	"enable": true,
 	"rules": {
-		"no-unused-variable": true
+		"no-unused-variable": true,
+		"quotemark": [
+			true,
+			"single",
+			"jsx-double"
+		]
 	}
 }

@@ -86,7 +86,7 @@ export class App extends React.Component<{}, AppState> {
 				this.setState({
 					isTransitioningToPage: false
 				});
-			}, 1000);
+			}, 500 + 1000);
 
 			window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 		}

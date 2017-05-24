@@ -93,7 +93,7 @@ export class App extends React.Component<{}, AppState> {
 				>
 					<Page
 						isFirstPage
-						lockScrolling={isTransitioningToPage}
+						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						pageKey={PageKey.Flightplan}
 					>
@@ -101,7 +101,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
-						lockScrolling={isTransitioningToPage}
+						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Zazzle}
@@ -150,7 +150,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
-						lockScrolling={isTransitioningToPage}
+						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.SecondaryMissions}
@@ -199,7 +199,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
-						lockScrolling={isTransitioningToPage}
+						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Resume}
@@ -249,7 +249,7 @@ export class App extends React.Component<{}, AppState> {
 
 					<Page
 						isLastPage
-						lockScrolling={isTransitioningToPage}
+						isTransitioning={isTransitioningToPage}
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Contact}
 					>

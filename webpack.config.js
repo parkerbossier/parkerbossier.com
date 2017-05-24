@@ -19,15 +19,7 @@ const baseConfig = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.(eot|otf|ttf|woff)$/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						name: '[path][name]_[hash].[ext]'
-					}
-				}
-			}
+			
 		]
 	},
 	plugins: [

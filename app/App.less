@@ -1,6 +1,7 @@
 @import (reference) './lib/definitions.less';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700');
 
+@backgroundNavigationDuration: 2s;
 @navigationDuration: 1s;
 
 * {
@@ -24,9 +25,9 @@ h2 {
 }
 
 html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 .App {
@@ -52,7 +53,8 @@ html, body {
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		box-sizing: content-box;
-		transition: top @navigationDuration ease;
+		transform: translateY(0);
+		transition: transform @backgroundNavigationDuration ease;
 	}
 	&-pages {
 		position: absolute;
@@ -61,6 +63,7 @@ html, body {
 		width: 100%;
 		transform: translateY(0);
 		transition: transform @navigationDuration ease;
+		transition-delay: (@backgroundNavigationDuration - @navigationDuration) / 2;
 	}
 
 	&-photoCredit {

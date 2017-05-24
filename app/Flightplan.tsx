@@ -1,8 +1,28 @@
+import Classnames from 'classnames';
 import React from 'react';
 
 import './Flightplan.less';
 
-export class Flightplan extends React.Component<{}, {}> {
+interface FlightplanState {
+	isAnimatingMe: boolean;
+}
+
+export class Flightplan extends React.Component<{}, FlightplanState> {
+	state = {
+		isAnimatingMe: true
+	} as FlightplanState;
+
+	private restartMeAnimation = () => {
+		this.setState(
+			{ isAnimatingMe: false },
+			() => {
+				setTimeout(() => {
+					this.setState({ isAnimatingMe: true });
+				}, 0)
+			}
+		);
+	}
+
 	render() {
 		return (
 			<div className="Flightplan">
@@ -61,9 +81,9 @@ export class Flightplan extends React.Component<{}, {}> {
 					</table>
 				</div>
 
-				<div className="Flightplan-me Flightplan-me--animateFocus">
+				<div className={Classnames('Flightplan-me', this.state.isAnimatingMe && 'Flightplan-me--animateFocus')}>
 					<div className="Flightplan-meImageWrFlightplaner">
-						<div className="Flightplan-meImage"></div>
+						<div className="Flightplan-meImage" onAnimationEnd={this.restartMeAnimation}></div>
 					</div>
 
 					<div className="Flightplan-meRing Flightplan-meRingOuter"></div>

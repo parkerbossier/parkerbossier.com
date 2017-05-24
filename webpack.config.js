@@ -29,13 +29,13 @@ const baseConfig = {
 
 const devConfig = {
 	entry: [
-		'webpack-dev-server/client?http://localhost:8080',
+		'webpack-dev-server/client?http://parkers-mbpr:8080',
 		'react-hot-loader/patch',
 		'webpack/hot/only-dev-server',
 		'./app/index.tsx'
 	],
 	output: {
-		publicPath: 'http://localhost:8080/'
+		publicPath: 'http://parkers-mbpr:8080/'
 	},
 	devtool: 'source-map',
 	devServer: {

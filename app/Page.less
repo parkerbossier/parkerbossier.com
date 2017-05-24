@@ -10,15 +10,15 @@
 
 	&-content {
 		background: fade(@colorWhite, 80%);
-		max-width: 600px;
-		max-height: 600px;
+		max-width: 700px;
+		max-height: 700px;
 		overflow: auto;
 		margin: 0 auto;
 		color: black;
 		font-family: sans-serif;
 		padding: @gutter;
 		border-radius: 2px;
-		padding: @gutter;
+		padding: 2 * @gutter;
 	}
 	&--transitioning &-content {
 		overflow: hidden;
@@ -29,6 +29,10 @@
 		line-height: 1.5;
 		margin-bottom: @gutter;
 		overflow: hidden;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	img {
 		width: 200px;
@@ -37,11 +41,11 @@
 	}
 	img[data-pull-left] {
 		float: left;
-		margin: 0 @gutter @gutter 0;
+		margin-right: @gutter;
 	}
 	img[data-pull-right] {
 		float: right;
-		margin: 0 0 @gutter @gutter;
+		margin-left: @gutter;
 	}
 	[data-clear] {
 		clear: both;

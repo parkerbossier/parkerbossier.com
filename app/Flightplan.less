@@ -3,6 +3,7 @@
 @circleWidth: 475px;
 @crossLength: 20px;
 @crossThickness: 2px;
+@expandDelay: 1s;
 @ringBallMargin: 2px;
 @ringBallSize: 16px;
 @ringThickness: 6px;
@@ -38,6 +39,9 @@
 		align-items: center;
 		animation: 200s linear 0s closeMarsLoop;
 		animation-iteration-count: infinite;
+		transform: translateX(50%);
+		transition: transform .2s ease;
+		transition-delay: @expandDelay;
 	}
 	&-marsReadout {
 		margin: 30px;
@@ -101,7 +105,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-left: -45px;
+		transform: translateX(-50%);
+		transition: transform .2s ease;
+		transition-delay: @expandDelay;
 	}
 	&-meImageWrapper {
 		position: relative;
@@ -192,5 +198,13 @@
 	}
 	&-me--animateFocus &-meRingOuter {
 		animation: 4s linear 5s meRingRotation;
+	}
+
+	/* spread apart on mount */
+	&--mounted &-mars {
+		transform: translateX(5%);
+	}
+	&--mounted &-me {
+		transform: translateX(-5%);
 	}
 }

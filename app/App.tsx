@@ -47,7 +47,18 @@ export class App extends React.Component<{}, AppState> {
 					this.handleNavigateNext();
 					break;
 			}
-		})
+		});
+
+		// handle initial navigation (via hash)
+		const activePageKey = Object.keys(PageKey).find(key => {
+			return key.toLowerCase() === window.location.hash.substr(1).toLowerCase();
+		});
+		if (activePageKey) {
+			const fragmentFromPageKey = (PageKey as any as { [key: string]: string })[activePageKey] as any;
+			this.navigateToPage(fragmentFromPageKey);
+		}
+		else
+			window.history.replaceState({}, document.title, '/');
 	}
 
 	private handleNavigateNext = () => {
@@ -76,6 +87,8 @@ export class App extends React.Component<{}, AppState> {
 					isTransitioningToPage: false
 				});
 			}, 1000);
+
+			window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 		}
 	}
 

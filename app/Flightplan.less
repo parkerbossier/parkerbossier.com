@@ -156,15 +156,7 @@
 		}
 	}
 
-	&-me--animateFocus &-meImage {
-		animation: 4s linear 5s meRingBlur;
-	}
-	&-me--animateFocus &-meRingOuter {
-		animation: 4s linear 5s meRingRotation;
-	}
-}
-
-@keyframes meRingBlur {
+	@keyframes meRingBlur {
 		start {
 			filter: blur(0);
 		}
@@ -181,17 +173,24 @@
 			filter: blur(0);
 		}
 	}
-@keyframes meRingRotation {
-	start {
-		transform: rotate(35deg);
+	@keyframes meRingRotation {
+		start {
+			transform: rotate(35deg);
+		}
+		30% {
+			transform: rotate(60deg);
+		}
+		60% {
+			transform: rotate(25deg);
+		}
+		end {
+			transform: rotate(35deg);
+		}
 	}
-	30% {
-		transform: rotate(60deg);
+	&-me--animateFocus &-meImage {
+		animation: 4s linear 5s meRingBlur;
 	}
-	60% {
-		transform: rotate(25deg);
-	}
-	end {
-		transform: rotate(35deg);
+	&-me--animateFocus &-meRingOuter {
+		animation: 4s linear 5s meRingRotation;
 	}
 }

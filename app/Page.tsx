@@ -1,6 +1,7 @@
 import Classnames from 'classnames';
 import React from 'react';
 import debounce from 'debounce';
+import { findDOMNode } from '@types/react-dom';
 
 import { PageKey } from './App';
 import { scrollHeightRemaining } from './lib/utils';
@@ -39,14 +40,21 @@ export class Page extends React.Component<PageProps, PageState> {
 		}
 	}
 
-	private handleContentWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
-		this.queueScrollGateReset();
+	private handleMouseWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+		if (this.scrollGateThresholdMet)
+			return;
+
+		const scrollIsOverContent = this.contentRef.contains(e.target as HTMLElement);
+		if (!scrollIsOverContent)
+			// "forward" mousewheel events outside of content to content
+			this.contentRef.scrollTop += e.deltaY;
 
 		// scrolling previous
 		if (e.deltaY < 0) {
 
 			// scroll exhausted, begin scroll gate
 			if (this.contentRef.scrollTop === 0) {
+				this.postponeScrollGateReset();
 				const newProgress = this.state.scrollGateProgress + e.deltaY;
 				this.setState({ scrollGateProgress: newProgress });
 
@@ -68,6 +76,7 @@ export class Page extends React.Component<PageProps, PageState> {
 
 			// scroll exhausted, begin scroll gate
 			if (remainingScroll === 0) {
+				this.postponeScrollGateReset();
 				const newProgress = this.state.scrollGateProgress + e.deltaY;
 				this.setState({ scrollGateProgress: newProgress });
 
@@ -88,7 +97,7 @@ export class Page extends React.Component<PageProps, PageState> {
 	 * "Queues" up a scroll gate reset.
 	 * Effectively, we wait for the user to stop scrolling before resetting the gate.
 	 * */
-	private queueScrollGateReset = debounce(() => {
+	private postponeScrollGateReset = debounce(() => {
 		this.setState({ scrollGateProgress: 0 });
 		this.scrollGateThresholdMet = false;
 	}, 500);
@@ -111,10 +120,13 @@ export class Page extends React.Component<PageProps, PageState> {
 		);
 
 		return (
-			<section className={classes} id={fragment}>
+			<section
+				className={classes}
+				id={fragment}
+				onWheel={this.handleMouseWheel}
+			>
 				<div
 					className="Page-content"
-					onWheel={this.handleContentWheel}
 					ref={div => { this.contentRef = div; }}
 				>
 					{this.props.children}

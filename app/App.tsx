@@ -96,10 +96,10 @@ export class App extends React.Component<{}, AppState> {
 		const { activePage, isTransitioningToPage } = this.state;
 
 		const pageCount = Object.keys(PageKey).length / 2;
-		const vhPerPage = 2;
+		const vhPerPage = 4;
 		const backgroundStyle: React.CSSProperties = {
 			paddingBottom: `${vhPerPage * (pageCount - 1)}vh`,
-			top: `-${activePage * vhPerPage}vh`
+			transform: `translateY(-${activePage * vhPerPage}vh)`
 		};
 
 		return (

@@ -10,8 +10,8 @@ import './Page.less';
 interface PageProps {
 	isFirstPage?: boolean;
 	isLastPage?: boolean;
-	/** Lock this page's content from scrolling (useful during nav transition) */
-	lockScrolling: boolean;
+	/** Should be true when the pages are transitioning (for content scroll prevention and resetting) */
+	isTransitioning: boolean;
 	onNavigateNext?: () => void;
 	onNavigatePrev?: () => void;
 	pageKey: PageKey;
@@ -32,6 +32,12 @@ export class Page extends React.Component<PageProps, PageState> {
 
 	private contentRef: HTMLDivElement;
 
+	componentWillReceiveProps(nextProps: PageProps) {
+		// reset content scroll after the transition ends (and any scrolled content is presumably out of view)
+		if (this.props.isTransitioning && !nextProps.isTransitioning)
+			this.contentRef.scrollTop = 0;
+	}
+
 	private handleContentWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
 		this.queueScrollGateReset();
 
@@ -51,11 +57,6 @@ export class Page extends React.Component<PageProps, PageState> {
 				) {
 					this.scrollGateThresholdMet = true;
 					this.props.onNavigatePrev();
-
-					// reset the content scroll after we're out of view (probably)
-					setTimeout(() => {
-						this.contentRef.scrollTop = 0;
-					}, 1000);
 				}
 			}
 		}
@@ -77,11 +78,6 @@ export class Page extends React.Component<PageProps, PageState> {
 				) {
 					this.scrollGateThresholdMet = true;
 					this.props.onNavigateNext();
-
-					// reset the content scroll after we're out of view (probably)
-					setTimeout(() => {
-						this.contentRef.scrollTop = 0;
-					}, 1000);
 				}
 			}
 		}
@@ -95,12 +91,12 @@ export class Page extends React.Component<PageProps, PageState> {
 		this.setState({ scrollGateProgress: 0 });
 		this.scrollGateThresholdMet = false;
 	}, 500);
-	
+
 	/** When set, the scroll gate threshold has been met, so further triggers in this scroll session should be ignored. */
 	private scrollGateThresholdMet: boolean;
 
 	render() {
-		const { lockScrolling, pageKey } = this.props;
+		const { isTransitioning, pageKey } = this.props;
 		const { scrollGateProgress } = this.state;
 
 		const fragment = PageKey[pageKey].toLowerCase();
@@ -110,7 +106,7 @@ export class Page extends React.Component<PageProps, PageState> {
 
 		const classes = Classnames(
 			'Page',
-			{ 'Page--scrollLock': lockScrolling }
+			{ 'Page--transitioning': isTransitioning }
 		);
 
 		return (

@@ -14,7 +14,6 @@
     "@types/react": "^15.0.12",
     "@types/react-dom": "^0.14.23",
     "@types/react-hot-loader": "^3.0.1",
-    "@types/whatwg-fetch": "0.0.33",
     "classnames": "^2.2.5",
     "debounce": "^1.0.2",
     "es6-promise": "^3.2.1",

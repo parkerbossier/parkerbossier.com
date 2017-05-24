@@ -1,7 +1,6 @@
 import Classnames from 'classnames';
 import React from 'react';
 import debounce from 'debounce';
-import { findDOMNode } from '@types/react-dom';
 
 import { PageKey } from './App';
 import { scrollHeightRemaining } from './lib/utils';
@@ -19,11 +18,15 @@ interface PageProps {
 }
 
 interface PageState {
-	/** The distance scrolled towards this page's scroll gates (- for prev, + for next) */
+	/**
+	 * The distance scrolled towards this page's scroll gates (- for prev, + for next).
+	 * 
+	 * NOTE: Will never exceed scrollGateThreshold.
+	 */
 	scrollGateProgress: number;
 }
 
-/** The number of picels the user needs to scroll to trigger the scroll gate (and cause a navigation event) */
+/** The number of pixels the user needs to scroll to trigger the scroll gate (and cause a navigation event) */
 const scrollGateThreshold = 800;
 
 export class Page extends React.Component<PageProps, PageState> {
@@ -41,6 +44,11 @@ export class Page extends React.Component<PageProps, PageState> {
 	}
 
 	private handleMouseWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+		// bail if we're transitioning because that should kill all scrolling
+		if (this.props.isTransitioning)
+			return;
+
+		// bail once we meet the threshold; let the scroll gate decay 
 		if (this.scrollGateThresholdMet)
 			return;
 
@@ -55,13 +63,13 @@ export class Page extends React.Component<PageProps, PageState> {
 			// scroll exhausted, begin scroll gate
 			if (this.contentRef.scrollTop === 0) {
 				this.postponeScrollGateReset();
-				const newProgress = this.state.scrollGateProgress + e.deltaY;
+				const newProgress = Math.max(-scrollGateThreshold, this.state.scrollGateProgress + e.deltaY);
 				this.setState({ scrollGateProgress: newProgress });
 
 				// scroll gate broken
 				if (
 					!this.props.isFirstPage &&
-					-newProgress > scrollGateThreshold
+					-newProgress === scrollGateThreshold
 					&& !this.scrollGateThresholdMet
 				) {
 					this.scrollGateThresholdMet = true;
@@ -77,13 +85,14 @@ export class Page extends React.Component<PageProps, PageState> {
 			// scroll exhausted, begin scroll gate
 			if (remainingScroll === 0) {
 				this.postponeScrollGateReset();
-				const newProgress = this.state.scrollGateProgress + e.deltaY;
+				const newProgress = Math.min(scrollGateThreshold, this.state.scrollGateProgress + e.deltaY);
+
 				this.setState({ scrollGateProgress: newProgress });
 
 				// scroll gate broken
 				if (
 					!this.props.isLastPage &&
-					newProgress > scrollGateThreshold &&
+					newProgress === scrollGateThreshold &&
 					!this.scrollGateThresholdMet
 				) {
 					this.scrollGateThresholdMet = true;

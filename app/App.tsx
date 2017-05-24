@@ -88,6 +88,7 @@ export class App extends React.Component<{}, AppState> {
 				});
 			}, 500 + 1000);
 
+			// update the URL hash
 			window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 		}
 	}

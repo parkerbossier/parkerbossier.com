@@ -5,12 +5,19 @@ import './Flightplan.less';
 
 interface FlightplanState {
 	isAnimatingMe: boolean;
+	isMounted: boolean;
 }
 
 export class Flightplan extends React.Component<{}, FlightplanState> {
 	state = {
 		isAnimatingMe: true
 	} as FlightplanState;
+
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({ isMounted: true });
+		}, 0);
+	}
 
 	private restartMeAnimation = () => {
 		this.setState(
@@ -25,7 +32,7 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 
 	render() {
 		return (
-			<div className="Flightplan">
+			<div className={Classnames('Flightplan', this.state.isMounted && 'Flightplan--mounted')}>
 				<div className="Flightplan-mars">
 					<table className="Flightplan-marsReadout">
 						<tbody>
@@ -52,7 +59,7 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 
 					<div className="Flightplan-marsBio">
 						I'm <strong>Parker Bossier</strong><br />
-						> I build <strong>React+Typescript</strong> Flightplans;<br />
+						> I build <strong>React+Typescript</strong> apps;<br />
 						> I explore the universe in <strong>KSP</strong>;<br />
 						> I <strong>cycle</strong> through the SF Bay Area;
 					</div>
@@ -82,7 +89,7 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 				</div>
 
 				<div className={Classnames('Flightplan-me', this.state.isAnimatingMe && 'Flightplan-me--animateFocus')}>
-					<div className="Flightplan-meImageWrFlightplaner">
+					<div className="Flightplan-meImageWrapper">
 						<div className="Flightplan-meImage" onAnimationEnd={this.restartMeAnimation}></div>
 					</div>
 

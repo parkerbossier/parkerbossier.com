@@ -136,32 +136,18 @@ export class Page extends React.Component<PageProps, PageState> {
 				data-pagekey={pageName}
 				onWheel={this.handleMouseWheel}
 			>
+				<div className="Page-scrollGate">
+					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGatePrevProgress }}>
+						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGatePrevProgress})` }} />
+					</div>
+				</div>
 				<div
 					className="Page-content"
 					ref={div => { this.contentRef = div; }}
 				>
 					{this.props.children}
 				</div>
-
-				<div className="Page-scrollGate">
-					{this.props.isFirstPage && (
-						<span>
-							Refreshed. Maybe.
-						</span>
-					)}
-
-					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGatePrevProgress }}>
-						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGatePrevProgress})` }} />
-					</div>
-				</div>
-
 				<div className="Page-scrollGate Page-scrollGateNext">
-					{this.props.isLastPage && (
-						<span>
-							Thanks for reading!
-						</span>
-					)}
-
 					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGateNextProgress }}>
 						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGateNextProgress})` }} />
 					</div>

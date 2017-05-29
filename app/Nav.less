@@ -3,16 +3,19 @@
 .Nav {
 	position: fixed;
 	z-index: 1;
-	top: 50px;
-	left: 50px;
+	top: @gutter;
+	left: 50%;
+	transform: translateX(-50%);
 	background: fade(black, 50%);
 	padding: 14px 30px;
 
 	ul {
-		transition: opacity .2s ease, max-height .2s ease;
-		max-height: 150px;
+		display: flex;
 	}
 	&-item {
+		margin: 0 @gutter*2;
+		white-space: nowrap;
+
 		&:before {
 			content: '> ';
 		}
@@ -27,61 +30,26 @@
 	&-item--active &-link {
 		font-weight: bold;
 	}
-	&-item + &-item {
-		margin-top: @gutterSmall;
-	}
 	&-link {
 		color: white;
 	}
 	
-	/* top/bottom bars */
+	/* brackets */
 	&:before,
 	&:after {
 		content: '';
 		position: absolute;
-		height: 10px;
-		left: -2px;
-		right: -2px;
+		width: 10px;
+		top: -2px;
+		bottom: -2px;
 		border: 2px solid white;
 	}
 	&:before {
-		top: -2px;
-		border-bottom: none;
+		left: -2px;
+		border-right: none;
 	}
 	&:after {
-		bottom: -2px;
-		border-top: none;
-	}
-
-	/* open/close */
-	&-toggle {
-		display: none !important;
-
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		width: 15px;
-		height: 15px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 1px solid @colorWhite;
-		background: none;
-		font-size: 16px;
-		cursor: pointer;
-	}
-	&-toggleContent:before {
-		content: '-';
-	}
-
-	/* collapsed */
-	&--collapsed {
-		ul {
-			max-height: 0;
-			opacity: 0;
-		}
-	}
-	&--collapsed &-toggleContent:before {
-		content: '+';
+		right: -2px;
+		border-left: none;
 	}
 }

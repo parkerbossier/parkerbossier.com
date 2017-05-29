@@ -5,8 +5,14 @@
 	width: 100vw;
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
+
+	&:before, &:after {
+		content: '';
+		flex: 1;
+	}
 
 	&-content {
 		background: fade(@colorWhite, 80%);
@@ -16,7 +22,6 @@
 		margin: 0 auto;
 		color: black;
 		font-family: sans-serif;
-		padding: @gutter;
 		border-radius: 2px;
 		padding: 2 * @gutter;
 	}
@@ -56,33 +61,12 @@
 		clear: both;
 	}
 
-	/* image set */
-	&-imageSet {
-		display: flex;
-		justify-content: space-between;
-		margin: 0 -@gutterSmall @gutter;
-
-		img {
-			flex: 1;
-			margin: 0 @gutterSmall;
-
-			&[data-flex='2'] {
-				flex: 2;
-			}
-		}
-	}
-
 	/* scroll gate */
 	&-scrollGate {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
+		margin: @gutter 0;
 		color: black;
 	}
 	&-scrollGateNext {
-		top: initial;
-		bottom: 0;
 	}
 	&-scrollGateIconOuter {
 		width: 50px;

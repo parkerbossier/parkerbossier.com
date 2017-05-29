@@ -1,9 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
+import Classnames from 'classnames';
 
 import { Nav } from './Nav';
 import { Page } from './Page';
 import { Flightplan } from './Flightplan';
+import { ImageGallery } from './ImageGallery';
 
 import './lib/reset.less';
 import './App.less';
@@ -18,6 +20,7 @@ export enum PageKey {
 
 interface AppState {
 	activePage: PageKey;
+	isLightboxOpen: boolean;
 	isTransitioningToPage: boolean;
 }
 
@@ -38,14 +41,16 @@ export class App extends React.Component<{}, AppState> {
 				case 37:
 				// up
 				case 38:
-					this.handleNavigatePrev();
+					if (!this.state.isLightboxOpen)
+						this.handleNavigatePrev();
 					break;
 
 				// right
 				case 39:
 				// down
 				case 40:
-					this.handleNavigateNext();
+					if (!this.state.isLightboxOpen)
+						this.handleNavigateNext();
 					break;
 			}
 		});
@@ -73,6 +78,13 @@ export class App extends React.Component<{}, AppState> {
 			if (pageKey !== null)
 				this.navigateToPage(pageKey);
 		});
+	}
+
+	private handleLightboxClose = () => {
+		this.setState({ isLightboxOpen: false });
+	}
+	private handleLightboxOpen = () => {
+		this.setState({ isLightboxOpen: true });
 	}
 
 	private handleNavigateNext = () => {
@@ -117,8 +129,13 @@ export class App extends React.Component<{}, AppState> {
 			transform: `translateY(-${activePage * vhPerPage}vh)`
 		};
 
+		const classnames = Classnames(
+			'App',
+			{ 'App--lightboxOpen': this.state.isLightboxOpen }
+		)
+
 		return (
-			<div className="App">
+			<div className={classnames}>
 				<div className="App-background" style={backgroundStyle} />
 
 				<Nav activePage={activePage} onNavigate={this.navigateToPage} />
@@ -149,21 +166,47 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 
 						<h2>The Product Page</h2>
-						<div className="Page-imageSet">
-							<img src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							<img src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							<img src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-						</div>
+						<ImageGallery
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
+							previewImageProps={[
+								{
+									src: '/img/pdp-(beer-carrier).jpg',
+									title: 'Zazzle product page: beer carrier'
+								},
+								{
+									src: '/img/pdp-(mug).jpg',
+									title: 'Zazzle product page: mug'
+								},
+								{
+									src: '/img/pdp-(shirt-design-tool-2).jpg',
+									title: 'Zazzle product page: shirt design tool'
+								}
+							]}
+						/>
 						<p>
 							Since my arrival at Zazzle, I've been a part of three product page releases. In that time, I've released countless AB tests, added many dozens of features, and evolved our UI stack (see below for more). The product page aligns with many of my interests.
 						</p>
 
 						<h2>React+TypeScript</h2>
-						<div className="Page-imageSet">
-							<img data- src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							<img src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							<img src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-						</div>
+						<ImageGallery
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
+							previewImageProps={[
+								{
+									src: '/img/react-(code).jpg',
+									title: 'React code'
+								},
+								{
+									src: '/img/react-(react-tools).jpg',
+									title: 'React dev tools'
+								},
+								{
+									src: '/img/react-(redux-tools).jpg',
+									title: 'Redux dev tools'
+								}
+							]}
+						/>
 						<p>
 							In 2016, I began pushing React at Zazzle (see <a href="#secondarymissions">RideWeather</a> for my origin story with React). I built an internal tool as a proof of concept, and then a wonderful opportunity presented itself: a total redesign of the order history page. This project was self-contained, complex enough to make a good stress test of our new React stack, and simple enough to be a feasible project.
 						</p>
@@ -200,13 +243,13 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>React+Typescript</h2>
 						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 						</p>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -219,13 +262,13 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>PBJ</h2>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
 							crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun
 							in American crime. Like they're actually proud of that shit.
 						</p>
 						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -249,13 +292,13 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>React+Typescript</h2>
 						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 						</p>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -268,13 +311,13 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>PBJ</h2>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
 							crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun
 							in American crime. Like they're actually proud of that shit.
 						</p>
 						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
+							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -287,47 +330,32 @@ export class App extends React.Component<{}, AppState> {
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Contact}
 					>
-						<h1>Contact</h1>
+						<h1>Contact me</h1>
 
-						<h2>Who is Zazzle?</h2>
-						<p>
-							Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass
-							motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass,
-							'cause I'll kill the motherfucker, know what I'm sayin'?
-						</p>
-
-						<h2>React+Typescript</h2>
-						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-						<p data-clear>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-
-						<h2>PBJ</h2>
-						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-							crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun
-							in American crime. Like they're actually proud of that shit.
-						</p>
-						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=150&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
+						<ul className="App-contactLinks">
+							<li>
+								<a href="https://twitter.com/parkerbossier" target="_blank">
+									<img alt="twitter" src="/img/twitter.png" />
+									{' '}
+									@parkerbossier
+								</a>
+							</li>
+							<li>
+								<a href="https://github.com/parkerbossier" target="_blank">
+									<img alt="GitHub" src="/img/github.png" />
+									{' '}
+									parkerbossier
+								</a>
+							</li>
+							<li>
+								<a href="mailto:me@parkerbossier.com" target="_blank">
+									{/* https://www.iconfinder.com/icons/1814108/email_envenlope_letter_mail_icon#size=128 */}
+									<svg viewBox="0 0 64 64"><g><g transform="translate(78.000000, 232.000000)"><path className="st0" d="M-22.5-213.2l-1.9-1.9l-17.6,17.6c-2.2,2.2-5.9,2.2-8.1,0L-67.7-215l-1.9,1.9l13.1,13.1     l-13.1,13.1l1.9,1.9l13.1-13.1l2.6,2.6c1.6,1.6,3.7,2.5,5.9,2.5s4.3-0.9,5.9-2.5l2.6-2.6l13.1,13.1l1.9-1.9l-13.1-13.1     L-22.5-213.2" id="Fill-3" /><path className="st0" d="M-26.2-181.6h-39.5c-2.3,0-4.2-1.9-4.2-4.2v-28.2c0-2.3,1.9-4.2,4.2-4.2h39.5     c2.3,0,4.2,1.9,4.2,4.2v28.2C-22-183.5-23.9-181.6-26.2-181.6L-26.2-181.6z M-65.8-215.5c-0.8,0-1.4,0.6-1.4,1.4v28.2     c0,0.8,0.6,1.4,1.4,1.4h39.5c0.8,0,1.4-0.6,1.4-1.4v-28.2c0-0.8-0.6-1.4-1.4-1.4H-65.8L-65.8-215.5z" id="Fill-4" /></g></g></svg>
+									{' '}
+									parkerbossier@gmail.com
+								</a>
+							</li>
+						</ul>
 					</Page>
 				</div>
 

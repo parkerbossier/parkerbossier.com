@@ -59,9 +59,9 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 
 					<div className="Flightplan-marsBio">
 						I'm <strong>Parker Bossier</strong><br />
-						> I build <strong>React+Typescript</strong> apps;<br />
+						> I build <strong>React+TypeScript</strong> apps;<br />
 						> I explore the universe in <strong>KSP</strong>;<br />
-						> I <strong>cycle</strong> through the SF Bay Area;
+						> I <strong>cycle</strong> around the SF Bay Area;
 					</div>
 
 					<div className="Flightplan-marsCrosses">

@@ -1,34 +1,10 @@
 @import (reference) './lib/definitions.less';
+@import './lib/global.less';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700');
 
 @backgroundNavigationDuration: 2s;
 @navigationDuration: 1s;
 
-* {
-	box-sizing: content-box;
-}
-a {
-	text-decoration: none;
-}
-strong {
-	font-weight: bold;
-}
-h1 {
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 1em;
-}
-h2 {
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: .5em;
-}
-
-html, body {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
 
 .App {
 	position: relative;
@@ -74,7 +50,7 @@ html, body {
 		margin: @gutterSmall;
 	}
 
-	#flightplan .Page-content {
+	[data-pagekey=flightplan] .Page-content {
 		background: none;
 		max-width: none;
 		max-height: none;

@@ -118,7 +118,7 @@ export class Page extends React.Component<PageProps, PageState> {
 		const { isTransitioning, pageKey } = this.props;
 		const { scrollGateProgress } = this.state;
 
-		const fragment = PageKey[pageKey].toLowerCase();
+		const pageName = PageKey[pageKey].toLowerCase();
 
 		/** [0, 1] */
 		const scrollGatePrevProgress = Math.max(-scrollGateProgress / scrollGateThreshold, 0);
@@ -133,7 +133,7 @@ export class Page extends React.Component<PageProps, PageState> {
 		return (
 			<section
 				className={classes}
-				id={fragment}
+				data-pagekey={pageName}
 				onWheel={this.handleMouseWheel}
 			>
 				<div
@@ -154,6 +154,7 @@ export class Page extends React.Component<PageProps, PageState> {
 						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGatePrevProgress})` }} />
 					</div>
 				</div>
+
 				<div className="Page-scrollGate Page-scrollGateNext">
 					{this.props.isLastPage && (
 						<span>

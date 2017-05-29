@@ -33,10 +33,6 @@ export class Nav extends React.Component<NavProps, {}> {
 					{renderNavItem(PageKey.Resume, 'Resume')}
 					{renderNavItem(PageKey.Contact, 'Contact')}
 				</ul>
-
-				<div className="Nav-toggle">
-					<span className="Nav-toggleContent"></span>
-				</div>
 			</nav>
 		);
 	}

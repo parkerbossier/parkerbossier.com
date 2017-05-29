@@ -1,0 +1,65 @@
+@import (reference) './lib/definitions.less';
+
+.ImageGallery {
+	&-previews {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 -@gutterSmall @gutter;
+
+		li {
+			flex: 1;
+			margin: 0 @gutterSmall;
+			display: flex;
+			align-items: center;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	&-lightbox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: fade(black, 50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&-lightboxContent {
+		margin: @gutter * 4;
+		position: relative;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	/* buttons */
+	&-lightboxClose {
+		position: absolute;
+		bottom: 100%;
+		left: 100%;
+		padding: @gutterSmall;
+		margin: -@gutterSmall;
+		font-size: 30px;
+		color: @colorWhite;
+	}
+	&-lightboxNext, &-lightboxPrev {
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		transform: translateY(-50%);
+		color: white;
+		padding: 0 @gutterSmall;
+		font-size: 60px;
+		margin: 0 -@gutterSmall/2;
+	}
+	&-lightboxPrev {
+		left: initial;
+		right: 100%;
+	}
+}

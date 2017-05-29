@@ -50,6 +50,7 @@
 		margin: @gutterSmall;
 	}
 
+	/* flightplan overrides */
 	[data-pagekey=flightplan] .Page-content {
 		background: none;
 		max-width: none;
@@ -58,5 +59,36 @@
 		padding: 0;
 		border-radius: 0;
 		color: inherit;
+		overflow: initial;
+	}
+
+	/* contact overrides */
+	[data-pagekey=contact] .Page-content {
+		
+	}
+	&-contactLinks {
+		li {
+			display: inline-block;
+			vertical-align: middle;
+
+			&+li {
+				margin-left: @gutter * 4;
+			}
+		}
+		img, svg {
+			height: 1em;
+			vertical-align: middle;
+		}
+		svg {
+			height: 1.5em;
+			
+			path {
+				fill: @colorDarkCopy;
+			}
+		}
+	}
+
+	&--lightboxOpen &-pages {
+		z-index: 10;
 	}
 }

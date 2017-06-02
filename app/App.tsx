@@ -5,7 +5,7 @@ import Classnames from 'classnames';
 import { Nav } from './Nav';
 import { Page } from './Page';
 import { Flightplan } from './Flightplan';
-import { ImageGallery } from './ImageGallery';
+import { MediaGallery } from './MediaGallery';
 
 import './lib/reset.less';
 import './App.less';
@@ -166,23 +166,29 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 
 						<h2>The Product Page</h2>
-						<ImageGallery
-							onLightboxClose={this.handleLightboxClose}
-							onLightboxOpen={this.handleLightboxOpen}
-							previewImageProps={[
+						<MediaGallery
+							items={[
 								{
+									type: 'image',
+									alt: 'Zazzle product page: beer carrier',
 									src: '/img/pdp-(beer-carrier).jpg',
-									title: 'Zazzle product page: beer carrier'
+									thumbnailSrc: '/img/pdp-(beer-carrier).jpg'
 								},
 								{
+									type: 'image',
+									alt: 'Zazzle product page: mug',
 									src: '/img/pdp-(mug).jpg',
-									title: 'Zazzle product page: mug'
+									thumbnailSrc: '/img/pdp-(mug).jpg'
 								},
 								{
+									type: 'image',
+									alt: 'Zazzle product page: shirt design tool',
 									src: '/img/pdp-(shirt-design-tool-2).jpg',
-									title: 'Zazzle product page: shirt design tool'
+									thumbnailSrc: '/img/pdp-(shirt-design-tool-2).jpg'
 								}
 							]}
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
 							Since my arrival at Zazzle, I've been a part of three product page releases. In that time, I've released countless AB tests, added many dozens of features, and evolved our UI stack (see React+TypeScript below).
@@ -192,23 +198,29 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 
 						<h2>React+TypeScript</h2>
-						<ImageGallery
-							onLightboxClose={this.handleLightboxClose}
-							onLightboxOpen={this.handleLightboxOpen}
-							previewImageProps={[
+						<MediaGallery
+							items={[
 								{
+									type: 'image',
+									alt: 'React code',
 									src: '/img/react-(code).jpg',
-									title: 'React code'
+									thumbnailSrc: '/img/react-(code).jpg'
 								},
 								{
+									type: 'image',
+									alt: 'React dev tools',
 									src: '/img/react-(react-tools).jpg',
-									title: 'React dev tools'
+									thumbnailSrc: '/img/react-(react-tools).jpg'
 								},
 								{
+									type: 'image',
+									alt: 'Redux dev tools',
 									src: '/img/react-(redux-tools).jpg',
-									title: 'Redux dev tools'
+									thumbnailSrc: '/img/react-(redux-tools).jpg'
 								}
 							]}
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
 							In 2016, I began pushing React at Zazzle (see <a href="#secondarymissions">RideWeather</a> for my origin story with React). I built an internal tool as a proof of concept, and then a wonderful opportunity presented itself: a total redesign of the order history page. This project was self-contained, complex enough to make a good stress test of our new React stack, and simple enough to be a feasible project.
@@ -238,23 +250,29 @@ export class App extends React.Component<{}, AppState> {
 						<h1>Secondary Missions</h1>
 
 						<h2>RideWeather</h2>
-						<ImageGallery
-							onLightboxClose={this.handleLightboxClose}
-							onLightboxOpen={this.handleLightboxOpen}
-							previewImageProps={[
+						<MediaGallery
+							items={[
 								{
+									type: 'image',
+									alt: 'RideWeather routes screen',
 									src: '/img/rideweather-(routes).jpg',
-									title: 'RideWeather routes screen'
+									thumbnailSrc: '/img/rideweather-(routes).jpg',
 								},
 								{
+									type: 'image',
+									alt: 'RideWeather main screen',
 									src: '/img/rideweather-(main).jpg',
-									title: 'RideWeather main screen'
+									thumbnailSrc: '/img/rideweather-(main).jpg',
 								},
 								{
+									type: 'image',
+									alt: 'RideWeather sketches',
 									src: '/img/rideweather-sketches.jpg',
-									title: 'RideWeather sketches'
+									thumbnailSrc: '/img/rideweather-sketches.jpg',
 								}
 							]}
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
 							I bike a lot; I design a lot; I build a lot. This means I need a good weather app and a testbed app in which I can experiment with UI design and UI tech. RideWeather is that app.
@@ -265,49 +283,56 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 
 						<h2>Kerbal Space Program</h2>
-						<ImageGallery
+						<MediaGallery
+							items={[
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/XLmo_FFH6v4" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-vab-climber.jpg'
+								},
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/iQ8ixbXC-W4" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-india-tribute.jpg'
+								},
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/egExmjvG0Gg" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-mun-ore-grabber.jpg'
+								},
+							]}
 							onLightboxClose={this.handleLightboxClose}
 							onLightboxOpen={this.handleLightboxOpen}
-							previewImageProps={[
-								{
-									src: '/img/rideweather-(routes).jpg',
-									title: ''
-								},
-								{
-									src: '/img/rideweather-(main).jpg',
-									title: ''
-								},
-								{
-									src: '/img/rideweather-sketches.jpg',
-									title: ''
-								}
-							]}
 						/>
 						<p>
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 						</p>
-						<p>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-						<p data-clear>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
 
-						<h2>PBJ</h2>
+						<h2>Archdata</h2>
+						<MediaGallery
+							items={[
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/XLmo_FFH6v4" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-vab-climber.jpg'
+								},
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/iQ8ixbXC-W4" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-india-tribute.jpg'
+								},
+								{
+									type: 'video',
+									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/egExmjvG0Gg" frameborder="0" allowfullscreen></iframe>`,
+									thumbnailSrc: '/img/ksp-mun-ore-grabber.jpg'
+								},
+							]}
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
+						/>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
-							Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-							crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun
-							in American crime. Like they're actually proud of that shit.
-						</p>
-						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -321,46 +346,6 @@ export class App extends React.Component<{}, AppState> {
 						pageKey={PageKey.Resume}
 					>
 						<h1>Resume</h1>
-
-						<h2>Who is Zazzle?</h2>
-						<p>
-							Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass
-							motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass,
-							'cause I'll kill the motherfucker, know what I'm sayin'?
-						</p>
-
-						<h2>React+Typescript</h2>
-						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-						<p data-clear>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
-
-						<h2>PBJ</h2>
-						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
-							Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-							crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun
-							in American crime. Like they're actually proud of that shit.
-						</p>
-						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-						</p>
 					</Page>
 
 					<Page

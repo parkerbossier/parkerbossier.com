@@ -17,7 +17,7 @@ export class Nav extends React.Component<NavProps, {}> {
 		const renderNavItem = (pageKey: PageKey, label: string) => {
 			return (
 				<li className={Classnames('Nav-item', activePage === pageKey && 'Nav-item--active')}>
-					<a className="Nav-link" href="javascript://" onClick={() => { this.props.onNavigate(pageKey); }}>
+					<a className="Nav-link" href="javascript:;" onClick={() => { this.props.onNavigate(pageKey); }}>
 						{label}
 					</a>
 				</li>

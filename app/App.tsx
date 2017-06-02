@@ -185,7 +185,10 @@ export class App extends React.Component<{}, AppState> {
 							]}
 						/>
 						<p>
-							Since my arrival at Zazzle, I've been a part of three product page releases. In that time, I've released countless AB tests, added many dozens of features, and evolved our UI stack (see below for more). The product page aligns with many of my interests.
+							Since my arrival at Zazzle, I've been a part of three product page releases. In that time, I've released countless AB tests, added many dozens of features, and evolved our UI stack (see React+TypeScript below).
+						</p>
+						<p>
+							I was initially drawn to the product page because it aligns with many of my interests. It needs to be highly interactive, fast, and playful. It needs to be usable for novices and powerful enough for experts. It needs to scale; some products have upwards of 1,000,000 possible configurations, while some have one or none. It needs to be extensible; full color printing, screen print, embroidery, foil, letterpress, and engraving are all supported. It needs to be internationalized to over a dozen domains. In building and maintaining the product page, I needed to keep all of these features and requirements in mind in order to deliver a successful product.
 						</p>
 
 						<h2>React+TypeScript</h2>
@@ -234,22 +237,58 @@ export class App extends React.Component<{}, AppState> {
 					>
 						<h1>Secondary Missions</h1>
 
-						<h2>Who is Zazzle?</h2>
+						<h2>RideWeather</h2>
+						<ImageGallery
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
+							previewImageProps={[
+								{
+									src: '/img/rideweather-(routes).jpg',
+									title: 'RideWeather routes screen'
+								},
+								{
+									src: '/img/rideweather-(main).jpg',
+									title: 'RideWeather main screen'
+								},
+								{
+									src: '/img/rideweather-sketches.jpg',
+									title: 'RideWeather sketches'
+								}
+							]}
+						/>
 						<p>
-							Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass
-							motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass,
-							'cause I'll kill the motherfucker, know what I'm sayin'?
+							I bike a lot; I design a lot; I build a lot. This means I need a good weather app and a testbed app in which I can experiment with UI design and UI tech. RideWeather is that app.
 						</p>
 
-						<h2>React+Typescript</h2>
 						<p>
-							<img data-pull-left src="https://placeholdit.imgix.net/~text?w=200&h=150" />
+							RideWeather was conceived one summer day when I was biking to work from SF to Redwood City. The weather report seemed clear, but I got rained on halfway there. On the train home, I thought, "Wouldn't it be nice if I could collate several weather reports together, each report being for the prorated time/location along the ride?" I went to work researching extant solutions to my problem, but found nothing. And so it began.
+						</p>
+
+						<h2>Kerbal Space Program</h2>
+						<ImageGallery
+							onLightboxClose={this.handleLightboxClose}
+							onLightboxOpen={this.handleLightboxOpen}
+							previewImageProps={[
+								{
+									src: '/img/rideweather-(routes).jpg',
+									title: ''
+								},
+								{
+									src: '/img/rideweather-(main).jpg',
+									title: ''
+								},
+								{
+									src: '/img/rideweather-sketches.jpg',
+									title: ''
+								}
+							]}
+						/>
+						<p>
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 						</p>
 						<p>
-							<img data-pull-right src="https://placeholdit.imgix.net/~text?w=200&h=150" />
 							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
 							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
 							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -330,32 +369,35 @@ export class App extends React.Component<{}, AppState> {
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Contact}
 					>
-						<h1>Contact me</h1>
+						<div className="App-contactImage">
+							<div className="App-contactText">
+								Connect with me for your next mission.
+								<br />
 
-						<ul className="App-contactLinks">
-							<li>
-								<a href="https://twitter.com/parkerbossier" target="_blank">
+								> <a href="https://twitter.com/parkerbossier" target="_blank">
 									<img alt="twitter" src="/img/twitter.png" />
 									{' '}
 									@parkerbossier
-								</a>
-							</li>
-							<li>
-								<a href="https://github.com/parkerbossier" target="_blank">
+								</a>;
+								<br />
+
+								> <a href="https://github.com/parkerbossier" target="_blank">
 									<img alt="GitHub" src="/img/github.png" />
 									{' '}
 									parkerbossier
-								</a>
-							</li>
-							<li>
-								<a href="mailto:me@parkerbossier.com" target="_blank">
-									{/* https://www.iconfinder.com/icons/1814108/email_envenlope_letter_mail_icon#size=128 */}
-									<svg viewBox="0 0 64 64"><g><g transform="translate(78.000000, 232.000000)"><path className="st0" d="M-22.5-213.2l-1.9-1.9l-17.6,17.6c-2.2,2.2-5.9,2.2-8.1,0L-67.7-215l-1.9,1.9l13.1,13.1     l-13.1,13.1l1.9,1.9l13.1-13.1l2.6,2.6c1.6,1.6,3.7,2.5,5.9,2.5s4.3-0.9,5.9-2.5l2.6-2.6l13.1,13.1l1.9-1.9l-13.1-13.1     L-22.5-213.2" id="Fill-3" /><path className="st0" d="M-26.2-181.6h-39.5c-2.3,0-4.2-1.9-4.2-4.2v-28.2c0-2.3,1.9-4.2,4.2-4.2h39.5     c2.3,0,4.2,1.9,4.2,4.2v28.2C-22-183.5-23.9-181.6-26.2-181.6L-26.2-181.6z M-65.8-215.5c-0.8,0-1.4,0.6-1.4,1.4v28.2     c0,0.8,0.6,1.4,1.4,1.4h39.5c0.8,0,1.4-0.6,1.4-1.4v-28.2c0-0.8-0.6-1.4-1.4-1.4H-65.8L-65.8-215.5z" id="Fill-4" /></g></g></svg>
+								</a>;
+								<br />
+
+								> <a href="mailto:me@parkerbossier.com" target="_blank">
+									{/* https://www.iconfinder.com/icons/326515/email_mail_icon#size=128 */}
+									<svg viewBox="0 0 20 16"><g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1"><g fill="#000000" id="Icons-Communication" transform="translate(-168.000000, -43.000000)"><g id="email" transform="translate(168.000000, 43.000000)"><path d="M18,0 L2,0 C0.9,0 0,0.9 0,2 L0,14 C0,15.1 0.9,16 2,16 L18,16 C19.1,16 20,15.1 20,14 L20,2 C20,0.9 19.1,0 18,0 L18,0 Z M18,4 L10,9 L2,4 L2,2 L10,7 L18,2 L18,4 L18,4 Z" id="Shape" /></g></g></g></svg>
 									{' '}
 									parkerbossier@gmail.com
-								</a>
-							</li>
-						</ul>
+								</a>;
+							</div>
+
+							<div className="App-contactSash" />
+						</div>
 					</Page>
 				</div>
 

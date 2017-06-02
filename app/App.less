@@ -14,9 +14,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Ubuntu Mono', monospace;
-	font-size: 16px;
-	color: @colorWhite;
 
 	&-background {
 		position: absolute;
@@ -64,30 +61,63 @@
 
 	/* contact overrides */
 	[data-pagekey=contact] .Page-content {
-		
+		background: none;
+		max-width: none;
+		max-height: none;
+		font: inherit;
+		padding: 0;
+		border-radius: 0;
+		color: inherit;
+		overflow: initial;
 	}
-	&-contactLinks {
-		li {
-			display: inline-block;
-			vertical-align: middle;
+	&-contactImage {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: url('/img/moon.jpg');
+		background-size: cover;
+		border-radius: 1000px;
+		overflow: hidden;
+		width: 475px;
+		height: 475px;
+	}
+	&-contactImage:hover &-contactSash {
+		// using 1deg because 0deg will break clipping for some reason
+		transform: rotate(1deg);
+	}
+	&-contactText {
+		position: relative;
+		z-index: 1;
+		font-size: 20px;
+		line-height: 1.4;
 
-			&+li {
-				margin-left: @gutter * 4;
-			}
-		}
 		img, svg {
 			height: 1em;
 			vertical-align: middle;
 		}
 		svg {
-			height: 1.5em;
-			
 			path {
-				fill: @colorDarkCopy;
+				fill: @colorWhite;
 			}
 		}
+		a {
+			color: inherit;
+		}
+	}
+	@contactSashHeight: 45%;
+	&-contactSash {
+		position: absolute;
+		width: 200%;
+		height: @contactSashHeight;
+		top: (100% - @contactSashHeight) / 2;
+		left: -50%;
+		transform: rotate(12deg);
+		transition: transform .2s ease;
+		background: fade(@colorOrange, 75%);
 	}
 
+	/* lightbox open; bring pages above the nav */
 	&--lightboxOpen &-pages {
 		z-index: 10;
 	}

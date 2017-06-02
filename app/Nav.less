@@ -7,23 +7,32 @@
 	left: 50%;
 	transform: translateX(-50%);
 	background: fade(black, 50%);
-	padding: 14px 30px;
+	padding: 0 20px;
+	backdrop-filter: blur(2px);
 
 	ul {
 		display: flex;
 	}
 	&-item {
-		margin: 0 @gutter*2;
 		white-space: nowrap;
 
-		&:before {
-			content: '> ';
+		&:not(:first-child) {
+			margin-left: @gutter*2
 		}
-		&:after {
-			content: ' <';
-			visibility: hidden;
+
+		a {
+			display: inline-block;
+			padding: 14px;
+
+			&:before {
+				content: '> ';
+			}
+			&:after {
+				content: ' <';
+				visibility: hidden;
+			}
 		}
-		&--active:after {
+		&--active a:after {
 			visibility: visible;
 		}
 	}

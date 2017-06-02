@@ -13,6 +13,17 @@ interface ImageGalleryState {
 	activeIndex: number;
 }
 
+type GalleryItem = ImageItem | VideoItem;
+interface ImageItem {
+	type: 'image';
+	src: string;
+	alt: string;
+}
+interface VideoItem {
+	type: 'video';
+	src: string;
+}
+
 export class ImageGallery extends React.Component<ImageGalleryProps, ImageGalleryState> {
 	state = {
 		activeIndex: null
@@ -20,16 +31,16 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 
 	private lightbox: HTMLDivElement;
 
-	componentDidUnmount() {
+	componentWillUnmount() {
 		window.removeEventListener('keydown', this.keyboardHandler);
 	}
 
 	private keyboardHandler = (e: KeyboardEvent) => {
 		const { previewImageProps } = this.props;
 
-		console.log(e.which)
-
 		switch (e.which) {
+			// backspace
+			case 8:
 			// esc
 			case 27:
 				this.closeLightbox();
@@ -83,6 +94,16 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 		const { previewImageProps } = this.props;
 		const { activeIndex } = this.state;
 
+		const closeLink = (
+			<a
+				className="ImageGallery-lightboxClose"
+				href="javascript://"
+				onClick={this.closeLightbox}
+			>
+				<span>&times;</span>
+			</a>
+		);
+
 		return (
 			<div className="ImageGallery">
 				<ul className="ImageGallery-previews">
@@ -92,9 +113,8 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 								<a
 									href="javascript://"
 									onClick={this.openLightbox.bind(null, i)}
-								>
-									<img {...imageProps} />
-								</a>
+									style={{ backgroundImage: `url('${imageProps.src}')` }}
+								/>
 							</li>
 						);
 					})}
@@ -106,32 +126,33 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 						onClick={this.handleLightboxClick}
 						ref={div => { this.lightbox = div }}
 					>
-						<div className="ImageGallery-lightboxContent">
-							<img {...previewImageProps[activeIndex]} />
+						{closeLink}
 
-							<a
-								className="ImageGallery-lightboxClose"
-								href="javascript://"
-								onClick={this.closeLightbox}
-							>
-								&times;
-							</a>
-
+						<div className="ImageGallery-lightboxNavAndImage">
 							<a
 								className="ImageGallery-lightboxPrev"
 								href="javascript://"
 								onClick={this.lightboxPrev}
 							>
-								&lsaquo;
+								<span>&lsaquo;</span>
 							</a>
+
+							<div
+								className="ImageGallery-lightboxImage"
+								style={{ backgroundImage: `url('${previewImageProps[activeIndex].src}')` }}
+							/>
+
 							<a
 								className="ImageGallery-lightboxNext"
 								href="javascript://"
 								onClick={this.lightboxNext}
 							>
-								&rsaquo;
+								<span>&rsaquo;</span>
 							</a>
 						</div>
+
+						{/* for proper padding with minimal maintenance */}
+						{closeLink}
 					</div>
 				)}
 			</div>

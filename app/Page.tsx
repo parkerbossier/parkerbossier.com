@@ -3,6 +3,7 @@ import React from 'react';
 import debounce from 'debounce';
 
 import { PageKey } from './App';
+import { ScrollGate } from './ScrollGate';
 import { scrollHeightRemaining } from './lib/utils';
 
 import './Page.less';
@@ -41,6 +42,15 @@ export class Page extends React.Component<PageProps, PageState> {
 		if (this.props.isTransitioning && !nextProps.isTransitioning) {
 			this.contentRef.scrollTop = 0;
 		}
+	}
+
+	private handleGateNextClick = () => {
+		if (!this.props.isLastPage)
+			this.props.onNavigateNext();
+	}
+	private handleGatePrevClick = () => {
+		if (!this.props.isFirstPage)
+			this.props.onNavigatePrev();
 	}
 
 	private handleMouseWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
@@ -136,22 +146,28 @@ export class Page extends React.Component<PageProps, PageState> {
 				data-pagekey={pageName}
 				onWheel={this.handleMouseWheel}
 			>
-				<div className="Page-scrollGate">
-					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGatePrevProgress }}>
-						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGatePrevProgress})` }} />
-					</div>
-				</div>
+				{!this.props.isFirstPage && (
+					<ScrollGate
+						completion={scrollGatePrevProgress}
+						direction="up"
+						onNavigate={this.handleGatePrevClick}
+					/>
+				)}
+
 				<div
 					className="Page-content"
 					ref={div => { this.contentRef = div; }}
 				>
 					{this.props.children}
 				</div>
-				<div className="Page-scrollGate Page-scrollGateNext">
-					<div className="Page-scrollGateIconOuter" style={{ opacity: scrollGateNextProgress }}>
-						<div className="Page-scrollGateIconInner" style={{ transform: `scale(${scrollGateNextProgress})` }} />
-					</div>
-				</div>
+
+				{!this.props.isLastPage && (
+					<ScrollGate
+						completion={scrollGateNextProgress}
+						direction="down"
+						onNavigate={this.handleGateNextClick}
+					/>
+				)}
 			</section>
 		)
 	}

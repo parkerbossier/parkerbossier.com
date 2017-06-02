@@ -1,33 +1,35 @@
 import Classnames from 'classnames';
 import React from 'react';
 
-import './ImageGallery.less';
+import './MediaGallery.less';
 
-interface ImageGalleryProps {
+interface MediaGalleryProps {
 	onLightboxClose: () => void;
 	onLightboxOpen: () => void;
-	previewImageProps: React.HTMLProps<HTMLImageElement>[];
+	items: GalleryItem[];
 }
 
-interface ImageGalleryState {
+interface MediaGalleryState {
 	activeIndex: number;
 }
 
 type GalleryItem = ImageItem | VideoItem;
 interface ImageItem {
 	type: 'image';
-	src: string;
 	alt: string;
+	thumbnailSrc: string;
+	src: string;
 }
 interface VideoItem {
 	type: 'video';
-	src: string;
+	embed: string;
+	thumbnailSrc: string;
 }
 
-export class ImageGallery extends React.Component<ImageGalleryProps, ImageGalleryState> {
+export class MediaGallery extends React.Component<MediaGalleryProps, MediaGalleryState> {
 	state = {
 		activeIndex: null
-	} as ImageGalleryState;
+	} as MediaGalleryState;
 
 	private lightbox: HTMLDivElement;
 
@@ -36,8 +38,6 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 	}
 
 	private keyboardHandler = (e: KeyboardEvent) => {
-		const { previewImageProps } = this.props;
-
 		switch (e.which) {
 			// backspace
 			case 8:
@@ -81,39 +81,47 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 	}
 
 	private lightboxNext = () => {
-		const newIndex = (this.state.activeIndex + 1) % this.props.previewImageProps.length;
+		const newIndex = (this.state.activeIndex + 1) % this.props.items.length;
 		this.setState({ activeIndex: newIndex });
 	}
 	private lightboxPrev = () => {
-		const { previewImageProps } = this.props;
-		const newIndex = (this.state.activeIndex + previewImageProps.length - 1) % previewImageProps.length;
+		const { items } = this.props;
+		const newIndex = (this.state.activeIndex + items.length - 1) % items.length;
 		this.setState({ activeIndex: newIndex });
 	}
 
 	render() {
-		const { previewImageProps } = this.props;
+		const { items } = this.props;
 		const { activeIndex } = this.state;
 
 		const closeLink = (
 			<a
-				className="ImageGallery-lightboxClose"
-				href="javascript://"
+				className="MediaGallery-lightboxClose"
+				//href="javascript:;"
 				onClick={this.closeLightbox}
 			>
 				<span>&times;</span>
 			</a>
 		);
 
+		const activeItem = items[activeIndex];
+
 		return (
-			<div className="ImageGallery">
-				<ul className="ImageGallery-previews">
-					{previewImageProps.map((imageProps, i) => {
+			<div className="MediaGallery">
+				<ul className="MediaGallery-thumbnails">
+					{items.map((item, i) => {
+						const classnames = Classnames(
+							'MediaGallery-thumbnail',
+							{ 'MediaGallery-thumbnail--video': item.type === 'video' }
+						);
+
 						return (
 							<li key={i}>
 								<a
-									href="javascript://"
+									className={classnames}
+									href="javascript:;"
 									onClick={this.openLightbox.bind(null, i)}
-									style={{ backgroundImage: `url('${imageProps.src}')` }}
+									style={{ backgroundImage: `url('${item.thumbnailSrc}')` }}
 								/>
 							</li>
 						);
@@ -122,29 +130,39 @@ export class ImageGallery extends React.Component<ImageGalleryProps, ImageGaller
 
 				{activeIndex !== null && (
 					<div
-						className="ImageGallery-lightbox"
+						className="MediaGallery-lightbox"
 						onClick={this.handleLightboxClick}
 						ref={div => { this.lightbox = div }}
 					>
 						{closeLink}
 
-						<div className="ImageGallery-lightboxNavAndImage">
+						<div className="MediaGallery-lightboxNavAndImage">
 							<a
-								className="ImageGallery-lightboxPrev"
-								href="javascript://"
+								className="MediaGallery-lightboxPrev"
+								href="javascript:;"
 								onClick={this.lightboxPrev}
 							>
 								<span>&lsaquo;</span>
 							</a>
 
-							<div
-								className="ImageGallery-lightboxImage"
-								style={{ backgroundImage: `url('${previewImageProps[activeIndex].src}')` }}
-							/>
+							{activeItem.type === 'image'
+								? (
+									<div
+										className="MediaGallery-lightboxImage"
+										style={{ backgroundImage: `url('${activeItem.src}')` }}
+									/>
+								)
+								: (
+									<div
+										className="MediaGallery-lightboxVideo"
+										dangerouslySetInnerHTML={{ __html: activeItem.embed }}
+									/>
+								)
+							}
 
 							<a
-								className="ImageGallery-lightboxNext"
-								href="javascript://"
+								className="MediaGallery-lightboxNext"
+								href="javascript:;"
 								onClick={this.lightboxNext}
 							>
 								<span>&rsaquo;</span>

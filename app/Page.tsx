@@ -54,6 +54,10 @@ export class Page extends React.Component<PageProps, PageState> {
 	}
 
 	private handleMouseWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+		this.handleScroll(e.deltaY, e.target as any);
+	}
+
+	private handleScroll = (deltaY: number, target?: HTMLElement) => {
 		// bail if we're transitioning because that should kill all scrolling
 		if (this.props.isTransitioning)
 			return;
@@ -62,18 +66,18 @@ export class Page extends React.Component<PageProps, PageState> {
 		if (this.scrollGateThresholdMet)
 			return;
 
-		const scrollIsOverContent = this.contentRef.contains(e.target as HTMLElement);
+		const scrollIsOverContent = target && this.contentRef.contains(target as HTMLElement);
 		if (!scrollIsOverContent)
 			// "forward" mousewheel events outside of content to content
-			this.contentRef.scrollTop += e.deltaY;
+			this.contentRef.scrollTop += deltaY;
 
 		// scrolling previous
-		if (e.deltaY < 0) {
+		if (deltaY < 0) {
 
 			// scroll exhausted, begin scroll gate
 			if (this.contentRef.scrollTop === 0) {
 				this.postponeScrollGateReset();
-				const newProgress = Math.max(-scrollGateThreshold, this.state.scrollGateProgress + e.deltaY);
+				const newProgress = Math.max(-scrollGateThreshold, this.state.scrollGateProgress + deltaY);
 				this.setState({ scrollGateProgress: newProgress });
 
 				// scroll gate broken
@@ -89,13 +93,13 @@ export class Page extends React.Component<PageProps, PageState> {
 		}
 
 		// scrolling next
-		else if (e.deltaY > 0) {
+		else if (deltaY > 0) {
 			const remainingScroll = scrollHeightRemaining(this.contentRef);
 
 			// scroll exhausted, begin scroll gate
 			if (remainingScroll === 0) {
 				this.postponeScrollGateReset();
-				const newProgress = Math.min(scrollGateThreshold, this.state.scrollGateProgress + e.deltaY);
+				const newProgress = Math.min(scrollGateThreshold, this.state.scrollGateProgress + deltaY);
 
 				this.setState({ scrollGateProgress: newProgress });
 
@@ -110,6 +114,20 @@ export class Page extends React.Component<PageProps, PageState> {
 				}
 			}
 		}
+	}
+
+	private prevTouchMoveScreenY: number;
+	private handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+		const touchScreenY = e.touches[0].screenY;
+		const deltaY = this.prevTouchMoveScreenY !== undefined
+			? this.prevTouchMoveScreenY - touchScreenY
+			: 0;
+		this.handleScroll(deltaY, e.target as any);
+		this.prevTouchMoveScreenY = touchScreenY;
+	}
+
+	private handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+		this.prevTouchMoveScreenY = undefined;
 	}
 
 	/**
@@ -144,6 +162,8 @@ export class Page extends React.Component<PageProps, PageState> {
 			<section
 				className={classes}
 				data-pagekey={pageName}
+				onTouchEnd={this.handleTouchEnd}
+				onTouchMove={this.handleTouchMove}
 				onWheel={this.handleMouseWheel}
 			>
 				{!this.props.isFirstPage && (

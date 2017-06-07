@@ -226,7 +226,7 @@ export class App extends React.Component<{}, AppState> {
 							In 2016, I began pushing React at Zazzle (see <a href="#secondarymissions">RideWeather</a> for my origin story with React). I built an internal tool as a proof of concept, and then a wonderful opportunity presented itself: a total redesign of the order history page. This project was self-contained, complex enough to make a good stress test of our new React stack, and simple enough to be a feasible project.
 						</p>
 
-						<h3>Exec buy-in</h3>
+						<h3>Exec buy-in on React</h3>
 						<p>
 							The next step was exec buy-in. I set about building my case that would (hopefully) convince the engineering leads and greater team of the merits of switching to React. The first step was researching other framework options. At the time, the two frontrunners were React and Angular, with React being a clear winner in my opinion. But alas, React is just a view, so understanding Redux and Redux-Saga was a prerequisite for having confidence that this stack could scale. Data delivery was next; the team and I brainstormed how to build a C# layer to collate and serialize the data needed to render the page, leveraging existing middle tier data sources. As icing on the cake, I demoed hot module reloading. Game changer. Needless to say, we were green-lit to start building the new orders history experience with React.
 						</p>
@@ -275,11 +275,27 @@ export class App extends React.Component<{}, AppState> {
 							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
-							I bike a lot; I design a lot; I build a lot. This means I need a good weather app and a testbed app in which I can experiment with UI design and UI tech. RideWeather is that app.
+							I bike a lot; I design a lot; I build a lot. This clearly means I need a good weather app and testbed in which I can experiment with UI design and UI tech. RideWeather is that app.
 						</p>
 
+						<h3>The need</h3>
 						<p>
-							RideWeather was conceived one summer day when I was biking to work from SF to Redwood City. The weather report seemed clear, but I got rained on halfway there. On the train home, I thought, "Wouldn't it be nice if I could collate several weather reports together, each report being for the prorated time/location along the ride?" I went to work researching extant solutions to my problem, but found nothing. And so it began.
+							RideWeather was conceived one summer day when I was biking to work from SF to Redwood City. The weather report seemed clear, but I got rained on halfway there. On the train home, I thought, "Wouldn't it be nice if I could forecasts along my route?" I went to work researching extant solutions to my problem, but found nothing of any substance that could be applied to cycling. Challenge accepted.
+						</p>
+
+						<h3>The design</h3>
+						<p>
+							I quickly formed the basic concept: 6 forecasts along a given bike route, each one timed to match my average pace. I listed my data requirements, sketched the UI, found a nice weather icon set, created a blue sky color palette, and found a suitable font. After a few iterations, the design was ready to build.
+						</p>
+
+						<h3>The initial build</h3>
+						<p>
+							At the time, I was fresh off the heels of ForwardJS, and Angular 1.x had caught my eye. Accordingly, this became my first Angular project. Angular was fine, but as time went on, React started to lure me in. I wanted to change how the departure tim selection worked, so I decided I might as well start over in React. Reasonable, right? This was an excellent decision that resulted in my current passion for working in React.
+						</p>
+
+						<h3>Refining</h3>
+						<p>
+							Eventually my use case changed, so I needed to rethink RideWeather's design. I no longer wanted to choose a departure time and select the route with the best weather. I wanted to choose a route and find the best time to go. To accomplish this, I created a slider with which to scrub through the next 24 hours, complete with sunrise/sunset indicators so as to avoid riding in the dark. This time around, I used the stack I had been refining over time: React+TypeScript (the same one I pioneered at Zazzle).
 						</p>
 
 						<h2>Kerbal Space Program</h2>
@@ -305,37 +321,11 @@ export class App extends React.Component<{}, AppState> {
 							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+							Space. Is. Awesome. I love all things space: rockets, flight planning, and the math and engineering it takes to get there. Moreover, I'm inspired by the aerospace industry's ability to help people through information services, science, and accessible technologies that come out of space technology. Actually going to space is hard, but video games are a bit simpler This is (at least partially) why I've logged way too many hours playing KSP.
 						</p>
 
-						<h2>Archdata</h2>
-						<MediaGallery
-							items={[
-								{
-									type: 'video',
-									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/XLmo_FFH6v4" frameborder="0" allowfullscreen></iframe>`,
-									thumbnailSrc: '/img/ksp-vab-climber.jpg'
-								},
-								{
-									type: 'video',
-									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/iQ8ixbXC-W4" frameborder="0" allowfullscreen></iframe>`,
-									thumbnailSrc: '/img/ksp-india-tribute.jpg'
-								},
-								{
-									type: 'video',
-									embed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/egExmjvG0Gg" frameborder="0" allowfullscreen></iframe>`,
-									thumbnailSrc: '/img/ksp-mun-ore-grabber.jpg'
-								},
-							]}
-							onLightboxClose={this.handleLightboxClose}
-							onLightboxOpen={this.handleLightboxOpen}
-						/>
 						<p>
-							Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell
-							who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you
-							and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+							It's very easy to get engrossed in the process. Let's take the classic example of sending a rover to Duna (KSP's Mars), loosely recreating the MSL (Curiosity) mission. First up, we send a satellite to find a landing site and act as orbital comms. Quick and easy. Next is building the rover and the EDL (entry, descent, and landing) system. The rover needs to get to Duna, so we need to calculate the deltaV requirements, plan our ejection burn, and build the cruise stage that will get us from Kerbin (KSP's Earth) to Duna. Now we just need to get those two stages into Kerbin orbit, and voila! Spaceflight!
 						</p>
 					</Page>
 

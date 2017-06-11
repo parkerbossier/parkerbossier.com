@@ -80,7 +80,7 @@
 	&-lightboxNext, &-lightboxPrev {
 		color: inherit;
 		padding: 0 .5em;
-		font-size: 60px;
+		font-size: 30px;
 		display: flex;
 		align-items: center;
 	}
@@ -101,6 +101,9 @@
 		}
 	}
 	&-lightboxClose, &-lightboxNext, &-lightboxPrev {
+		// why do we need this?
+		cursor: pointer;
+
 		span {
 			display: inline-block;
 		}

@@ -6,10 +6,12 @@ import './MediaGallery.less';
 interface MediaGalleryProps {
 	onLightboxClose: () => void;
 	onLightboxOpen: () => void;
+	isMobile: boolean;
 	items: GalleryItem[];
 }
 
 interface MediaGalleryState {
+	/** null means the lightbox is closed */
 	activeIndex: number;
 }
 
@@ -73,11 +75,13 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 		this.setState({ activeIndex: null });
 		this.props.onLightboxClose();
 		window.removeEventListener('keydown', this.keyboardHandler);
+		document.body.classList.remove('mediaGalleryNoScroll');
 	}
 	private openLightbox = (index: number) => {
 		this.setState({ activeIndex: index });
 		this.props.onLightboxOpen();
 		window.addEventListener('keydown', this.keyboardHandler);
+		document.body.classList.add('mediaGalleryNoScroll');
 	}
 
 	private lightboxNext = () => {
@@ -91,7 +95,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 	}
 
 	render() {
-		const { items } = this.props;
+		const { isMobile, items } = this.props;
 		const { activeIndex } = this.state;
 
 		const closeLink = (
@@ -105,6 +109,25 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 		);
 
 		const activeItem = items[activeIndex];
+
+		const nextButton = (
+			<a
+				className="MediaGallery-lightboxNext"
+				href="javascript:;"
+				onClick={this.lightboxNext}
+			>
+				<span>&rsaquo;</span>
+			</a>
+		);
+		const prevButton = (
+			<a
+				className="MediaGallery-lightboxPrev"
+				href="javascript:;"
+				onClick={this.lightboxPrev}
+			>
+				<span>&lsaquo;</span>
+			</a>
+		);
 
 		return (
 			<div className="MediaGallery">
@@ -137,13 +160,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 						{closeLink}
 
 						<div className="MediaGallery-lightboxNavAndImage">
-							<a
-								className="MediaGallery-lightboxPrev"
-								href="javascript:;"
-								onClick={this.lightboxPrev}
-							>
-								<span>&lsaquo;</span>
-							</a>
+							{!isMobile && prevButton}
 
 							{activeItem.type === 'image'
 								? (
@@ -160,13 +177,12 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 								)
 							}
 
-							<a
-								className="MediaGallery-lightboxNext"
-								href="javascript:;"
-								onClick={this.lightboxNext}
-							>
-								<span>&rsaquo;</span>
-							</a>
+							{!isMobile && nextButton}
+						</div>
+
+						<div className="MediaGallery-lightboxMobileNavButtons">
+							{isMobile && prevButton}
+							{isMobile && nextButton}
 						</div>
 
 						{/* for proper padding with minimal maintenance */}

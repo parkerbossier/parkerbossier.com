@@ -95,6 +95,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		iframe {
+			max-width: 100%;
+		}
 	}
 	&-lightboxClose, &-lightboxNext, &-lightboxPrev {
 		span {
@@ -103,6 +107,46 @@
 		&:hover span {
 			transform: scale(1.2);
 			transition: transform .2s ease;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	body.mediaGalleryNoScroll {
+		overflow: hidden;
+	}
+
+	.MediaGallery {
+		&-thumbnails {
+			flex-direction: column;
+
+			li {
+				&:not(:last-child) {
+					margin-bottom: @gutterSmall;
+				}
+			}
+		}
+		&-thumbnail {
+			padding-bottom: 35%;
+			background-position: 50% top;
+		}
+
+		&-lightbox {
+			position: fixed;
+		}
+		&-lightboxNavAndImage {
+			flex-wrap: wrap;
+			margin-bottom: 0;
+		}
+		&-lightboxImage {
+			flex-basis: 100%;
+		}
+		&-lightboxMobileNavButtons {
+			display: flex;
+		}
+		&-lightboxNext, &-lightboxPrev {
+			flex: 1;
+			justify-content: center;
 		}
 	}
 }

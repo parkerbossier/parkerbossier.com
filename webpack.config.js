@@ -27,15 +27,17 @@ const baseConfig = {
 	]
 }
 
+const host = true ? 'parkers-mbpr' : 'localhost';
+
 const devConfig = {
 	entry: [
-		'webpack-dev-server/client?http://localhost:8080',
+		`webpack-dev-server/client?http://${host}:8080`,
 		'react-hot-loader/patch',
 		'webpack/hot/only-dev-server',
 		'./app/index.tsx'
 	],
 	output: {
-		publicPath: 'http://localhost:8080/'
+		publicPath: `http://${host}:8080/`
 	},
 	devtool: 'source-map',
 	devServer: {

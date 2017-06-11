@@ -1,24 +1,36 @@
 @import (reference) './lib/definitions.less';
 
 .ScrollGate {
+	position: relative;
 	cursor: pointer;
-	transition: transform .2s ease;
+	width: 100px;
+	height: 10px;
+	margin: @gutter;
 
-	svg {
-		width: 20px;
-	}
-	path {
-		fill: @colorWhite;
+	&-progress {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		transition: width .2s ease;
+		background: fade(@colorWhite, 50%);
 	}
 
-	&:hover svg {
-		transform: scale(2);
-		transition: transform .2s ease;
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: -1px;
+		left: -1px;
+		bottom: -1px;
+		border: 1px solid @colorWhite;
+		border-right: none;
+		width: 3px;
 	}
-	&--down svg {
-		transform: rotate(180deg);
-	}
-	&--down:hover svg {
-		transform: rotate(180deg) scale(2);
+	&:after {
+		left: initial;
+		right: -1px;
+		border: 1px solid @colorWhite;
+		border-left: none;
 	}
 }

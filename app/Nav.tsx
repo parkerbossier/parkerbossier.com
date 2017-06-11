@@ -71,6 +71,10 @@ export class Nav extends React.Component<NavProps, NavState> {
 					{renderNavItem(PageKey.Contact, 'Contact')}
 				</ul>
 
+				{isMobile && isOpen && (
+					<div className="Nav-shield" onClick={this.toggleNav} />
+				)}
+
 				{isMobile && (
 					<div className="Nav-hamburger" onClick={this.toggleNav}>
 						<div className="Nav-hamburgerLine" />

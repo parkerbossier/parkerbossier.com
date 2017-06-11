@@ -116,7 +116,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 				href="javascript:;"
 				onClick={this.lightboxNext}
 			>
-				<span>&rsaquo;</span>
+				<span>›</span>
 			</a>
 		);
 		const prevButton = (
@@ -125,7 +125,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 				href="javascript:;"
 				onClick={this.lightboxPrev}
 			>
-				<span>&lsaquo;</span>
+				<span>‹</span>
 			</a>
 		);
 

@@ -103,9 +103,9 @@ const prodConfig = {
 		'./app/index.tsx'
 	],
 	output: {
-		//publicPath: '/bld'
 		publicPath: '/'
 	},
+	devtool: 'cheap-module-source-map',
 	module: {
 		rules: [
 			{

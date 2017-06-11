@@ -28,6 +28,7 @@
 		box-sizing: content-box;
 		transform: translateY(0);
 		transition: transform @backgroundNavigationDuration ease;
+		z-index: -1;
 	}
 	&-pages {
 		position: absolute;
@@ -130,6 +131,10 @@
 	}
 }
 
+body.preventElasticScroll {
+	overflow: hidden;
+}
+
 @media only screen and (max-width: 767px) {
 	.App {
 		height: initial;
@@ -154,7 +159,6 @@
 			position: initial;
 			height: initial;
 			overflow: auto;
-			-webkit-overflow-scrolling: touch;
 			transform: initial;
 		}
 

@@ -58,7 +58,7 @@ export class App extends React.Component<{}, AppState> {
 			}
 		});
 
-		this.setState({ isBelowBreakpoint: window.innerWidth < 768 });
+		this.setIsBelowBreakpoint(window.innerWidth < 768);
 
 		// handle initial navigation (via hash)
 		// TODO: fix this so it works on mobile page load
@@ -95,7 +95,7 @@ export class App extends React.Component<{}, AppState> {
 	private checkBreakpoint = () => {
 		const computedStyle = this.hiddenBelowBreakpointRef && window.getComputedStyle(this.hiddenBelowBreakpointRef);
 		const isBelowBreakpoint = computedStyle && computedStyle.display === 'none';
-		this.setState({ isBelowBreakpoint });
+		this.setIsBelowBreakpoint(isBelowBreakpoint);
 	}
 
 	private handleLightboxClose = () => {
@@ -153,6 +153,15 @@ export class App extends React.Component<{}, AppState> {
 
 		// update the URL hash
 		window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
+	}
+
+	private setIsBelowBreakpoint = (isBelowBreakpoint: boolean) => {
+		this.setState({ isBelowBreakpoint });
+
+		if (isBelowBreakpoint)
+			document.body.classList.remove('preventElasticScroll');
+		else
+			document.body.classList.add('preventElasticScroll');
 	}
 
 	render() {

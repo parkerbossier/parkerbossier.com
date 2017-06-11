@@ -59,6 +59,13 @@
 		overflow: initial;
 	}
 
+	/* resume overrides */
+	[data-pagekey=resume] .Page-content {
+		img {
+			width: 100%;
+		}
+	}
+
 	/* contact overrides */
 	[data-pagekey=contact] .Page-content {
 		background: none;
@@ -81,6 +88,7 @@
 		overflow: hidden;
 		width: 475px;
 		height: 475px;
+		font-size: 20px;
 	}
 	&-contactImage:hover &-contactSash {
 		// using 1deg because 0deg will break clipping for some reason
@@ -89,7 +97,6 @@
 	&-contactText {
 		position: relative;
 		z-index: 1;
-		font-size: 20px;
 		line-height: 1.4;
 
 		img, svg {
@@ -124,5 +131,47 @@
 }
 
 @media only screen and (max-width: 767px) {
-	
+	.App {
+		height: initial;
+
+		&-background {
+			position: fixed;
+			width: 100%;
+			// extra height to accomodate viewport size changes due to browser chrome when scrolling
+			height: 200vw;
+			background-position: 75% 50%;
+		}
+
+		&-photoCredit {
+			transform: rotate(-90deg);
+			transform-origin: left bottom;
+			margin: 5px;
+			margin-right: -87px;
+			opacity: .3;
+		}
+
+		&-pages {
+			position: initial;
+			height: initial;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+			transform: initial;
+		}
+
+		&-contactImage {
+			width: 350px;
+			height: 350px;
+			font-size: 14px;
+		}
+		&-contactText {
+			line-height: 1.7;
+		}
+		&-contactSash {
+			transform: rotate(12deg) !important;
+		}
+
+		&-hiddenBelowBreakpoint {
+			display: none;
+		}
+	}
 }

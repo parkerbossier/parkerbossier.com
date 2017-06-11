@@ -9,6 +9,7 @@ import { scrollHeightRemaining } from './lib/utils';
 import './Page.less';
 
 interface PageProps {
+	captureScrollEvents: boolean;
 	isFirstPage?: boolean;
 	isLastPage?: boolean;
 	/** Should be true when the pages are transitioning (for content scroll prevention and resetting) */
@@ -54,10 +55,13 @@ export class Page extends React.Component<PageProps, PageState> {
 	}
 
 	private handleMouseWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
-		this.handleScroll(e.deltaY, e.target as any);
+		if (this.props.captureScrollEvents)
+			this.handleScroll(e.deltaY, e.target as any);
 	}
 
 	private handleScroll = (deltaY: number, target?: HTMLElement) => {
+		//console.log('handling scroll', deltaY)
+
 		// bail if we're transitioning because that should kill all scrolling
 		if (this.props.isTransitioning)
 			return;

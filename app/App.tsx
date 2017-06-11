@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import Classnames from 'classnames';
+import { findDOMNode } from 'react-dom';
 
 import { Nav } from './Nav';
 import { Page } from './Page';
@@ -20,6 +21,7 @@ export enum PageKey {
 
 interface AppState {
 	activePage: PageKey;
+	isBelowBreakpoint: boolean;
 	isLightboxOpen: boolean;
 	isTransitioningToPage: boolean;
 }
@@ -29,6 +31,7 @@ export class App extends React.Component<{}, AppState> {
 		activePage: PageKey.Flightplan
 	} as AppState;
 
+	private hiddenBelowBreakpointRef: HTMLDivElement;
 	private pagesRef: HTMLDivElement;
 
 	componentWillMount() {
@@ -55,7 +58,10 @@ export class App extends React.Component<{}, AppState> {
 			}
 		});
 
+		this.setState({ isBelowBreakpoint: window.innerWidth < 768 });
+
 		// handle initial navigation (via hash)
+		// TODO: fix this so it works on mobile page load
 		const activePageKey = Object.keys(PageKey).find(key => {
 			return key.toLowerCase() === window.location.hash.substr(1).toLowerCase();
 		});
@@ -78,6 +84,18 @@ export class App extends React.Component<{}, AppState> {
 			if (pageKey !== null)
 				this.navigateToPage(pageKey);
 		});
+
+		window.addEventListener('resize', this.checkBreakpoint);
+	}
+
+	componentDidMount() {
+		//setTimeout(this.checkBreakpoint, 100);
+	}
+
+	private checkBreakpoint = () => {
+		const computedStyle = this.hiddenBelowBreakpointRef && window.getComputedStyle(this.hiddenBelowBreakpointRef);
+		const isBelowBreakpoint = computedStyle && computedStyle.display === 'none';
+		this.setState({ isBelowBreakpoint });
 	}
 
 	private handleLightboxClose = () => {
@@ -100,7 +118,25 @@ export class App extends React.Component<{}, AppState> {
 
 	/** Navigates to the given page, while maintaining state.isTransitioningToPage. */
 	private navigateToPage = (pageKey: PageKey) => {
-		if (this.state.activePage !== pageKey) {
+		// on mobile, simply scroll to the correct page
+		if (this.state.isBelowBreakpoint) {
+			this.setState({
+				activePage: pageKey
+			});
+
+			const pageSelector = `.Page[data-pagekey='${PageKey[pageKey].toLowerCase()}']`;
+			const pageElement = findDOMNode(this).querySelector(pageSelector);
+
+			setTimeout(() => {
+				console.log('scrolling to', pageElement)
+				pageElement.scrollIntoView({
+					behavior: 'smooth'
+				});
+			}, 100);
+		}
+
+		// on desktop, scroll the entire next page into view
+		else if (this.state.activePage !== pageKey) {
 			this.setState({
 				activePage: pageKey,
 				isTransitioningToPage: true
@@ -113,39 +149,56 @@ export class App extends React.Component<{}, AppState> {
 					isTransitioningToPage: false
 				});
 			}, 500 + 1000);
-
-			// update the URL hash
-			window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 		}
+
+		// update the URL hash
+		window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 	}
 
 	render() {
 		const { activePage, isTransitioningToPage } = this.state;
+		const { isBelowBreakpoint, isLightboxOpen } = this.state;
 
 		const pageCount = Object.keys(PageKey).length / 2;
 		const vhPerPage = 4;
-		const backgroundStyle: React.CSSProperties = {
-			paddingBottom: `${vhPerPage * (pageCount - 1)}vh`,
-			transform: `translateY(-${activePage * vhPerPage}vh)`
-		};
+		const backgroundStyle: React.CSSProperties = isBelowBreakpoint
+			? {}
+			: {
+				paddingBottom: `${vhPerPage * (pageCount - 1)}vh`,
+				transform: `translateY(-${activePage * vhPerPage}vh)`
+			};
+		const pagesStyle: React.CSSProperties = isBelowBreakpoint
+			? {}
+			: {
+				transform: `translateY(${-activePage * 100}vh)`
+			};
+
+		const pagesShouldCaptureScrollEvents = !isBelowBreakpoint && !isLightboxOpen;
 
 		const classnames = Classnames(
 			'App',
 			{ 'App--lightboxOpen': this.state.isLightboxOpen }
-		)
+		);
 
 		return (
 			<div className={classnames}>
 				<div className="App-background" style={backgroundStyle} />
 
-				<Nav activePage={activePage} onNavigate={this.navigateToPage} />
+				<Nav
+					activePage={activePage}
+					isMobile={isBelowBreakpoint}
+					onNavigate={this.navigateToPage}
+				/>
+
+				<div className="App-photoCredit">Photo credit: NASA</div>
 
 				<div
 					className="App-pages"
-					ref={div => { this.pagesRef = div; }}
-					style={{ transform: `translateY(${-activePage * 100}vh)` }}
+					ref={div => { this.pagesRef = div }}
+					style={pagesStyle}
 				>
 					<Page
+						captureScrollEvents={pagesShouldCaptureScrollEvents}
 						isFirstPage
 						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
@@ -155,6 +208,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
+						captureScrollEvents={pagesShouldCaptureScrollEvents}
 						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
@@ -167,6 +221,7 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>The Product Page</h2>
 						<MediaGallery
+							isMobile={isBelowBreakpoint}
 							items={[
 								{
 									type: 'image',
@@ -199,6 +254,7 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>React+TypeScript</h2>
 						<MediaGallery
+							isMobile={isBelowBreakpoint}
 							items={[
 								{
 									type: 'image',
@@ -233,7 +289,6 @@ export class App extends React.Component<{}, AppState> {
 
 						<h3>TypeScript</h3>
 						<p>
-
 							Not long into the journey, TypeScript began tempting us. PropTypes were great and all, but the idea of strongly typed Javascript was enticing. This strong typing, coupled with the fact the TypeScript is ultimately a proper superset of Javascript, pushed us over the edge. And so the TypeScript conversion began on our (thankfully) small React codebase. Looking back on using TypeScript has been a boon for Zazzle's UI team. Bug frequency was decimated, iteration was faster, documentation was inherent via types, and refactoring was a breeze.
 						</p>
 						<p>
@@ -242,6 +297,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
+						captureScrollEvents={pagesShouldCaptureScrollEvents}
 						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
@@ -251,6 +307,7 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>RideWeather</h2>
 						<MediaGallery
+							isMobile={isBelowBreakpoint}
 							items={[
 								{
 									type: 'image',
@@ -300,6 +357,7 @@ export class App extends React.Component<{}, AppState> {
 
 						<h2>Kerbal Space Program</h2>
 						<MediaGallery
+							isMobile={isBelowBreakpoint}
 							items={[
 								{
 									type: 'video',
@@ -330,15 +388,20 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 
 					<Page
+						captureScrollEvents={pagesShouldCaptureScrollEvents}
 						isTransitioning={isTransitioningToPage}
 						onNavigateNext={this.handleNavigateNext}
 						onNavigatePrev={this.handleNavigatePrev}
 						pageKey={PageKey.Resume}
 					>
 						<h1>Resume</h1>
+						<a href="/img/parkerbossier.pdf" target="_blank">
+							<img alt="resume" src="/img/resume.png" />
+						</a>
 					</Page>
 
 					<Page
+						captureScrollEvents={pagesShouldCaptureScrollEvents}
 						isLastPage
 						isTransitioning={isTransitioningToPage}
 						onNavigatePrev={this.handleNavigatePrev}
@@ -376,7 +439,7 @@ export class App extends React.Component<{}, AppState> {
 					</Page>
 				</div>
 
-				<div className="App-photoCredit">Photo credit: NASA</div>
+				<div className="App-hiddenBelowBreakpoint" ref={div => { this.hiddenBelowBreakpointRef = div }} />
 			</div>
 		)
 	}

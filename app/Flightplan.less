@@ -207,3 +207,40 @@
 		transform: translateX(-5%);
 	}
 }
+
+@media only screen and (max-width: 767px) {
+	.Flightplan {
+		min-height: 100vh;
+		flex-direction: column-reverse;
+		overflow: initial;
+
+		&-me {
+			width: 250px;
+			height: 250px;
+			transform: initial !important;
+			border-width: 5px;
+			margin-bottom: @gutter * 2;
+		}
+		&-meImageWrapper {
+			z-index: initial;
+		}
+		&-meRingInner, &-meRingOuter {
+			&:after {
+				transform: scale(.8);
+			}
+		}
+
+		&-mars {
+			width: 275px;
+			height: 275px;
+			transform: initial !important;
+			z-index: initial;
+		}
+		&-marsBio {
+			font-size: 14px;
+		}
+		&-marsReadout {
+			font-size: 10px;
+		}
+	}
+}

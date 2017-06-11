@@ -29,7 +29,7 @@ interface PageState {
 }
 
 /** The number of pixels the user needs to scroll to trigger the scroll gate (and cause a navigation event) */
-const scrollGateThreshold = 800;
+const scrollGateThreshold = 550;
 
 export class Page extends React.Component<PageProps, PageState> {
 	state = {

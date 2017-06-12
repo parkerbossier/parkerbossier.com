@@ -14,6 +14,7 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 	} as FlightplanState;
 
 	componentDidMount() {
+		// without the timeout, the initial CSS doesn't have a chance to apply
 		setTimeout(() => {
 			this.setState({ isMounted: true });
 		}, 0);
@@ -37,6 +38,7 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 					<table className="Flightplan-marsReadout">
 						<tbody>
 							<tr>
+								{/* TODO: add a title attribute with some neat information */}
 								<td>fov:&nbsp;</td>
 								<td>5km</td>
 								<td>λ:&nbsp;</td>

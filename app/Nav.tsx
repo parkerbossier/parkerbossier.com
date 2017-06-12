@@ -18,7 +18,8 @@ interface NavState {
 export class Nav extends React.Component<NavProps, NavState> {
 	state = {} as NavState;
 
-	private handleNavigation = (toPage: PageKey) => {
+	private handleNavigation = (e: React.MouseEvent<HTMLElement>, toPage: PageKey) => {
+		e.preventDefault();
 		this.props.onNavigate(toPage);
 
 		if (this.props.isMobile)
@@ -36,16 +37,17 @@ export class Nav extends React.Component<NavProps, NavState> {
 		const renderNavItem = (pageKey: PageKey, label: string) => {
 			const itemClassnames = Classnames(
 				'Nav-item',
-				{
-					'Nav-item--active': activePage === pageKey
-				}
+				{ 'Nav-item--active': activePage === pageKey }
 			);
+
 			return (
 				<li className={itemClassnames}>
 					<a
 						className="Nav-link"
-						href="javascript:;"
-						onClick={this.handleNavigation.bind(null, pageKey)}
+						href={`#${PageKey[pageKey]}`}
+						onClick={(e) => {
+							this.handleNavigation(e, pageKey);
+						}}
 					>
 						{label}
 					</a>

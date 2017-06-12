@@ -8,15 +8,11 @@
 
 .App {
 	position: relative;
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	min-width: 100vw;
+	min-height: 100vh;
 
 	&-background {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -27,17 +23,11 @@
 		background-repeat: no-repeat;
 		box-sizing: content-box;
 		transform: translateY(0);
-		transition: transform @backgroundNavigationDuration ease;
+		transition: transform .5s ease;
 		z-index: -1;
 	}
 	&-pages {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		transform: translateY(0);
-		transition: transform @navigationDuration ease;
-		transition-delay: (@backgroundNavigationDuration - @navigationDuration) / 2;
+		
 	}
 
 	&-photoCredit {
@@ -49,34 +39,31 @@
 	}
 
 	/* flightplan overrides */
-	[data-pagekey=flightplan] .Page-content {
-		background: none;
+	.Page#flightplan {
+		padding: 0;
+	}
+	.Page#flightplan .Page-content {
 		max-width: none;
-		max-height: none;
+		background: none;
 		font: inherit;
 		padding: 0;
-		border-radius: 0;
 		color: inherit;
-		overflow: initial;
 	}
 
 	/* resume overrides */
-	[data-pagekey=resume] .Page-content {
+	.Page#resume .Page-content {
 		img {
 			width: 100%;
 		}
 	}
 
 	/* contact overrides */
-	[data-pagekey=contact] .Page-content {
+	.Page#contact .Page-content {
 		background: none;
 		max-width: none;
-		max-height: none;
 		font: inherit;
 		padding: 0;
-		border-radius: 0;
 		color: inherit;
-		overflow: initial;
 	}
 	&-contactImage {
 		position: relative;
@@ -131,35 +118,14 @@
 	}
 }
 
-body.preventElasticScroll {
-	overflow: hidden;
-}
-
 @media only screen and (max-width: 767px) {
 	.App {
-		height: initial;
-
-		&-background {
-			position: fixed;
-			width: 100%;
-			// extra height to accomodate viewport size changes due to browser chrome when scrolling
-			height: 200vw;
-			background-position: 75% 50%;
-		}
-
 		&-photoCredit {
 			transform: rotate(-90deg);
 			transform-origin: left bottom;
 			margin: 5px;
 			margin-right: -87px;
 			opacity: .3;
-		}
-
-		&-pages {
-			position: initial;
-			height: initial;
-			overflow: auto;
-			transform: initial;
 		}
 
 		&-contactImage {

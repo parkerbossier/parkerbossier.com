@@ -75,13 +75,13 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 		this.setState({ activeIndex: null });
 		this.props.onLightboxClose();
 		window.removeEventListener('keydown', this.keyboardHandler);
-		document.body.classList.remove('mediaGalleryNoScroll');
+		document.rootElement.classList.remove('mediaGalleryNoScroll');
 	}
 	private openLightbox = (index: number) => {
 		this.setState({ activeIndex: index });
 		this.props.onLightboxOpen();
 		window.addEventListener('keydown', this.keyboardHandler);
-		document.body.classList.add('mediaGalleryNoScroll');
+		document.rootElement.classList.add('mediaGalleryNoScroll');
 	}
 
 	private lightboxNext = () => {

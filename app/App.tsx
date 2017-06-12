@@ -15,6 +15,8 @@ export enum PageKey {
 	Flightplan,
 	Zazzle,
 	SecondaryMissions,
+	RideWeather,
+	KSP,
 	Resume,
 	Contact
 }
@@ -23,16 +25,20 @@ interface AppState {
 	activePage: PageKey;
 	isBelowBreakpoint: boolean;
 	isLightboxOpen: boolean;
-	isTransitioningToPage: boolean;
+	/** [0,1] */
+	scrollPercentage: number;
 }
 
 export class App extends React.Component<{}, AppState> {
 	state = {
-		activePage: PageKey.Flightplan
+		activePage: PageKey.Flightplan,
+		scrollPercentage: 0
 	} as AppState;
 
 	private hiddenBelowBreakpointRef: HTMLDivElement;
 	private pagesRef: HTMLDivElement;
+	/** Whether the page is scrolling viascrollIntoView  */
+	private isScrollingToNode = false;
 
 	componentWillMount() {
 		// add keyboard navigation listeners
@@ -60,20 +66,8 @@ export class App extends React.Component<{}, AppState> {
 
 		this.setIsBelowBreakpoint(window.innerWidth < 768);
 
-		// handle initial navigation (via hash)
-		// TODO: fix this so it works on mobile page load
-		const activePageKey = Object.keys(PageKey).find(key => {
-			return key.toLowerCase() === window.location.hash.substr(1).toLowerCase();
-		});
-		if (activePageKey) {
-			const fragmentFromPageKey = (PageKey as any as { [key: string]: string })[activePageKey] as any;
-			this.navigateToPage(fragmentFromPageKey);
-		}
-		else
-			window.history.replaceState({}, document.title, '/');
-
 		// listen for hashchange so links work properly
-		window.addEventListener('hashchange', e => {
+		window.addEventListener('ZZZZZZZZZZZhashchange', e => {
 			const hash = document.location.hash.substr(1);
 			let pageKey = null as PageKey;
 			_.forEach(PageKey, (value, key) => {
@@ -90,6 +84,19 @@ export class App extends React.Component<{}, AppState> {
 
 	componentDidMount() {
 		//setTimeout(this.checkBreakpoint, 100);
+
+		// handle initial navigation (via hash)
+		const activePageKey = Object.keys(PageKey).find(key => {
+			return key.toLowerCase() === window.location.hash.substr(1).toLowerCase();
+		});
+		if (activePageKey) {
+			const fragmentFromPageKey = (PageKey as any as { [key: string]: string })[activePageKey] as any;
+			this.navigateToPage(fragmentFromPageKey);
+		}
+		else
+			window.history.replaceState({}, document.title, '/');
+
+		window.addEventListener('scroll', this.handleBodyScroll);
 	}
 
 	private checkBreakpoint = () => {
@@ -97,6 +104,32 @@ export class App extends React.Component<{}, AppState> {
 		const isBelowBreakpoint = computedStyle && computedStyle.display === 'none';
 		this.setIsBelowBreakpoint(isBelowBreakpoint);
 	}
+
+	private handleBodyScroll = _.throttle(() => {
+		if (this.isScrollingToNode)
+			return false;
+
+		console.log('body scroll')
+		const maxScrollTop = document.body.scrollHeight - window.innerHeight;
+		const scrollPercentage = document.body.scrollTop / maxScrollTop;
+
+		/*
+		const activePage = _.findLast(PageKey as any, pageKey => {
+			if (_.isNumber(pageKey)) {
+				const curPageElement = document.getElementById(PageKey[pageKey].toLowerCase());
+				const curPageRect = curPageElement.getBoundingClientRect();
+				if (curPageRect.top <= 0)
+					return true;
+			}
+		}) as PageKey;
+		*/
+
+		this.setState({
+			//activePage,
+			scrollPercentage
+		});
+		//this.updateHash(activePage);
+	}, 100);
 
 	private handleLightboxClose = () => {
 		this.setState({ isLightboxOpen: false });
@@ -118,71 +151,41 @@ export class App extends React.Component<{}, AppState> {
 
 	/** Navigates to the given page, while maintaining state.isTransitioningToPage. */
 	private navigateToPage = (pageKey: PageKey) => {
-		// on mobile, simply scroll to the correct page
-		if (this.state.isBelowBreakpoint) {
-			this.setState({
-				activePage: pageKey
-			});
+		this.setState({
+			activePage: pageKey
+		});
 
-			const pageSelector = `.Page[data-pagekey='${PageKey[pageKey].toLowerCase()}']`;
-			const pageElement = findDOMNode(this).querySelector(pageSelector);
+		// scroll
+		this.isScrollingToNode = true;
+		const pageElement = document.getElementById(PageKey[pageKey].toLowerCase());
+		pageElement.scrollIntoView({
+			behavior: 'smooth'
+		});
+		setTimeout(() => {
+			this.isScrollingToNode = false;
+		}, 0);
 
-			setTimeout(() => {
-				console.log('scrolling to', pageElement)
-				pageElement.scrollIntoView({
-					behavior: 'smooth'
-				});
-			}, 100);
-		}
-
-		// on desktop, scroll the entire next page into view
-		else if (this.state.activePage !== pageKey) {
-			this.setState({
-				activePage: pageKey,
-				isTransitioningToPage: true
-			});
-
-			// TODO: Replace this with the transitionend event, but it's firing multiple times before the transition is actually done.
-			// Maybe because of CSS prefixing?
-			setTimeout(() => {
-				this.setState({
-					isTransitioningToPage: false
-				});
-			}, 500 + 1000);
-		}
-
-		// update the URL hash
-		window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
+		this.updateHash(pageKey);
 	}
 
 	private setIsBelowBreakpoint = (isBelowBreakpoint: boolean) => {
 		this.setState({ isBelowBreakpoint });
+	}
 
-		if (isBelowBreakpoint)
-			document.body.classList.remove('preventElasticScroll');
-		else
-			document.body.classList.add('preventElasticScroll');
+	private updateHash(pageKey: PageKey) {
+		window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
 	}
 
 	render() {
-		const { activePage, isTransitioningToPage } = this.state;
-		const { isBelowBreakpoint, isLightboxOpen } = this.state;
+		const { activePage, isBelowBreakpoint, isLightboxOpen, scrollPercentage } = this.state;
 
 		const pageCount = Object.keys(PageKey).length / 2;
-		const vhPerPage = 4;
-		const backgroundStyle: React.CSSProperties = isBelowBreakpoint
-			? {}
-			: {
-				paddingBottom: `${vhPerPage * (pageCount - 1)}vh`,
-				transform: `translateY(-${activePage * vhPerPage}vh)`
-			};
-		const pagesStyle: React.CSSProperties = isBelowBreakpoint
-			? {}
-			: {
-				transform: `translateY(${-activePage * 100}vh)`
-			};
-
-		const pagesShouldCaptureScrollEvents = !isBelowBreakpoint && !isLightboxOpen;
+		const backgroundVhPerPage = 4;
+		const totalBackgroundVh = backgroundVhPerPage * (pageCount - 1);
+		const backgroundStyle: React.CSSProperties = {
+			paddingBottom: `${totalBackgroundVh}vh`,
+			transform: `translateY(-${scrollPercentage * totalBackgroundVh}vh)`
+		}
 
 		const classnames = Classnames(
 			'App',
@@ -193,36 +196,17 @@ export class App extends React.Component<{}, AppState> {
 			<div className={classnames}>
 				<div className="App-background" style={backgroundStyle} />
 
-				<Nav
-					activePage={activePage}
-					isMobile={isBelowBreakpoint}
-					onNavigate={this.navigateToPage}
-				/>
-
 				<div className="App-photoCredit">Photo credit: NASA</div>
 
 				<div
 					className="App-pages"
 					ref={div => { this.pagesRef = div }}
-					style={pagesStyle}
 				>
-					<Page
-						captureScrollEvents={pagesShouldCaptureScrollEvents}
-						isFirstPage
-						isTransitioning={isTransitioningToPage}
-						onNavigateNext={this.handleNavigateNext}
-						pageKey={PageKey.Flightplan}
-					>
+					<Page pageKey={PageKey.Flightplan}>
 						<Flightplan />
 					</Page>
 
-					<Page
-						captureScrollEvents={pagesShouldCaptureScrollEvents}
-						isTransitioning={isTransitioningToPage}
-						onNavigateNext={this.handleNavigateNext}
-						onNavigatePrev={this.handleNavigatePrev}
-						pageKey={PageKey.Zazzle}
-					>
+					<Page pageKey={PageKey.Zazzle}>
 						<h1>Zazzle</h1>
 						<p>
 							Zazzle is an e-commerce platform that brings together designers, product manufacturers, and consumers. Designers earn royalties, manufacturers gain customers, and consumers can buy any pre-existing design or bring their custom creation to life. As Lead Developer on the UI team, I've helped solve some of Zazzle's most complex UI issues, consistently advocating for the best possible user experience.
@@ -305,16 +289,11 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 					</Page>
 
-					<Page
-						captureScrollEvents={pagesShouldCaptureScrollEvents}
-						isTransitioning={isTransitioningToPage}
-						onNavigateNext={this.handleNavigateNext}
-						onNavigatePrev={this.handleNavigatePrev}
-						pageKey={PageKey.SecondaryMissions}
-					>
-						<h1>Secondary Missions</h1>
+					<div id={PageKey[PageKey.SecondaryMissions].toLowerCase()} />
 
-						<h2>RideWeather</h2>
+					<Page pageKey={PageKey.RideWeather}>
+						<h1>RideWeather</h1>
+
 						<MediaGallery
 							isMobile={isBelowBreakpoint}
 							items={[
@@ -363,8 +342,11 @@ export class App extends React.Component<{}, AppState> {
 						<p>
 							Eventually my use case changed, so I needed to rethink RideWeather's design. I no longer wanted to choose a departure time and select the route with the best weather. I wanted to choose a route and find the best time to go. To accomplish this, I created a slider with which to scrub through the next 24 hours, complete with sunrise/sunset indicators so as to avoid riding in the dark. This time around, I used the stack I had been refining over time: React+TypeScript (the same one I pioneered at Zazzle).
 						</p>
+					</Page>
 
-						<h2>Kerbal Space Program</h2>
+					<Page pageKey={PageKey.KSP}>
+						<h1>Kerbal Space Program</h1>
+
 						<MediaGallery
 							isMobile={isBelowBreakpoint}
 							items={[
@@ -396,26 +378,14 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 					</Page>
 
-					<Page
-						captureScrollEvents={pagesShouldCaptureScrollEvents}
-						isTransitioning={isTransitioningToPage}
-						onNavigateNext={this.handleNavigateNext}
-						onNavigatePrev={this.handleNavigatePrev}
-						pageKey={PageKey.Resume}
-					>
+					<Page pageKey={PageKey.Resume}>
 						<h1>Resume</h1>
 						<a href="/img/parkerbossier.pdf" target="_blank">
 							<img alt="resume" src="/img/resume.png" />
 						</a>
 					</Page>
 
-					<Page
-						captureScrollEvents={pagesShouldCaptureScrollEvents}
-						isLastPage
-						isTransitioning={isTransitioningToPage}
-						onNavigatePrev={this.handleNavigatePrev}
-						pageKey={PageKey.Contact}
-					>
+					<Page pageKey={PageKey.Contact}>
 						<div className="App-contactImage">
 							<div className="App-contactText">
 								Connect with me for your next mission.
@@ -447,6 +417,12 @@ export class App extends React.Component<{}, AppState> {
 						</div>
 					</Page>
 				</div>
+
+				<Nav
+					activePage={activePage}
+					isMobile={isBelowBreakpoint}
+					onNavigate={this.navigateToPage}
+				/>
 
 				<div className="App-hiddenBelowBreakpoint" ref={div => { this.hiddenBelowBreakpointRef = div }} />
 			</div>

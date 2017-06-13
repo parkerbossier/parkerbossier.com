@@ -43,21 +43,33 @@
 		transition-delay: @expandDelay;
 	}
 	&-marsReadout {
-		margin: 30px;
+		margin-top: 30px;
 		font-size: 12px;
 		opacity: .8;
 
-		&:first-child {
-			margin-bottom: 0;
+		& ~ & {
+			margin: 0;
+			margin-bottom: 30px;
 		}
-		&:last-child {
-			margin-top: 0;
+	}
+	&-marsReadoutRow {
+		line-height: 1.4;
+		cursor: default;
+
+		span {
+			display: inline-block;
+			width: 3em;
+
+			&:nth-child(2n+1) {
+				text-align: right;
+			}
 		}
-		td:nth-child(2n + 1) {
-			text-align: right;
-		}
-		td:nth-child(2) {
-			padding-right: 1.5em;
+	}
+	&-marsReadoutCol {
+		display: inline-block;
+
+		& + & {
+			padding-left: 1em;
 		}
 	}
 	&-marsCrosses {
@@ -208,18 +220,18 @@
 	}
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 970px) {
 	.Flightplan {
-		min-height: 100vh;
 		flex-direction: column-reverse;
 		overflow: initial;
 
 		&-me {
-			width: 250px;
-			height: 250px;
+			width: 350px;
+			height: 350px;
 			transform: initial !important;
 			border-width: 5px;
 			margin-bottom: @gutter * 2;
+			transition: none;
 		}
 		&-meImageWrapper {
 			z-index: initial;
@@ -231,16 +243,31 @@
 		}
 
 		&-mars {
-			width: 275px;
-			height: 275px;
+			width: 375px;
+			height: 375px;
 			transform: initial !important;
 			z-index: initial;
+			transition: none;
 		}
 		&-marsBio {
 			font-size: 14px;
 		}
 		&-marsReadout {
 			font-size: 10px;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.Flightplan {
+		&-me {
+			width: 250px;
+			height: 250px;
+		}
+
+		&-mars {
+			width: 275px;
+			height: 275px;
 		}
 	}
 }

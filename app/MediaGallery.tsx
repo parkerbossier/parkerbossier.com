@@ -75,13 +75,13 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 		this.setState({ activeIndex: null });
 		this.props.onLightboxClose();
 		window.removeEventListener('keydown', this.keyboardHandler);
-		document.rootElement.classList.remove('mediaGalleryNoScroll');
+		document.documentElement.classList.remove('mediaGalleryNoScroll');
 	}
 	private openLightbox = (index: number) => {
 		this.setState({ activeIndex: index });
 		this.props.onLightboxOpen();
 		window.addEventListener('keydown', this.keyboardHandler);
-		document.rootElement.classList.add('mediaGalleryNoScroll');
+		document.documentElement.classList.add('mediaGalleryNoScroll');
 	}
 
 	private lightboxNext = () => {
@@ -104,7 +104,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 				//href="javascript:;"
 				onClick={this.closeLightbox}
 			>
-				<span>x</span>
+				<span>&times;</span>
 			</a>
 		);
 
@@ -116,7 +116,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 				href="javascript:;"
 				onClick={this.lightboxNext}
 			>
-				<span>&gt;</span>
+				<span>&rsaquo;</span>
 			</a>
 		);
 		const prevButton = (
@@ -125,7 +125,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 				href="javascript:;"
 				onClick={this.lightboxPrev}
 			>
-				<span>&lt;</span>
+				<span>&lsaquo;</span>
 			</a>
 		);
 
@@ -186,7 +186,7 @@ export class MediaGallery extends React.Component<MediaGalleryProps, MediaGaller
 						</div>
 
 						{/* for proper padding with minimal maintenance */}
-						{closeLink}
+						{!isMobile && closeLink}
 					</div>
 				)}
 			</div>

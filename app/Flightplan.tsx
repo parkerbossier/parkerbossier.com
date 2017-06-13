@@ -35,23 +35,40 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 		return (
 			<div className={Classnames('Flightplan', this.state.isMounted && 'Flightplan--mounted')}>
 				<div className="Flightplan-mars">
-					<table className="Flightplan-marsReadout">
-						<tbody>
-							<tr>
-								{/* TODO: add a title attribute with some neat information */}
-								<td>fov:&nbsp;</td>
-								<td>5km</td>
-								<td>λ:&nbsp;</td>
-								<td>630nm</td>
-							</tr>
-							<tr>
-								<td>mag:&nbsp;</td>
-								<td>10x</td>
-								<td>inc:&nbsp;</td>
-								<td>93&deg;</td>
-							</tr>
-						</tbody>
-					</table>
+					<div className="Flightplan-marsReadout">
+						<div className="Flightplan-marsReadoutRow">
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approximate field of view of HiRISE at 300km altitude."
+							>
+								<span>fov:&nbsp;</span>
+								<span>6km</span>
+							</div>
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approximate red wavelength captured by HiRISE's red filter."
+							>
+								<span>λ:&nbsp;</span>
+								<span>630nm</span>
+							</div>
+						</div>
+						<div className="Flightplan-marsReadoutRow">
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approxmiate resulting zoom power for this UI."
+							>
+								<span>mag:&nbsp;</span>
+								<span>15x</span>
+							</div>
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approximate inclination of MRO."
+							>
+								<span>inc:&nbsp;</span>
+								<span>93deg</span>
+							</div>
+						</div>
+					</div>
 
 					<div className="Flightplan-marsCrosses">
 						<div className="Flightplan-marsCross"></div>
@@ -72,22 +89,40 @@ export class Flightplan extends React.Component<{}, FlightplanState> {
 						<div className="Flightplan-marsCross"></div>
 					</div>
 
-					<table className="Flightplan-marsReadout">
-						<tbody>
-							<tr>
-								<td>lat:&nbsp;</td>
-								<td>-8.000</td>
-								<td>v:&nbsp;</td>
-								<td>3.414km/s</td>
-							</tr>
-							<tr>
-								<td>lng:&nbsp;</td>
-								<td>-48.100</td>
-								<td>alt:&nbsp;</td>
-								<td>289km</td>
-							</tr>
-						</tbody>
-					</table>
+					<div className="Flightplan-marsReadout">
+						<div className="Flightplan-marsReadoutRow">
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Photo taken by HiRISE over Ganges Chasma, Valles Marineris, Mars."
+							>
+								<span>lat:&nbsp;</span>
+								<span>-8.000</span>
+							</div>
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approximate orbital velocity around Mars at 300km altitude."
+							>
+								<span>v:&nbsp;</span>
+								<span>3.414km/s</span>
+							</div>
+						</div>
+						<div className="Flightplan-marsReadoutRow">
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Photo taken by HiRISE over Ganges Chasma, Valles Marineris, Mars."
+							>
+								<span>lng:&nbsp;</span>
+								<span>-48.100</span>
+							</div>
+							<div
+								className="Flightplan-marsReadoutCol"
+								title="Approximate HiRISE orbital altitude."
+							>
+								<span>alt:&nbsp;</span>
+								<span>289km</span>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div className={Classnames('Flightplan-me', this.state.isAnimatingMe && 'Flightplan-me--animateFocus')}>

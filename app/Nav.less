@@ -1,5 +1,7 @@
 @import (reference) './lib/definitions.less';
 
+@toggleTransitionDuration: .2s;
+
 .Nav {
 	position: fixed;
 	z-index: 1;
@@ -69,7 +71,7 @@
 		left: 0;
 		background: fade(white, 95%);
 		transform: translateY(-100%);
-		transition: transform .2s ease;
+		transition: transform @toggleTransitionDuration ease;
 		color: @colorDarkCopy;
 		width: 100%;
 		display: flex;
@@ -117,7 +119,7 @@
 			background: fade(@colorWhite, 95%);
 			border-radius: 3px;
 			transform: rotate(0deg);
-			transition: transform .2s ease;
+			transition: transform @toggleTransitionDuration ease;
 
 			&:not(:last-child) {
 				margin-bottom: 4px;

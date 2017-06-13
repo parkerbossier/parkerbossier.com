@@ -1,12 +1,13 @@
-import _ from 'lodash';
-import React from 'react';
 import Classnames from 'classnames';
+import React from 'react';
+import Smoothscroll from 'smoothscroll';
+import _ from 'lodash';
 import { findDOMNode } from 'react-dom';
 
-import { Nav } from './Nav';
-import { Page } from './Page';
 import { Flightplan } from './Flightplan';
 import { MediaGallery } from './MediaGallery';
+import { Nav } from './Nav';
+import { Page } from './Page';
 
 import './lib/reset.less';
 import './App.less';
@@ -25,8 +26,15 @@ interface AppState {
 	activePage: PageKey;
 	isBelowBreakpoint: boolean;
 	isLightboxOpen: boolean;
+	/** Whether the page is scrolling via navigation (smooth)  */
+	isScrollingToPage: boolean;
 	/** [0,1] */
 	scrollPercentage: number;
+}
+
+/** Returns the .Page element amtching the given pageKey. */
+function getPageElement(pageKey: PageKey) {
+	return document.querySelector(`[data-pagekey='${PageKey[pageKey].toLowerCase()}']`) as HTMLElement;
 }
 
 export class App extends React.Component<{}, AppState> {
@@ -37,8 +45,6 @@ export class App extends React.Component<{}, AppState> {
 
 	private hiddenBelowBreakpointRef: HTMLDivElement;
 	private pagesRef: HTMLDivElement;
-	/** Whether the page is scrolling viascrollIntoView  */
-	private isScrollingToNode = false;
 
 	componentWillMount() {
 		// add keyboard navigation listeners
@@ -64,10 +70,12 @@ export class App extends React.Component<{}, AppState> {
 			}
 		});
 
+		// figure out if we're narrow enough for mobile or not, and recalculate on window resize
 		this.setIsBelowBreakpoint(window.innerWidth < 768);
+		window.addEventListener('resize', this.checkBreakpoint);
 
 		// listen for hashchange so links work properly
-		window.addEventListener('ZZZZZZZZZZZhashchange', e => {
+		window.addEventListener('hashchange', e => {
 			const hash = document.location.hash.substr(1);
 			let pageKey = null as PageKey;
 			_.forEach(PageKey, (value, key) => {
@@ -78,58 +86,77 @@ export class App extends React.Component<{}, AppState> {
 			if (pageKey !== null)
 				this.navigateToPage(pageKey);
 		});
-
-		window.addEventListener('resize', this.checkBreakpoint);
 	}
 
 	componentDidMount() {
-		//setTimeout(this.checkBreakpoint, 100);
-
 		// handle initial navigation (via hash)
 		const activePageKey = Object.keys(PageKey).find(key => {
 			return key.toLowerCase() === window.location.hash.substr(1).toLowerCase();
 		});
-		if (activePageKey) {
-			const fragmentFromPageKey = (PageKey as any as { [key: string]: string })[activePageKey] as any;
-			this.navigateToPage(fragmentFromPageKey);
-		}
+		if (activePageKey)
+			// this timeout is to let the document render and download images
+			setTimeout(() => {
+				const fragmentFromPageKey = (PageKey as any as { [key: string]: string })[activePageKey] as any;
+				this.navigateToPage(fragmentFromPageKey);
+			}, 500);
 		else
 			window.history.replaceState({}, document.title, '/');
 
 		window.addEventListener('scroll', this.handleBodyScroll);
 	}
 
+	/** Updated state.isBelowBreakpoint accoring to whether the canary node is visible */
 	private checkBreakpoint = () => {
 		const computedStyle = this.hiddenBelowBreakpointRef && window.getComputedStyle(this.hiddenBelowBreakpointRef);
 		const isBelowBreakpoint = computedStyle && computedStyle.display === 'none';
 		this.setIsBelowBreakpoint(isBelowBreakpoint);
 	}
 
+	private updateScrollPercentage = (destinationPageKey?: PageKey) => {
+		const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+		let scrollPercentage: number;
+
+		if (destinationPageKey === undefined)
+			scrollPercentage = window.pageYOffset / maxScrollTop;
+
+		else {
+			const pageElement = getPageElement(destinationPageKey);
+			const pageRect = pageElement.getBoundingClientRect();
+			const destinationScrollTop = window.pageYOffset + pageRect.top;
+			scrollPercentage = destinationScrollTop / maxScrollTop;
+		}
+
+		// using three digits of precision seems to make things smoother
+		scrollPercentage = Math.floor(scrollPercentage * 1000) / 1000;
+
+		this.setState({ scrollPercentage });
+	}
+
 	private handleBodyScroll = _.throttle(() => {
-		if (this.isScrollingToNode)
-			return false;
+		if (this.state.isScrollingToPage)
+			return;
 
-		console.log('body scroll')
-		const maxScrollTop = document.body.scrollHeight - window.innerHeight;
-		const scrollPercentage = document.body.scrollTop / maxScrollTop;
-
-		/*
-		const activePage = _.findLast(PageKey as any, pageKey => {
+		/**
+		 * The closest page (to the viewport).
+		 * Defined as the last page which is more than half way up the viewport.
+		 * (It makes sense if you think about it.)
+		 */
+		const closestPage = _.findLast(PageKey as any, pageKey => {
 			if (_.isNumber(pageKey)) {
-				const curPageElement = document.getElementById(PageKey[pageKey].toLowerCase());
+				const curPageElement = getPageElement(pageKey);
 				const curPageRect = curPageElement.getBoundingClientRect();
-				if (curPageRect.top <= 0)
+				if (curPageRect.top <= window.innerHeight / 2)
 					return true;
 			}
 		}) as PageKey;
-		*/
 
-		this.setState({
-			//activePage,
-			scrollPercentage
-		});
-		//this.updateHash(activePage);
-	}, 100);
+		this.updateScrollPercentage();
+
+		if (this.state.activePage !== closestPage)
+			this.setState({ activePage: closestPage });
+
+		this.updateHash(closestPage);
+	}, 50);
 
 	private handleLightboxClose = () => {
 		this.setState({ isLightboxOpen: false });
@@ -149,23 +176,22 @@ export class App extends React.Component<{}, AppState> {
 			this.navigateToPage(this.state.activePage - 1);
 	}
 
-	/** Navigates to the given page, while maintaining state.isTransitioningToPage. */
+	/** Navigates to the given page. */
 	private navigateToPage = (pageKey: PageKey) => {
-		this.setState({
-			activePage: pageKey
-		});
+		this.setState({ activePage: pageKey });
+		this.updateScrollPercentage(pageKey);
+		this.updateHash(pageKey);
 
 		// scroll
-		this.isScrollingToNode = true;
-		const pageElement = document.getElementById(PageKey[pageKey].toLowerCase());
-		pageElement.scrollIntoView({
-			behavior: 'smooth'
-		});
-		setTimeout(() => {
-			this.isScrollingToNode = false;
-		}, 0);
-
-		this.updateHash(pageKey);
+		this.setState(
+			{ isScrollingToPage: true },
+			() => {
+				const pageElement = getPageElement(pageKey);
+				Smoothscroll(pageElement, 1000, () => {
+					this.setState({ isScrollingToPage: false });
+				});
+			}
+		);
 	}
 
 	private setIsBelowBreakpoint = (isBelowBreakpoint: boolean) => {
@@ -180,7 +206,7 @@ export class App extends React.Component<{}, AppState> {
 		const { activePage, isBelowBreakpoint, isLightboxOpen, scrollPercentage } = this.state;
 
 		const pageCount = Object.keys(PageKey).length / 2;
-		const backgroundVhPerPage = 4;
+		const backgroundVhPerPage = 5;
 		const totalBackgroundVh = backgroundVhPerPage * (pageCount - 1);
 		const backgroundStyle: React.CSSProperties = {
 			paddingBottom: `${totalBackgroundVh}vh`,
@@ -189,7 +215,10 @@ export class App extends React.Component<{}, AppState> {
 
 		const classnames = Classnames(
 			'App',
-			{ 'App--lightboxOpen': this.state.isLightboxOpen }
+			{
+				'App--lightboxOpen': this.state.isLightboxOpen,
+				'App--scrollingToPage': this.state.isScrollingToPage
+			}
 		);
 
 		return (
@@ -272,7 +301,7 @@ export class App extends React.Component<{}, AppState> {
 							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
-							In 2016, I began pushing React at Zazzle (see <a href="#secondarymissions">RideWeather</a> for my origin story with React). I built an internal tool as a proof of concept, and then a wonderful opportunity presented itself: a total redesign of the order history page. This project was self-contained, complex enough to make a good stress test of our new React stack, and simple enough to be a feasible project.
+							In 2016, I began pushing React at Zazzle (see <a href="#rideweather">RideWeather</a> for my origin story with React). I built an internal tool as a proof of concept, and then a wonderful opportunity presented itself: a total redesign of the order history page. This project was self-contained, complex enough to make a good stress test of our new React stack, and simple enough to be a feasible project.
 						</p>
 
 						<h3>Exec buy-in on React</h3>
@@ -289,7 +318,7 @@ export class App extends React.Component<{}, AppState> {
 						</p>
 					</Page>
 
-					<div id={PageKey[PageKey.SecondaryMissions].toLowerCase()} />
+					<div data-pagekey={PageKey[PageKey.SecondaryMissions].toLowerCase()} />
 
 					<Page pageKey={PageKey.RideWeather}>
 						<h1>RideWeather</h1>

@@ -34,10 +34,14 @@ export class Nav extends React.Component<NavProps, NavState> {
 		const { activePage, isMobile } = this.props;
 		const { isOpen } = this.state;
 
+		let topLevelActivePage = activePage;
+		if ([PageKey.RideWeather, PageKey.KSP].indexOf(activePage) > -1)
+			topLevelActivePage = PageKey.SecondaryMissions;
+
 		const renderNavItem = (pageKey: PageKey, label: string) => {
 			const itemClassnames = Classnames(
 				'Nav-item',
-				{ 'Nav-item--active': activePage === pageKey }
+				{ 'Nav-item--active': topLevelActivePage === pageKey }
 			);
 
 			return (

@@ -23,7 +23,7 @@ export class Page extends React.Component<PageProps, {}> {
 		return (
 			<section
 				className={classes}
-				id={pageName}
+				data-pagekey={pageName}
 			>
 				<div
 					className="Page-content"

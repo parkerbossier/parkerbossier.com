@@ -23,11 +23,10 @@
 		background-repeat: no-repeat;
 		box-sizing: content-box;
 		transform: translateY(0);
-		transition: transform .5s ease;
 		z-index: -1;
 	}
-	&-pages {
-		
+	&--scrollingToPage &-background {
+		transition: transform 1s ease;
 	}
 
 	&-photoCredit {
@@ -39,10 +38,10 @@
 	}
 
 	/* flightplan overrides */
-	.Page#flightplan {
+	.Page[data-pagekey=flightplan] {
 		padding: 0;
 	}
-	.Page#flightplan .Page-content {
+	.Page[data-pagekey=flightplan] .Page-content {
 		max-width: none;
 		background: none;
 		font: inherit;
@@ -51,14 +50,14 @@
 	}
 
 	/* resume overrides */
-	.Page#resume .Page-content {
+	.Page[data-pagekey=resume] .Page-content {
 		img {
 			width: 100%;
 		}
 	}
 
 	/* contact overrides */
-	.Page#contact .Page-content {
+	.Page[data-pagekey=contact] .Page-content {
 		background: none;
 		max-width: none;
 		font: inherit;
@@ -109,7 +108,7 @@
 		left: -50%;
 		transform: rotate(12deg);
 		transition: transform .2s ease;
-		background: fade(@colorOrange, 75%);
+		background: fade(@colorOrange, 85%);
 	}
 
 	/* lightbox open; bring pages above the nav */

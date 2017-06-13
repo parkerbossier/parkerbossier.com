@@ -455,7 +455,7 @@ export class App extends React.Component<{}, AppState> {
 									{/* https://www.iconfinder.com/icons/326515/email_mail_icon#size=128 */}
 									<svg viewBox="0 0 20 16"><g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1"><g fill="#000000" id="Icons-Communication" transform="translate(-168.000000, -43.000000)"><g id="email" transform="translate(168.000000, 43.000000)"><path d="M18,0 L2,0 C0.9,0 0,0.9 0,2 L0,14 C0,15.1 0.9,16 2,16 L18,16 C19.1,16 20,15.1 20,14 L20,2 C20,0.9 19.1,0 18,0 L18,0 Z M18,4 L10,9 L2,4 L2,2 L10,7 L18,2 L18,4 L18,4 Z" id="Shape" /></g></g></g></svg>
 									{' '}
-									parkerbossier@gmail.com
+									me@parkerbossier.com
 								</a>;
 							</div>
 

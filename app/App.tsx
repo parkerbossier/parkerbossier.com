@@ -26,9 +26,19 @@ interface AppState {
 	activePage: PageKey;
 	isBelowBreakpoint: boolean;
 	isLightboxOpen: boolean;
-	/** Whether the page is scrolling via navigation (smooth)  */
+	/**
+	 * Whether the page is scrolling via navigation (smooth).
+	 * 
+	 * We keep track of this so that we can set a smooth transition when navigating
+	 * (and then remove it to rely on standard tracking).
+	 */
 	isScrollingToPage: boolean;
-	/** [0,1] */
+	/** 
+	 * [0-1]
+	 * 
+	 * 0 when the page is scrolled all the way up
+	 * 1 when the page is scrolled all the way down
+	 */
 	scrollPercentage: number;
 }
 
@@ -105,31 +115,11 @@ export class App extends React.Component<{}, AppState> {
 		window.addEventListener('scroll', this.handleBodyScroll);
 	}
 
-	/** Updated state.isBelowBreakpoint accoring to whether the canary node is visible */
+	/** Updated state.isBelowBreakpoint according to whether the canary node is visible */
 	private checkBreakpoint = () => {
 		const computedStyle = this.hiddenBelowBreakpointRef && window.getComputedStyle(this.hiddenBelowBreakpointRef);
 		const isBelowBreakpoint = computedStyle && computedStyle.display === 'none';
 		this.setIsBelowBreakpoint(isBelowBreakpoint);
-	}
-
-	private updateScrollPercentage = (destinationPageKey?: PageKey) => {
-		const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-		let scrollPercentage: number;
-
-		if (destinationPageKey === undefined)
-			scrollPercentage = window.pageYOffset / maxScrollTop;
-
-		else {
-			const pageElement = getPageElement(destinationPageKey);
-			const pageRect = pageElement.getBoundingClientRect();
-			const destinationScrollTop = window.pageYOffset + pageRect.top;
-			scrollPercentage = destinationScrollTop / maxScrollTop;
-		}
-
-		// using three digits of precision seems to make things smoother
-		scrollPercentage = Math.floor(scrollPercentage * 1000) / 1000;
-
-		this.setState({ scrollPercentage });
 	}
 
 	private handleBodyScroll = _.throttle(() => {
@@ -198,8 +188,32 @@ export class App extends React.Component<{}, AppState> {
 		this.setState({ isBelowBreakpoint });
 	}
 
+	/** Updates the hash with the specified page key */
 	private updateHash(pageKey: PageKey) {
 		window.history.replaceState({}, document.title, `#${PageKey[pageKey].toLowerCase()}`);
+	}
+
+	/**
+	 * Updates state.scrollPercentage to reflect the percent of the page that's been scrolled.
+	 */
+	private updateScrollPercentage = (destinationPageKey?: PageKey) => {
+		const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+		let scrollPercentage: number;
+
+		if (destinationPageKey === undefined)
+			scrollPercentage = window.pageYOffset / maxScrollTop;
+
+		else {
+			const pageElement = getPageElement(destinationPageKey);
+			const pageRect = pageElement.getBoundingClientRect();
+			const destinationScrollTop = window.pageYOffset + pageRect.top;
+			scrollPercentage = destinationScrollTop / maxScrollTop;
+		}
+
+		// using three digits of precision seems to make things smoother
+		scrollPercentage = Math.floor(scrollPercentage * 1000) / 1000;
+
+		this.setState({ scrollPercentage });
 	}
 
 	render() {
@@ -311,10 +325,10 @@ export class App extends React.Component<{}, AppState> {
 
 						<h3>TypeScript</h3>
 						<p>
-							Not long into the journey, TypeScript began tempting us. PropTypes were great and all, but the idea of strongly typed Javascript was enticing. This strong typing, coupled with the fact the TypeScript is ultimately a proper superset of Javascript, pushed us over the edge. And so the TypeScript conversion began on our (thankfully) small React codebase. Looking back on using TypeScript has been a boon for Zazzle's UI team. Bug frequency was decimated, iteration was faster, documentation was inherent via types, and refactoring was a breeze.
+							Not long into the journey, TypeScript began tempting us. PropTypes were great and all, but the idea of strongly typed Javascript was enticing. This strong typing, coupled with the fact the TypeScript is ultimately a proper superset of Javascript, pushed us over the edge. And so the TypeScript conversion began on our (thankfully) small React codebase. Looking back, using TypeScript has been a boon for Zazzle's UI team. Bug frequency was decimated, iteration was faster, documentation was inherent via types, and refactoring was a breeze.
 						</p>
 						<p>
-							Fast forward through another React project and some design team cycles, and we find ourselves with a brand new product page, build entirely on React, TypeScript, Redux, and Redux-Saga.
+							Fast forward through another React project and some design team cycles, and we find ourselves with a brand new product page, built on React, TypeScript, Redux, and Redux-Saga.
 						</p>
 					</Page>
 
@@ -351,10 +365,13 @@ export class App extends React.Component<{}, AppState> {
 						<p>
 							I bike a lot; I design a lot; I build a lot. This clearly means I need a good weather app and testbed in which I can experiment with UI design and UI tech. RideWeather is that app.
 						</p>
+						<p>
+							<a href="http://rideweather.parkerbossier.com" target="_blank">Give it a look.</a>
+						</p>
 
 						<h3>The need</h3>
 						<p>
-							RideWeather was conceived one summer day when I was biking to work from SF to Redwood City. The weather report seemed clear, but I got rained on halfway there. On the train home, I thought, "Wouldn't it be nice if I could forecasts along my route?" I went to work researching extant solutions to my problem, but found nothing of any substance that could be applied to cycling. Challenge accepted.
+							RideWeather was conceived one summer day when I was biking to work from SF to Redwood City. The weather report seemed clear, but I got rained on halfway there. On the train home, I thought, "Wouldn't it be nice if I could get forecasts along my route?" I went to work researching extant solutions to my problem, but found nothing of any substance that could be applied to cycling. Challenge accepted.
 						</p>
 
 						<h3>The design</h3>
@@ -364,7 +381,7 @@ export class App extends React.Component<{}, AppState> {
 
 						<h3>The initial build</h3>
 						<p>
-							At the time, I was fresh off the heels of ForwardJS, and Angular 1.x had caught my eye. Accordingly, this became my first Angular project. Angular was fine, but as time went on, React started to lure me in. I wanted to change how the departure tim selection worked, so I decided I might as well start over in React. Reasonable, right? This was an excellent decision that resulted in my current passion for working in React.
+							At the time, I was fresh off the heels of ForwardJS, and Angular 1.x had caught my eye. Accordingly, this became my first Angular project. Angular was fine, but as time went on, React started to lure me in. I wanted to change how the departure time selection worked, so I decided I might as well start over in React. Reasonable, right? This was an excellent decision that resulted in my current passion for working in React.
 						</p>
 
 						<h3>Refining</h3>
@@ -399,7 +416,7 @@ export class App extends React.Component<{}, AppState> {
 							onLightboxOpen={this.handleLightboxOpen}
 						/>
 						<p>
-							Space. Is. Awesome. I love all things space: rockets, flight planning, and the math and engineering it takes to get there. Moreover, I'm inspired by the aerospace industry's ability to help people through information services, science, and accessible technologies that come out of space technology. Actually going to space is hard, but video games are a bit simpler This is (at least partially) why I've logged way too many hours playing KSP.
+							Space. Is. Awesome. I love all things space: rockets, flight planning, and the math and engineering it takes to get there. Moreover, I'm inspired by the aerospace industry's ability to help people through access to novel information and derivative technologies that inevitably result. Actually going to space is hard, but video games are a bit simpler. This is (at least partially) why I've logged way too many hours playing KSP.
 						</p>
 
 						<p>

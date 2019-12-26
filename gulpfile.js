@@ -5,7 +5,11 @@ const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 const less = require('gulp-less');
 const clean = require('gulp-clean');
 
-async function compileLess() {
+function cleanBld() {
+	return src('./bld', { allowEmpty: true, read: false })
+		.pipe(clean());
+}
+function compileLess() {
 	return src('./app/styles.less')
 		.pipe(less({
 			plugins: [autoprefix]
@@ -13,7 +17,7 @@ async function compileLess() {
 		.pipe(dest('./bld'));
 }
 
-async function compileHtml() {
+function compileHtml() {
 	return src('./app/index.html')
 		.pipe(inlinesource({
 			compress: false
@@ -21,18 +25,9 @@ async function compileHtml() {
 		.pipe(dest('./bld'));
 }
 
-const doBuild = () => {
-	doClean();
-	series(compileLess, compileHtml);
-};
-const doClean = () => {
-	src('./bld/**').pipe(clean());
-};
-const doWatch = () => {
-	doBuild();
-	watch(['app/**/*'], {}, build);
-};
+const doBuild = series(cleanBld, compileLess, compileHtml);
+const doWatch = series(doBuild, () => { watch(['app/**/*'], {}, build); });
 
-exports.clean = doClean;
+exports.clean = cleanBld;
 exports.default = doBuild;
 exports.watch = doWatch;

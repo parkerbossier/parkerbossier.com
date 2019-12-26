@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Roboto Mono', monospace;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: black;
+}
+
+.face {
+	max-width: 275px;
+	width: 100%;
+}
+
+h1 {
+	font-size: 40px;
+	margin-top: 1em;
+}
+
+h2 {
+	margin-top: .3em;
+	font-size: 31px;
+}
+
+.socialLinks {
+	display: flex;
+	margin-top: 20px;
+}
+
+.socialLinks li+li {
+	margin-left: .5em;
+}
+
+.socialLinks a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+.socialLinks a:hover,
+.socialLinks a:active {
+	color: gray;
+}
+
+@media (prefers-color-scheme: dark) {
+
+}

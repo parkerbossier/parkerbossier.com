@@ -50,7 +50,8 @@ function compileHtml() {
 	// only minify HTML in prod
 	if (isProd())
 		stream.pipe(htmlmin({
-			collapseWhitespace: true
+			collapseWhitespace: true,
+			removeComments: true
 		}));
 
 	stream.pipe(dest('./bld'));

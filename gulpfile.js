@@ -15,6 +15,8 @@ function cleanBld() {
 
 function compileLess() {
 	return src('./app/styles.less')
+		// sourcemaps get removed during inline minification in prod,
+		// so it's easier to always leave it in
 		.pipe(sourcemaps.init())
 		.pipe(less())
 		.pipe(sourcemaps.write())
@@ -25,12 +27,16 @@ function compileLess() {
 function compileHtml() {
 	const stream = src('./app/index.html')
 		.pipe(inlinesource({
+			// only minify inline sources in prod
 			compress: isProd()
 		}));
+
+	// only minify HTML in prod
 	if (isProd())
 		stream.pipe(htmlmin({
 			collapseWhitespace: true
 		}));
+
 	stream.pipe(dest('./bld'));
 	return stream;
 }

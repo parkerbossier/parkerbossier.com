@@ -101,6 +101,7 @@
 
 		<aside class="code">
 			<pre>
+// #region definitions
 @colorDark: #1b1a1a;
 @colorLight: #dddddd;
 
@@ -114,123 +115,54 @@
 	--muted-color: @colorLight;
 	--text-color: @colorDark;
 }
+// #endregion
 
-* {
-	box-sizing: border-box;
+__________
+----------
+
+function compileHtml() {
+	const stream = src('./app/index.html')
+		.pipe(inlinesource({
+			// only minify inline sources in prod
+			compress: isProd()
+		}));
+
+	// only minify HTML in prod
+	if (isProd())
+		stream.pipe(htmlmin({
+			collapseWhitespace: true
+		}));
+
+	stream.pipe(dest('./bld'));
+	return stream;
 }
 
-:root {
-	--gutter: 16px;
-	.lightVars();
+__________
+----------
 
-	@media (prefers-color-scheme: dark) {
-		.darkVars();
-	}
-}
-[data-light] {
-	.lightVars();
-}
+&lt;meta charset="UTF-8" /&gt;
+&lt;meta
+	name="description"
+	content="Hello! I'm Parker, and I like to implement usable, thoughtful UX on mobile and the web."
+/&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
 
-html,
-body {
-	height: 100%;
-}
-body {
-	position: relative;
-	background: var(--bg-color);
-	color: var(--text-color);
-	font-size: 14px;
-	font-family: 'Roboto Mono', monospace;
-}
+&lt;title&gt;Parker Bossier&lt;/title&gt;
 
-.content {
-	position: relative;
-	z-index: 1;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	padding: var(--gutter);
-	height: 100%;
-}
-.spacer {
-	flex: 1;
-}
+&lt;!-- https://www.favicon-generator.org/ (abbreviated) --&gt;
+&lt;link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" /&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /&gt;
+&lt;link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" /&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /&gt;
 
-.face {
-	max-width: 275px;
-	width: 100%;
+&lt;!-- https://fonts.google.com/?category=Monospace&selection.family=Roboto+Mono:400,500 --&gt;
+&lt;link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500&display=swap" rel="stylesheet" /&gt;
+&lt;link href="./reset.css" inline rel="stylesheet" /&gt;
+&lt;link href="../bld/styles.css" inline rel="stylesheet" /&gt;
 
-	path {
-		fill: black;
-	}
-
-	.face-background {
-		fill: var(--bg-color);
-
-		@media (prefers-color-scheme: dark) {
-			stroke: @colorDark;
-			stroke-width: 1px;
-			fill: var(--text-color);
-		}
-	}
-}
-
-.headings {
-	text-align: center;
-	font-size: ~'min(42px, 10vw)';
-}
-h1 {
-	margin-top: 1em;
-	font-size: 1em;
-}
-h2 {
-	margin-top: 0.3em;
-	font-size: 0.75em;
-}
-
-.socialLinks {
-	display: flex;
-	align-self: stretch;
-	justify-content: center;
-
-	a {
-		display: block;
-		padding: 10px;
-		color: inherit;
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-			color: gray;
-		}
-	}
-}
-
-.code {
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	padding: var(--gutter);
-	width: 100%;
-	height: 100%;
-	color: var(--muted-color);
-	tab-size: 3;
-	user-select: none;
-
-	@media only screen and (max-width: 850px) {
-		&:after {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(transparent, var(--bg-color));
-			content: '';
-		}
-	}
-}
+&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
+&lt;script defer src="https://www.googletagmanager.com/gtag/js?id=UA-35749496-1"&gt;&lt;/script&gt;
+&lt;link rel="preconnect" href="https://www.google-analytics.com" /&gt;
 </pre
 			>
 		</aside>

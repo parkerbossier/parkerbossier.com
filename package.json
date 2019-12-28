@@ -4,20 +4,26 @@
   "author": "Parker Bossier",
   "description": "A simple, lightweight, happy personal website.",
   "scripts": {
-    "build": "gulp",
     "clean": "gulp clean",
+    "pub": "NODE_ENV=production gulp publish",
     "serve": "serve ./bld",
-    "start": "yarn watch & yarn serve",
-    "watch": "gulp watch"
+    "start": "gulp watch & yarn serve"
   },
   "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^9.7.3",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-inline-source": "^4.0.0",
     "gulp-less": "^4.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sourcemaps": "^2.6.5",
     "less": "^3.10.3",
-    "less-plugin-autoprefix": "^2.0.0",
     "serve": "^11.2.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.2%"
+  ]
 }

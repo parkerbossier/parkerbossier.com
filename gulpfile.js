@@ -1,33 +1,54 @@
 const { dest, series, src, watch } = require('gulp');
-const LessAutoprefix = require('less-plugin-autoprefix');
-const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
+const autoprefixer = require('autoprefixer');
 const clean = require('gulp-clean');
 const inlinesource = require('gulp-inline-source');
 const less = require('gulp-less');
+const postcss = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
 
+/** Completely cleans the build artifacts */
 function cleanBld() {
-	return src('./bld', { allowEmpty: true, read: false })
+	return src('./bld', { allowEmpty: true, dot: true, read: false })
 		.pipe(clean());
 }
+
 function compileLess() {
 	return src('./app/styles.less')
-		.pipe(less({
-			plugins: [autoprefix]
-		}))
+		.pipe(sourcemaps.init())
+		.pipe(less())
+		.pipe(sourcemaps.write())
+		.pipe(postcss([autoprefixer]))
 		.pipe(dest('./bld'));
 }
 
 function compileHtml() {
 	return src('./app/index.html')
 		.pipe(inlinesource({
-			compress: false
+			compress: isProd()
 		}))
 		.pipe(dest('./bld'));
 }
 
-const doBuild = series(cleanBld, compileLess, compileHtml);
+function isProd() {
+	return process.env.NODE_ENV === 'production';
+}
+
+/** Merges all content in `/app/static` into `/bld` */
+function mergeStatic() {
+	return src('./app/static/**', { dot: true })
+		.pipe(dest('./bld'));
+}
+
+/** Removes all files from the build artifacts that are not neede dfor deploy */
+function postBuildCleanup() {
+	return src('./bld/*.css')
+		.pipe(clean());
+}
+
+const doBuild = series(cleanBld, compileLess, compileHtml, mergeStatic);
+const doPub = series(doBuild, postBuildCleanup);
 const doWatch = series(doBuild, () => { watch(['app/**/*'], {}, doBuild); });
 
 exports.clean = cleanBld;
-exports.default = doBuild;
+exports.publish = doPub;
 exports.watch = doWatch;

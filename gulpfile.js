@@ -26,7 +26,7 @@ function compileHtml() {
 }
 
 const doBuild = series(cleanBld, compileLess, compileHtml);
-const doWatch = series(doBuild, () => { watch(['app/**/*'], {}, build); });
+const doWatch = series(doBuild, () => { watch(['app/**/*'], {}, doBuild); });
 
 exports.clean = cleanBld;
 exports.default = doBuild;

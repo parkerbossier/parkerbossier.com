@@ -39,6 +39,7 @@ function compileLess() {
 		.pipe(dest('./bld'));
 }
 
+/** Inlines sources and minifies the resulting markup (when in prod) */
 function compileHtml() {
 	const stream = src('./app/index.html')
 		.pipe(inlinesource({

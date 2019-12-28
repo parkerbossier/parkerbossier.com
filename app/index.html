@@ -102,24 +102,36 @@
 		<aside class="code">
 			<pre>
 // #region definitions
+
 @colorDark: #1b1a1a;
-@colorLight: #dddddd;
+@splitLayoutThreshold: 1300px;
 
 .darkVars() {
 	--bg-color: @colorDark;
-	--muted-color: #444444;
-	--text-color: @colorLight;
+	--muted-color: #555555;
+	--text-color: #dddddd;
 }
 .lightVars() {
 	--bg-color: white;
-	--muted-color: @colorLight;
+	--muted-color: #bbbbbb;
 	--text-color: @colorDark;
 }
+
+:root {
+	--beard-color: black;
+	--gutter: 16px;
+	.lightVars();
+
+	@media (prefers-color-scheme: dark) {
+		.darkVars();
+	}
+}
+
 // #endregion
 
-__________
 ----------
 
+/** Inlines sources and minifies the resulting markup (when in prod) */
 function compileHtml() {
 	const stream = src('./app/index.html')
 		.pipe(inlinesource({
@@ -137,7 +149,6 @@ function compileHtml() {
 	return stream;
 }
 
-__________
 ----------
 
 &lt;meta charset="UTF-8" /&gt;

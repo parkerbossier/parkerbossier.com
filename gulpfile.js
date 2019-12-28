@@ -1,9 +1,9 @@
 const { dest, series, src, watch } = require('gulp');
-const inlinesource = require('gulp-inline-source');
 const LessAutoprefix = require('less-plugin-autoprefix');
 const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
-const less = require('gulp-less');
 const clean = require('gulp-clean');
+const inlinesource = require('gulp-inline-source');
+const less = require('gulp-less');
 
 function cleanBld() {
 	return src('./bld', { allowEmpty: true, read: false })

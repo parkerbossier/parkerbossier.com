@@ -2,6 +2,16 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--bgColor: white;
+	--textColor: black;
+
+	@media (prefers-color-scheme: dark) {
+		--bgColor: #1B1A1A;
+		--textColor: white;
+	}
+}
+
 html,
 body {
 	height: 100%;
@@ -12,7 +22,8 @@ body {
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	color: black;
+	background: var(--bgColor);
+	color: var(--textColor);
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
 }
@@ -28,7 +39,7 @@ h1 {
 }
 h2 {
 	margin-top: 0.3em;
-	font-size: 31px;
+	font-size: 30px;
 }
 
 .socialLinks {
@@ -48,7 +59,4 @@ h2 {
 .socialLinks a:hover,
 .socialLinks a:active {
 	color: gray;
-}
-
-@media (prefers-color-scheme: dark) {
 }

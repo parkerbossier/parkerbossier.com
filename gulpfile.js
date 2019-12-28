@@ -30,7 +30,11 @@ function compileLess() {
 	// so it's easier to always leave it in
 	return src('./app/styles.less')
 		.pipe(sourcemaps.init())
-		.pipe(less({ plugins: [autoprefix] }))
+		.pipe(less({
+			// only autoprefix for prod to make development less noisy
+			// (this is a small app, so it's fine)
+			plugins: isProd() ? [autoprefix] : []
+		}))
 		.pipe(sourcemaps.write())
 		.pipe(dest('./bld'));
 }

@@ -1,10 +1,10 @@
-.darkVars {
-	--bgColor: #1B1A1A;
-	--textColor: white;
+.darkVars() {
+	--bg-color: #1b1a1a;
+	--text-color: white;
 }
-.lightVars {
-	--bgColor: white;
-	--textColor: black;
+.lightVars() {
+	--bg-color: white;
+	--text-color: black;
 }
 
 * {
@@ -12,12 +12,10 @@
 }
 
 :root {
-	--bgColor: white;
-	--textColor: black;
+	.lightVars();
 
 	@media (prefers-color-scheme: dark) {
-		--bgColor: #1B1A1A;
-		--textColor: white;
+		.darkVars();
 	}
 }
 
@@ -28,14 +26,18 @@ body {
 
 body {
 	align-items: center;
-	background: var(--bgColor);
-	color: var(--textColor);
+	background: var(--bg-color);
+	color: var(--text-color);
 	display: flex;
 	flex-direction: column;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 14px;
 	justify-content: center;
 	position: relative;
+
+	&[data-light] {
+		.lightVars();
+	}
 }
 
 .face {

@@ -5,6 +5,7 @@
   "description": "A simple, lightweight, happy personal website.",
   "scripts": {
     "clean": "gulp clean",
+    "formatLess": "gulp formatLess",
     "pub": "NODE_ENV=production gulp publish",
     "serve": "serve ./bld",
     "start": "gulp watch & yarn serve"
@@ -19,6 +20,8 @@
     "gulp-less": "^4.0.1",
     "gulp-postcss": "^8.0.0",
     "less": "^3.10.3",
+    "postcss-less": "^3.1.4",
+    "postcss-sorting": "^5.0.1",
     "serve": "^11.2.0"
   },
   "browserslist": [

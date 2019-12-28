@@ -25,15 +25,15 @@ body {
 }
 
 body {
+	position: relative;
+	display: flex;
 	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 	background: var(--bg-color);
 	color: var(--text-color);
-	display: flex;
-	flex-direction: column;
-	font-family: 'Roboto Mono', monospace;
 	font-size: 14px;
-	justify-content: center;
-	position: relative;
+	font-family: 'Roboto Mono', monospace;
 
 	&[data-light] {
 		.lightVars();
@@ -54,12 +54,12 @@ body {
 }
 
 h1 {
-	font-size: 40px;
 	margin-top: 1em;
+	font-size: 40px;
 }
 h2 {
-	font-size: 30px;
 	margin-top: 0.3em;
+	font-size: 30px;
 }
 
 .socialLinks {

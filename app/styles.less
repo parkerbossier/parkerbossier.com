@@ -1,3 +1,12 @@
+.darkVars {
+	--bgColor: #1B1A1A;
+	--textColor: white;
+}
+.lightVars {
+	--bgColor: white;
+	--textColor: black;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -31,6 +40,14 @@ body {
 .face {
 	max-width: 275px;
 	width: 100%;
+}
+.face-beard {
+	// we need extra stroke to cover up the white jaggies in dark mode
+	// (light mode wants a skinnier stroke, and it has no consequences)
+	@media (prefers-color-scheme: dark) {
+		stroke: black;
+		stroke-width: 1px;
+	}
 }
 
 h1 {

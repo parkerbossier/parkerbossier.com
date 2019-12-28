@@ -1,21 +1,18 @@
 // #region definitions
+
 @colorDark: #1b1a1a;
 @colorLight: #dddddd;
+@splitLayoutThreshold: 1300px;
 
 .darkVars() {
 	--bg-color: @colorDark;
-	--muted-color: #444444;
+	--muted-color: #555555;
 	--text-color: @colorLight;
 }
 .lightVars() {
 	--bg-color: white;
 	--muted-color: @colorLight;
 	--text-color: @colorDark;
-}
-// #endregion
-
-* {
-	box-sizing: border-box;
 }
 
 :root {
@@ -27,8 +24,13 @@
 		.darkVars();
 	}
 }
-[data-light] {
-	.lightVars();
+
+// #endregion
+
+// #region root layout
+
+* {
+	box-sizing: border-box;
 }
 
 html,
@@ -37,13 +39,22 @@ body {
 }
 body {
 	position: relative;
+	display: flex;
 	background: var(--bg-color);
 	color: var(--text-color);
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	@media only screen and (max-width: @splitLayoutThreshold) {
+		display: block;
+	}
 }
+
+// #endregion
+
+// #region content section
 
 .content {
 	position: relative;
@@ -53,8 +64,14 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	padding: var(--gutter);
+	width: 40%;
 	height: 100%;
+
+	@media only screen and (max-width: @splitLayoutThreshold) {
+		width: 100%;
+	}
 }
+
 .spacer {
 	flex: 1;
 }
@@ -114,18 +131,27 @@ h2 {
 	}
 }
 
+// #endregion
+
+// #region code section
+
 .code {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
 	overflow: hidden;
+	flex: 1;
 	padding: var(--gutter);
-	width: 100%;
-	height: 100%;
 	color: var(--muted-color);
 	tab-size: 3;
 	line-height: 1.5;
 	user-select: none;
+
+	@media only screen and (max-width: @splitLayoutThreshold) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 
 	&:after {
 		position: absolute;
@@ -138,3 +164,5 @@ h2 {
 		opacity: 0.8;
 	}
 }
+
+// #endregion

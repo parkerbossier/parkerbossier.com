@@ -1,15 +1,19 @@
 // #region definitions
 
 @colorDark: #1b1a1a;
+@colorDarkRgb: red(@colorDark), green(@colorDark), blue(@colorDark);
 @splitLayoutThreshold: 1300px;
 
 .darkVars() {
 	--bg-color: @colorDark;
+	// https://stackoverflow.com/questions/29591465/use-css-variables-with-rgba-for-gradient-transparency
+	--bg-color-rgb: @colorDarkRgb;
 	--muted-color: #555555;
 	--text-color: #dddddd;
 }
 .lightVars() {
 	--bg-color: white;
+	--bg-color-rgb: 255, 255, 255;
 	--muted-color: #bbbbbb;
 	--text-color: @colorDark;
 }
@@ -158,7 +162,7 @@ h2 {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(transparent, var(--bg-color));
+		background: linear-gradient(0deg, rgba(var(--bg-color-rgb), 1) 0%, rgba(var(--bg-color-rgb), 0) 100%);
 		content: '';
 		opacity: 0.8;
 	}

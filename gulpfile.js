@@ -1,13 +1,16 @@
 const { dest, series, src, watch } = require('gulp');
-const autoprefixer = require('autoprefixer');
 const clean = require('gulp-clean');
 const htmlmin = require('gulp-htmlmin');
 const inlinesource = require('gulp-inline-source');
 const less = require('gulp-less');
+const LessAutoprefix = require('less-plugin-autoprefix');
 const postcss = require('gulp-postcss');
 const postcssLess = require('postcss-less');
 const postcssSorting = require('postcss-sorting');
 const postcssSortingOptions = require('./.postcss-sorting.json');
+const sourcemaps = require('gulp-sourcemaps');
+
+const autoprefix = new LessAutoprefix();
 
 /** Completely cleans the build artifacts */
 function cleanBld() {
@@ -25,10 +28,11 @@ function formatLess() {
 function compileLess() {
 	// sourcemaps get removed during inline minification in prod,
 	// so it's easier to always leave it in
-	return src('./app/styles.less', { sourcemaps: true })
-		.pipe(less())
-		.pipe(postcss([autoprefixer]))
-		.pipe(dest('./bld', { sourcemaps: true }));
+	return src('./app/styles.less')
+		.pipe(sourcemaps.init())
+		.pipe(less({ plugins: [autoprefix] }))
+		.pipe(sourcemaps.write())
+		.pipe(dest('./bld'));
 }
 
 function compileHtml() {

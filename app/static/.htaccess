@@ -2,6 +2,6 @@
 	ExpiresActive On
 	ExpiresByType image/png "access 1 month"
 	ExpiresByType image/x-icon "access 1 month"
-	ExpiresByType text/html "access 15 minutes"
+	#ExpiresByType text/html "access 15 minutes"
 </IfModule>
 

@@ -5,7 +5,6 @@ const htmlmin = require('gulp-htmlmin');
 const inlinesource = require('gulp-inline-source');
 const less = require('gulp-less');
 const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
 
 /** Completely cleans the build artifacts */
 function cleanBld() {
@@ -14,14 +13,12 @@ function cleanBld() {
 }
 
 function compileLess() {
-	return src('./app/styles.less')
-		// sourcemaps get removed during inline minification in prod,
-		// so it's easier to always leave it in
-		.pipe(sourcemaps.init())
+	// sourcemaps get removed during inline minification in prod,
+	// so it's easier to always leave it in
+	return src('./app/styles.less', { sourcemaps: true })
 		.pipe(less())
-		.pipe(sourcemaps.write())
 		.pipe(postcss([autoprefixer]))
-		.pipe(dest('./bld'));
+		.pipe(dest('./bld', { sourcemaps: true }));
 }
 
 function compileHtml() {

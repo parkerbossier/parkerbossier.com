@@ -7,6 +7,7 @@
     "build": "gulp",
     "clean": "gulp clean",
     "serve": "serve ./bld",
+    "start": "yarn watch & yarn serve",
     "watch": "gulp watch"
   },
   "dependencies": {},

@@ -1,6 +1,7 @@
 const { dest, series, src, watch } = require('gulp');
 const autoprefixer = require('autoprefixer');
 const clean = require('gulp-clean');
+const htmlmin = require('gulp-htmlmin');
 const inlinesource = require('gulp-inline-source');
 const less = require('gulp-less');
 const postcss = require('gulp-postcss');
@@ -22,11 +23,16 @@ function compileLess() {
 }
 
 function compileHtml() {
-	return src('./app/index.html')
+	const stream = src('./app/index.html')
 		.pipe(inlinesource({
 			compress: isProd()
-		}))
-		.pipe(dest('./bld'));
+		}));
+	if (isProd())
+		stream.pipe(htmlmin({
+			collapseWhitespace: true
+		}));
+	stream.pipe(dest('./bld'));
+	return stream;
 }
 
 function isProd() {

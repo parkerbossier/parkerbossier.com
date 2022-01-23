@@ -4,10 +4,6 @@ const htmlmin = require('gulp-htmlmin');
 const inlinesource = require('gulp-inline-source');
 const less = require('gulp-less');
 const LessAutoprefix = require('less-plugin-autoprefix');
-const postcss = require('gulp-postcss');
-const postcssLess = require('postcss-less');
-const postcssSorting = require('postcss-sorting');
-const postcssSortingOptions = require('./.postcss-sorting.json');
 const sourcemaps = require('gulp-sourcemaps');
 
 const autoprefix = new LessAutoprefix();
@@ -16,13 +12,6 @@ const autoprefix = new LessAutoprefix();
 function cleanBld() {
 	return src('./bld', { allowEmpty: true, dot: true, read: false })
 		.pipe(clean());
-}
-
-// TODO: why doesn't VS Code auto refresh the file after this writes?
-function formatLess() {
-	return src('./app/styles.less')
-		.pipe(postcss([postcssSorting(postcssSortingOptions)], { syntax: postcssLess }))
-		.pipe(dest('./app'));
 }
 
 function compileLess() {
@@ -79,6 +68,5 @@ const doPub = series(doBuild, postBuildCleanup);
 const doWatch = series(doBuild, () => { watch(['app/**/*'], {}, doBuild); });
 
 exports.clean = cleanBld;
-exports.formatLess = formatLess;
 exports.publish = doPub;
 exports.watch = doWatch;

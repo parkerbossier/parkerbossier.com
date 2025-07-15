@@ -1,30 +1,29 @@
+@import url('./reset.css');
+
 // #region definitions
 
-@colorDark: #1b1a1a;
-// https://stackoverflow.com/questions/29591465/use-css-variables-with-rgba-for-gradient-transparency
-@colorDarkRgb: red(@colorDark), green(@colorDark), blue(@colorDark);
-@splitLayoutThreshold: 1300px;
-
-.darkVars() {
-	--bg-color: @colorDark;
-	--bg-color-rgb: @colorDarkRgb;
-	--muted-color: #555555;
-	--text-color: #dddddd;
-}
-.lightVars() {
-	--bg-color: white;
-	--bg-color-rgb: 255, 255, 255;
-	--muted-color: #bbbbbb;
-	--text-color: @colorDark;
-}
+$gutter: 16px;
+$splitLayoutThreshold: 1300px;
 
 :root {
-	--beard-color: black;
-	--gutter: 16px;
-	.lightVars();
+	// base colors
+	--color-beard: black;
+	--color-gray-100: #1b1a1a;
+	--color-gray-200: #555555;
+	--color-gray-300: #bbbbbb;
+	--color-gray-400: #dddddd;
+	--color-gray-500: white;
 
+	// semantic colors (light)
+	--color-bg: var(--color-gray-500);
+	--color-muted: var(--color-gray-300);
+	--color-text: var(--color-gray-100);
+
+	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
-		.darkVars();
+		--color-bg: var(--color-gray-100);
+		--color-muted: var(--color-gray-200);
+		--color-text: var(--color-gray-400);
 	}
 }
 
@@ -43,14 +42,14 @@ body {
 body {
 	position: relative;
 	display: flex;
-	background: var(--bg-color);
-	color: var(--text-color);
+	background: var(--color-bg);
+	color: var(--color-text);
 	font-size: 14px;
 	font-family: 'Roboto Mono', monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	@media only screen and (max-width: @splitLayoutThreshold) {
+	@media only screen and (max-width: $splitLayoutThreshold) {
 		display: block;
 	}
 }
@@ -60,17 +59,17 @@ body {
 // #region content section
 
 .content {
-	position: relative;
+	position: relative; 
 	z-index: 1;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	padding: var(--gutter);
+	padding: $gutter;
 	width: 40%;
 	height: 100%;
 
-	@media only screen and (max-width: @splitLayoutThreshold) {
+	@media only screen and (max-width: $splitLayoutThreshold) {
 		width: 100%;
 	}
 }
@@ -84,29 +83,29 @@ body {
 	width: 60%;
 
 	path {
-		fill: var(--beard-color);
+		fill: var(--color-beard);
 	}
 
 	.face-background {
-		fill: var(--bg-color);
+		fill: var(--color-bg);
 
 		// we need extra stroke to cover up the white jaggies in dark mode
 		// (light mode wants a skinnier stroke, and it has no consequences)
 		@media (prefers-color-scheme: dark) {
-			stroke: var(--beard-color);
+			stroke: var(--color-beard);
 			stroke-width: 1px;
-			fill: var(--text-color);
+			fill: var(--color-text);
 		}
 	}
 }
 
 .headings {
 	margin-top: 0.5em;
-	padding: var(--gutter);
+	padding: $gutter;
 	border-radius: 2px;
-	background-color: rgba(var(--bg-color-rgb), 0.5);
+	background-color: rgb(from var(--color-bg) r g b / .5);
 	text-align: center;
-	font-size: ~'min(42px, 9vw)';
+	font-size: min(42px, 9vw);
 }
 h1 {
 	font-size: 1em;
@@ -131,8 +130,8 @@ h2 {
 		&:hover {
 			color: gray;
 		}
-		&:focus {
-			outline: 1px solid var(--text-color);
+		&:focus-visible {
+			outline: 1px solid var(--color-text);
 		}
 	}
 }
@@ -145,8 +144,8 @@ h2 {
 	position: relative;
 	overflow: hidden;
 	flex: 1;
-	padding: var(--gutter);
-	color: var(--muted-color);
+	padding: $gutter;
+	color: var(--color-muted);
 	tab-size: 3;
 	line-height: 1.5;
 	user-select: none;
@@ -157,12 +156,16 @@ h2 {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(0deg, rgba(var(--bg-color-rgb), 1) 0%, rgba(var(--bg-color-rgb), 0) 100%);
+		background: linear-gradient(
+			0deg,
+			rgb(from var(--color-bg) r g b / 1) 0%,
+			rgb(from var(--color-bg) r g b / 0) 100%
+		);
 		content: '';
 		opacity: 0.8;
 	}
 
-	@media only screen and (max-width: @splitLayoutThreshold) {
+	@media only screen and (max-width: $splitLayoutThreshold) {
 		position: absolute;
 		top: 0;
 		left: 0;

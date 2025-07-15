@@ -9,16 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@rollup/wasm-node": "^4.45.0",
     "sass-embedded": "^1.89.2",
     "vite": "^7.0.4"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.45.0"
-  },
-  "overrides": {
-    "vite": {
-      "rollup": "npm:@rollup/wasm-node"
-    }
   }
 }

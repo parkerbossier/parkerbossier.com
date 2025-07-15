@@ -3,7 +3,7 @@
 // #region definitions
 
 $gutter: 16px;
-$splitLayoutThreshold: 1300px;
+$splitLayoutThreshold: 840px;
 
 :root {
 	// base colors
@@ -42,6 +42,7 @@ body {
 body {
 	position: relative;
 	display: flex;
+	justify-content: center;
 	background: var(--color-bg);
 	color: var(--color-text);
 	font-size: 14px;
@@ -49,29 +50,25 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	@media only screen and (max-width: $splitLayoutThreshold) {
-		display: block;
-	}
+	// @media only screen and (max-width: $splitLayoutThreshold) {
+	// 	display: block;
+	// }
 }
 
 // #endregion
 
-// #region content section
+// #region main section
 
-.content {
+.main {
 	position: relative; 
+	flex: 1;
 	z-index: 1;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
 	padding: $gutter;
-	width: 40%;
 	height: 100%;
-
-	@media only screen and (max-width: $splitLayoutThreshold) {
-		width: 100%;
-	}
 }
 
 .spacer {
@@ -86,7 +83,7 @@ body {
 		fill: var(--color-beard);
 	}
 
-	.face-background {
+	.face_background {
 		fill: var(--color-bg);
 
 		// we need extra stroke to cover up the white jaggies in dark mode

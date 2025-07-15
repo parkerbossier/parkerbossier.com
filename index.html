@@ -107,9 +107,9 @@
 	// base colors
 	--color-beard: black;
 	--color-gray-100: #1b1a1a;
-	--color-gray-200: #555555;
-	--color-gray-300: #bbbbbb;
-	--color-gray-400: #dddddd;
+	--color-gray-200: #555;
+	--color-gray-300: #bbb;
+	--color-gray-400: #ddd;
 	--color-gray-500: white;
 
 	// semantic colors (light)
@@ -126,14 +126,14 @@
 }
 
 .code {
+	line-height: 1.5;
 	position: relative;
 	overflow: hidden;
 	flex: 1;
 	padding: $gutter;
-	color: var(--color-code);
-	tab-size: 3;
-	line-height: 1.5;
 	user-select: none;
+	tab-size: 3;
+	color: var(--color-code);
 
 	&:after {
 		position: absolute;
@@ -141,21 +141,17 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		content: '';
 		background: linear-gradient(
 			0deg,
 			rgb(from var(--color-bg) r g b / 1) 0%,
 			rgb(from var(--color-bg) r g b / 0) 100%
 		);
-		content: '';
-		opacity: 0.8;
 	}
 
 	@media only screen and (max-width: $splitLayoutThreshold) {
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		inset: 0;
 	}
 }
 </pre>

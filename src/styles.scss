@@ -16,13 +16,13 @@ $splitLayoutThreshold: 1300px;
 
 	// semantic colors (light)
 	--color-bg: var(--color-gray-500);
-	--color-muted: var(--color-gray-300);
+	--color-code: var(--color-gray-300);
 	--color-text: var(--color-gray-100);
 
 	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
 		--color-bg: var(--color-gray-100);
-		--color-muted: var(--color-gray-200);
+		--color-code: var(--color-gray-200);
 		--color-text: var(--color-gray-400);
 	}
 }
@@ -145,12 +145,13 @@ h2 {
 	overflow: hidden;
 	flex: 1;
 	padding: $gutter;
-	color: var(--color-muted);
+	color: var(--color-code);
 	tab-size: 3;
 	line-height: 1.5;
 	user-select: none;
 
 	&:after {
+		content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -161,8 +162,6 @@ h2 {
 			rgb(from var(--color-bg) r g b / 1) 0%,
 			rgb(from var(--color-bg) r g b / 0) 100%
 		);
-		content: '';
-		opacity: 0.8;
 	}
 
 	@media only screen and (max-width: $splitLayoutThreshold) {

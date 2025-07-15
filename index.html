@@ -20,8 +20,9 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
 	<!-- https://fonts.google.com/?category=Monospace&selection.family=Roboto+Mono:400,500 -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500&display=swap" rel="stylesheet" />
-	<link href="/src/styles.scss" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500&display=swap" />
+	<link rel="stylesheet" href="/src/styles.scss" />
 
 	<meta property="og:image" content="https://www.parkerbossier.com/parkerbossier.png" />
 	<meta property="og:image:height" content="630" />
@@ -41,7 +42,7 @@
 </head>
 
 <body>
-	<div class="content">
+	<main class="content">
 		<div class="spacer"></div>
 
 		<svg class="face" viewBox="0 0 273 343">
@@ -98,84 +99,65 @@
 				</a>
 			</li>
 		</ul>
-	</div>
+	</main>
 
-	<aside aria-hidden="true" class="code">
+	<aside aria-hidden class="code">
 		<pre>
-@colorDark: #1b1a1a;
-// https://stackoverflow.com/questions/29591465/use-css-variables-with-rgba-for-gradient-transparency
-@colorDarkRgb: red(@colorDark), green(@colorDark), blue(@colorDark);
-@splitLayoutThreshold: 1300px;
-
-.darkVars() {
-	--bg-color: @colorDark;
-	// https://stackoverflow.com/questions/29591465/use-css-variables-with-rgba-for-gradient-transparency
-	--bg-color-rgb: @colorDarkRgb;
-	--muted-color: #555555;
-	--text-color: #dddddd;
-}
-.lightVars() {
-	--bg-color: white;
-	--bg-color-rgb: 255, 255, 255;
-	--muted-color: #bbbbbb;
-	--text-color: @colorDark;
-}
-
 :root {
-	--beard-color: black;
-	--gutter: 16px;
-	.lightVars();
+	// base colors
+	--color-beard: black;
+	--color-gray-100: #1b1a1a;
+	--color-gray-200: #555555;
+	--color-gray-300: #bbbbbb;
+	--color-gray-400: #dddddd;
+	--color-gray-500: white;
 
+	// semantic colors (light)
+	--color-bg: var(--color-gray-500);
+	--color-code: var(--color-gray-300);
+	--color-text: var(--color-gray-100);
+
+	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
-		.darkVars();
+		--color-bg: var(--color-gray-100);
+		--color-code: var(--color-gray-200);
+		--color-text: var(--color-gray-400);
 	}
 }
 
-----------
+.code {
+	position: relative;
+	overflow: hidden;
+	flex: 1;
+	padding: $gutter;
+	color: var(--color-code);
+	tab-size: 3;
+	line-height: 1.5;
+	user-select: none;
 
-/** Inlines sources and minifies the resulting markup (when in prod) */
-function compileHtml() {
-	const stream = src('./app/index.html')
-		.pipe(inlinesource({
-			// only minify inline sources in prod
-			compress: isProd()
-		}));
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			0deg,
+			rgb(from var(--color-bg) r g b / 1) 0%,
+			rgb(from var(--color-bg) r g b / 0) 100%
+		);
+		content: '';
+		opacity: 0.8;
+	}
 
-	// only minify HTML in prod
-	if (isProd())
-		stream.pipe(htmlmin({
-			collapseWhitespace: true
-		}));
-
-	stream.pipe(dest('./bld'));
-	return stream;
+	@media only screen and (max-width: $splitLayoutThreshold) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
-
-----------
-
-&lt;meta charset="UTF-8" /&gt;
-&lt;meta
-	name="description"
-	content="Hello! I'm Parker, and I like to implement usable, thoughtful UX on mobile and the web."
-/&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
-
-&lt;title&gt;Parker Bossier&lt;/title&gt;
-
-&lt;!-- https://www.favicon-generator.org/ (abbreviated) --&gt;
-&lt;link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" /&gt;
-&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /&gt;
-&lt;link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" /&gt;
-&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /&gt;
-
-&lt;!-- https://fonts.google.com/?category=Monospace&selection.family=Roboto+Mono:400,500 --&gt;
-&lt;link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500&display=swap" rel="stylesheet" /&gt;
-&lt;link href="./reset.css" inline rel="stylesheet" /&gt;
-&lt;link href="../bld/styles.css" inline rel="stylesheet" /&gt;
-
-&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;
-&lt;script defer src="https://www.googletagmanager.com/gtag/js?id=UA-35749496-1"&gt;&lt;/script&gt;
-&lt;link rel="preconnect" href="https://www.google-analytics.com" /&gt;
 </pre>
 	</aside>
 </body>

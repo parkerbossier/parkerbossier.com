@@ -3,6 +3,7 @@
 // #region definitions
 
 $gutter: 16px;
+$introFlowThreshold: 620px;
 
 :root {
 	// base colors
@@ -116,7 +117,7 @@ h1 {
 
 .intro {
 	line-height: 1.6;
-	margin-top: 2em;
+	margin: 2em 0;
 	max-width: 100%;
 	padding: $gutter * 1.5;
 	border: 1px solid var(--color-panel-border);
@@ -126,12 +127,42 @@ h1 {
 }
 .intro_line {
 	white-space: pre-wrap;
-
-	// hanging indent so soft-wrapped lines clear the comment gutter
-	padding-left: 3ch;
-	text-indent: -3ch;
 }
-.intro_muted {
+
+// breathing room between consecutive @tag entries
+.intro_line__tag + .intro_line__tag {
+	margin-top: .5em;
+}
+
+// below this, the block's 60ch lines no longer fit: drop the JSDoc column
+// alignment and let each entry flow as a paragraph behind its tag, and
+// compact the header zone so the block starts higher
+@media only screen and (max-width: $introFlowThreshold) {
+	.face {
+		max-width: 120px;
+	}
+	.headings {
+		font-size: 7.5vw;
+		padding: $gutter * .5;
+	}
+	.intro {
+		line-height: 1.5;
+		margin: 1em 0;
+		padding: $gutter;
+	}
+	.intro_line {
+		// hanging indent so soft-wrapped lines clear the comment gutter
+		padding-left: 3ch;
+		text-indent: -3ch;
+	}
+	.intro_break {
+		display: none;
+	}
+	.intro_align {
+		white-space: normal;
+	}
+}
+.intro_commentMark, .intro_break {
 	color: var(--syntax-muted);
 }
 .intro_tag {

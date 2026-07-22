@@ -35,8 +35,11 @@ $splitLayoutThreshold: 840px;
 	box-sizing: border-box;
 }
 
-html, body {
+html {
 	height: 100%;
+}
+body {
+	min-height: 100%;
 }
 body {
 	font-family: 'Roboto Mono', monospace;
@@ -63,7 +66,7 @@ body {
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	height: 100%;
+	min-height: 100%;
 	padding: $gutter;
 }
 
@@ -106,6 +109,28 @@ h1 {
 h2 {
 	font-size: .75em;
 	margin-top: .3em;
+}
+
+.intro {
+	line-height: 1.5;
+	margin-top: 2em;
+	max-width: 100%;
+	padding: $gutter;
+	border-radius: 2px;
+	background-color: rgb(from var(--color-bg) r g b / .75);
+}
+.intro_line {
+	white-space: pre-wrap;
+
+	// hanging indent so soft-wrapped lines clear the comment gutter
+	padding-left: 3ch;
+	text-indent: -3ch;
+}
+.intro_muted {
+	color: var(--color-code);
+}
+.intro_tag {
+	font-weight: 500;
 }
 
 .socialLinks {

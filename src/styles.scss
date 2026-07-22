@@ -3,7 +3,6 @@
 // #region definitions
 
 $gutter: 16px;
-$splitLayoutThreshold: 840px;
 
 :root {
 	// base colors
@@ -14,16 +13,28 @@ $splitLayoutThreshold: 840px;
 	--color-gray-400: #ddd;
 	--color-gray-500: white;
 
+	// code panel (always dark, docs-style)
+	--color-panel: #16181d;
+	--color-panel-border: transparent;
+	--syntax-text: #abb2bf;
+	--syntax-muted: #5f6773;
+	--syntax-tag: #e06c75;
+	--syntax-keyword: #c678dd;
+	--syntax-var: #61afef;
+	--syntax-type: #e5c07b;
+	--syntax-string: #98c379;
+
 	// semantic colors (light)
 	--color-bg: var(--color-gray-500);
-	--color-code: var(--color-gray-300);
 	--color-text: var(--color-gray-100);
 
 	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
 		--color-bg: var(--color-gray-100);
-		--color-code: var(--color-gray-200);
 		--color-text: var(--color-gray-400);
+
+		// the panel is barely darker than the page here, so let a border define it
+		--color-panel-border: #2e2d2d;
 	}
 }
 
@@ -59,8 +70,6 @@ body {
 // #region main section
 
 .main {
-	position: relative;
-	z-index: 1;
 	display: flex;
 	align-items: center;
 	flex: 1;
@@ -100,20 +109,20 @@ body {
 	margin-top: .5em;
 	padding: $gutter;
 	text-align: center;
-	border-radius: 2px;
-	background-color: rgb(from var(--color-bg) r g b / .5);
 }
 h1 {
 	font-size: 1em;
 }
 
 .intro {
-	line-height: 1.5;
+	line-height: 1.6;
 	margin-top: 2em;
 	max-width: 100%;
-	padding: $gutter;
-	border-radius: 2px;
-	background-color: rgb(from var(--color-bg) r g b / .75);
+	padding: $gutter * 1.5;
+	border: 1px solid var(--color-panel-border);
+	border-radius: 8px;
+	color: var(--syntax-text);
+	background-color: var(--color-panel);
 }
 .intro_line {
 	white-space: pre-wrap;
@@ -123,10 +132,22 @@ h1 {
 	text-indent: -3ch;
 }
 .intro_muted {
-	color: var(--color-code);
+	color: var(--syntax-muted);
 }
 .intro_tag {
-	font-weight: 500;
+	color: var(--syntax-tag);
+}
+.intro_kw {
+	color: var(--syntax-keyword);
+}
+.intro_var {
+	color: var(--syntax-var);
+}
+.intro_type {
+	color: var(--syntax-type);
+}
+.intro_str {
+	color: var(--syntax-string);
 }
 
 .socialLinks {
@@ -151,36 +172,3 @@ h1 {
 
 // #endregion
 
-// #region code section
-
-.code {
-	line-height: 1.5;
-	position: relative;
-	overflow: hidden;
-	flex: 1;
-	padding: $gutter;
-	user-select: none;
-	tab-size: 3;
-	color: var(--color-code);
-
-	&::after {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		content: '';
-		background: linear-gradient(
-			0deg,
-			rgb(from var(--color-bg) r g b / 1) 0%,
-			rgb(from var(--color-bg) r g b / 0) 100%
-		);
-	}
-
-	@media only screen and (max-width: $splitLayoutThreshold) {
-		position: absolute;
-		inset: 0;
-	}
-}
-
-// #endregion

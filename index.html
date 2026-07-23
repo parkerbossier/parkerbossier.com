@@ -36,17 +36,41 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Parker Bossier",
-		"url": "https://parkerbossier.com/",
-		"image": "https://parkerbossier.com/parkerbossier.png",
-		"jobTitle": "Lead UI/UX Engineer",
-		"worksFor": { "@type": "Organization", "name": "Zazzle" },
-		"alumniOf": { "@type": "CollegeOrUniversity", "name": "Carnegie Mellon University" },
-		"sameAs": [
-			"https://www.linkedin.com/in/parkerbossier/",
-			"https://github.com/parkerbossier"
-		]
+		"@type": "ProfilePage",
+		"mainEntity": {
+			"@type": "Person",
+			"@id": "https://parkerbossier.com/#person",
+			"name": "Parker Bossier",
+			"givenName": "Parker",
+			"familyName": "Bossier",
+			"url": "https://parkerbossier.com/",
+			"image": "https://parkerbossier.com/parkerbossier.png",
+			"email": "mailto:parkerbossier@gmail.com",
+			"description": "I like to implement usable, thoughtful UX on the web. I've spent the last thirteen years doing it at Zazzle.",
+			"jobTitle": "Lead UI/UX Engineer",
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Zazzle",
+				"url": "https://www.zazzle.com/"
+			},
+			"alumniOf": [
+				{
+					"@type": "CollegeOrUniversity",
+					"name": "Vanderbilt University",
+					"url": "https://www.vanderbilt.edu/"
+				},
+				{
+					"@type": "CollegeOrUniversity",
+					"name": "Carnegie Mellon University",
+					"url": "https://www.cmu.edu/"
+				}
+			],
+			"knowsAbout": ["UI engineering", "UX design", "web development", "AI-assisted development"],
+			"sameAs": [
+				"https://www.linkedin.com/in/parkerbossier/",
+				"https://github.com/parkerbossier"
+			]
+		}
 	}
 	</script>
 

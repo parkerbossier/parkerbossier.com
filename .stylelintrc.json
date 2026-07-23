@@ -1,0 +1,16 @@
+{
+	"extends": [
+		"stylelint-config-standard-scss",
+		"stylelint-config-idiomatic-order"
+	],
+	"rules": {
+		"selector-class-pattern": [
+			"^[a-z][a-zA-Z0-9]*(_[a-z][a-zA-Z0-9]*)?(__[a-z][a-zA-Z0-9]*)?$",
+			{ "message": "Expected class to be BEM-style: block, block_subthing, block__state (lowerCamel words)" }
+		],
+		"property-no-vendor-prefix": [
+			true,
+			{ "ignoreProperties": ["text-size-adjust", "-webkit-text-size-adjust"] }
+		]
+	}
+}

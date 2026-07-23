@@ -1,11 +1,48 @@
-@import url('./reset.css');
+// #region reset (minimal, modern)
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+ul {
+	list-style: none;
+}
+
+img, svg {
+	display: block;
+	max-width: 100%;
+}
+
+// #endregion
 
 // #region definitions
 
+@font-face {
+	// optional (not swap): the font is same-origin, preloaded, and 12.7kB, so it
+	// beats first paint in practice; if it ever misses, a consistent fallback
+	// monospace beats a mid-read swap that could re-wrap the ch-sized layout
+	font-display: optional;
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/roboto-mono-latin-400.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 $gutter: 16px;
-$introFlowThreshold: 620px;
 
 :root {
+	color-scheme: light dark;
+
 	// base colors
 	--color-beard: black;
 	--color-gray-100: #1b1a1a;
@@ -28,11 +65,13 @@ $introFlowThreshold: 620px;
 	// semantic colors (light)
 	--color-bg: var(--color-gray-500);
 	--color-text: var(--color-gray-100);
+	--color-text-muted: var(--color-gray-200);
 
 	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
 		--color-bg: var(--color-gray-100);
 		--color-text: var(--color-gray-400);
+		--color-text-muted: var(--color-gray-300);
 
 		// the panel is barely darker than the page here, so let a border define it
 		--color-panel-border: #2e2d2d;
@@ -41,48 +80,32 @@ $introFlowThreshold: 620px;
 
 // #endregion
 
-// #region root layout
+// #region layout
 
-* {
-	box-sizing: border-box;
-}
-
-html {
-	height: 100%;
-}
 body {
-	min-height: 100%;
-}
-body {
-	font-family: 'Roboto Mono', monospace;
-	font-size: 14px;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	color: var(--color-text);
 	background: var(--color-bg);
-
+	color: var(--color-text);
+	font-family: 'Roboto Mono', monospace;
+	font-size: .875rem;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-// #endregion
-
-// #region main section
-
 .main {
 	display: flex;
-	align-items: center;
-	flex: 1;
+	min-height: 100dvh;
 	flex-direction: column;
-	justify-content: center;
-	min-height: 100%;
+	align-items: center;
 	padding: $gutter;
 }
 
 .spacer {
 	flex: 1;
 }
+
+// #endregion
+
+// #region face + name
 
 .face {
 	width: 40%;
@@ -98,33 +121,35 @@ body {
 		// we need extra stroke to cover up the white jaggies in dark mode
 		// (light mode wants a skinnier stroke, and it has no consequences)
 		@media (prefers-color-scheme: dark) {
+			fill: var(--color-text);
 			stroke: var(--color-beard);
 			stroke-width: 1px;
-			fill: var(--color-text);
 		}
 	}
 }
 
-.headings {
-	font-size: min(42px, 9vw);
-	margin-top: .5em;
+h1 {
 	padding: $gutter;
+	margin-top: .5em;
+	font-size: min(2.625rem, 7.5vw);
 	text-align: center;
 }
-h1 {
-	font-size: 1em;
-}
+
+// #endregion
+
+// #region intro
 
 .intro {
-	line-height: 1.6;
-	margin: 2em 0;
 	max-width: 100%;
 	padding: $gutter * 1.5;
 	border: 1px solid var(--color-panel-border);
 	border-radius: 8px;
-	color: var(--syntax-text);
+	margin: $gutter * 2 0;
 	background-color: var(--color-panel);
+	color: var(--syntax-text);
+	line-height: 1.6;
 }
+
 .intro_line {
 	white-space: pre-wrap;
 }
@@ -134,67 +159,52 @@ h1 {
 	margin-top: .5em;
 }
 
-// below this, the block's 60ch lines no longer fit: drop the JSDoc column
-// alignment and let each entry flow as a paragraph behind its tag, and
-// compact the header zone so the block starts higher
-@media only screen and (max-width: $introFlowThreshold) {
-	.face {
-		max-width: 120px;
-	}
-	.headings {
-		font-size: 7.5vw;
-		padding: $gutter * .5;
-	}
-	.intro {
-		line-height: 1.5;
-		margin: 1em 0;
-		padding: $gutter;
-	}
-	.intro_line {
-		// hanging indent so soft-wrapped lines clear the comment gutter
-		padding-left: 3ch;
-		text-indent: -3ch;
-	}
-	.intro_break {
-		display: none;
-	}
-	.intro_align {
-		white-space: normal;
-	}
-}
 .intro_commentMark, .intro_break {
 	color: var(--syntax-muted);
 }
+
 .intro_tag {
 	color: var(--syntax-tag);
 }
+
 .intro_kw {
 	color: var(--syntax-keyword);
 }
+
 .intro_var {
 	color: var(--syntax-var);
 }
+
 .intro_type {
 	color: var(--syntax-type);
 }
+
 .intro_str {
 	color: var(--syntax-string);
 }
 
+// #endregion
+
+// #region social links
+
 .socialLinks {
-	display: flex;
 	align-self: stretch;
-	justify-content: center;
+
+	ul {
+		display: flex;
+		justify-content: center;
+	}
 
 	a {
 		display: block;
 		padding: 10px;
-		text-decoration: none;
 		color: inherit;
+		text-decoration: none;
 
 		&:active, &:hover {
-			color: gray;
+			color: var(--color-text-muted);
 		}
+
 		&:focus-visible {
 			outline: 1px solid var(--color-text);
 		}
@@ -203,3 +213,40 @@ h1 {
 
 // #endregion
 
+// #region mobile
+
+// below 38.75em (620px at default font size), the intro's 60ch lines no longer
+// fit: drop the JSDoc column alignment and let each entry flow as a paragraph
+// behind its tag, and compact the header zone so the block starts higher
+// (em so the layout shifts proportionally sooner at larger user font sizes)
+@media (width <= 38.75em) {
+	.face {
+		max-width: 120px;
+	}
+
+	h1 {
+		padding: $gutter * .5;
+	}
+
+	.intro {
+		padding: $gutter;
+		margin: $gutter 0;
+		line-height: 1.5;
+	}
+
+	.intro_line {
+		// hanging indent so soft-wrapped lines clear the comment gutter
+		padding-left: 3ch;
+		text-indent: -3ch;
+	}
+
+	.intro_break {
+		display: none;
+	}
+
+	.intro_align {
+		white-space: normal;
+	}
+}
+
+// #endregion

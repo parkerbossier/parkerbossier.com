@@ -55,7 +55,7 @@ $gutter: 16px;
 	--color-panel: #16181d;
 	--color-panel-border: transparent;
 	--syntax-text: #abb2bf;
-	--syntax-muted: #5f6773;
+	--syntax-muted: #7a8694; // 4.79:1 on the panel — keep >= 4.5 (WCAG AA)
 	--syntax-tag: #e06c75;
 	--syntax-keyword: #c678dd;
 	--syntax-var: #61afef;

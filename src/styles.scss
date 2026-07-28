@@ -44,7 +44,6 @@ $gutter: 16px;
 	color-scheme: light dark;
 
 	// base colors
-	--color-beard: black;
 	--color-gray-100: #1b1a1a;
 	--color-gray-200: #555;
 	--color-gray-300: #bbb;
@@ -110,22 +109,8 @@ body {
 .face {
 	width: 40%;
 	max-width: 180px;
-
-	path {
-		fill: var(--color-beard);
-	}
-
-	.face_background {
-		fill: var(--color-bg);
-
-		// we need extra stroke to cover up the white jaggies in dark mode
-		// (light mode wants a skinnier stroke, and it has no consequences)
-		@media (prefers-color-scheme: dark) {
-			fill: var(--color-text);
-			stroke: var(--color-beard);
-			stroke-width: 1px;
-		}
-	}
+	border-radius: 16px;
+	aspect-ratio: 1;
 }
 
 h1 {

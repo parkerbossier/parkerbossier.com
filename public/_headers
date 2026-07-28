@@ -2,3 +2,7 @@
 	X-Content-Type-Options: nosniff
 	X-Frame-Options: DENY
 	Referrer-Policy: strict-origin-when-cross-origin
+
+# content-hashed by Vite, so any change means a new URL
+/assets/*
+	Cache-Control: public, max-age=31536000, immutable

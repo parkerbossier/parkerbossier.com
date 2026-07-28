@@ -12,6 +12,16 @@ Single-page static personal site. Vite + SCSS, no framework, no JS. Deployed on 
 - BEM-ish naming: `.thing_subthing` for elements, `.thing__state` for states.
 - Units: px for chrome (borders, radii, fixed paddings), rem for type, em/ch for type-relative sizes, em for breakpoints.
 
+## Deliberate decisions (don't "fix" these)
+
+- **`mailto:` keeps `target="_blank"`.** Gmail-as-handler users (most of the audience) get compose in a new tab instead of losing the page; native-client users pay a small orphan-tab cost. The trade was weighed — leave it.
+- **No CSP.** The only external resource is the Cloudflare analytics beacon — the one thing a CSP would police is also the thing a CSP typo would silently kill. Thin protection, real fragility.
+- **Analytics is Cloudflare Web Analytics, injected into the HTML at the edge — conditionally on User-Agent.** Browser UAs get the beacon; default `curl` does not (verified both ways), so absence in fetched HTML proves nothing. Verify with a browser UA or in the Cloudflare dashboard.
+- **HSTS has `includeSubDomains` but not `preload`.** Cloudflare fronts all subdomains with TLS, so includeSubDomains is safe; preload is effectively irreversible, so it stays off.
+- **Decorative syntax spans need `aria-hidden="true"`.** The intro's comment marks (`/**`, `*`) and mid-sentence wrap-break spans are visual only; any new ones must be hidden too, or screen readers read "star" mid-sentence. Meaningful tags (`@owns` etc.) stay voiced.
+- **Favicons are unhashed in `public/` by design.** `/favicon.ico` and `/apple-touch-icon.png` are fetched at well-known root paths by clients that never read the HTML; hashing would break them. Rename-on-change applies if promptness ever matters.
+- **The code panel is always dark, in both schemes.** Docs-site idiom; also the syntax palette is AA-validated against the dark panel only — light syntax themes chronically fail contrast on yellows/oranges.
+
 ## Images
 
 - **Scrub metadata before committing any image.** Photos (especially iPhone exports) carry GPS coordinates, device model, and timestamps. Pipeline:

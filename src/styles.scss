@@ -66,6 +66,10 @@ $gutter: 16px;
 	--color-text: var(--color-gray-100);
 	--color-text-muted: var(--color-gray-200);
 
+	// resolves through --color-text at use time, so it tracks both schemes;
+	// scopes that break from the page palette (the panel) override it
+	--color-focus-ring: var(--color-text);
+
 	// semantic colors (dark)
 	@media (prefers-color-scheme: dark) {
 		--color-bg: var(--color-gray-100);
@@ -88,6 +92,11 @@ body {
 	font-size: .875rem;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--color-focus-ring);
+	outline-offset: 2px;
 }
 
 .main {
@@ -124,6 +133,9 @@ h1 {
 // #region intro
 
 .intro {
+	// the ring must read on the always-dark panel in both schemes
+	--color-focus-ring: var(--syntax-text);
+
 	max-width: 100%;
 	padding: $gutter * 1.5;
 	border: 1px solid var(--color-panel-border);
@@ -149,6 +161,16 @@ h1 {
 
 .intro_tag {
 	color: var(--syntax-tag);
+}
+
+// links stay underlined at rest: color alone can't mark a link here, since
+// --syntax-var also colors non-link variable names
+.intro_link {
+	color: var(--syntax-var);
+
+	&:active, &:hover {
+		text-decoration: none;
+	}
 }
 
 .intro_kw {
@@ -187,11 +209,6 @@ h1 {
 
 		&:active, &:hover {
 			color: var(--color-text-muted);
-		}
-
-		&:focus-visible {
-			outline: 2px solid var(--color-text);
-			outline-offset: 2px;
 		}
 	}
 }
